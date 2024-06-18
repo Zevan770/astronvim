@@ -14,5 +14,6 @@ vim.filetype.add {
   },
   pattern = {
     ["~/%.config/foo/.*"] = "fooscript",
+    ["settings.json"] = "jsonc",
   },
 }
