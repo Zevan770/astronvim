@@ -34,7 +34,7 @@ return {
   -- fuzzy
   -- { import = "astrocommunity.fuzzy-finder.fzf-lua" },
 
-  -- edit/motion/jump
+  -- edit/motion/jump/navigation
   { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
   { import = "astrocommunity.editing-support.multiple-cursors-nvim" },
   -- { import = "astrocommunity.editing-support.undotree" },
@@ -43,6 +43,7 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
   -- { import = "astrocommunity.motion.hop-nvim" },
   { import = "astrocommunity.motion.portal-nvim" },
+  { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
   -- key
   -- { import = "astrocommunity.keybinding.mini-clue"}
@@ -61,5 +62,6 @@ return {
   { import = "astrocommunity.pack.lua" },
 
   -- markdown
+  { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.markdown-and-latex.glow-nvim" },
 }
