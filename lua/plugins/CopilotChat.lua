@@ -17,6 +17,8 @@ function M.pick(kind)
   end
 end
 
+vim.treesitter.language.register("markdown", "copilot-chat")
+---@type LazySpec
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -41,8 +43,8 @@ return {
       }
     end,
     keys = {
-      { "<c-s>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
-      { "<leader>c", "", desc = "+Copilot Ai", mode = { "n", "v" } },
+      { "<c-CR>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
+      -- { "<leader>c", "", desc = "+Copilot ai", mode = { "n", "v" } },
       {
         "<leader>ca",
         function() return require("CopilotChat").toggle() end,
@@ -82,6 +84,14 @@ return {
       })
 
       chat.setup(opts)
+    end,
+  },
+  {
+    "AstroNvim/astrocore",
+    opts = function(_, opts)
+      local maps = assert(opts.mappings)
+      maps.n["<Leader>c"] = { desc = "Copilot Chat" }
+      maps.v["<Leader>c"] = { desc = "Copilot Chat" }
     end,
   },
 
