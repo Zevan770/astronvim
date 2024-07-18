@@ -12,16 +12,40 @@ return {
       -- L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
       -- H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
+      --- App
       maps.n["<Leader>a"] = { desc = "Appalication" }
       maps.n["<Leader>am"] = { function() require("mason.ui").open() end, desc = "Mason Installer" }
       maps.n["<Leader>ax"] = { function() require("lazy").home() end, desc = "Plugins" }
       maps.n["<Leader>ae"] = { "<Leader>e", remap = true, desc = "explorer" }
 
-      -- maps.n["<Leader>c"] = false
-      maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
-      maps.n["<Leader>pa"] = { function() require("astrocore").update_packages() end, desc = "Update Lazy and Mason" }
+      -- buffers
+      maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
+      maps.n["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
+      maps.n["<Leader>bx"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
+      maps.n["<Leader>bD"] =
+        { function() require("astrocore.buffer").close_all(true) end, desc = "Close all buffers except current" }
+      maps.n["<Leader>bC"] = { function() require("astrocore.buffer").close_all() end, desc = "Close all buffers" }
+      maps.n["<Leader>bH"] =
+        { function() require("astrocore.buffer").close_left() end, desc = "Close all buffers to the left" }
+      maps.n["<Leader><Tab>"] = { function() require("astrocore.buffer").prev() end, desc = "Previous buffer" }
+      maps.n["<Leader>bL"] =
+        { function() require("astrocore.buffer").close_right() end, desc = "Close all buffers to the right" }
+      maps.n["<Leader>bse"] = { function() require("astrocore.buffer").sort "extension" end, desc = "By extension" }
+      maps.n["<Leader>bsr"] =
+        { function() require("astrocore.buffer").sort "unique_path" end, desc = "By relative path" }
+      maps.n["<Leader>bsp"] = { function() require("astrocore.buffer").sort "full_path" end, desc = "By full path" }
+      maps.n["<Leader>bsi"] = { function() require("astrocore.buffer").sort "bufnr" end, desc = "By buffer number" }
+      maps.n["<Leader>bsm"] = { function() require("astrocore.buffer").sort "modified" end, desc = "By modification" }
+
+      -- file
+      maps.n["<Leader>ff"] = { "<Cmd>Telescope file_browser<CR>", desc = "Open File browser" }
+      maps.n["<Leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "File recent" }
+      maps.n["<Leader>fR"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" }
+      maps.n["<Leader>fo"] = { function() require("telescope.builtin").vim_options() end, desc = "Find options" }
 
       -- Session/Project
+      maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
+      maps.n["<Leader>pa"] = { function() require("astrocore").update_packages() end, desc = "Update Lazy and Mason" }
       maps.n["<Leader>S"] = false
       maps.n["<Leader>pl"] = { function() require("resession").load "Last Session" end, desc = "Load last session" }
       maps.n["<Leader>ps"] = { function() require("resession").save() end, desc = "Save this session" }
@@ -50,15 +74,9 @@ return {
         desc = "Find all files",
       }
 
-      --file
-      maps.n["<Leader>ff"] = { "<Cmd>Telescope file_browser<CR>", desc = "Open File browser" }
-      maps.n["<Leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "File recent" }
-      maps.n["<Leader>fR"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" }
-
       -- search
-      maps.n["<Leader>fw"] = false
-      maps.n["<Leader>fo"] = false
       maps.n["<Leader>s"] = { desc = "Search" }
+      maps.n["<Leader>fw"] = false
       maps.n["<Leader>sP"] =
         { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" }
       if vim.fn.executable "rg" == 1 then
@@ -73,29 +91,9 @@ return {
         }
       end
 
-      -- buffers
-      maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
-      maps.n["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
-      maps.n["<Leader>bx"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
-      maps.n["<Leader>bD"] =
-        { function() require("astrocore.buffer").close_all(true) end, desc = "Close all buffers except current" }
-      maps.n["<Leader>bC"] = { function() require("astrocore.buffer").close_all() end, desc = "Close all buffers" }
-      maps.n["<Leader>bH"] =
-        { function() require("astrocore.buffer").close_left() end, desc = "Close all buffers to the left" }
-      maps.n["<Leader><Tab>"] = { function() require("astrocore.buffer").prev() end, desc = "Previous buffer" }
-      maps.n["<Leader>bL"] =
-        { function() require("astrocore.buffer").close_right() end, desc = "Close all buffers to the right" }
-      maps.n["<Leader>bse"] = { function() require("astrocore.buffer").sort "extension" end, desc = "By extension" }
-      maps.n["<Leader>bsr"] =
-        { function() require("astrocore.buffer").sort "unique_path" end, desc = "By relative path" }
-      maps.n["<Leader>bsp"] = { function() require("astrocore.buffer").sort "full_path" end, desc = "By full path" }
-      maps.n["<Leader>bsi"] = { function() require("astrocore.buffer").sort "bufnr" end, desc = "By buffer number" }
-      maps.n["<Leader>bsm"] = { function() require("astrocore.buffer").sort "modified" end, desc = "By modification" }
-
       -- commands and keymaps
       maps.n["<Leader>?"] = { function() require("telescope.builtin").keymaps() end, desc = "Find keymaps" }
       maps.n["<Leader><Leader>"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
-
       maps.n["<Leader>;"] = { "gc", remap = true, desc = "Toggle comment" }
       maps.n["<Leader>;;"] = { "gcc", remap = true, desc = "Toggle comment line" }
       maps.x["<Leader>;"] = { "gc", remap = true, desc = "Toggle comment" }

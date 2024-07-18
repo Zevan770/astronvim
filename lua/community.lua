@@ -20,6 +20,7 @@ return {
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.editing-support.nvim-treesitter-context" },
 
   -- color
   { import = "astrocommunity.color.transparent-nvim" },
@@ -40,9 +41,10 @@ return {
 
   -- edit
   { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
-  -- { import = "astrocommunity.editing-support.multiple-cursors-nvim" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   { import = "astrocommunity.syntax.hlargs-nvim" },
+  { import = "astrocommunity.editing-support.vim-visual-multi" },
+  { import = "astrocommunity.editing-support.suda-vim" },
 
   -- motion/jump/navigation
   { import = "astrocommunity.motion.flash-nvim" },

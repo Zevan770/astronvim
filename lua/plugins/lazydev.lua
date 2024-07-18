@@ -8,10 +8,12 @@ return {
       local utils = require "astrocore"
       return utils.extend_tbl(opts, {
         library = {
-          {
-            path = "C:/Users/86135/.vscode/extensions/asvetliakov.vscode-neovim-1.8.1/runtime/lua/vscode-neovim/",
-            words = { "vscode" },
-          },
+          -- It can also be a table with trigger words / mods
+          -- Only load luvit types when the `vim.uv` word is found
+          { path = "luvit-meta/library", words = { "vim%.uv" } },
+          -- Load the wezterm types when the `wezterm` module is required
+          -- Needs `justinsgithub/wezterm-types` to be installed
+          { path = "wezterm-types", mods = { "wezterm" } },
         },
       })
     end,

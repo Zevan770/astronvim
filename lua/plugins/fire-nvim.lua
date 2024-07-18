@@ -14,7 +14,7 @@ return {
   {
     "rebelot/heirline.nvim",
     optional = true,
-    cond = not vim.g.started_by_firenvim,
+    enable = not vim.g.started_by_firenvim,
   },
 
   {

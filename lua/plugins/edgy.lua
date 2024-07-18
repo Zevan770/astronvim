@@ -59,8 +59,8 @@ return {
         --   open = function() require("aerial").open() end,
         -- },
         {
-          ft = "lspsaga",
           title = "Symbol Outline",
+          ft = "lspsaga",
           pinned = true,
           open = "Lspsaga outline",
         },

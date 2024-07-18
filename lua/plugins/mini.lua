@@ -7,7 +7,7 @@ return {
     "AstroNvim/astrocore",
     ---@param opts AstroCoreOpts
     opts = function(_, opts)
-      vim.cmd "source ~/.mini.vimrc"
+      vim.cmd "source ~/.config/minimal-vim/.mini.vimrc"
       local maps = assert(opts.mappings)
       maps.n["<C-u>"] = { "<C-u>zz", remap = false }
       maps.v["<C-u>"] = { "<C-u>zz", remap = false }
@@ -22,6 +22,8 @@ return {
       maps.i["<C-y>"] = { "<C-\\><C-n><Cmd>normal! <C-y><CR>a", noremap = true }
       -- maps.i["<C-y>"] = "<C-o>3<C-y>"
       maps.n[";"] = { ":", remap = true }
+      maps.i["jk"] = false
+      maps.i["jj"] = false
     end,
   },
 }
