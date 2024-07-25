@@ -27,6 +27,7 @@ require("lazy").setup({
         "tarPlugin",
         "tohtml",
         "zipPlugin",
+        "matchit",
       },
     },
   },

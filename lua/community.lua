@@ -16,11 +16,14 @@ return {
   -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
   -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
   -- { import = "astrocommunity.scrolling.mini-animate" },
+  -- { import = "astrocommunity.scrolling.vim-smoothie" },
+  { import = "astrocommunity.scrolling.cinnamon-nvim" },
   { import = "astrocommunity.split-and-window.minimap-vim" },
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
+  { import = "astrocommunity.search.nvim-spectre" },
 
   -- color
   { import = "astrocommunity.color.transparent-nvim" },
@@ -41,6 +44,7 @@ return {
 
   -- edit
   { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
+  { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   { import = "astrocommunity.syntax.hlargs-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
@@ -55,10 +59,13 @@ return {
 
   -- key
 
+  -- project
+  -- { import = "astrocommunity.motion.harpoon" },
+
   -- lsp
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   -- { import = "astrocommunity.lsp.lspsaga-nvim" },
-  { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
+  -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
   -- debug
   { import = "astrocommunity.debugging.nvim-bqf" },
@@ -69,6 +76,8 @@ return {
   -- utility/tools/games
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.game.leetcode-nvim" },
+  { import = "astrocommunity.terminal-integration.flatten-nvim" },
+  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
 
   -- lang
 
@@ -93,5 +102,6 @@ return {
 
   -- markdown
   { import = "astrocommunity.pack.markdown" },
+  -- { import = "astrocommunity.media.image-nvim" },
   -- { import = "astrocommunity.markdown-and-latex.glow-nvim" },
 }

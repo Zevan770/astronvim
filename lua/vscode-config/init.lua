@@ -31,7 +31,7 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "yanky.nvim",
   -- feel free to open PRs to add more support!
   "flash-zh.nvim",
-  "im-select.nvim",
+  -- "im-select.nvim",
 })
 
 -- vim.api.nvim_exec(
@@ -81,28 +81,28 @@ return {
       -- Motion: basic move
       maps.n["j"] = function()
         if not vim.v.count == 0 then
-          vim.cmd(string.format("normal! %dj", vim.v.count))
+          vim.cmd(string.format("normal %dj", vim.v.count))
         else
           vim.cmd "normal gj"
         end
       end
       maps.x["j"] = function()
         if not vim.v.count == 0 then
-          vim.cmd(string.format("normal! %dj", vim.v.count))
+          vim.cmd(string.format("normal %dj", vim.v.count))
         else
           vim.cmd "normal gj"
         end
       end
       maps.n["k"] = function()
         if not vim.v.count == 0 then
-          vim.cmd(string.format("normal! %dj", vim.v.count))
+          vim.cmd(string.format("normal %dj", vim.v.count))
         else
           vim.cmd "normal gk"
         end
       end
       maps.x["k"] = function()
         if not vim.v.count == 0 then
-          vim.cmd(string.format("normal! %dj", vim.v.count))
+          vim.cmd(string.format("normal %dj", vim.v.count))
         else
           vim.cmd "normal gk"
         end

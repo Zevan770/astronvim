@@ -100,6 +100,7 @@ return {
 
       -- lsp
       maps.n["gr"] = { function() require("telescope.builtin").lsp_references() end, desc = "LSP references" }
+      maps.n["gR"] = { function() vim.lsp.buf.references() end, desc = "LSP references" }
       maps.n["gh"] = { function() vim.lsp.buf.hover() end, desc = "hover" }
       -- tables with just a `desc` key will be registered with which-key if it's installed
       -- this is useful for naming menus

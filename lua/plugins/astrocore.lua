@@ -60,5 +60,9 @@ return {
         -- ["<esc>"] = false,
       },
     },
+    rooter = {
+      autochdir = true,
+      notify = false,
+    },
   },
 }

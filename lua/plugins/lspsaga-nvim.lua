@@ -70,6 +70,6 @@ return {
       expand = get_icon "FoldClosed",
       collapse = get_icon "FoldOpened",
     }
-    opts.symbol_in_winbar = { enable = false }
+    -- opts.symbol_in_winbar = { enable = false }
   end,
 }
