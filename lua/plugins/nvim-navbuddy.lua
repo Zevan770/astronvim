@@ -1,3 +1,4 @@
+-- if true then return {} end
 ---@type LazySpec
 return {
   {
@@ -24,4 +25,35 @@ return {
       },
     },
   },
+
+  -- navic
+  {
+    "SmiteshP/nvim-navic",
+    opts = {
+      lsp = {
+        auto_attach = true,
+      },
+      highlight = true,
+      separator = " > ",
+      depth_limit = 0,
+      depth_limit_indicator = "..",
+      safe_output = true,
+      lazy_update_context = false,
+      click = true,
+      format_text = function(text) return text end,
+    },
+  },
+  {
+    "catppuccin",
+    opts = {
+      integretions = {
+        navic = {
+          enabled = true,
+        },
+      },
+    },
+  },
+  -- {
+  --   ""
+  -- }
 }

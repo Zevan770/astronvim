@@ -54,9 +54,9 @@ return {
           end,
         }
 
-        -- rename
-        maps.n["<Leader>lr"] =
-          { "<Cmd>Lspsaga rename<CR>", desc = "Rename current symbol", cond = "textDocument/rename" }
+        -- -- rename
+        -- maps.n["<Leader>lr"] =
+        --   { "<Cmd>Lspsaga rename<CR>", desc = "Rename current symbol", cond = "textDocument/rename" }
       end,
     },
   },

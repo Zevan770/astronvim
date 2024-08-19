@@ -25,6 +25,8 @@ return {
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.search.nvim-spectre" },
 
+  { import = "astrocommunity.editing-support.zen-mode-nvim" },
+
   -- color
   { import = "astrocommunity.color.transparent-nvim" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
@@ -40,14 +42,15 @@ return {
   -- import/override with your plugins folder
 
   -- fuzzy
-  -- { import = "astrocommunity.fuzzy-finder.fzf-lua" },
+  { import = "astrocommunity.fuzzy-finder.fzf-lua" },
 
   -- edit
   { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
-  { import = "astrocommunity.file-explorer.mini-files" },
+  -- { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   { import = "astrocommunity.syntax.hlargs-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
+  --- force save file with sudo
   { import = "astrocommunity.editing-support.suda-vim" },
 
   -- motion/jump/navigation
@@ -64,6 +67,7 @@ return {
 
   -- lsp
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  { import = "astrocommunity.lsp.lsp-signature-nvim" },
   -- { import = "astrocommunity.lsp.lspsaga-nvim" },
   -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
@@ -85,7 +89,10 @@ return {
   { import = "astrocommunity.pack.cpp" },
 
   --- python
-  -- { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.python" },
+
+  --- bash
+  -- { import = "astrocommunity.pack.bash" },
 
   --- powershell
   { import = "astrocommunity.pack.ps1" },
