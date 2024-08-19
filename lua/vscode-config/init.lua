@@ -12,6 +12,7 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "nvim-treesitter",
   "nvim-ts-autotag",
   "nvim-treesitter-textobjects",
+  "nvim-various-textobjs",
   "nvim-ts-context-commentstring",
   -- more known working
   "dial.nvim",
@@ -226,7 +227,7 @@ return {
     end,
   },
   -- disable colorscheme setting
-  { "AstroNvim/astroui", opts = { colorscheme = false } },
+  { "AstroNvim/astroui",               opts = { colorscheme = false } },
   -- disable treesitter highlighting
   { "nvim-treesitter/nvim-treesitter", opts = { highlight = { enable = false } } },
   -- disable fold plugin
