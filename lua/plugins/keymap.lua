@@ -107,6 +107,13 @@ return {
       -- ["<Leader>b"] = { desc = "Buffers" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+
+      -- terminal
+      maps.t["<A-[>"] = { "<C-\\><C-n>", desc = "enter terminal buffer normal mode" }
+      maps.t["<C-H>"] = false
+      maps.t["<C-J>"] = false
+      maps.t["<C-K>"] = false
+      maps.t["<C-L>"] = false
     end,
   },
 }

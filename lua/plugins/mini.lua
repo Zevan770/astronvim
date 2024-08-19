@@ -1,5 +1,9 @@
 -- if true then return end
-
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-q>", "<Cmd>wincmd q<CR>")
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-h>", "<Cmd>wincmd h<CR>")
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-j>", "<Cmd>wincmd j<CR>")
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-k>", "<Cmd>wincmd k<CR>")
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-l>", "<Cmd>wincmd l<CR>")
 ---@type LazySpec
 return {
   -- add a few keybindings
