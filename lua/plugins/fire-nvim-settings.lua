@@ -7,19 +7,19 @@ vim.g.firenvim_config = {
       cmdline = "neovim",
       --content  = "text",
       --priority = 0,
-      -- selector = "textarea",
-      -- takeover = "never",
+      selector = "textarea",
+      takeover = "never",
     },
   },
 }
 
--- vim.api.nvim_create_autocmd("VimEnter", {
---   callback = function()
---     vim.opt.showtabline = 0
---     vim.opt.laststatus = 0
---   end,
--- })
---
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.opt.showtabline = 0
+    vim.opt.laststatus = 0
+  end,
+})
+
 -- vim.api.nvim_create_autocmd({ "BufEnter" }, {
 --   pattern = "github.com_*.txt",
 --   command = "set filetype=markdown",
