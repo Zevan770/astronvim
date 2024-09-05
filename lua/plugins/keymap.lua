@@ -38,7 +38,7 @@ return {
       maps.n["<Leader>bsm"] = { function() require("astrocore.buffer").sort "modified" end, desc = "By modification" }
 
       -- file
-      maps.n["<Leader>ff"] = { "<Cmd>Telescope file_browser<CR>", desc = "Open File browser" }
+      -- maps.n["<Leader>ff"] = { "<Cmd>Telescope file_browser<CR>", desc = "Open File browser" }
       maps.n["<Leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "File recent" }
       maps.n["<Leader>fR"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" }
       maps.n["<Leader>fo"] = { function() require("telescope.builtin").vim_options() end, desc = "Find options" }
@@ -76,7 +76,7 @@ return {
 
       -- search
       maps.n["<Leader>s"] = { desc = "Search" }
-      maps.n["<Leader>fw"] = false
+      -- maps.n["<Leader>fw"] = false
       maps.n["<Leader>sP"] =
         { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" }
       if vim.fn.executable "rg" == 1 then

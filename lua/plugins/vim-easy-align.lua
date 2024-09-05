@@ -1,19 +1,7 @@
 ---@type LazySpec
+vim.keymap.set({ "n", "v" }, "ga", "<Plug>(EasyAlign)")
+vim.keymap.set({ "n", "v" }, "gA", "<Plug>(LiveEasyAlign)")
 return {
   "junegunn/vim-easy-align",
   event = "User AstroFile",
-  keys = {
-    {
-      "gA",
-      "<Plug>(LiveEasyAlign)",
-      desc = "align",
-      mode = { "n", "v" },
-    },
-    {
-      "ga",
-      "<Plug>(EasyAlign)",
-      desc = "align",
-      mode = { "n", "v" },
-    },
-  },
 }

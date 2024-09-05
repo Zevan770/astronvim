@@ -16,6 +16,7 @@ vim.filetype.add {
     ["%.zprofile"] = "bash",
     ["%.zlogin"] = "bash",
     ["%.zlogout"] = "bash",
+    ["%.vindrc"] = "vim",
   },
   pattern = {
     ["~/%.config/foo/.*"] = "fooscript",

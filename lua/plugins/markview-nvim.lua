@@ -1,3 +1,5 @@
+-- render-markdown.nvim works better, therefore disable this plugin
+if true then return {} end
 ---@type LazySpec
 return {
   "OXY2DEV/markview.nvim",

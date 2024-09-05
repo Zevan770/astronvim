@@ -16,8 +16,8 @@ return {
   -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
   -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
   -- { import = "astrocommunity.scrolling.mini-animate" },
-  -- { import = "astrocommunity.scrolling.vim-smoothie" },
-  { import = "astrocommunity.scrolling.cinnamon-nvim" },
+  { import = "astrocommunity.scrolling.vim-smoothie" },
+  -- { import = "astrocommunity.scrolling.cinnamon-nvim" },
   { import = "astrocommunity.split-and-window.minimap-vim" },
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
@@ -42,13 +42,13 @@ return {
   -- import/override with your plugins folder
 
   -- fuzzy
-  { import = "astrocommunity.fuzzy-finder.fzf-lua" },
+  -- { import = "astrocommunity.fuzzy-finder.fzf-lua" },
 
   -- edit
-  { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
+  -- { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
   -- { import = "astrocommunity.file-explorer.mini-files" },
-  { import = "astrocommunity.editing-support.telescope-undo-nvim" },
-  { import = "astrocommunity.syntax.hlargs-nvim" },
+  -- { import = "astrocommunity.editing-support.telescope-undo-nvim" },
+  -- { import = "astrocommunity.syntax.hlargs-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   --- force save file with sudo
   { import = "astrocommunity.editing-support.suda-vim" },
@@ -66,7 +66,7 @@ return {
   -- { import = "astrocommunity.motion.harpoon" },
 
   -- lsp
-  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   -- { import = "astrocommunity.lsp.lspsaga-nvim" },
   -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
@@ -101,7 +101,7 @@ return {
   { import = "astrocommunity.pack.json" },
 
   --- java
-  -- { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.java" },
 
   --- lua
   { import = "astrocommunity.pack.lua" },
@@ -111,4 +111,7 @@ return {
   { import = "astrocommunity.pack.markdown" },
   -- { import = "astrocommunity.media.image-nvim" },
   -- { import = "astrocommunity.markdown-and-latex.glow-nvim" },
+
+  -- neorg
+  -- { import = "astrocommunity.note-taking.neorg" },
 }
