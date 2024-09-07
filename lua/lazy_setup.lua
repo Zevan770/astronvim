@@ -12,6 +12,7 @@ require("lazy").setup({
     },
   },
   { import = "community" },
+  { import = "languages" },
   { import = "plugins" },
   { import = "vscode-config" },
 } --[[@as LazySpec]], {

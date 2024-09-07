@@ -3,9 +3,7 @@
 -- AstroCommunity: import any community modules here
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
-
----@type LazySpec
-return {
+local M = {
   "AstroNvim/astrocommunity",
 
   -- gui
@@ -84,35 +82,9 @@ return {
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
 
-  -- lang
-
-  --- c
-  { import = "astrocommunity.pack.cpp" },
-
-  --- python
-  { import = "astrocommunity.pack.python" },
-
-  --- bash
-  -- { import = "astrocommunity.pack.bash" },
-
-  --- powershell
-  { import = "astrocommunity.pack.ps1" },
-
-  --- json
-  { import = "astrocommunity.pack.json" },
-
-  --- java
-  { import = "astrocommunity.pack.java" },
-
-  --- lua
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.neovim-lua-development.lazydev-nvim" },
-
-  -- markdown
-  { import = "astrocommunity.pack.markdown" },
   -- { import = "astrocommunity.media.image-nvim" },
   -- { import = "astrocommunity.markdown-and-latex.glow-nvim" },
-
-  -- neorg
-  -- { import = "astrocommunity.note-taking.neorg" },
 }
+
+---@type LazySpec
+return M
