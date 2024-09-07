@@ -1,4 +1,4 @@
-if vim.fn.has "android" then return {} end
+-- if vim.fn.has "android" then return {} end
 return {
   {
     "AstroNvim/astrocommunity",

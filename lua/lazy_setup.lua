@@ -12,7 +12,7 @@ require("lazy").setup({
     },
   },
   { import = "community" },
-  { import = "languages" },
+  vim.fn.has "android" == 0 and { import = "languages" } or nil,
   { import = "plugins" },
   { import = "vscode-config" },
 } --[[@as LazySpec]], {

@@ -1,4 +1,4 @@
-if vim.fn.has "win" == 1 or vim.fn.has "android" then return {} end
+if vim.fn.has "win" == 1 then return {} end
 
 return {
   {
