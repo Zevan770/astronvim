@@ -11,7 +11,8 @@ return {
     "AstroNvim/astrocore",
     ---@param opts AstroCoreOpts
     opts = function(_, opts)
-      vim.cmd "source ~/.config/minimal-vim/.mini.vimrc"
+      local file = "~/.config/nvim/lua/utils/.mini.vimrc"
+      if os.rename(file, file) then vim.cmd("source " .. file) end
       -- vim.g.clipboard = {
       --   name = "WslClipboard",
       --   copy = {
