@@ -42,6 +42,12 @@ return {
       maps.n[";"] = { ":", remap = true }
       maps.i["jk"] = false
       maps.i["jj"] = false
+      maps.n["<C-w>."] = function()
+        require("which-key").show {
+          keys = "<c-w>",
+          loop = true, -- this will keep the popup open until you hit <esc>
+        }
+      end
     end,
   },
 }

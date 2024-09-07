@@ -7,13 +7,13 @@ return {
     {
       "<leader>o",
       function() require("yazi").yazi() end,
-      desc = "Open the file manager",
+      desc = "Reveal cur file in yazi",
     },
     {
       -- Open in the current working directory
       "<leader>e",
       function() require("yazi").yazi(nil, vim.fn.getcwd()) end,
-      desc = "Open the file manager in nvim's working directory",
+      desc = "Open yazi pwd",
     },
     {
       "<A-y>",

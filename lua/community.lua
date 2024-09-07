@@ -61,6 +61,7 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
 
   -- key
+  -- { import = "astrocommunity.keybinding.mini-clue" },
 
   -- project
   -- { import = "astrocommunity.motion.harpoon" },
