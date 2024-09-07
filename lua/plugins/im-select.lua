@@ -1,5 +1,5 @@
 -- don't load on android
-if vim.fn.has "unix" == 0 then return {} end
+if vim.fn.has "android" then return {} end
 ---@type LazySpec
 return {
   "keaising/im-select.nvim",
