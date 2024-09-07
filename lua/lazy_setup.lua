@@ -12,7 +12,6 @@ require("lazy").setup({
     },
   },
   { import = "community" },
-  vim.fn.has "android" == 0 and { import = "languages" } or nil,
   { import = "plugins" },
   { import = "vscode-config" },
 } --[[@as LazySpec]], {
