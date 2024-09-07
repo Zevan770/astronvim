@@ -1,5 +1,5 @@
+if vim.fn.has "android" == 1 then return {} end
 local astrocore = require "astrocore"
--- if true then return {} end
 
 local M = {}
 
@@ -24,6 +24,16 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
     cmd = "CopilotChat",
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = assert(opts.mappings)
+          maps.n["<Leader>c"] = { desc = "Copilot Chat" }
+          maps.v["<Leader>c"] = { desc = "Copilot Chat" }
+        end,
+      },
+    },
     opts = function()
       local user = vim.env.USER or "User"
       user = user:sub(1, 1):upper() .. user:sub(2)
@@ -84,14 +94,6 @@ return {
       })
 
       chat.setup(opts)
-    end,
-  },
-  {
-    "AstroNvim/astrocore",
-    opts = function(_, opts)
-      local maps = assert(opts.mappings)
-      maps.n["<Leader>c"] = { desc = "Copilot Chat" }
-      maps.v["<Leader>c"] = { desc = "Copilot Chat" }
     end,
   },
 
