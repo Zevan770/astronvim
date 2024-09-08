@@ -39,14 +39,14 @@ local clip_win32 = {
 }
 
 local clip_osc52 = {
-  name = "osc52plus",
+  name = "OSC 52",
   copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy,
-    ["*"] = require("vim.ui.clipboard.osc52").copy,
+    ["+"] = require("vim.ui.clipboard.osc52").copy "+",
+    ["*"] = require("vim.ui.clipboard.osc52").copy "*",
   },
   paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste,
-    ["*"] = require("vim.ui.clipboard.osc52").paste,
+    ["+"] = function() end,
+    ["*"] = function() end,
   },
 }
 
@@ -60,6 +60,19 @@ local clip_termux = {
     ["+"] = "termux-clipboard-get",
     ["*"] = "termux-clipboard-get",
   },
+}
+
+local clip_windows = {
+  name = "WslClipboard",
+  copy = {
+    ["+"] = "clip.exe",
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).ToString().Replace("`r", ""))',
+    ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).ToString().Replace("`r", ""))',
+  },
+  cache_enabled = true, -- 或者使用 false 来表示布尔值
 }
 
 vim.g.clipboard = vim.fn.has "android" == 1 and clip_termux or clip_win32

@@ -4,7 +4,6 @@
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -32,6 +31,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+        guicursor = vim.opt.guicursor + "n:blinkon1", -- sets vim.opt.guicursor
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

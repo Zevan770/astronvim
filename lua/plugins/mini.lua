@@ -11,25 +11,14 @@ return {
     "AstroNvim/astrocore",
     ---@param opts AstroCoreOpts
     opts = function(_, opts)
-      pcall(vim.cmd.source, "~/.config/nvim/lua/utils/.mini.vimrc")
-      -- vim.g.clipboard = {
-      --   name = "WslClipboard",
-      --   copy = {
-      --     ["+"] = "clip.exe",
-      --     ["*"] = "clip.exe",
-      --   },
-      --   paste = {
-      --     ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).ToString().Replace("`r", ""))',
-      --     ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).ToString().Replace("`r", ""))',
-      --   },
-      --   cache_enabled = true, -- 或者使用 false 来表示布尔值
-      -- }
+      local mini_path = vim.fn.has "win32" == 1 and "~/.mini.vimrc" or "~/.config/nvim/lua/utils/.mini.vimrc"
+      pcall(vim.cmd.source, mini_path)
 
       local maps = assert(opts.mappings)
-      maps.n["<C-u>"] = { "<C-u>zz", remap = false }
-      maps.v["<C-u>"] = { "<C-u>zz", remap = false }
-      maps.n["<C-d>"] = { "<C-d>zz", remap = false }
-      maps.v["<C-d>"] = { "<C-d>zz", remap = false }
+      -- maps.n["<C-u>"] = { "<C-u>zz", remap = false }
+      -- maps.v["<C-u>"] = { "<C-u>zz", remap = false }
+      -- maps.n["<C-d>"] = { "<C-d>zz", remap = false }
+      -- maps.v["<C-d>"] = { "<C-d>zz", remap = false }
       maps.n["<C-e>"] = "3<C-e>"
       maps.v["<C-e>"] = "3<C-e>"
       maps.i["<C-e>"] = { "<C-\\><C-n>:normal! <C-e><CR>a", noremap = true }
