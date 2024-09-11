@@ -7,9 +7,6 @@
 return {
   {
     "rcarriga/nvim-notify",
-    opts = function(_, config)
-      config.timeout = 500
-      return config
-    end,
+    opts = function(_, opts) opts.timeout = 500 end,
   },
 }
