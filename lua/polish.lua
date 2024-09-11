@@ -6,6 +6,7 @@
 vim.filetype.add {
   extension = {
     foo = "fooscript",
+    log = "logtalk",
   },
   filename = {
     ["Foofile"] = "fooscript",
@@ -22,6 +23,7 @@ vim.filetype.add {
     ["~/%.config/foo/.*"] = "fooscript",
     [".*settings.*%.json"] = "jsonc",
     [".*keybindings.*%.json"] = "jsonc",
+    ["github%.com_*%.txt"] = "markdown",
   },
 }
 

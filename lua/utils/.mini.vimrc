@@ -39,7 +39,6 @@ map      <leader>nh :noh<CR>
 
 
 nmap      U          <C-R>
-xmap      U          <C-R>
 " better hjkl
 noremap      H          g^
 noremap      L          g$

@@ -12,9 +12,9 @@ local M = {
   -- ui
   -- { import = "astrocommunity.recipes.vscode-icons" },
   -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
-  -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
   -- { import = "astrocommunity.scrolling.mini-animate" },
-  { import = "astrocommunity.scrolling.vim-smoothie" },
+  -- { import = "astrocommunity.scrolling.vim-smoothie" },
   -- { import = "astrocommunity.scrolling.cinnamon-nvim" },
   { import = "astrocommunity.split-and-window.minimap-vim" },
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
