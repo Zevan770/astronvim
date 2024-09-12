@@ -53,6 +53,7 @@ local M = {
 
   -- motion/jump/navigation
   { import = "astrocommunity.motion.flash-nvim" },
+  -- { import = "astrocommunity.motion.leap-nvim" },
   -- { import = "astrocommunity.motion.portal-nvim" },
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.vim-matchup" },
@@ -71,7 +72,7 @@ local M = {
   -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
   -- debug
-  { import = "astrocommunity.debugging.nvim-bqf" },
+  { import = "astrocommunity.quickfix.nvim-bqf" },
 
   -- version control/git
   { import = "astrocommunity.git.neogit" },
@@ -80,7 +81,7 @@ local M = {
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.game.leetcode-nvim" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
-  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+  -- { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
 
   -- { import = "astrocommunity.media.image-nvim" },
   -- { import = "astrocommunity.markdown-and-latex.glow-nvim" },

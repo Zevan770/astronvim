@@ -11,7 +11,7 @@ return {
           ---@field callback? fun(selected: string) Callback to run on select
           callback = function(selected)
             -- For example, you could open the directory in netrw after selecting one
-            -- vim.cmd("e " .. selected)
+            vim.cmd("e " .. selected)
           end,
         }
       end, { desc = "Fzf Dirs" })
