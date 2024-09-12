@@ -1,5 +1,5 @@
 ---@type LazySpec
 return {
   "lewis6991/gitsigns.nvim",
-  opts = function() end,
+  opts = function(_, opts) opts.current_line_blame = true end,
 }
