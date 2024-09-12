@@ -43,7 +43,7 @@ return {
             cmdline = "neovim",
             --content  = "text",
             --priority = 0,
-            selector = "textarea",
+            -- selector = "textarea",
             takeover = "never",
           },
         },

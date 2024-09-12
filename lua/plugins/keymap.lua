@@ -47,7 +47,7 @@ return {
       maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
       maps.n["<Leader>pa"] = { function() require("astrocore").update_packages() end, desc = "Update Lazy and Mason" }
       maps.n["<Leader>S"] = false
-      maps.n["<Leader>pl"] = { function() require("resession").load "Last Session" end, desc = "Load last session" }
+      maps.n["<Leader>pL"] = { function() require("resession").load "Last Session" end, desc = "Load last session" }
       maps.n["<Leader>ps"] = { function() require("resession").save() end, desc = "Save this session" }
       maps.n["<Leader>pS"] = {
         function() require("resession").save(vim.fn.getcwd(), { dir = "dirsession" }) end,
@@ -59,7 +59,7 @@ return {
         function() require("resession").delete(nil, { dir = "dirsession" }) end,
         desc = "Delete a dirsession",
       }
-      maps.n["<Leader>pL"] = { function() require("resession").load() end, desc = "Load a session" }
+      maps.n["<Leader>pl"] = { function() require("resession").load() end, desc = "Load a session" }
       maps.n["<Leader>pp"] =
         { function() require("resession").load(nil, { dir = "dirsession" }) end, desc = "Load a dirsession" }
       maps.n["<Leader>p."] = {

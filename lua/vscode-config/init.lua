@@ -32,35 +32,8 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "yanky.nvim",
   -- feel free to open PRs to add more support!
   "flash-zh.nvim",
-  -- "im-select.nvim",
+  "im-select.nvim",
 })
-
--- vim.api.nvim_exec(
---   [[
---     " THEME CHANGER
---     function! SetCursorLineNrColorInsert(mode)
---         " Insert mode: blue
---         if a:mode == "i"
---             call VSCodeNotify('nvim-theme.insert')
---
---         " Replace mode: red
---         elseif a:mode == "r"
---             call VSCodeNotify('nvim-theme.replace')
---         endif
---     endfunction
---
---     augroup CursorLineNrColorSwap
---         autocmd!
---         autocmd ModeChanged *:[vV\x16]* call VSCodeNotify('nvim-theme.visual')
---         autocmd ModeChanged *:[R]* call VSCodeNotify('nvim-theme.replace')
---         autocmd InsertEnter * call SetCursorLineNrColorInsert(v:insertmode)
---         autocmd InsertLeave * call VSCodeNotify('nvim-theme.normal')
---         autocmd CursorHold * call VSCodeNotify('nvim-theme.normal')
---         autocmd ModeChanged [vV\x16]*:* call VSCodeNotify('nvim-theme.normal')
---     augroup END
--- ]],
---   false
--- )
 
 local Config = require "lazy.core.config"
 -- disable plugin update checking
@@ -70,6 +43,7 @@ Config.options.change_detection.enabled = false
 Config.options.defaults.cond = function(plugin) return enabled[plugin.name] end
 
 local vscode = require "vscode"
+-- vim.notify = vscode.notify
 ---@type LazySpec
 return {
   -- add a few keybindings
@@ -227,7 +201,7 @@ return {
     end,
   },
   -- disable colorscheme setting
-  { "AstroNvim/astroui",               opts = { colorscheme = false } },
+  { "AstroNvim/astroui", opts = { colorscheme = false } },
   -- disable treesitter highlighting
   { "nvim-treesitter/nvim-treesitter", opts = { highlight = { enable = false } } },
   -- disable fold plugin
