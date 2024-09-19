@@ -47,7 +47,7 @@ local M = {
   -- { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   -- { import = "astrocommunity.syntax.hlargs-nvim" },
-  { import = "astrocommunity.editing-support.vim-visual-multi" },
+  -- { import = "astrocommunity.editing-support.vim-visual-multi" },
   --- force save file with sudo
   { import = "astrocommunity.editing-support.suda-vim" },
 
