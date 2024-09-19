@@ -4,10 +4,9 @@ set scrolloff=9
 " --递增搜索功能：在执行搜索（使用 / 或 ? 命令）时，
 " Vim 会 在您输入搜索模式的过程中逐步匹配并高亮显示匹配的文本。
 set incsearch
-set guifont=
 "--将搜索匹配的文本高亮显示
 set hlsearch
-set guifont=JetbrainsMono\ Nerd\ font\ mono:h14
+set guifont=LXGWWenKaiMonoScreen\ Nerd\ Font:h14,JetbrainsMono\ Nerd\ font\ mono:h14
 "--在搜索时忽略大小写
 set ignorecase
 set smartcase
@@ -35,7 +34,7 @@ nnoremap <Enter> o<Esc>
 " bookmark 切换书签
 
 "search
-map      <leader>nh :noh<CR>
+" map      <leader>nh :noh<CR>
 
 
 nmap      U          <C-R>
@@ -71,7 +70,7 @@ nnoremap c "_c
 xnoremap c "_c
 nnoremap C "_C
 
-xnoremap p pgvy
+xnoremap p "_xP
 xnoremap P Pgvy
 
 nnoremap \o         o<esc>"*p

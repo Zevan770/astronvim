@@ -51,7 +51,7 @@ return {
         maps.n["<Leader>fc"] = { function() require("fzf-lua").grep_cword() end, desc = "Find word under cursor" }
         maps.n["<Leader>fC"] = { function() require("fzf-lua").commands() end, desc = "Find commands" }
         maps.n["<Leader>ff"] = { function() require("fzf-lua").files() end, desc = "Find files" }
-        maps.n["<Leader>fh"] = { function() require("fzf-lua").helptags() end, desc = "Find help" }
+        -- maps.n["<Leader>fh"] = { function() require("fzf-lua").helptags() end, desc = "Find help" }
         maps.n["<Leader>fk"] = { function() require("fzf-lua").keymaps() end, desc = "Find keymaps" }
         maps.n["<Leader>fm"] = { function() require("fzf-lua").manpages() end, desc = "Find man" }
         maps.n["<Leader>fo"] = { function() require("fzf-lua").oldfiles() end, desc = "Find history" }
@@ -62,6 +62,13 @@ return {
           maps.n["<Leader>fw"] = { function() require("fzf-lua").live_grep_native() end, desc = "Find words" }
         end
         maps.n["<Leader>ls"] = { function() require("fzf-lua").lsp_document_symbols() end, desc = "Search symbols" }
+        maps.c["<C-G>"] = {
+          function()
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, true, true), "n", true)
+            require("fzf-lua").command_history { cmd = vim.fn.getreg ":" }
+          end,
+          desc = "command_history",
+        }
       end,
     },
   },

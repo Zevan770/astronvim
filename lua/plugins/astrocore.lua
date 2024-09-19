@@ -31,7 +31,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
-        guicursor = vim.opt.guicursor + "n-o:blinkon1", -- sets vim.opt.guicursor
+        guicursor = vim.opt.guicursor + "n-o:blinkon5", -- sets vim.opt.guicursor
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

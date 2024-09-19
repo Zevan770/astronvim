@@ -10,4 +10,12 @@ return {
     opts = function(_, opts) opts.timeout = 500 end,
     -- enabled = false,
   },
+  {
+    "folke/noice.nvim",
+    opts = function(self, opts)
+      local presets = assert(opts.presets)
+      presets.inc_rename = true
+      presets.bottom_search = false
+    end,
+  },
 }

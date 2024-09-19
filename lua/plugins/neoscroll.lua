@@ -6,7 +6,7 @@ return {
     require("neoscroll").setup {
       mappings = { -- Keys to be mapped to their corresponding default scrolling animation
         -- "<C-u>",
-        "<C-d>",
+        -- "<C-d>",
         "<C-b>",
         "<C-f>",
         -- "<C-y>",
@@ -26,6 +26,7 @@ return {
       ignored_events = { -- Events ignored while scrolling
         "WinScrolled",
         "CursorMoved",
+        "CursorHold",
       },
     }
     vim.keymap.set({ "n", "v" }, "<C-u>", function() neoscroll.ctrl_u { duration = 100 } end)
