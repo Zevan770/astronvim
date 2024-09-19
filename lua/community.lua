@@ -32,9 +32,6 @@ local M = {
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
 
-  -- ai/completion
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
-
   -- remote
   { import = "astrocommunity.remote-development.distant-nvim" },
   -- import/override with your plugins folder

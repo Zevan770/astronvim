@@ -20,6 +20,9 @@ end
 vim.treesitter.language.register("markdown", "copilot-chat")
 ---@type LazySpec
 return {
+  -- ai/completion
+  "AstroNvim/astrocommunity",
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
