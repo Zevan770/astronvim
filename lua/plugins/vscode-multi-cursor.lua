@@ -110,7 +110,7 @@ return {
       {
         "<C-N>",
         function() require("vscode-multi-cursor").addSelectionToNextFindMatch() end,
-        mode = { "n", "x", "i" },
+        mode = { "n", "x" },
         desc = "Select Next Find Match",
       },
       {
