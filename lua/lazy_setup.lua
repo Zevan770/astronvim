@@ -19,6 +19,12 @@ require("lazy").setup({
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrodark", "habamax" } },
   ui = { backdrop = 100 },
+  dev = {
+    path = "~/.local/share/nvim/lazy_dev/",
+    ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
+    patterns = {}, -- For example {"folke"}
+    fallback = false, -- Fallback to git when local plugin doesn't exist
+  },
   performance = {
     rtp = {
       -- disable some rtp plugins, add more to your liking
