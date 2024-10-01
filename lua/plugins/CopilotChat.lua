@@ -1,4 +1,4 @@
-if vim.fn.has "android" == 1 then return {} end
+if true then return {} end
 local astrocore = require "astrocore"
 
 local M = {}
@@ -101,16 +101,16 @@ return {
   },
 
   -- -- Edgy integration
-  -- {
-  --   "folke/edgy.nvim",
-  --   optional = true,
-  --   opts = function(_, opts)
-  --     opts.right = opts.right or {}
-  --     table.insert(opts.right, {
-  --       ft = "copilot-chat",
-  --       title = "Copilot Chat",
-  --       size = { width = 50 },
-  --     })
-  --   end,
-  -- },
+  {
+    "folke/edgy.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.right = opts.right or {}
+      table.insert(opts.right, {
+        ft = "copilot-chat",
+        title = "Copilot Chat",
+        size = { width = 50 },
+      })
+    end,
+  },
 }
