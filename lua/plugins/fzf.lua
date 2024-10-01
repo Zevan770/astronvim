@@ -1,4 +1,5 @@
--- if true then return {} end
+if true then return {} end
+---@type LazySpec
 return {
   "ibhagwan/fzf-lua",
   cmd = "FzfLua",
