@@ -66,16 +66,22 @@ return {
           open = "Lspsaga outline",
         },
       },
-      keys = {
-        -- increase width
-        ["<C-Right>"] = function(win) win:resize("width", 2) end,
-        -- decrease width
-        ["<C-Left>"] = function(win) win:resize("width", -2) end,
-        -- increase height
-        ["<C-Up>"] = function(win) win:resize("height", 2) end,
-        -- decrease height
-        ["<C-Down>"] = function(win) win:resize("height", -2) end,
+      {
+        ft = "toggleterm",
+        size = { height = 0.2 },
+        -- exclude floating windows
+        filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == "" end,
       },
+    },
+    keys = {
+      -- -- increase width
+      -- ["<C-Right>"] = function(win) win:resize("width", 2) end,
+      -- -- decrease width
+      -- ["<C-Left>"] = function(win) win:resize("width", -2) end,
+      -- -- increase height
+      -- ["<C-Up>"] = function(win) win:resize("height", 2) end,
+      -- -- decrease height
+      -- ["<C-Down>"] = function(win) win:resize("height", -2) end,
     },
   },
   {
