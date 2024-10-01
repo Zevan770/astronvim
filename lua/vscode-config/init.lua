@@ -43,12 +43,13 @@ Config.options.change_detection.enabled = false
 Config.options.defaults.cond = function(plugin) return enabled[plugin.name] end
 
 local vscode = require "vscode"
--- vim.notify = vscode.notify
+vim.notify = vscode.notify
 ---@type LazySpec
 return {
   -- add a few keybindings
   {
     "AstroNvim/astrocore",
+    --@param opts AstroCoreOpts
     ---@param opts AstroCoreOpts
     opts = function(_, opts)
       local maps = assert(opts.mappings)
@@ -143,12 +144,13 @@ return {
 
       maps.n["'"] = "`"
       maps.n["mn"] = function() vscode.action "bookmarks.toggleLabeled" end
-      maps.n["mc"] = function() vscode.action "bookmarks.clear" end
-      maps.n["mC"] = function() vscode.action "bookmarks.clearFromAllFiles" end
+      maps.n["dma"] = function() vscode.action "bookmarks.clear" end
+      maps.n["dmA"] = function() vscode.action "bookmarks.clearFromAllFiles" end
       maps.n["ml"] = function() vscode.action "bookmarks.list" end
       maps.n["mL"] = function() vscode.action "bookmarks.listFromAllFiles" end
-      maps.n["'n"] = function() vscode.action "bookmarks.jumpToNext" end
-      maps.n["'N"] = function() vscode.action "bookmarks.jumpToPrevious" end
+      -- maps.n["m"] = { "<Cmd>lua require('vscode').action('bookmarks.toggle')<CR>m", { noremap = true } }
+      maps.n["]'"] = function() vscode.action "bookmarks.jumpToNext" end
+      maps.n["['"] = function() vscode.action "bookmarks.jumpToPrevious" end
       -- maps.n["m"] = function() vscode.action "bookmarks.toggle" end
       maps.n["gc;"] = "gcc"
       -- maps.n["u"] = function() vscode.action "undo" end
