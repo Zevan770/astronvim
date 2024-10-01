@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "nvim-pack/nvim-spectre",
+  enabled = false,
   opts = function()
     return {
       mapping = {
