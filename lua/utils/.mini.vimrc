@@ -20,6 +20,10 @@ set softtabstop=4
 nnoremap <S-Enter> O<Esc>
 nnoremap <Enter> o<Esc>
 
+nmap <c-j> mz:m+<cr>`z
+nmap <c-k> mz:m-2<cr>`z
+vmap <c-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <c-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 "--在普通和插入模式下，向下交换行/向上交换行
 " nnoremap <C-j> :m +1<Enter>
@@ -72,8 +76,8 @@ nnoremap C "_C
 
 xnoremap p "_xP
 xnoremap P Pgvy
+vnoremap D "Id
 
-nnoremap \o         o<esc>"*p
 nnoremap \O         O<esc>"*p
 nnoremap \p         "*p
 nnoremap \P         "*P
@@ -103,7 +107,7 @@ inoremap     <C-v>     <C-r>*
 cnoremap     <C-v>     <C-r>*
 
 nmap     <C-a>      ggVG
-nnoremap    zv      <C-v>
+noremap    zv      <C-v>
 nmap     <C-z>     u
 imap     <C-z>      <esc>u   
 nmap     <C-z>      u   

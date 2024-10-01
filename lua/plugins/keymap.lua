@@ -42,6 +42,7 @@ return {
       maps.n["<Leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "File recent" }
       maps.n["<Leader>fR"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" }
       maps.n["<Leader>fo"] = { function() require("telescope.builtin").vim_options() end, desc = "Find options" }
+      maps.n["<leader>fj"] = { function() require("telescope.builtin").jumplist() end, desc = "jumplist" }
 
       -- Session/Project
       maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
@@ -93,7 +94,7 @@ return {
 
       -- commands and keymaps
       maps.n["<Leader>?"] = { function() require("telescope.builtin").keymaps() end, desc = "Find keymaps" }
-      maps.n["<Leader><Leader>"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
+      -- maps.n["<Leader><Leader>"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
       maps.n["<Leader>;"] = { "gc", remap = true, desc = "Toggle comment" }
       maps.n["<Leader>;;"] = { "gcc", remap = true, desc = "Toggle comment line" }
       maps.x["<Leader>;"] = { "gc", remap = true, desc = "Toggle comment" }

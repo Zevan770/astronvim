@@ -1,4 +1,3 @@
-if true then return {} end
 return {
   {
     "echasnovski/mini.splitjoin",
@@ -8,7 +7,7 @@ return {
       -- Module mappings. Use `''` (empty string) to disable one.
       -- Created for both Normal and Visual modes.
       mappings = {
-        toggle = "gS",
+        toggle = "gj",
         split = "",
         join = "",
       },

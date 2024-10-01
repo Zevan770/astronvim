@@ -58,7 +58,7 @@ return {
         find = prefix .. "f", -- Find surrounding (to the right)
         find_left = prefix .. "F", -- Find surrounding (to the left)
         highlight = prefix .. "h", -- Highlight surrounding
-        replace = prefix .. "r", -- Replace surrounding
+        replace = prefix .. "c", -- Replace surrounding
         update_n_lines = prefix .. "n", -- Update `n_lines`
       },
     },

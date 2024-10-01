@@ -12,6 +12,7 @@ return {
   },
   {
     "folke/noice.nvim",
+    enabled = false,
     opts = function(self, opts)
       local presets = assert(opts.presets)
       presets.inc_rename = true
