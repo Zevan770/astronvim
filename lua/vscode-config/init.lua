@@ -1,5 +1,11 @@
 if not vim.g.vscode then return {} end -- don't do anything in non-vscode instances
 
+vim.api.nvim_create_autocmd("UIEnter", {
+  callback = function()
+    vim.opt.relativenumber = true
+    vim.opt.cmdheight = 1
+  end,
+})
 local enabled = {}
 vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   -- core plugins
