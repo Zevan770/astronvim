@@ -4,16 +4,19 @@
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
 local M = {
-  "AstroNvim/astrocommunity",
+  {
+    "AstroNvim/astrocommunity",
+    dev = true,
+  },
 
   -- gui
   { import = "astrocommunity.recipes.neovide" },
+  -- { import = "astrocommunity.startup.mini-starter" },
 
   -- ui
   -- { import = "astrocommunity.recipes.vscode-icons" },
   -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
-  { import = "astrocommunity.scrolling.neoscroll-nvim" },
-  -- { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.scrolling.mini-animate" },
   -- { import = "astrocommunity.scrolling.vim-smoothie" },
   -- { import = "astrocommunity.scrolling.cinnamon-nvim" },
   { import = "astrocommunity.split-and-window.minimap-vim" },
@@ -21,7 +24,8 @@ local M = {
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
-  { import = "astrocommunity.search.nvim-spectre" },
+  -- { import = "astrocommunity.search.nvim-spectre" },
+  { import = "astrocommunity.search.grug-far-nvim" },
 
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
 
@@ -42,6 +46,7 @@ local M = {
   -- edit
   -- { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
   -- { import = "astrocommunity.file-explorer.mini-files" },
+  { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   -- { import = "astrocommunity.syntax.hlargs-nvim" },
   -- { import = "astrocommunity.editing-support.vim-visual-multi" },
@@ -49,15 +54,11 @@ local M = {
   { import = "astrocommunity.editing-support.suda-vim" },
 
   -- motion/jump/navigation
-  { import = "astrocommunity.motion.flash-nvim" },
   -- { import = "astrocommunity.motion.leap-nvim" },
-  -- { import = "astrocommunity.motion.portal-nvim" },
+  { import = "astrocommunity.motion.portal-nvim" },
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.motion.mini-ai" },
-
-  -- key
-  -- { import = "astrocommunity.keybinding.mini-clue" },
 
   -- project
   -- { import = "astrocommunity.motion.harpoon" },
@@ -78,7 +79,7 @@ local M = {
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.game.leetcode-nvim" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
-  -- { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
 
   -- { import = "astrocommunity.media.image-nvim" },
   -- { import = "astrocommunity.markdown-and-latex.glow-nvim" },
