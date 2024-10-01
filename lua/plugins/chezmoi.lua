@@ -1,8 +1,6 @@
 ---@type LazySpec
--- Lazy.nvim
 return {
   "xvzc/chezmoi.nvim",
-  dependencies = { "nvim-lua/plenary.nvim", { "telescope.nvim", optional = true } },
   enabled = vim.fn.has "win32" ~= 1,
   config = function()
     require("chezmoi").setup {
@@ -19,19 +17,40 @@ return {
         vim.schedule(edit_watch)
       end,
     })
-    fzf_chezmoi = function()
-      require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
-        actions = {
-          ["default"] = function(selected, opts)
-            require("chezmoi.commands").edit {
-              targets = { "~/" .. selected[1] },
-              args = { "--watch" },
-            }
-          end,
-        },
-      })
-    end
-
-    vim.api.nvim_create_user_command("ChezmoiFzf", fzf_chezmoi, {})
   end,
+  specs = {
+    "nvim-lua/plenary.nvim",
+    {
+      "nvim-telescope/telescope.nvim",
+      optional = true,
+      opts = function(_, opts)
+        -- telscope-config.lua
+        local telescope = require "telescope"
+        telescope.load_extension "chezmoi"
+      end,
+      keys = {
+        { "<leader>fA", function() require("telescope").extensions.chezmoi.find_files() end, mode = { "n" } },
+      },
+    },
+    {
+      "fzf.lua",
+      optional = true,
+      opts = function()
+        fzf_chezmoi = function()
+          require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
+            actions = {
+              ["default"] = function(selected, opts)
+                require("chezmoi.commands").edit {
+                  targets = { "~/" .. selected[1] },
+                  args = { "--watch" },
+                }
+              end,
+            },
+          })
+        end
+
+        vim.api.nvim_create_user_command("ChezmoiFzf", fzf_chezmoi, {})
+      end,
+    },
+  },
 }
