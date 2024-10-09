@@ -1,4 +1,4 @@
-if true then return {} end
+-- if true then return {} end
 local astrocore = require "astrocore"
 
 local M = {}
@@ -21,8 +21,8 @@ vim.treesitter.language.register("markdown", "copilot-chat")
 ---@type LazySpec
 return {
   -- ai/completion
-  "AstroNvim/astrocommunity",
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  -- "AstroNvim/astrocommunity",
+  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
@@ -98,19 +98,21 @@ return {
 
       chat.setup(opts)
     end,
+    specs = {
+      {
+        "folke/edgy.nvim",
+        optional = true,
+        opts = function(_, opts)
+          opts.right = opts.right or {}
+          table.insert(opts.right, {
+            ft = "copilot-chat",
+            title = "Copilot Chat",
+            size = { width = 50 },
+          })
+        end,
+      },
+    },
   },
 
   -- -- Edgy integration
-  {
-    "folke/edgy.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.right = opts.right or {}
-      table.insert(opts.right, {
-        ft = "copilot-chat",
-        title = "Copilot Chat",
-        size = { width = 50 },
-      })
-    end,
-  },
 }

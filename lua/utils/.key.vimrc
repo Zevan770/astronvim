@@ -87,10 +87,10 @@ cnoremap     <C-v>     <C-r>*
 
 nmap     <C-a>      ggVG
 nnoremap    zv      <C-v>
-nmap     <C-z>     u
-imap     <C-z>      <esc>u   
-nmap     <C-z>      u   
-nmap     <C-S-z>    <C-r>
+" nmap     <C-z>     u
+" imap     <C-z>      <esc>u   
+" nmap     <C-z>      u   
+" nmap     <C-S-z>    <C-r>
 nmap     zw         <c-w>
 nmap    zg         za
 

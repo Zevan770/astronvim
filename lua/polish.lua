@@ -6,7 +6,9 @@
 vim.filetype.add {
   extension = {
     foo = "fooscript",
-    log = "logtalk",
+    ahk2 = "autohotkey",
+    ahk1 = "autohotkey",
+    -- log = "logtalk",
   },
   filename = {
     ["Foofile"] = "fooscript",

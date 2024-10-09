@@ -3,5 +3,6 @@ return {
   {
     "AstroNvim/astrocommunity",
     { import = "astrocommunity.pack.java" },
+    -- { import = "astrocommunity.lsp.nvim-java" },
   },
 }

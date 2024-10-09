@@ -3,7 +3,7 @@ return {
   { import = "astrocommunity.scrolling.neoscroll-nvim" },
   {
     "karb94/neoscroll.nvim",
-    enabled = false,
+    -- enabled = false,
     config = function()
       local neoscroll = require "neoscroll"
       require("neoscroll").setup {

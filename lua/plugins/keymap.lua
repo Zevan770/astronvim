@@ -16,7 +16,7 @@ return {
       maps.n["<Leader>a"] = { desc = "Appalication" }
       maps.n["<Leader>am"] = { function() require("mason.ui").open() end, desc = "Mason Installer" }
       maps.n["<Leader>ax"] = { function() require("lazy").home() end, desc = "Plugins" }
-      maps.n["<Leader>ae"] = { "<Leader>e", remap = true, desc = "explorer" }
+      -- maps.n["<Leader>ae"] = { "<Leader>e", remap = true, desc = "explorer" }
 
       -- buffers
       maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
@@ -91,6 +91,17 @@ return {
           desc = "Find words in all files",
         }
       end
+
+      -- persist mode
+      maps.n["<Leader>d."] = {
+        function()
+          require("which-key").show {
+            keys = "<leader>d",
+            loop = true, -- this will keep the popup open until you hit <esc>
+          }
+        end,
+        desc = "enter debug persist mode",
+      }
 
       -- commands and keymaps
       maps.n["<Leader>?"] = { function() require("telescope.builtin").keymaps() end, desc = "Find keymaps" }

@@ -41,7 +41,9 @@ vmap <c-k> :m'<-2<cr>`>my`<mzgv`yo`z
 " map      <leader>nh :noh<CR>
 
 
+nmap gk K
 nmap      U          <C-R>
+" nunmap <C-R>
 " better hjkl
 noremap      H          g^
 noremap      L          g$
@@ -108,10 +110,10 @@ cnoremap     <C-v>     <C-r>*
 
 nmap     <C-a>      ggVG
 noremap    zv      <C-v>
-nmap     <C-z>     u
-imap     <C-z>      <esc>u   
-nmap     <C-z>      u   
-nmap     <C-S-z>    <C-r>
+" nmap     <C-z>     u
+" imap     <C-z>      <esc>u   
+" nmap     <C-z>      u   
+" nmap     <C-S-z>    <C-r>
 nmap     zw         <c-w>
 nmap    zg         za
 

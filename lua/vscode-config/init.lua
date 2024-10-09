@@ -1,9 +1,16 @@
+local astrocommunity_dev = false
+
+if astrocommunity_dev then return {
+  "AstroNvim/astrocommunity",
+  { import = "astrocommunity.recipes.vscode" },
+} end
+
 if not vim.g.vscode then return {} end -- don't do anything in non-vscode instances
 
 vim.api.nvim_create_autocmd("UIEnter", {
   callback = function()
     vim.opt.relativenumber = true
-    vim.opt.cmdheight = 1
+    vim.opt.cmdheight = 2
   end,
 })
 local enabled = {}
@@ -30,12 +37,14 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "mini.move",
   "mini.pairs",
   "mini.surround",
+  "mini.splitjoin",
   "ts-comments.nvim",
   "vim-easy-align",
   "vim-repeat",
   "vim-sandwich",
   "vscode-multi-cursor",
   "yanky.nvim",
+  -- "catppuccin",
   -- feel free to open PRs to add more support!
   "flash-zh.nvim",
   "im-select.nvim",
@@ -50,6 +59,11 @@ Config.options.defaults.cond = function(plugin) return enabled[plugin.name] end
 
 local vscode = require "vscode"
 vim.notify = vscode.notify
+
+-- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+--   callback = function() vscode.action "errorLens.disableLine" end,
+-- })
+
 ---@type LazySpec
 return {
   -- add a few keybindings
@@ -77,14 +91,14 @@ return {
       end
       maps.n["k"] = function()
         if not vim.v.count == 0 then
-          vim.cmd(string.format("normal %dj", vim.v.count))
+          vim.cmd(string.format("normal %dk", vim.v.count))
         else
           vim.cmd "normal gk"
         end
       end
       maps.x["k"] = function()
         if not vim.v.count == 0 then
-          vim.cmd(string.format("normal %dj", vim.v.count))
+          vim.cmd(string.format("normal %dk", vim.v.count))
         else
           vim.cmd "normal gk"
         end
@@ -114,9 +128,14 @@ return {
 
       maps.v["m]"] = function() vscode.action "bookmarks.expandSelectionToNext" end
       maps.v["m["] = function() vscode.action "bookmarks.expandSelectionToPrevious" end
-      maps.v["3s"] = function() vscode.action "metaGo.selectAfter" end
-      maps.v["2s"] = function() vscode.action "metaGo.selectSmart" end
+
+      -- maps.v["3s"] = function() vscode.action "metaGo.selectAfter" end
+      -- maps.v["2s"] = function() vscode.action "metaGo.selectSmart" end
       -- maps.v["s"] = function() vscode.action "metaGo.selectBefore" end
+      -- maps.n["gl"] = function() vscode.action "metaGo.addCursorBefore" end
+      -- maps.n["s"] = function() vscode.action "metaGo.gotoBefore" end
+      -- maps.n["2s"] = function() vscode.action "metaGo.gotoAfter" end
+      -- maps.n["3s"] = function() vscode.action "metaGo.gotoSmart" end
 
       -- folding
       maps.v["zf"] = function()
@@ -125,11 +144,21 @@ return {
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>j", true, true, true), "n", true)
       end
 
-      vim.keymap.set("o", "zf", function()
-        vscode.call "editor.createFoldingRangeFromSelection"
-        -- backto normal mode and move down
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, true, true), "n", true)
-      end, { noremap = true, silent = true })
+      maps.n["zf"] = function()
+        -- enter visual mode and wait for motion
+        vim.api.nvim_feedkeys("v", "n", false)
+        -- create folding range from selection
+        vim.api.nvim_create_autocmd("CursorMoved", {
+          once = true,
+          -- should after vscode.cursor autocmd
+
+          callback = function()
+            vim.notify "hello"
+            vscode.call "editor.createFoldingRangeFromSelection"
+            -- vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, true, true), "n", true)
+          end,
+        })
+      end
 
       maps.n["zd"] = function() vscode.action "editor.removeManualFoldingRanges" end
       maps.n["zc"] = function() vscode.action "editor.fold" end
@@ -149,12 +178,12 @@ return {
       maps.n["gsdg"] = function() vscode.action "regionfolder.deleteCurrentRegion" end
 
       maps.n["'"] = "`"
-      maps.n["mn"] = function() vscode.action "bookmarks.toggleLabeled" end
+      maps.n["ma"] = function() vscode.action "bookmarks.toggleLabeled" end
       maps.n["dma"] = function() vscode.action "bookmarks.clear" end
       maps.n["dmA"] = function() vscode.action "bookmarks.clearFromAllFiles" end
       maps.n["ml"] = function() vscode.action "bookmarks.list" end
       maps.n["mL"] = function() vscode.action "bookmarks.listFromAllFiles" end
-      -- maps.n["m"] = { "<Cmd>lua require('vscode').action('bookmarks.toggle')<CR>m", { noremap = true } }
+      maps.n["m"] = { "<Cmd>lua require('vscode').action('bookmarks.toggle')<CR>m" }
       maps.n["]'"] = function() vscode.action "bookmarks.jumpToNext" end
       maps.n["['"] = function() vscode.action "bookmarks.jumpToPrevious" end
       -- maps.n["m"] = function() vscode.action "bookmarks.toggle" end
@@ -162,11 +191,6 @@ return {
       -- maps.n["u"] = function() vscode.action "undo" end
       -- maps.n["<C-r>"] = function() vscode.action "redo" end
       -- maps.n["U"] = function() vscode.action "redo" end
-      maps.n["gl"] = function() vscode.action "metaGo.addCursorBefore" end
-
-      -- maps.n["s"] = function() vscode.action "metaGo.gotoBefore" end
-      maps.n["2s"] = function() vscode.action "metaGo.gotoAfter" end
-      maps.n["3s"] = function() vscode.action "metaGo.gotoSmart" end
 
       -- -- basic actions
       -- maps.n["<Leader>q"] = function() vscode.action "workbench.action.closeWindow" end
@@ -176,10 +200,10 @@ return {
       -- -- splits navigation
       -- maps.n["|"] = function() vscode.action "workbench.action.splitEditor" end
       -- maps.n["\\"] = function() vscode.action "workbench.action.splitEditorDown" end
-      maps.n["<C-H>"] = function() vscode.action "workbench.action.navigateLeft" end
-      maps.n["<C-J>"] = function() vscode.action "workbench.action.navigateDown" end
-      maps.n["<C-K>"] = function() vscode.action "workbench.action.navigateUp" end
-      maps.n["<C-L>"] = function() vscode.action "workbench.action.navigateRight" end
+      -- maps.n["<C-H>"] = function() vscode.action "workbench.action.navigateLeft" end
+      -- maps.n["<C-J>"] = function() vscode.action "workbench.action.navigateDown" end
+      -- maps.n["<C-K>"] = function() vscode.action "workbench.action.navigateUp" end
+      -- maps.n["<C-L>"] = function() vscode.action "workbench.action.navigateRight" end
       --
       -- -- terminal
       -- maps.n["<F7>"] = function() vscode.action "workbench.action.terminal.toggleTerminal" end

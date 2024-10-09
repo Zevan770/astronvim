@@ -4,7 +4,7 @@ return {
   lazy = false,
   opts = {
     show_icons = true,
-    leader_key = "<leader>z", -- Recommended to be a single key
+    leader_key = "<A-e>", -- Recommended to be a single key
     buffer_leader_key = "<leader>m", -- Per Buffer Mappings
   },
   keys = {

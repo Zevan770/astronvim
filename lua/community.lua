@@ -4,19 +4,15 @@
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
 local M = {
-  {
-    "AstroNvim/astrocommunity",
-    dev = true,
-  },
+  "AstroNvim/astrocommunity",
 
   -- gui
   { import = "astrocommunity.recipes.neovide" },
-  -- { import = "astrocommunity.startup.mini-starter" },
 
   -- ui
   -- { import = "astrocommunity.recipes.vscode-icons" },
   -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
-  { import = "astrocommunity.scrolling.mini-animate" },
+  -- { import = "astrocommunity.scrolling.mini-animate" },
   -- { import = "astrocommunity.scrolling.vim-smoothie" },
   -- { import = "astrocommunity.scrolling.cinnamon-nvim" },
   { import = "astrocommunity.split-and-window.minimap-vim" },
@@ -46,6 +42,7 @@ local M = {
   -- edit
   -- { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
   -- { import = "astrocommunity.file-explorer.mini-files" },
+  --
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   -- { import = "astrocommunity.syntax.hlargs-nvim" },
@@ -62,6 +59,7 @@ local M = {
 
   -- project
   -- { import = "astrocommunity.motion.harpoon" },
+  -- { import = "astrocommunity.project.neoconf-nvim" },
 
   -- lsp
   -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },

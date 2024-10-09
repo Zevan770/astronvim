@@ -1,17 +1,19 @@
 ---@type LazySpec
 return {
   "mikavilpas/yazi.nvim",
-  event = "VeryLazy",
+  cmd = {
+    "Yazi",
+  },
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {
-      "<leader>fo",
+      "<leader>ae",
       function() require("yazi").yazi() end,
       desc = "Reveal cur file in yazi",
     },
     {
       -- Open in the current working directory
-      "<leader>e",
+      "<leader>ay",
       function() require("yazi").yazi(nil, vim.fn.getcwd()) end,
       desc = "Open yazi pwd",
     },
@@ -23,13 +25,13 @@ return {
         require("yazi").toggle()
       end,
       desc = "Resume the last yazi session",
-      mode = { "n", "v", "i", "t" }, --all
+      mode = { "n", "v", "i" }, --all
     },
   },
   ---@type YaziConfig
   opts = {
     -- if you want to open yazi instead of netrw, see below for more info
-    -- open_for_directories = true,
+    open_for_directories = true,
 
     -- enable these if you are using the latest version of yazi
     use_ya_for_events_reading = true,
@@ -37,6 +39,14 @@ return {
   },
 
   specs = {
-    -- { "neo-tree.nvim", optional = true, enabled = false },
+    {
+      "neo-tree.nvim",
+      optional = true,
+      opts = {
+        filesystem = {
+          hijack_netrw_behavior = "disabled",
+        },
+      },
+    },
   },
 }
