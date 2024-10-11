@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
   -- { import = "astrocommunity.completion.copilot-lua" },
@@ -72,7 +73,7 @@ return {
         end,
       },
     },
-    config = {
+    opts = {
       behaviour = {
         auto_suggestions = false, -- Experimental stage
         auto_set_highlight_group = true,

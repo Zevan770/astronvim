@@ -25,6 +25,7 @@ vim.filetype.add {
     ["~/%.config/foo/.*"] = "fooscript",
     [".*settings.*%.json"] = "jsonc",
     [".*keybindings.*%.json"] = "jsonc",
+    [".*neoconf.*%.json"] = "jsonc",
     ["github%.com_*%.txt"] = "markdown",
   },
 }
