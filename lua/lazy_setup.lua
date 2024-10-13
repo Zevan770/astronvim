@@ -15,6 +15,7 @@ require("lazy").setup({
   { import = "plugins" },
   { import = "vscode-config" },
   { import = "termux-config" },
+  { import = "clipboard-buffer" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrodark", "habamax" } },
