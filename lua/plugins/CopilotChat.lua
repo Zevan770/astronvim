@@ -1,4 +1,5 @@
 -- if true then return {} end
+local prefix = "<Leader>ac"
 local astrocore = require "astrocore"
 
 local M = {}
@@ -32,8 +33,8 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = assert(opts.mappings)
-          maps.n["<Leader>c"] = { desc = "Copilot Chat" }
-          maps.v["<Leader>c"] = { desc = "Copilot Chat" }
+          maps.n[prefix] = { desc = "Copilot Chat" }
+          maps.v[prefix] = { desc = "Copilot Chat" }
         end,
       },
     },
@@ -57,21 +58,21 @@ return {
     end,
     keys = {
       { "<c-CR>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
-      -- { "<leader>c", "", desc = "+Copilot ai", mode = { "n", "v" } },
+      -- { prefix .. "", "", desc = "+Copilot ai", mode = { "n", "v" } },
       {
-        "<leader>ca",
+        prefix .. "a",
         function() return require("CopilotChat").toggle() end,
         desc = "Toggle (CopilotChat)",
         mode = { "n", "v" },
       },
       {
-        "<leader>cx",
+        prefix .. "x",
         function() return require("CopilotChat").reset() end,
         desc = "Clear (CopilotChat)",
         mode = { "n", "v" },
       },
       {
-        "<leader>cq",
+        prefix .. "q",
         function()
           local input = vim.fn.input "Quick Chat: "
           if input ~= "" then require("CopilotChat").ask(input) end
@@ -80,9 +81,9 @@ return {
         mode = { "n", "v" },
       },
       -- Show help actions with telescope
-      { "<leader>cd", M.pick "help", desc = "Diagnostic Help (CopilotChat)", mode = { "n", "v" } },
+      { prefix .. "d", M.pick "help", desc = "Diagnostic Help (CopilotChat)", mode = { "n", "v" } },
       -- Show prompts actions with telescope
-      { "<leader>cp", M.pick "prompt", desc = "Prompt Actions (CopilotChat)", mode = { "n", "v" } },
+      { prefix .. "p", M.pick "prompt", desc = "Prompt Actions (CopilotChat)", mode = { "n", "v" } },
     },
     config = function(_, opts)
       local chat = require "CopilotChat"
@@ -100,6 +101,7 @@ return {
     end,
     specs = {
       {
+        -- Edgy integration
         "folke/edgy.nvim",
         optional = true,
         opts = function(_, opts)
@@ -113,6 +115,4 @@ return {
       },
     },
   },
-
-  -- -- Edgy integration
 }

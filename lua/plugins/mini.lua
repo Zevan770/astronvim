@@ -13,6 +13,7 @@ return {
     opts = function(_, opts)
       local mini_path = vim.fn.has "win32" == 1 and "~/.mini.vimrc" or "~/.config/nvim/lua/utils/.mini.vimrc"
       pcall(vim.cmd.source, mini_path)
+      -- vim.cmd.source(mini_path)
 
       local maps = assert(opts.mappings)
       -- maps.n["<C-u>"] = { "<C-u>zz", remap = false }
@@ -30,30 +31,11 @@ return {
       maps.n[";"] = { ":", remap = true }
       maps.i["jk"] = false
       maps.i["jj"] = false
-      maps.n["<C-w>."] = function()
-        require("which-key").show {
-          keys = "<c-w>",
-          loop = true, -- this will keep the popup open until you hit <esc>
-        }
-      end
-      maps.n["zh"] = {
-        function()
-          vim.cmd "normal! zh"
-          require("which-key").show {
-            keys = "z",
-            -- loop = true,
-          }
-        end,
-      }
-      maps.n["zl"] = {
-        function()
-          vim.cmd "normal! zl"
-          require("which-key").show {
-            keys = "z",
-            -- loop = true,
-          }
-        end,
-      }
+
+      maps.n["gh"] = "g^"
+      maps.v["gh"] = "g^"
+      maps.n["gl"] = "g$"
+      maps.v["gl"] = "g$"
     end,
   },
 }

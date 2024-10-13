@@ -2,8 +2,9 @@
 return {
   "AstroNvim/astrocommunity",
   -- { import = "astrocommunity.completion.copilot-lua" },
-  { import = "astrocommunity.completion.copilot-cmp" },
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  -- { import = "astrocommunity.completion.copilot-cmp" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  -- { import = "astrocommunity.completion.codeium-nvim" },
   -- { import = "astrocommunity.completion.avante-nvim" },
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
   {
@@ -38,13 +39,16 @@ return {
 
           maps.n[prefix] = { desc = "Avante functionalities" }
 
-          maps.n[prefix .. "o"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
-          maps.v[prefix .. "o"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
+          maps.n[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
+          maps.v[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
 
           maps.v[prefix .. "r"] = { function() require("avante.api").refresh() end, desc = "Avante refresh" }
 
           maps.n[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
           maps.v[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
+
+          maps.n[prefix .. "o"] = { "<Cmd>AvanteChat<CR>", desc = "Avante chat" }
+          maps.v[prefix .. "o"] = { "<Cmd>AvanteChat<CR>", desc = "Avante chat" }
 
           -- -- the following key bindings do not have an official api implementation
           -- maps.n.co = { "<Cmd>AvanteConflictChooseOurs<CR>", desc = "Choose ours" }
@@ -70,6 +74,24 @@ return {
           --
           -- maps.n["[x"] = { "<Cmd>AvanteConflictNextConflict<CR>", desc = "Move to next conflict" }
           -- maps.x["[x"] = { "<Cmd>AvanteConflictNextConflict<CR>", desc = "Move to next conflict" }
+        end,
+      },
+      {
+        -- make sure `Avante` is added as a filetype
+        "MeanderingProgrammer/render-markdown.nvim",
+        optional = true,
+        opts = function(_, opts)
+          if not opts.file_types then opts.filetypes = { "markdown" } end
+          opts.file_types = require("astrocore").list_insert_unique(opts.file_types, { "Avante" })
+        end,
+      },
+      {
+        -- make sure `Avante` is added as a filetype
+        "OXY2DEV/markview.nvim",
+        optional = true,
+        opts = function(_, opts)
+          if not opts.filetypes then opts.filetypes = { "markdown", "quarto", "rmd" } end
+          opts.filetypes = require("astrocore").list_insert_unique(opts.filetypes, { "Avante" })
         end,
       },
     },
@@ -124,24 +146,6 @@ return {
             },
           },
         },
-      },
-      -- {
-      --   -- make sure `Avante` is added as a filetype
-      --   "MeanderingProgrammer/render-markdown.nvim",
-      --   optional = true,
-      --   opts = function(_, opts)
-      --     if not opts.file_types then opts.filetypes = { "markdown" } end
-      --     opts.file_types = require("astrocore").list_insert_unique(opts.file_types, { "Avante" })
-      --   end,
-      -- },
-      {
-        -- make sure `Avante` is added as a filetype
-        "OXY2DEV/markview.nvim",
-        optional = true,
-        opts = function(_, opts)
-          if not opts.filetypes then opts.filetypes = { "markdown", "quarto", "rmd" } end
-          opts.filetypes = require("astrocore").list_insert_unique(opts.filetypes, { "Avante" })
-        end,
       },
     },
   },

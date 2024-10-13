@@ -49,6 +49,7 @@ noremap      gh          g^
 noremap      gl          g$
 " noremap  J          5gj
 " noremap  K          5gk
+" vunmap K
 noremap  j          gj
 noremap  k          gk
 vnoremap >          >gv

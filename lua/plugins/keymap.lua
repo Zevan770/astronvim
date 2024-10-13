@@ -3,7 +3,6 @@
 return {
   {
     "AstroNvim/astrocore",
-    ---@type AstroCoreOpts
     opts = function(_, opts) -- Configure core features of AstroNvim
       -- Mappings can be configured through AstroCore as well.
       -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
@@ -92,17 +91,6 @@ return {
         }
       end
 
-      -- persist mode
-      maps.n["<Leader>d."] = {
-        function()
-          require("which-key").show {
-            keys = "<leader>d",
-            loop = true, -- this will keep the popup open until you hit <esc>
-          }
-        end,
-        desc = "enter debug persist mode",
-      }
-
       -- commands and keymaps
       maps.n["<Leader>?"] = { function() require("telescope.builtin").keymaps() end, desc = "Find keymaps" }
       -- maps.n["<Leader><Leader>"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
@@ -113,7 +101,7 @@ return {
       -- lsp
       maps.n["gr"] = { function() require("telescope.builtin").lsp_references() end, desc = "LSP references" }
       maps.n["gR"] = { function() vim.lsp.buf.references() end, desc = "LSP references" }
-      maps.n["gh"] = { function() vim.lsp.buf.hover() end, desc = "hover" }
+      -- maps.n["gh"] = { function() vim.lsp.buf.hover() end, desc = "hover" }
       -- tables with just a `desc` key will be registered with which-key if it's installed
       -- this is useful for naming menus
       -- ["<Leader>b"] = { desc = "Buffers" },

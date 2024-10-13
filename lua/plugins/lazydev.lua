@@ -11,6 +11,7 @@ return {
           -- It can also be a table with trigger words / mods
           -- Only load luvit types when the `vim.uv` word is found
           { path = "luvit-meta/library", words = { "vim%.uv" } },
+          { path = "astrocore" },
           -- Load the wezterm types when the `wezterm` module is required
           -- Needs `justinsgithub/wezterm-types` to be installed
           { path = "wezterm-types", mods = { "wezterm" } },
