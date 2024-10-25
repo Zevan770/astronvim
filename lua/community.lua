@@ -17,7 +17,6 @@ local M = {
   -- { import = "astrocommunity.scrolling.cinnamon-nvim" },
   { import = "astrocommunity.split-and-window.minimap-vim" },
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
-  { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   -- { import = "astrocommunity.search.nvim-spectre" },
@@ -56,6 +55,7 @@ local M = {
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.motion.mini-ai" },
+  { import = "astrocommunity.motion.tabout-nvim" },
 
   -- project
   -- { import = "astrocommunity.motion.harpoon" },
@@ -76,7 +76,6 @@ local M = {
   -- utility/tools/games
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.game.leetcode-nvim" },
-  { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
 
   -- { import = "astrocommunity.media.image-nvim" },
