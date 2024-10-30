@@ -6,7 +6,7 @@ return {
     {
       mode = { "n", "v" },
       "ga",
-      "<Plug>(EasyA)ign)",
+      "<Plug>(EasyAlign)",
     },
     {
       mode = { "n", "v" },

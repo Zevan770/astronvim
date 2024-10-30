@@ -81,19 +81,37 @@ return {
         if not vim.v.count == 0 then
           vim.cmd(string.format("normal %dj", vim.v.count))
         else
-          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("gj", true, false, false), "n", true)
+          vim.cmd "normal gj"
         end
       end
-      maps.x["j"] = maps.n["j"]
       maps.n["k"] = function()
         if not vim.v.count == 0 then
           vim.cmd(string.format("normal %dk", vim.v.count))
         else
-          -- vscode.action("cursorMove", { args = { to = "up", by = "wrappedLine", value = vim.v.count } })
-          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("gk", true, false, false), "n", true)
+          vim.cmd "normal gk"
         end
       end
-      maps.x["k"] = maps.n["k"]
+
+      local function wrappedLine_move(d)
+        return function()
+          -- Only works in charwise visual mode
+          if vim.api.nvim_get_mode().mode ~= "v" then return "g" .. d end
+          require("vscode-neovim").action("cursorMove", {
+            args = {
+              {
+                to = d == "j" and "down" or "up",
+                by = "wrappedLine",
+                value = vim.v.count1,
+                select = true,
+              },
+            },
+          })
+          return "<Ignore>"
+        end
+      end
+
+      maps.v["gj"] = { function() wrappedLine_move "j" end, expr = true }
+      maps.v["gk"] = { function() wrappedLine_move "k" end, expr = true }
 
       -- vspacecode
       maps.n["<Space>"] = false
@@ -227,31 +245,4 @@ return {
   { "AstroNvim/astroui", opts = { colorscheme = false } },
   -- disable treesitter highlighting
   { "nvim-treesitter/nvim-treesitter", opts = { highlight = { enable = false } } },
-  {
-    "folke/flash.nvim",
-    keys = {
-      {
-        "gk",
-        mode = { "n", "v" },
-        function()
-          require("flash").jump {
-            search = { foward = false, mode = "search", max_length = 0 },
-            label = { after = { 0, 0 } },
-            pattern = "^",
-          }
-        end,
-      },
-      {
-        "gj",
-        mode = { "n", "v" },
-        function()
-          require("flash").jump {
-            search = { foward = true, mode = "search", max_length = 0 },
-            label = { after = { 0, 0 } },
-            pattern = "^",
-          }
-        end,
-      },
-    },
-  },
 }

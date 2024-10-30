@@ -20,6 +20,7 @@ require("lazy").setup({
   { import = "plugins.ui" },
   { import = "plugins.other" },
   { import = "vscode-config" },
+  { import = "nixos-config" },
   { import = "termux-config" },
   { import = "clipboard-buffer" },
 } --[[@as LazySpec]], {
