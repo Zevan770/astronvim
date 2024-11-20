@@ -1,5 +1,5 @@
 -- if true then return {} end
-local prefix = "<Leader>ac"
+local prefix = "<Leader>c"
 local astrocore = require "astrocore"
 
 local M = {}
@@ -60,7 +60,7 @@ return {
       { "<c-CR>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
       -- { prefix .. "", "", desc = "+Copilot ai", mode = { "n", "v" } },
       {
-        prefix .. "a",
+        prefix .. "o",
         function() return require("CopilotChat").toggle() end,
         desc = "Toggle (CopilotChat)",
         mode = { "n", "v" },

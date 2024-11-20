@@ -3,7 +3,7 @@ return {
   {
     "johngrib/vim-game-snake",
     cmd = "VimGameSnake",
-    enabled = false,
+    enabled = true,
   },
   {
     "johngrib/vim-game-code-break",

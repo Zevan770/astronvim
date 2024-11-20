@@ -9,6 +9,7 @@ return {
       lookForwardBig = 15,
       useDefaultKeymaps = true,
       disabledKeymaps = {
+        "gw",
         "n",
         "r",
         "R",

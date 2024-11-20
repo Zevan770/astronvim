@@ -1,31 +1,10 @@
 -- if true then return {} end
 ---@type LazySpec
 return {
-  {
-    "rainzm/flash-zh.nvim",
-    -- enabled = false,
-    event = "VeryLazy",
-    dependencies = {
-      { "folke/flash.nvim", optional = false },
-    },
-    keys = {
-      {
-        "s",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash-zh").jump {
-            chinese_only = false,
-          }
-        end,
-        desc = "Flash between Chinese",
-      },
-    },
-  },
   { import = "astrocommunity.motion.flash-nvim" },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    -- config = function() require("flash").toggle() end,
     opts = function(_, opts)
       opts.labels = "fjghdktyrueivncmwoxsla;qp"
       opts.modes = {
@@ -62,7 +41,7 @@ return {
           -- by removing them from the list.
           -- If you rather use another key, you can map them
           -- to something else, e.g., { [";"] = "L", [","] = H }
-          keys = { "f", "F", "t", "T", ";", "," },
+          keys = { "f", "F", "t", "T" },
           ---@alias Flash.CharActions table<string, "next" | "prev" | "right" | "left">
           -- The direction for `prev` and `next` is determined by the motion.
           -- `left` and `right` are always left and right.
@@ -88,6 +67,7 @@ return {
           },
         },
       }
+      return opts
     end,
     keys = {
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
@@ -114,11 +94,22 @@ return {
         desc = "Flash Treesitter",
       },
       {
-        "gm",
-        mode = { "n", "v" },
+        "J",
+        mode = { "n", "v", "o" },
         function()
           require("flash").jump {
-            search = { foward = false, mode = "search", max_length = 0 },
+            search = { forward = true, mode = "search", max_length = 0 },
+            label = { after = { 0, 0 } },
+            pattern = "^",
+          }
+        end,
+      },
+      {
+        "K",
+        mode = { "n", "v", "o" },
+        function()
+          require("flash").jump {
+            search = { forward = false, mode = "search", max_length = 0 },
             label = { after = { 0, 0 } },
             pattern = "^",
           }
@@ -153,6 +144,26 @@ return {
             },
           })
         end,
+      },
+    },
+  },
+  {
+    "rainzm/flash-zh.nvim",
+    -- enabled = false,
+    event = "VeryLazy",
+    dependencies = {
+      { "folke/flash.nvim" },
+    },
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash-zh").jump {
+            chinese_only = false,
+          }
+        end,
+        desc = "Flash between Chinese",
       },
     },
   },

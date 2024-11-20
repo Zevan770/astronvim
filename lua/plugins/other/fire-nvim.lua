@@ -18,7 +18,7 @@ return {
     lazy = not vim.g.started_by_firenvim,
     module = false,
     build = function() vim.fn["firenvim#install"](0) end,
-    dependencies = {
+    specs = {
       -- disable these plugin when started by firenvim
       -- { "folke/noice.nvim", optional = true, cond = not vim.g.started_by_firenvim },
       {

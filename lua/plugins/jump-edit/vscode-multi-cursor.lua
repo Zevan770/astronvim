@@ -50,7 +50,7 @@ return {
           expr = true,
         },
         {
-          "<Leader>m",
+          "<Leader>v",
           function() return require("vscode-multi-cursor").create_cursor() end,
           mode = { "n", "x" },
           expr = true,
@@ -72,13 +72,13 @@ return {
         --   desc = "Create cursor using flash",
         -- },
         {
-          "mcs",
+          "<Leader>vs",
           function() require("vscode-multi-cursor").flash_char() end,
           mode = "n",
           desc = "Create cursor using flash",
         },
         {
-          "mcw",
+          "<Leader>vv",
           function() require("vscode-multi-cursor").flash_word() end,
           mode = "n",
           desc = "Create selection using flash",
@@ -110,7 +110,7 @@ return {
           desc = "Goto Next Cursor",
         },
         {
-          "<C-N>",
+          "<A-N>",
           function()
             vscode.with_insert(function() vscode.action "editor.action.addSelectionToNextFindMatch" end)
           end,

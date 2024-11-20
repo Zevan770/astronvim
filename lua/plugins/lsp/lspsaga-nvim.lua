@@ -18,7 +18,8 @@ return {
       "AstroNvim/astrolsp",
       opts = function(_, opts)
         local maps = opts.mappings
-        -- maps.n["K"] = { "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover symbol details", cond = "textDocument/hover" }
+        maps.n["<Leader>k"] =
+          { "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover symbol details", cond = "textDocument/hover" }
 
         -- call hierarchy
         maps.n["<Leader>lc"] =
@@ -45,7 +46,7 @@ return {
           { "<Cmd>Lspsaga outline<CR>", desc = "Symbols outline", cond = "textDocument/documentSymbol" }
 
         -- references
-        maps.n["<Leader>lR"] = {
+        maps.n["gr"] = {
           "<Cmd>Lspsaga finder<CR>",
           desc = "Search references",
           cond = function(client)
@@ -60,16 +61,26 @@ return {
       end,
     },
   },
+  --@param opt
   opts = function(_, opts)
     local astroui = require "astroui"
     local get_icon = function(icon) return astroui.get_icon(icon, 0, true) end
     opts.code_action = { extend_gitsigns = require("astrocore").is_available "gitsigns.nvim" }
-    opts.lightbulb = { sign = false }
+    opts.lightbulb = { sign = true, virtual_text = false, debounce = 500 }
     opts.ui = {
       code_action = get_icon "DiagnosticHint",
       expand = get_icon "FoldClosed",
       collapse = get_icon "FoldOpened",
     }
-    -- opts.symbol_in_winbar = { enable = false }
+    opts.symbol_in_winbar = { enable = false }
+    opts.finder = {
+      keys = {
+        vsplit = "<c-v>",
+        split = "<C-s>",
+        tabe = "<C-t>",
+        tabnew = "r",
+        quit = "q",
+      },
+    }
   end,
 }

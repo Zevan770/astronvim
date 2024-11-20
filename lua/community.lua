@@ -10,19 +10,22 @@ local M = {
   { import = "astrocommunity.recipes.neovide" },
 
   -- ui
-  -- { import = "astrocommunity.recipes.vscode-icons" },
   -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
   -- { import = "astrocommunity.scrolling.mini-animate" },
   -- { import = "astrocommunity.scrolling.vim-smoothie" },
   -- { import = "astrocommunity.scrolling.cinnamon-nvim" },
   { import = "astrocommunity.split-and-window.minimap-vim" },
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   -- { import = "astrocommunity.search.nvim-spectre" },
-  { import = "astrocommunity.search.grug-far-nvim" },
-
+  -- { import = "astrocommunity.indent.indent-rainbowline" },
+  -- this plugin is too annoying
+  -- { import = "astrocommunity.editing-support.nvim-context-vt" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
+
+  { import = "astrocommunity.quickfix.nvim-bqf" },
+  { import = "astrocommunity.quickfix.quicker-nvim" },
 
   -- color
   { import = "astrocommunity.color.transparent-nvim" },
@@ -32,7 +35,6 @@ local M = {
   { import = "astrocommunity.colorscheme.catppuccin" },
 
   -- remote
-  { import = "astrocommunity.remote-development.distant-nvim" },
   -- import/override with your plugins folder
 
   -- fuzzy
@@ -64,11 +66,7 @@ local M = {
   -- lsp
   -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
-  -- { import = "astrocommunity.lsp.lspsaga-nvim" },
-  -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-
-  -- debug
-  { import = "astrocommunity.quickfix.nvim-bqf" },
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
 
   -- version control/git
   { import = "astrocommunity.git.neogit" },
@@ -77,6 +75,7 @@ local M = {
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.game.leetcode-nvim" },
   { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+  { import = "astrocommunity.utility.telescope-lazy-nvim" },
 
   -- { import = "astrocommunity.media.image-nvim" },
   -- { import = "astrocommunity.markdown-and-latex.glow-nvim" },

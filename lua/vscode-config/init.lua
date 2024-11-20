@@ -45,11 +45,12 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "vscode-multi-cursor",
   "vim-matchup",
   "yanky.nvim",
-  -- "catppuccin",
+  "catppuccin",
   -- feel free to open PRs to add more support!
   "flash-zh.nvim",
   "im-select.nvim",
-  -- "which-key.nvim",
+  "fast-cursor-move.nvim",
+  "which-key.nvim",
 })
 
 local Config = require "lazy.core.config"
@@ -114,27 +115,26 @@ return {
       maps.v["gk"] = { function() wrappedLine_move "k" end, expr = true }
 
       -- vspacecode
-      maps.n["<Space>"] = false
-      maps.n["<Space>"] = function() vscode.action "vspacecode.space" end
-      maps.v["<Space>"] = false
-      maps.v["<Space>"] = function() vscode.action "vspacecode.space" end
-      maps.n[","] = function()
+      local function vspacecode_with_restore_im()
         vscode.call "vspacecode.space"
-        vscode.action("whichkey.triggerKey", {
-          args = {
-            "m",
-          },
-        })
-      end
-      maps.v[","] = function()
-        vscode.call "vspacecode.space"
-        vscode.action("whichkey.triggerKey", {
-          args = {
-            "m",
-          },
-        })
+        require("im_select").restore_default_im()
       end
 
+      maps.n["<Space>"] = false
+      maps.n["<Space>"] = vspacecode_with_restore_im
+      maps.v["<Space>"] = false
+      maps.v["<Space>"] = vspacecode_with_restore_im
+
+      maps.n[","] = function()
+        vscode.call "vspacecode.space"
+        vscode.call("whichkey.triggerKey", {
+          args = {
+            "m",
+          },
+        })
+        require("im_select").restore_default_im()
+      end
+      maps.v[","] = maps.n[","]
       maps.v["m]"] = function() vscode.action "bookmarks.expandSelectionToNext" end
       maps.v["m["] = function() vscode.action "bookmarks.expandSelectionToPrevious" end
 
@@ -233,16 +233,16 @@ return {
       maps.n["gD"] = function() vscode.action "editor.action.revealDeclaration" end
       maps.n["gr"] = function() vscode.action "editor.action.goToReferences" end
       maps.n["gy"] = function() vscode.action "editor.action.goToTypeDefinition" end
-      maps.n["<Leader>la"] = function() vscode.action "editor.action.quickFix" end
-      maps.n["<Leader>lG"] = function() vscode.action "workbench.action.showAllSymbols" end
-      maps.n["<Leader>lR"] = function() vscode.action "editor.action.goToReferences" end
-      maps.n["<Leader>lr"] = function() vscode.action "editor.action.rename" end
-      maps.n["<Leader>ls"] = function() vscode.action "workbench.action.gotoSymbol" end
-      maps.n["<Leader>lf"] = function() vscode.action "editor.action.formatDocument" end
+      -- maps.n["<Leader>la"] = function() vscode.action "editor.action.quickFix" end
+      -- maps.n["<Leader>lG"] = function() vscode.action "workbench.action.showAllSymbols" end
+      -- maps.n["<Leader>lR"] = function() vscode.action "editor.action.goToReferences" end
+      -- maps.n["<Leader>lr"] = function() vscode.action "editor.action.rename" end
+      -- maps.n["<Leader>ls"] = function() vscode.action "workbench.action.gotoSymbol" end
+      -- maps.n["<Leader>lf"] = function() vscode.action "editor.action.formatDocument" end
     end,
   },
   -- disable colorscheme setting
-  { "AstroNvim/astroui", opts = { colorscheme = false } },
+  -- { "AstroNvim/astroui", opts = { colorscheme = false } },
   -- disable treesitter highlighting
   { "nvim-treesitter/nvim-treesitter", opts = { highlight = { enable = false } } },
 }

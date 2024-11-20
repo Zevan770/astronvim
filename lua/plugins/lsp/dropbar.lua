@@ -1,20 +1,43 @@
-if true then return {} end
+-- if true then return {} end
 ---@type LazySpec
 return {
-  {
-    "Bekaboo/dropbar.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      "nvim-tree/nvim-web-devicons",
+  "Bekaboo/dropbar.nvim",
+  event = "UIEnter",
+  opts = function(_, opts)
+    local utils = require "dropbar.utils"
+    if not opts.menu then opts.menu = {} end
+    if not opts.menu.keymaps then opts.menu.keymaps = {} end
+    opts.menu.keymaps = {
+      ["<A-l>"] = function()
+        local menu = utils.menu.get_current()
+        if not menu then return end
+        local cursor = vim.api.nvim_win_get_cursor(menu.win)
+        local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
+        if component then menu:click_on(component, nil, 1, "l") end
+      end,
+    }
+  end,
+  specs = {
+    {
+      "rebelot/heirline.nvim",
+      optional = true,
+      opts = function(_, opts) opts.winbar = nil end,
     },
-  },
-
-  {
-    "AstroNvim/astrocore",
-    opts = function(_, opts)
-      local maps = assert(opts.mappings)
-      maps.n["<Leader>j"] = { desc = "+Jump" }
-      maps.n["<Leader>jv"] = { function() require("dropbar.api").pick() end, desc = "breadcrumbs/dropbar" }
-    end,
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { dropbar = { enabled = true } } },
+    },
+    {
+      "AstroNvim/astrocore",
+      opts = function(_, opts)
+        local maps = assert(opts.mappings)
+        maps.n["<Leader>j"] = { desc = "+Jump" }
+        maps.n["<Leader>jv"] =
+          { function() require("dropbar.api").select_next_context() end, desc = "breadcrumbs/dropbar" }
+        maps.n["<Leader>jp"] = { function() require("dropbar.api").pick() end, desc = "breadcrumbs/dropbar" }
+      end,
+    },
   },
 }

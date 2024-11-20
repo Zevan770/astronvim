@@ -14,6 +14,7 @@ require("lazy").setup({
   { import = "community" },
   { import = "plugins" },
   { import = "plugins.lsp" },
+  { import = "plugins.languages" },
   { import = "plugins.jump-edit" },
   { import = "plugins.key" },
   { import = "plugins.search" },
@@ -23,12 +24,13 @@ require("lazy").setup({
   { import = "nixos-config" },
   { import = "termux-config" },
   { import = "clipboard-buffer" },
+  { import = "disable" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
-  install = { colorscheme = { "astrodark", "habamax" } },
+  install = { colorscheme = { "astrodark", "catppuccin" } },
   ui = { backdrop = 100 },
   dev = {
-    path = "~/.local/share/nvim/lazy_dev/",
+    path = vim.fn.stdpath "config" .. "/lua/local_plugins",
     ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
     patterns = {}, -- For example {"folke"}
     fallback = false, -- Fallback to git when local plugin doesn't exist

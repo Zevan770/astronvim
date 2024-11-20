@@ -20,5 +20,8 @@ return {
       })
     end,
   },
-  "https://github.com/nekowinston/wezterm-types",
+  {
+    "https://github.com/nekowinston/wezterm-types",
+    dev = true,
+  },
 }

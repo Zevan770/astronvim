@@ -21,7 +21,7 @@ return {
       maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
       maps.n["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
       maps.n["<Leader>bx"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
-      maps.n["<Leader>bD"] =
+      maps.n["<Leader>bo"] =
         { function() require("astrocore.buffer").close_all(true) end, desc = "Close all buffers except current" }
       maps.n["<Leader>bC"] = { function() require("astrocore.buffer").close_all() end, desc = "Close all buffers" }
       maps.n["<Leader>bH"] =
@@ -37,13 +37,6 @@ return {
       maps.n["<Leader>bsp"] = { function() require("astrocore.buffer").sort "full_path" end, desc = "By full path" }
       maps.n["<Leader>bsi"] = { function() require("astrocore.buffer").sort "bufnr" end, desc = "By buffer number" }
       maps.n["<Leader>bsm"] = { function() require("astrocore.buffer").sort "modified" end, desc = "By modification" }
-
-      -- file
-      -- maps.n["<Leader>ff"] = { "<Cmd>Telescope file_browser<CR>", desc = "Open File browser" }
-      maps.n["<Leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "File recent" }
-      maps.n["<Leader>fR"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" }
-      maps.n["<Leader>fo"] = { function() require("telescope.builtin").vim_options() end, desc = "Find options" }
-      maps.n["<leader>fj"] = { function() require("telescope.builtin").jumplist() end, desc = "jumplist" }
 
       -- Session/Project
       maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
@@ -64,57 +57,23 @@ return {
       maps.n["<Leader>po"] = { function() require("resession").load() end, desc = "Load a session" }
       maps.n["<Leader>pp"] =
         { function() require("resession").load(nil, { dir = "dirsession" }) end, desc = "Load a dirsession" }
-      maps.n["<Leader>p."] = {
+      maps.n["<Leader>pc"] = {
         function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
         desc = "Load current dirsession",
-      }
-      maps.n["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Find files in Project" }
-      maps.n["<Leader>pf"] =
-        { function() require("telescope.builtin").find_files() end, desc = "Find files in Project" }
-      maps.n["<Leader>pF"] = {
-        function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
-        desc = "Find all files",
       }
 
       -- search
       -- maps.n["<Leader>s"] = { desc = "Search" }
       -- maps.n["<Leader>fw"] = false
-      maps.n["<Leader>sP"] =
-        { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" }
-      if vim.fn.executable "rg" == 1 then
-        maps.n["<Leader>sp"] = { function() require("telescope.builtin").live_grep() end, desc = "Find words" }
-        maps.n["<Leader>s."] = {
-          function()
-            require("telescope.builtin").live_grep {
-              additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
-            }
-          end,
-          desc = "Find words in all files",
-        }
-      end
-
-      -- commands and keymaps
-      maps.n["<Leader>?"] = { function() require("telescope.builtin").keymaps() end, desc = "Find keymaps" }
-      -- maps.n["<Leader><Leader>"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
       maps.n["<Leader>;"] = { "gc", remap = true, desc = "Toggle comment" }
       maps.n["<Leader>;;"] = { "gcc", remap = true, desc = "Toggle comment line" }
       maps.x["<Leader>;"] = { "gc", remap = true, desc = "Toggle comment" }
 
-      -- lsp
-      maps.n["gr"] = { function() require("telescope.builtin").lsp_references() end, desc = "LSP references" }
-      maps.n["gR"] = { function() vim.lsp.buf.references() end, desc = "LSP references" }
-      -- maps.n["gh"] = { function() vim.lsp.buf.hover() end, desc = "hover" }
-      -- tables with just a `desc` key will be registered with which-key if it's installed
-      -- this is useful for naming menus
-      -- ["<Leader>b"] = { desc = "Buffers" },
-      -- quick save
-      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-
       -- terminal
       maps.t["<A-[>"] = { "<C-\\><C-n>", desc = "enter terminal buffer normal mode" }
-      maps.n["<C-T>"] = "<Cmd>ToggleTerm<CR>"
-      maps.i["<C-T>"] = maps.n["<C-T>"]
-      maps.t["<C-T>"] = maps.n["<C-T>"]
+      maps.n["<A-t>"] = "<Cmd>ToggleTerm<CR>"
+      maps.i["<A-t>"] = maps.n["<A-t>"]
+      maps.t["<A-t>"] = maps.n["<A-t>"]
 
       maps.t["<C-H>"] = false
       maps.t["<C-J>"] = false
@@ -132,6 +91,18 @@ return {
         local line = vim.api.nvim_win_get_cursor(0)[1]
         vim.api.nvim_buf_set_lines(0, line, line, true, repeated)
       end
+
+      maps.n["<Leader>k"] = function() vim.cmd "normal! K" end
+    end,
+  },
+  {
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = function(_, opts)
+      local maps = assert(opts.mappings)
+      -- lsp
+      maps.n["gR"] = { function() vim.lsp.buf.references() end, desc = "LSP references" }
+      maps.n["<Leader>k"] = { function() vim.lsp.buf.hover() end, desc = "hover" }
     end,
   },
 }
