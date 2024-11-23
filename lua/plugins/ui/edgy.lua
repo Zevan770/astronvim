@@ -1,7 +1,67 @@
 ---@type LazySpec
 return {
   {
+    "mrjones2014/smart-splits.nvim",
+    lazy = false,
+    -- opts = function(_, opts)
+    --   opts.ignored_filetypes = {}
+    --   opts.ignored_buftypes = {}
+    --   return opts
+    -- end,
+    keys = {
+      {
+        "<A-h>",
+        function() require("smart-splits").move_cursor_left() end,
+        desc = "Move to left split",
+        mode = { "n", "i", "v", "t" },
+      },
+      {
+        "<A-j>",
+        function() require("smart-splits").move_cursor_down() end,
+        desc = "Move to below split",
+        mode = { "n", "i", "v", "t" },
+      },
+      {
+        "<A-k>",
+        function() require("smart-splits").move_cursor_up() end,
+        desc = "Move to above split",
+        mode = { "n", "i", "v", "t" },
+      },
+      {
+        "<A-l>",
+        function() require("smart-splits").move_cursor_right() end,
+        desc = "Move to right split",
+        mode = { "n", "i", "v", "t" },
+      },
+      {
+        "<A-S-k>",
+        function() require("smart-splits").resize_up() end,
+        desc = "Resize split up",
+        mode = { "n", "i", "v", "t" },
+      },
+      {
+        "<A-S-j>",
+        function() require("smart-splits").resize_down() end,
+        desc = "Resize split down",
+        mode = { "n", "i", "v", "t" },
+      },
+      {
+        "<A-S-h>",
+        function() require("smart-splits").resize_left() end,
+        desc = "Resize split left",
+        mode = { "n", "i", "v", "t" },
+      },
+      {
+        "<A-S-l>",
+        function() require("smart-splits").resize_right() end,
+        desc = "Resize split right",
+        mode = { "n", "i", "v", "t" },
+      },
+    },
+  },
+  {
     "folke/edgy.nvim",
+    event = "VeryLazy",
     dependencies = {
       {
         "AstroNvim/astrocore",
@@ -9,15 +69,11 @@ return {
           mappings = {
             n = {
               ["<Leader>ts"] = {
-                function()
-                  require("edgy").toggle()
-                end,
+                function() require("edgy").toggle() end,
                 desc = "Toggle Sidebars",
               },
               ["<Leader>aa"] = {
-                function()
-                  require("edgy").select()
-                end,
+                function() require("edgy").select() end,
                 desc = "Pick Sidebar",
               },
             },
@@ -25,24 +81,20 @@ return {
         },
       },
     },
-    opts = function()
-      local opts = {}
-      -- opts.exit_when_last = true
+    opts = function(_, opts)
+      opts = opts or {}
+      opts.exit_when_last = true
       opts.bottom = {
         { ft = "qf", title = "QuickFix" },
         {
           ft = "toggleterm",
           size = { height = 0.4 },
-          filter = function(buf, win)
-            return vim.api.nvim_win_get_config(win).relative == ""
-          end,
+          filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == "" end,
         },
         {
           ft = "noice",
           size = { height = 0.4 },
-          filter = function(buf, win)
-            return vim.api.nvim_win_get_config(win).relative == ""
-          end,
+          filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == "" end,
         },
         "Trouble",
         { title = "Spectre", ft = "spectre_panel", size = { height = 0.4 } },
@@ -52,9 +104,7 @@ return {
         {
           title = "Files",
           ft = "neo-tree",
-          filter = function(buf)
-            return vim.b[buf].neo_tree_source == "filesystem"
-          end,
+          filter = function(buf) return vim.b[buf].neo_tree_source == "filesystem" end,
           pinned = true,
           open = "Neotree position=left filesystem",
           size = { height = 0.5 },
@@ -62,18 +112,14 @@ return {
         {
           title = "Git Status",
           ft = "neo-tree",
-          filter = function(buf)
-            return vim.b[buf].neo_tree_source == "git_status"
-          end,
+          filter = function(buf) return vim.b[buf].neo_tree_source == "git_status" end,
           pinned = true,
           open = "Neotree position=right git_status",
         },
         {
           title = "Buffers",
           ft = "neo-tree",
-          filter = function(buf)
-            return vim.b[buf].neo_tree_source == "buffers"
-          end,
+          filter = function(buf) return vim.b[buf].neo_tree_source == "buffers" end,
           pinned = true,
           open = "Neotree position=top buffers",
         },
@@ -90,10 +136,9 @@ return {
         {
           ft = "help",
           -- don't open help files in edgy that we're editing
-          filter = function(buf)
-            return vim.bo[buf].buftype == "help"
-          end,
+          filter = function(buf) return vim.bo[buf].buftype == "help" end,
           title = "Help",
+          size = { width = 0.5 },
         },
         {
           title = "Symbol Outline",
@@ -104,7 +149,7 @@ return {
       }
 
       -- trouble
-      for _, pos in ipairs({ "top", "bottom", "left", "right" }) do
+      for _, pos in ipairs { "top", "bottom", "left", "right" } do
         opts[pos] = opts[pos] or {}
         table.insert(opts[pos], {
           ft = "trouble",
@@ -120,14 +165,22 @@ return {
       return opts
     end,
     keys = {
-      -- -- increase width
-      -- ["<C-Right>"] = function(win) win:resize("width", 2) end,
-      -- -- decrease width
-      -- ["<C-Left>"] = function(win) win:resize("width", -2) end,
-      -- -- increase height
-      -- ["<C-Up>"] = function(win) win:resize("height", 2) end,
-      -- -- decrease height
-      -- ["<C-Down>"] = function(win) win:resize("height", -2) end,
+      -- close window
+      ["q"] = function(win) win:close() end,
+      -- hide window
+      ["<c-q>"] = function(win) win:hide() end,
+      -- close sidebar
+      ["Q"] = function(win) win.view.edgebar:close() end,
+      -- increase width
+      ["<A-S-l>"] = function(win) win:resize("width", 2) end,
+      -- decrease width
+      ["<A-S-h>"] = function(win) win:resize("width", -2) end,
+      -- increase height
+      ["<A-S-k>"] = function(win) win:resize("height", 2) end,
+      -- decrease height
+      ["<A-S-j>"] = function(win) win:resize("height", -2) end,
+      -- reset all custom sizing
+      ["<c-w>="] = function(win) win.view.edgebar:equalize() end,
     },
     specs = {
       {
@@ -141,5 +194,15 @@ return {
         },
       },
     },
+  },
+  -- prevent neo-tree from opening files in edgy windows
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.open_files_do_not_replace_types = opts.open_files_do_not_replace_types
+        or { "terminal", "Trouble", "qf", "Outline", "trouble" }
+      table.insert(opts.open_files_do_not_replace_types, "edgy")
+    end,
   },
 }

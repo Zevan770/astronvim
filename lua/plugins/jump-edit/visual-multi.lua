@@ -33,8 +33,8 @@ return {
 
       if not opts.mappings then opts.mappings = require("astrocore").empty_map_table() end
       local maps = assert(opts.mappings)
-      maps.n["<C-A-k>"] = { "<Cmd>call vm#commands#add_cursor_up(0, v:count1)<cr>", desc = "Add cursor above" }
-      maps.n["<C-A-J>"] = { "<Cmd>call vm#commands#add_cursor_down(0, v:count1)<cr>", desc = "Add cursor below" }
+      maps.n["<C-k>"] = { "<Cmd>call vm#commands#add_cursor_up(0, v:count1)<cr>", desc = "Add cursor above" }
+      maps.n["<C-J>"] = { "<Cmd>call vm#commands#add_cursor_down(0, v:count1)<cr>", desc = "Add cursor below" }
     end,
     -- keys = {
     --   {

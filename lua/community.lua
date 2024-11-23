@@ -44,7 +44,6 @@ local M = {
   -- { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
   -- { import = "astrocommunity.file-explorer.mini-files" },
   --
-  { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   -- { import = "astrocommunity.syntax.hlargs-nvim" },
   -- { import = "astrocommunity.editing-support.vim-visual-multi" },
@@ -64,7 +63,6 @@ local M = {
   -- { import = "astrocommunity.project.neoconf-nvim" },
 
   -- lsp
-  -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
 
@@ -74,11 +72,6 @@ local M = {
   -- utility/tools/games
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.game.leetcode-nvim" },
-  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
-  { import = "astrocommunity.utility.telescope-lazy-nvim" },
-
-  -- { import = "astrocommunity.media.image-nvim" },
-  -- { import = "astrocommunity.markdown-and-latex.glow-nvim" },
 }
 
 ---@type LazySpec

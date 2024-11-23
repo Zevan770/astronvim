@@ -1,10 +1,10 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  -- { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.completion.copilot-lua" },
   -- { import = "astrocommunity.completion.copilot-cmp" },
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
-  -- { import = "astrocommunity.completion.codeium-nvim" },
+  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.codeium-nvim" },
   -- { import = "astrocommunity.completion.avante-nvim" },
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
   {
@@ -39,13 +39,28 @@ return {
 
           maps.n[prefix] = { desc = "Avante functionalities" }
 
-          maps.n[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
-          maps.v[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
+          maps.n[prefix .. "a"] = {
+            function() require("avante.api").ask() end,
+            desc = "Avante ask",
+          }
+          maps.v[prefix .. "a"] = {
+            function() require("avante.api").ask() end,
+            desc = "Avante ask",
+          }
 
-          maps.v[prefix .. "r"] = { function() require("avante.api").refresh() end, desc = "Avante refresh" }
+          maps.v[prefix .. "r"] = {
+            function() require("avante.api").refresh() end,
+            desc = "Avante refresh",
+          }
 
-          maps.n[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
-          maps.v[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
+          maps.n[prefix .. "e"] = {
+            function() require("avante.api").edit() end,
+            desc = "Avante edit",
+          }
+          maps.v[prefix .. "e"] = {
+            function() require("avante.api").edit() end,
+            desc = "Avante edit",
+          }
 
           maps.n[prefix .. "o"] = { "<Cmd>AvanteChat<CR>", desc = "Avante chat" }
           maps.v[prefix .. "o"] = { "<Cmd>AvanteChat<CR>", desc = "Avante chat" }

@@ -22,11 +22,11 @@ return {
       -- maps.v["<C-d>"] = { "<C-d>zz", remap = false }
       maps.n["<C-e>"] = "3<C-e>"
       maps.v["<C-e>"] = "3<C-e>"
-      maps.i["<C-e>"] = { "<C-\\><C-n>:normal! <C-e><CR>a", noremap = true }
+      -- maps.i["<C-e>"] = { "<C-\\><C-n>:normal! <C-e><CR>a", noremap = true }
       -- maps.i["<C-e>"] = "<C-o>3<C-e>"
       maps.n["<C-y>"] = "3<C-y>"
       maps.v["<C-y>"] = "3<C-y>"
-      maps.i["<C-y>"] = { "<C-\\><C-n><Cmd>normal! <C-y><CR>a", noremap = true }
+      -- maps.i["<C-y>"] = { "<C-\\><C-n><Cmd>normal! <C-y><CR>a", noremap = true }
       -- maps.i["<C-y>"] = "<C-o>3<C-y>"
       maps.n[";"] = { ":", remap = true }
       maps.i["jk"] = false

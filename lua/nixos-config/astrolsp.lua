@@ -1,4 +1,4 @@
-if not os.getenv("NIX_PATH") then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if not os.getenv "NIX_PATH" then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
@@ -6,12 +6,12 @@ if not os.getenv("NIX_PATH") then return {} end -- WARN: REMOVE THIS LINE TO ACT
 --       as this provides autocomplete and documentation while editing
 
 ---@type LazySpec
-return { 
+return {
   {
     "williamboman/mason.nvim",
     opts = {
-      PATH = "append"
-    }
+      PATH = "append",
+    },
   },
   {
     "AstroNvim/astrolsp",
@@ -31,9 +31,8 @@ return {
         "taplo",
         "vimls",
         "vtsls",
-        "vuels"
+        "vuels",
       },
-    }
-  }
+    },
+  },
 }
-
