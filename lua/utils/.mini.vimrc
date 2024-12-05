@@ -6,7 +6,7 @@ set scrolloff=9
 set incsearch
 " "--将搜索匹配的文本高亮显示
 set hlsearch
-" set guifont=LXGWWenKaiMonoScreen\ Nerd\ Font:h14,JetbrainsMono\ Nerd\ font\ mono:h14
+set guifont=LXGWWenKaiMono\ Nerd\ Font:h14
 " "--在搜索时忽略大小写
 set ignorecase
 set smartcase
@@ -47,10 +47,10 @@ nnoremap ]<Space> o<Esc>
 nmap      U          <C-R>
 " nunmap <C-R>
 " better hjkl
-noremap      gh          g^
-noremap      gl          g$
-" noremap  J          5gj
-" noremap  K          5gk
+noremap      H          g^
+noremap      L          g$
+noremap  J          5gj
+noremap  K          5gk
 " vunmap K
 noremap  j          gj
 noremap  k          gk

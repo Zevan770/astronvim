@@ -32,7 +32,25 @@ return {
         opts = function(_, opts)
           local maps = assert(opts.mappings)
           maps.n["<leader>cc"] = { function() require("cmake-tools").build_current_file() end, desc = "Build" }
+          maps.n["<leader>cg"] = { "<Cmd>CmakeGenerate" }
+          maps.n["<leader>cr"] = { function() require("cmake-tools").run_current_file() end, desc = "Cmake Run Cur" }
         end,
+      },
+    },
+  },
+
+  {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = {
+      autocmds = {
+        my_ft_c_cpp = {
+          {
+            event = "Filetype",
+            pattern = "c",
+            callback = function() vim.opt.tabstop = 4 end,
+          },
+        },
       },
     },
   },

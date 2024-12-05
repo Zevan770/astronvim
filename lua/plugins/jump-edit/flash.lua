@@ -72,7 +72,7 @@ return {
     keys = {
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
       {
-        "<A-n>",
+        "<A-s>",
         mode = { "n" },
         function() require("flash").jump { pattern = vim.fn.getreg "/" } end,
         desc = "Toggle Flash Search",
@@ -94,22 +94,11 @@ return {
         desc = "Flash Treesitter",
       },
       {
-        "J",
+        "<leader>jl",
         mode = { "n", "v", "o" },
         function()
           require("flash").jump {
-            search = { forward = true, mode = "search", max_length = 0 },
-            label = { after = { 0, 0 } },
-            pattern = "^",
-          }
-        end,
-      },
-      {
-        "K",
-        mode = { "n", "v", "o" },
-        function()
-          require("flash").jump {
-            search = { forward = false, mode = "search", max_length = 0 },
+            search = { mode = "search", max_length = 0 },
             label = { after = { 0, 0 } },
             pattern = "^",
           }

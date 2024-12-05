@@ -67,6 +67,36 @@ return {
             function() require("telescope.builtin").jumplist() end,
             desc = "jumplist",
           }
+
+          maps.n["<Leader>h"] = { desc = "+Help" }
+          maps.n["<Leader>hD"] = {
+            function()
+              require("telescope.builtin").find_files {
+                prompt_title = "AstroNvim stuffs",
+                follow = true,
+                search_dirs = {
+                  vim.fn.stdpath "data" .. "/lazy/AstroNvim",
+                  vim.fn.stdpath "data" .. "/lazy/astrocommunity",
+                  vim.fn.stdpath "config",
+                },
+              }
+            end,
+            desc = "Astro config files",
+          }
+          maps.n["<Leader>hk"] = {
+            function()
+              require("telescope.builtin").live_grep {
+                search_dirs = {
+                  vim.fn.stdpath "data" .. "/lazy/AstroNvim",
+                  vim.fn.stdpath "data" .. "/lazy/astrocommunity",
+                  vim.fn.stdpath "config",
+                },
+                glob_pattern = { "*.lua" },
+              }
+            end,
+            desc = "Keymaps/Live grep Astro files",
+          }
+
           maps.n["<C-p>"] = {
             function() require("telescope.builtin").find_files() end,
             desc = "Find files in Project",

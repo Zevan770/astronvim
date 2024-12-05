@@ -33,6 +33,7 @@ local M = {
   { import = "astrocommunity.colorscheme.github-nvim-theme" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
 
   -- remote
   -- import/override with your plugins folder
@@ -64,10 +65,6 @@ local M = {
 
   -- lsp
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
-
-  -- version control/git
-  { import = "astrocommunity.git.neogit" },
 
   -- utility/tools/games
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },

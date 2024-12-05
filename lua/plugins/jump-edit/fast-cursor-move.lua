@@ -2,4 +2,5 @@
 ---@type LazySpec
 return {
   "xiyaowong/fast-cursor-move.nvim",
+  enabled = false,
 }

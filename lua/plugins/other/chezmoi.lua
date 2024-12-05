@@ -29,7 +29,12 @@ return {
         telescope.load_extension "chezmoi"
       end,
       keys = {
-        { "<leader>fA", function() require("telescope").extensions.chezmoi.find_files() end, mode = { "n" } },
+        {
+          "<leader>hc",
+          function() require("telescope").extensions.chezmoi.find_files() end,
+          mode = { "n" },
+          desc = "Config/Chezmoi files",
+        },
       },
     },
     {

@@ -5,6 +5,9 @@ return {
   {
     "stevearc/oil.nvim",
     opts = {
+      -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
+      -- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
+      default_file_explorer = true,
       delete_to_trash = true,
       keymaps = {
         ["g?"] = "actions.show_help",

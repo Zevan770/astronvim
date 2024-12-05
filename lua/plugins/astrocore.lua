@@ -34,6 +34,7 @@ return {
         guicursor = vim.opt.guicursor + "n-o:blinkon5", -- sets vim.opt.guicursor
         diffopt = vim.opt.diffopt + "vertical", -- sets vim.opt.diffopt
         mousemoveevent = true,
+        startofline = true,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

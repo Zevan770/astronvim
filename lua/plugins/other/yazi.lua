@@ -18,7 +18,7 @@ return {
       desc = "Open yazi pwd",
     },
     {
-      "<A-y>",
+      "<A-e>",
       function()
         -- NOTE: requires a version of yazi that includes
         -- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
@@ -28,7 +28,7 @@ return {
       mode = { "n", "v", "i" }, --all
     },
     {
-      "<A-y>",
+      "<A-e>",
       "<Cmd>wincmd q<CR>",
       mode = { "t" },
     },

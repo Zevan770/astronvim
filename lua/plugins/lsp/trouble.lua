@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
   {
     "folke/trouble.nvim",
     dependencies = {

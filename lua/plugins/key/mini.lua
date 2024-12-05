@@ -31,11 +31,6 @@ return {
       maps.n[";"] = { ":", remap = true }
       maps.i["jk"] = false
       maps.i["jj"] = false
-
-      maps.n["gh"] = "g^"
-      maps.v["gh"] = "g^"
-      maps.n["gl"] = "g$"
-      maps.v["gl"] = "g$"
     end,
   },
 }

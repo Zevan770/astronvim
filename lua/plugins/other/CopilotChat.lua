@@ -45,24 +45,28 @@ return {
         model = "gpt-4",
         auto_insert_mode = true,
         show_help = true,
-        question_header = "  " .. user .. " ",
-        answer_header = "  Copilot ",
-        window = {
-          width = 0.4,
-        },
+        question_header = "#   " .. user .. " ",
+        answer_header = "#   Copilot ",
+        -- window = {
+        --   width = 0.4,
+        -- },
+        chat_autocomplete = true,
         selection = function(source)
           local select = require "CopilotChat.select"
           return select.visual(source) or select.buffer(source)
         end,
+
+        highlight_headers = false,
+        error_header = "> [!ERROR] Error",
       }
     end,
     keys = {
-      { "<c-CR>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
+      -- { "<c-CR>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
       -- { prefix .. "", "", desc = "+Copilot ai", mode = { "n", "v" } },
       {
         prefix .. "o",
-        function() return require("CopilotChat").toggle() end,
-        desc = "Toggle (CopilotChat)",
+        function() return require("CopilotChat").open() end,
+        desc = "Open (CopilotChat)",
         mode = { "n", "v" },
       },
       {
@@ -87,7 +91,6 @@ return {
     },
     config = function(_, opts)
       local chat = require "CopilotChat"
-      require("CopilotChat.integrations.cmp").setup()
 
       vim.api.nvim_create_autocmd("BufEnter", {
         pattern = "copilot-chat",

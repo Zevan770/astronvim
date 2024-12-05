@@ -141,18 +141,36 @@ return {
       maps.t["<C-K>"] = false
       maps.t["<C-L>"] = false
 
-      maps.n["[<Space>"] = function()
-        local repeated = vim.fn["repeat"]({ "" }, vim.v.count1)
-        local line = vim.api.nvim_win_get_cursor(0)[1]
-        vim.api.nvim_buf_set_lines(0, line - 1, line - 1, true, repeated)
-      end
+      maps.n["[<Space>"] = {
+        function()
+          local repeated = vim.fn["repeat"]({ "" }, vim.v.count1)
+          local line = vim.api.nvim_win_get_cursor(0)[1]
+          vim.api.nvim_buf_set_lines(0, line - 1, line - 1, true, repeated)
+        end,
+        desc = "Insert empty line below",
+      }
 
-      maps.n["]<Space>"] = function()
-        local repeated = vim.fn["repeat"]({ "" }, vim.v.count1)
-        local line = vim.api.nvim_win_get_cursor(0)[1]
-        vim.api.nvim_buf_set_lines(0, line, line, true, repeated)
-      end
+      maps.n["]<Space>"] = {
+        function()
+          local repeated = vim.fn["repeat"]({ "" }, vim.v.count1)
+          local line = vim.api.nvim_win_get_cursor(0)[1]
+          vim.api.nvim_buf_set_lines(0, line, line, true, repeated)
+        end,
+        desc = "Insert empty line below",
+      }
 
+      maps.n["h"] = {
+        function()
+          local onIndentOrFirstNonBlank = vim.fn.virtcol "." <= vim.fn.indent "." + 1
+          local shouldCloseFold = vim.tbl_contains(vim.opt_local.foldopen:get(), "hor")
+          if onIndentOrFirstNonBlank and shouldCloseFold then
+            local wasFolded = pcall(function() vim.cmd "silent! foldclose" end)
+            if wasFolded then return end
+          end
+          vim.cmd.normal { "h", bang = true }
+        end,
+        desc = "h (+ close fold at BoL)",
+      }
       maps.n["<Leader>k"] = function() vim.cmd "normal! K" end
     end,
   },

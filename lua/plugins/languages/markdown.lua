@@ -10,6 +10,21 @@ return {
   -- { import = "astrocommunity.note-taking.obsidian-nvim" },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    opts = { file_types = { "markdown", "Avante" } },
+    opts = { file_types = { "markdown", "Avante", "copilot-chat" } },
+  },
+  {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = {
+      autocmds = {
+        my_ft_markdown = {
+          {
+            event = "Filetype",
+            pattern = "markdown",
+            callback = function() vim.opt_local.wrap = true end,
+          },
+        },
+      },
+    },
   },
 }

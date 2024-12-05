@@ -143,7 +143,6 @@ return {
         {
           title = "Symbol Outline",
           ft = "lspsaga",
-          pinned = true,
           open = "Lspsaga outline",
         },
       }
