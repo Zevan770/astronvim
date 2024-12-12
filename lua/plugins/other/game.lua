@@ -10,4 +10,9 @@ return {
     cmd = "VimGameCodeBreak",
     enabled = false,
   },
+  {
+    "Eandrju/cellular-automaton.nvim",
+    lazy = true,
+    cmd = "CellularAutomaton",
+  },
 }

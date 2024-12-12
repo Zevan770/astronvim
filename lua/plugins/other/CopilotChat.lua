@@ -26,15 +26,15 @@ return {
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    -- branch = "canary",
     cmd = "CopilotChat",
     dependencies = {
       {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = assert(opts.mappings)
-          maps.n[prefix] = { desc = "Copilot Chat" }
-          maps.v[prefix] = { desc = "Copilot Chat" }
+          maps.n[prefix] = { desc = " Copilot Chat" }
+          maps.v[prefix] = { desc = " Copilot Chat" }
         end,
       },
     },
@@ -111,7 +111,7 @@ return {
           opts.right = opts.right or {}
           table.insert(opts.right, {
             ft = "copilot-chat",
-            title = "Copilot Chat",
+            title = " Copilot Chat",
             size = { width = 50 },
           })
         end,

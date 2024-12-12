@@ -5,8 +5,7 @@ return {
     lazy = true,
     event = "User AstroFile",
     opts = {
-      lookForwardSmall = 5,
-      lookForwardBig = 15,
+      forwardLooking = { small = 5, big = 15 },
       useDefaultKeymaps = true,
       disabledKeymaps = {
         "gw",
@@ -20,7 +19,9 @@ return {
         "ig",
         "ag",
       },
-      notifyNotFound = true,
+      notify = {
+        whenObjectNotFound = true,
+      },
     },
   },
 }

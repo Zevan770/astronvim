@@ -13,17 +13,12 @@ return {
     "nvim-telescope/telescope.nvim",
     {
       "AstroNvim/astrocore",
+      ---@type AstroCoreOpts
       opts = {
         mappings = {
           n = {
             ["gf"] = {
-              function()
-                if require("obsidian").util.cursor_on_markdown_link() then
-                  return "<Cmd>ObsidianFollowLink<CR>"
-                else
-                  return "gf"
-                end
-              end,
+              function() return require("obsidian").util.gf_passthrough() end,
               desc = "Obsidian Follow Link",
             },
           },
