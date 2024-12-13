@@ -1,6 +1,4 @@
-if true then return {} end
-if vim.fn.has "win" == 1 then return {} end
-
+if not os.getenv "NIX_PATH" then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 ---@type LazySpec
 return {
   {

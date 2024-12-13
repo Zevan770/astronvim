@@ -7,7 +7,7 @@ return {
 
     -- stylua: ignore
     dashboard.section.buttons.val = {
-      dashboard.button("q", get_icon("Quit", 2, true)        .. "Quit  ",                "<Leader>q",  { remap = true }),
+      dashboard.button("q", get_icon("TabClose", 2, true)        .. "Quit  ",                "<Leader>q",  { remap = true }),
       dashboard.button("n", get_icon("FileNew", 2, true)     .. "New File  ",            "<Leader>n" , { remap = true }),
       dashboard.button("f", get_icon("Search", 2, true)      .. "File Search In Project  ", "<Leader>pf", { remap = true }),
       dashboard.button("r", get_icon("DefaultFile", 2, true) .. "Recents File  ",        "<Leader>fr", { remap = true }),

@@ -6,18 +6,20 @@ return {
     event = "User AstroFile",
     opts = {
       forwardLooking = { small = 5, big = 15 },
-      useDefaultKeymaps = true,
-      disabledKeymaps = {
-        "gw",
-        "n",
-        "r",
-        "R",
-        "L",
-        "Q",
-        "in",
-        "an",
-        "ig",
-        "ag",
+      keymaps = {
+        useDefaults = true,
+        disabledDefaults = {
+          "gw",
+          "n",
+          "r",
+          "R",
+          "L",
+          "Q",
+          "in",
+          "an",
+          "ig",
+          "ag",
+        },
       },
       notify = {
         whenObjectNotFound = true,

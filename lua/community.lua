@@ -50,6 +50,7 @@ local M = {
   -- utility/tools/games
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.game.leetcode-nvim" },
+  -- { import = "astrocommunity.note-taking.venn-nvim" },
 }
 
 ---@type LazySpec

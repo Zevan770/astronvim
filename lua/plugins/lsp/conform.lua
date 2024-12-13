@@ -2,6 +2,7 @@
 ---@type LazySpec
 return {
   { import = "astrocommunity.editing-support.conform-nvim" },
+  { "jay-babu/mason-null-ls.nvim", optional = true, opts = { methods = { formatting = false } } },
   {
     "stevearc/conform.nvim",
     ---@module "conform"

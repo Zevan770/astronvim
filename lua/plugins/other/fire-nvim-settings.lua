@@ -10,12 +10,20 @@ if not vim.g.started_by_firenvim then return {} end
 --   command = "quit", -- 匹配时执行退出命令
 -- })
 
----@type LazySpec
-return { -- disable these plugin when started by firenvim
-  -- { "folke/noice.nvim", optional = true, enabled = false },
-  -- {
-  --   "rebelot/heirline.nvim",
-  --   optional = true,
-  --   enabled = false,
-  -- },
+local M = {}
+local disabled = {
+  "folke/noice.nvim",
+  "rebelot/heirline.nvim",
+  "wallpants/ghost-text.nvim",
+  "codeium.nvim",
 }
+
+-- mix disabled with "enabled = false"
+for _, plugin in ipairs(disabled) do
+  table.insert(M, {
+    plugin,
+    enabled = false,
+  })
+end
+---@type LazySpec
+return M

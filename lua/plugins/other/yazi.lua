@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "mikavilpas/yazi.nvim",
+  lazy = false,
   cmd = {
     "Yazi",
   },

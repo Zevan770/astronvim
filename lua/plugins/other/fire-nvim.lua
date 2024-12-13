@@ -1,4 +1,4 @@
-if true then return {} end
+-- if true then return {} end
 if vim.g.started_by_firenvim then
   vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
@@ -20,7 +20,7 @@ return {
     build = function() vim.fn["firenvim#install"](0) end,
     specs = {
       -- disable these plugin when started by firenvim
-      -- { "folke/noice.nvim", optional = true, cond = not vim.g.started_by_firenvim },
+      { "folke/noice.nvim", optional = true, cond = not vim.g.started_by_firenvim },
       {
         "rebelot/heirline.nvim",
         optional = true,

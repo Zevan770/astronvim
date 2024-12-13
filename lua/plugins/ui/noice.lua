@@ -8,7 +8,11 @@ return {
   { import = "astrocommunity.utility.noice-nvim" },
   {
     "rcarriga/nvim-notify",
-    opts = function(_, opts) opts.timeout = 500 end,
+    opts = function(_, opts)
+      opts.timeout = 500
+      opts.render = "wrapped-compact"
+      return opts
+    end,
     -- enabled = false,
   },
   {

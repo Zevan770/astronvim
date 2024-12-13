@@ -34,13 +34,13 @@ return {
     },
     keys = {
       {
-        "<leader>.",
+        "><leader>",
         function() require("sibling-swap").swap_with_right() end,
         desc = "swap with right sibling",
         mode = { "n", "v" },
       },
       {
-        "<leader>,",
+        "<<leader>",
         function() require("sibling-swap").swap_with_left() end,
         desc = "swap with left sibling",
         mode = { "n", "v" },

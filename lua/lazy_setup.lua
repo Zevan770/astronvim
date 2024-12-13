@@ -27,7 +27,10 @@ require("lazy").setup({
   { import = "disable" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
-  install = { colorscheme = { "astrodark", "catppuccin" } },
+  install = {
+    missing = not vim.g.started_by_firenvim, -- disable automatic installation of missing plugins
+    colorscheme = { "astrodark", "catppuccin" },
+  },
   ui = { backdrop = 100 },
   dev = {
     path = vim.fn.stdpath "config" .. "/lua/local_plugins",

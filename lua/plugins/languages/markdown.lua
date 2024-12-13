@@ -10,7 +10,7 @@ return {
   -- { import = "astrocommunity.note-taking.obsidian-nvim" },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    opts = { file_types = { "markdown", "Avante", "copilot-chat" } },
+    opts = { file_types = { "markdown", "Avante", "copilot-chat", "codecompanion" } },
   },
   {
     "AstroNvim/astrocore",
