@@ -3,5 +3,6 @@
 return {
   {
     "egberts/vim-syntax-ebnf",
+    ft = "ebnf",
   },
 }

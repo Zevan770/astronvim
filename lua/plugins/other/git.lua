@@ -3,6 +3,7 @@ return {
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.gitlinker-nvim" },
+  { import = "astrocommunity.git.octo-nvim" },
   {
     "NeogitOrg/neogit",
     ---@type NeogitConfig
@@ -25,5 +26,5 @@ return {
       },
     },
   },
-  {'akinsho/git-conflict.nvim', version = "*", config = true}
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
 }

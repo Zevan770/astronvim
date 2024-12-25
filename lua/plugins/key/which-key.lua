@@ -60,6 +60,15 @@ return {
           desc = "Enter window persist mode",
         }
 
+        maps.n["z<space>"] = {
+          function()
+            require("which-key").show {
+              keys = "z",
+              loop = true, -- this will keep the popup open until you hit <esc>
+            }
+          end,
+          desc = "Enter fold persist mode",
+        }
         maps.n["zh"] = {
           function()
             vim.cmd "normal! 3zh"

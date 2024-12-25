@@ -4,9 +4,8 @@ return {
   { "AstroNvim/astrocommunity", { import = "astrocommunity.media.image-nvim" } },
   {
     "3rd/image.nvim",
-    enabled = false,
     opts = {
-      backend = "ueberzug",
+      backend = "kitty",
     },
   },
 }

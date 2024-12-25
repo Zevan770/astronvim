@@ -3,6 +3,7 @@ local prefix = "gs"
 return {
   {
     "echasnovski/mini.surround",
+    event = "User AstroFile",
     dependencies = {
       { "AstroNvim/astroui", opts = { icons = { Surround = "󰑤" } } },
       {

@@ -134,6 +134,11 @@ return {
             desc = "Find keymaps",
           }
           -- maps.n["<Leader><Leader>"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
+
+          maps.n["<Leader>fx"] = {
+            "<Cmd>Telescope lazy<CR>",
+            desc = "Find commands",
+          }
         end,
       },
     },

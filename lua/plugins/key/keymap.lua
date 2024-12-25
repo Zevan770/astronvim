@@ -110,10 +110,7 @@ return {
         function() require("resession").delete(nil, { dir = "dirsession" }) end,
         desc = "Delete a dirsession",
       }
-      maps.n["<Leader>po"] = {
-        function() require("resession").load() end,
-        desc = "Load a session",
-      }
+      maps.n["<Leader>po"] = { function() require("resession").load() end, desc = "Load a session" }
       maps.n["<Leader>pp"] = {
         function() require("resession").load(nil, { dir = "dirsession" }) end,
         desc = "Load a dirsession",
@@ -184,10 +181,10 @@ return {
         function() vim.lsp.buf.references() end,
         desc = "LSP references",
       }
-      maps.n["<Leader>k"] = {
-        function() vim.lsp.buf.hover() end,
-        desc = "hover",
-      }
+      -- maps.n["<Leader>k"] = {
+      --   function() vim.lsp.buf.hover() end,
+      --   desc = "hover",
+      -- }
     end,
   },
 }

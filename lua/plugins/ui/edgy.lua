@@ -13,49 +13,49 @@ return {
         "<A-h>",
         function() require("smart-splits").move_cursor_left() end,
         desc = "Move to left split",
-        mode = { "n", "i", "v", "t" },
+        mode = { "n", "i", "t" },
       },
       {
         "<A-j>",
         function() require("smart-splits").move_cursor_down() end,
         desc = "Move to below split",
-        mode = { "n", "i", "v", "t" },
+        mode = { "n", "i", "t" },
       },
       {
         "<A-k>",
         function() require("smart-splits").move_cursor_up() end,
         desc = "Move to above split",
-        mode = { "n", "i", "v", "t" },
+        mode = { "n", "i", "t" },
       },
       {
         "<A-l>",
         function() require("smart-splits").move_cursor_right() end,
         desc = "Move to right split",
-        mode = { "n", "i", "v", "t" },
+        mode = { "n", "i", "t" },
       },
       {
         "<A-S-k>",
         function() require("smart-splits").resize_up() end,
         desc = "Resize split up",
-        mode = { "n", "i", "v", "t" },
+        mode = { "n", "i", "t" },
       },
       {
         "<A-S-j>",
         function() require("smart-splits").resize_down() end,
         desc = "Resize split down",
-        mode = { "n", "i", "v", "t" },
+        mode = { "n", "i", "t" },
       },
       {
         "<A-S-h>",
         function() require("smart-splits").resize_left() end,
         desc = "Resize split left",
-        mode = { "n", "i", "v", "t" },
+        mode = { "n", "i", "t" },
       },
       {
         "<A-S-l>",
         function() require("smart-splits").resize_right() end,
         desc = "Resize split right",
-        mode = { "n", "i", "v", "t" },
+        mode = { "n", "i", "t" },
       },
     },
   },
@@ -158,26 +158,27 @@ return {
           end,
         })
       end
+
+      opts.keys = {
+        -- close window
+        ["q"] = function(win) win:close() end,
+        -- hide window
+        ["<c-q>"] = function(win) win:hide() end,
+        -- close sidebar
+        ["Q"] = function(win) win.view.edgebar:close() end,
+        -- increase width
+        ["<A-S-l>"] = function(win) win:resize("width", 2) end,
+        -- decrease width
+        ["<A-S-h>"] = function(win) win:resize("width", -2) end,
+        -- increase height
+        ["<A-S-k>"] = function(win) win:resize("height", 2) end,
+        -- decrease height
+        ["<A-S-j>"] = function(win) win:resize("height", -2) end,
+        -- reset all custom sizing
+        ["<c-w>="] = function(win) win.view.edgebar:equalize() end,
+      }
       return opts
     end,
-    keys = {
-      -- close window
-      ["q"] = function(win) win:close() end,
-      -- hide window
-      ["<c-q>"] = function(win) win:hide() end,
-      -- close sidebar
-      ["Q"] = function(win) win.view.edgebar:close() end,
-      -- increase width
-      ["<A-S-l>"] = function(win) win:resize("width", 2) end,
-      -- decrease width
-      ["<A-S-h>"] = function(win) win:resize("width", -2) end,
-      -- increase height
-      ["<A-S-k>"] = function(win) win:resize("height", 2) end,
-      -- decrease height
-      ["<A-S-j>"] = function(win) win:resize("height", -2) end,
-      -- reset all custom sizing
-      ["<c-w>="] = function(win) win.view.edgebar:equalize() end,
-    },
     specs = {
       {
         "nvim-neo-tree/neo-tree.nvim",

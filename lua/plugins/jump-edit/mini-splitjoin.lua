@@ -1,6 +1,7 @@
 return {
   {
     "echasnovski/mini.splitjoin",
+    event = "User AstroFile",
     version = false,
     -- No need to copy this inside `setup()`. Will be used automatically.
     opts = {

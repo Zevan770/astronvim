@@ -31,9 +31,9 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = assert(opts.mappings)
-          maps.n["<leader>cc"] = { function() require("cmake-tools").build_current_file() end, desc = "Build" }
-          maps.n["<leader>cg"] = { "<Cmd>CmakeGenerate" }
-          maps.n["<leader>cr"] = { function() require("cmake-tools").run_current_file() end, desc = "Cmake Run Cur" }
+          maps.n["<leader>cmb"] = { function() require("cmake-tools").build_current_file() end, desc = "Build" }
+          maps.n["<leader>cmg"] = { "<Cmd>CmakeGenerate" }
+          maps.n["<leader>cmr"] = { function() require("cmake-tools").run_current_file() end, desc = "Cmake Run Cur" }
         end,
       },
     },

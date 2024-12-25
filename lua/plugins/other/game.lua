@@ -8,11 +8,15 @@ return {
   {
     "johngrib/vim-game-code-break",
     cmd = "VimGameCodeBreak",
-    enabled = false,
+    enabled = true,
   },
   {
     "Eandrju/cellular-automaton.nvim",
     lazy = true,
     cmd = "CellularAutomaton",
+  },
+  {
+    "iqxd/vim-mine-sweeping",
+    cmd = "MineSweep",
   },
 }

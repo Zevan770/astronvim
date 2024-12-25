@@ -17,6 +17,7 @@ local M = {
 
   { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.quickfix.quicker-nvim" },
+  -- { import = "astrocommunity.color.huez-nvim" },
 
   -- color
   { import = "astrocommunity.color.transparent-nvim" },
@@ -45,7 +46,7 @@ local M = {
   { import = "astrocommunity.motion.tabout-nvim" },
 
   -- lsp
-  { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
 
   -- utility/tools/games
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },

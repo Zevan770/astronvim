@@ -11,6 +11,6 @@ return {
   keys = {
     { "<c-h>", function() require("arrow.persist").previous() end, desc = "Go to previous buffer", mode = { "n" } },
     { "<c-l>", function() require("arrow.persist").next() end, desc = "Go to next buffer", mode = { "n" } },
-    { "<a-s>", function() require("arrow.persist").toggle() end, desc = "Toggle buffer", mode = { "n" } },
+    { "<a-r>", function() require("arrow.persist").toggle() end, desc = "Toggle buffer", mode = { "n" } },
   },
 }

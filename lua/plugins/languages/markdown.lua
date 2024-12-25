@@ -3,6 +3,7 @@
 --   pattern = { "*.md", "*.txt" },
 -- })
 
+---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.markdown" },
@@ -11,6 +12,17 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = { file_types = { "markdown", "Avante", "copilot-chat", "codecompanion" } },
+    dependencies = {
+      "nvim-cmp",
+      opts = function(_, opts)
+        local cmp = require "cmp"
+        cmp.setup {
+          sources = cmp.config.sources {
+            { name = "render-markdown" },
+          },
+        }
+      end,
+    },
   },
   {
     "AstroNvim/astrocore",
