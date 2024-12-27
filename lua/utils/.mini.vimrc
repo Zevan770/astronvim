@@ -6,7 +6,8 @@ set scrolloff=9
 set incsearch
 " "--将搜索匹配的文本高亮显示
 set hlsearch
-set guifont=LXGWWenKaiMono\ Nerd\ Font:h14
+" set guifont=LXGWWenKaiMono\ Nerd\ Font:h14
+set guifont=consolaslxgw:h14
 " "--在搜索时忽略大小写
 set ignorecase
 set smartcase
