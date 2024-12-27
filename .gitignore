@@ -1,1 +1,3 @@
 lazy-lock.json
+lua/local_plugins/im-select.nvim
+lua/local_plugins/wezterm-types
