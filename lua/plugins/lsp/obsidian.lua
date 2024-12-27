@@ -11,20 +11,20 @@ return {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
     "nvim-telescope/telescope.nvim",
-    {
-      "AstroNvim/astrocore",
-      ---@type AstroCoreOpts
-      opts = {
-        mappings = {
-          n = {
-            ["gf"] = {
-              function() return require("obsidian").util.gf_passthrough() end,
-              desc = "Obsidian Follow Link",
-            },
-          },
-        },
-      },
-    },
+    -- {
+    --   "AstroNvim/astrocore",
+    --   ---@type AstroCoreOpts
+    --   opts = {
+    --     mappings = {
+    --       n = {
+    --         ["gf"] = {
+    --           function() return require("obsidian").util.gf_passthrough() end,
+    --           desc = "Obsidian Follow Link",
+    --         },
+    --       },
+    --     },
+    --   },
+    -- },
   },
   opts = {
     ui = { enable = false },
@@ -60,5 +60,12 @@ return {
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
     -- URL it will be ignored but you can customize this behavior here.
     follow_url_func = vim.ui.open or function(url) require("astrocore").system_open(url) end,
+  },
+  keys = {
+    {
+      "gf",
+      function() return require("obsidian").util.gf_passthrough() end,
+      desc = "Obsidian Follow Link",
+    },
   },
 }

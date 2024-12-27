@@ -7,11 +7,7 @@ return {
     opts = {
       -- Module mappings. Use `''` (empty string) to disable one.
       -- Created for both Normal and Visual modes.
-      mappings = {
-        toggle = "gz",
-        split = "",
-        join = "",
-      },
+      mappings = { toggle = "gz", split = "", join = "" },
 
       -- Detection options: where split/join should be done
       detect = {

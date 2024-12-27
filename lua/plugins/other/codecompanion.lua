@@ -22,8 +22,8 @@ return {
       },
     },
     keys = {
-      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Inline" },
-      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Chat" },
+      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Inline", mode = {"n", "v"} },
+      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Chat", mode = {"n", "v"} },
     },
     opts = {
       display = {
