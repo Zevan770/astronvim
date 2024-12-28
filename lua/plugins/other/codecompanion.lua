@@ -6,6 +6,14 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope.nvim",
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = assert(opts.mappings)
+          maps.n["<leader>c"] = { desc = " Copilot Chat" }
+          maps.v["<leader>c"] = maps.n["<leader>c"]
+        end,
+      },
     },
     specs = {
       {
@@ -22,8 +30,8 @@ return {
       },
     },
     keys = {
-      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Inline", mode = {"n", "v"} },
-      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Chat", mode = {"n", "v"} },
+      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Inline", mode = { "n", "v" } },
+      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Chat", mode = { "n", "v" } },
     },
     opts = {
       display = {

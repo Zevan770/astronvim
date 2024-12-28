@@ -34,7 +34,7 @@ return {
     },
     keys = {
       {
-        "<leader><",
+        "<leader>>",
         function() require("sibling-swap").swap_with_right() end,
         desc = "swap with right sibling",
         mode = { "n", "v" },

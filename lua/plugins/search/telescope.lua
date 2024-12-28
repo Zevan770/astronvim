@@ -154,5 +154,8 @@ return {
         end,
       },
     },
+    opts = {
+      mappings = {},
+    },
   },
 }
