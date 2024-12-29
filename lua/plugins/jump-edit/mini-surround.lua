@@ -14,28 +14,6 @@ return {
         end,
       },
     },
-    -- config = {
-    --   mappings = {},
-    -- },
-    -- keys = {
-    --   { prefix, mode = { "v" }, function() require("mini.surround").add() end, desc = "Add surrounding" },
-    --   { prefix, mode = { "n" }, desc = "Surround mappings" },
-    --   { prefix .. "d", mode = { "n" }, function() require("mini.surround").delete() end, desc = "Delete surrounding" },
-    --   { prefix .. "f", function() require("mini.surround").find() end, desc = "Find right surrounding" },
-    --   { prefix .. "F", function() require("mini.surround").find_left() end, desc = "Find left surrounding" },
-    --   { prefix .. "h", function() require("mini.surround").highlight() end, desc = "Highlight surrounding" },
-    --   {
-    --     prefix .. "r",
-    --     mode = { "n" },
-    --     function() require("mini.surround").replace() end,
-    --     desc = "Replace surrounding",
-    --   },
-    --   {
-    --     prefix .. "n",
-    --     function() require("mini.surround").update_n_lines() end,
-    --     desc = "Update `MiniSurround.config.n_lines`",
-    --   },
-    -- },
     keys = function(_, keys)
       local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
       local opts = require("lazy.core.plugin").values(plugin, "opts", false) -- resolve mini.clue options
@@ -53,6 +31,7 @@ return {
       return vim.list_extend(mappings, keys)
     end,
     opts = {
+      n_lines = 50,
       mappings = {
         add = prefix .. "a", -- Add surrounding in Normal modes
         delete = prefix .. "d", -- Delete surrounding
