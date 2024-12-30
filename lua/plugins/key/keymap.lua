@@ -54,6 +54,7 @@ return {
         function() require("astrocore.buffer").prev() end,
         desc = "Previous buffer",
       }
+      maps.n["<C-T>"] = maps.n["<Leader><Tab>"]
       maps.n["<Leader>bL"] = {
         function() require("astrocore.buffer").close_right() end,
         desc = "Close all buffers to the right",

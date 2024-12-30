@@ -51,30 +51,10 @@ return {
         create_scroll_mapping("<C-u>", neoscroll.ctrl_u),
         create_scroll_mapping("<C-d>", neoscroll.ctrl_d),
         create_scroll_mapping("<C-f>", neoscroll.ctrl_f),
+        create_scroll_mapping("<PageDown>", neoscroll.ctrl_f),
         create_scroll_mapping("<C-b>", neoscroll.ctrl_b),
+        create_scroll_mapping("<PageUp>", neoscroll.ctrl_b),
       }
-      --   return {
-      --     {
-      --       "<C-u>",
-      --       function() neoscroll.ctrl_u { duration = 100, info = "cursorline" } end,
-      --       mode = { "n", "v", "x" },
-      --     },
-      --     {
-      --       "<C-d>",
-      --       function() neoscroll.ctrl_d { duration = 100, info = "cursorline" } end,
-      --       mode = { "n", "v", "x" },
-      --     },
-      --     {
-      --       "<C-f>",
-      --       function() neoscroll.ctrl_f { duration = 100, info = "cursorline" } end,
-      --       mode = { "n", "v", "x" },
-      --     },
-      --     {
-      --       "<C-b>",
-      --       function() neoscroll.ctrl_b { duration = 100, info = "cursorline" } end,
-      --       mode = { "n", "v", "x" },
-      --     },
-      --   }
     end,
   },
 }

@@ -99,7 +99,8 @@ return {
         function()
           require("flash").jump {
             search = { mode = "search", max_length = 0 },
-            label = { after = { 0, 0 } },
+            label = { after = { 0, vim.api.nvim_win_get_cursor(0)[2] } },
+            style = "right_align",
             pattern = "^",
           }
         end,
