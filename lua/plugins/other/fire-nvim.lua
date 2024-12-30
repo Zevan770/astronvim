@@ -20,18 +20,18 @@ return {
     build = function() vim.fn["firenvim#install"](0) end,
     specs = {
       -- disable these plugin when started by firenvim
-      { "folke/noice.nvim", optional = true, cond = not vim.g.started_by_firenvim },
+      { "folke/noice.nvim", optional = true, enabled = not vim.g.started_by_firenvim },
       {
         "rebelot/heirline.nvim",
         optional = true,
-        cond = not vim.g.started_by_firenvim,
+        enabled = not vim.g.started_by_firenvim,
       },
       {
         "wallpants/ghost-text.nvim",
         opts = {
           -- config goes here
         },
-        cond = not vim.g.started_by_firenvim,
+        enabled = not vim.g.started_by_firenvim,
         optional = true,
       },
     },
