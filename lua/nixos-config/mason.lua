@@ -31,4 +31,9 @@ return {
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = disable_auto_install,
   },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    -- overrides `require("mason-tool-installer").setup(...)`
+    opts = disable_auto_install,
+  },
 }
