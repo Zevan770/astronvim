@@ -35,6 +35,7 @@ return {
         diffopt = vim.opt.diffopt + "vertical", -- sets vim.opt.diffopt
         mousemoveevent = true,
         startofline = true,
+        foldmarker = "#region, #endregion",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

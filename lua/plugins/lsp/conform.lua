@@ -2,7 +2,7 @@
 ---@type LazySpec
 return {
   { import = "astrocommunity.editing-support.conform-nvim" },
-  { "jay-babu/mason-null-ls.nvim", optional = true, opts = { methods = { formatting = false } } },
+  -- { "jay-babu/mason-null-ls.nvim", optional = true, opts = { methods = { formatting = false } } },
   {
     "stevearc/conform.nvim",
     ---@module "conform"
@@ -10,7 +10,6 @@ return {
     opts = function(_, opts)
       -- opts.log_level = vim.log.levels.TRACE
 
-      -- vim.notify(vim.inspect(opts), vim.log.levels.INFO, { title = "conform opts" })
       ---@param bufnr integer
       ---@param ... string
       ---@return string
@@ -23,7 +22,7 @@ return {
         return select(1, ...)
       end
       opts.formatters_by_ft = opts.formatters_by_ft or {}
-      opts.formatters_by_ft.markdown = function(bufnr) return { first(bufnr, "prettierd", "prettier"), "injected" } end
+      -- opts.formatters_by_ft.markdown = function(bufnr) return { first(bufnr, "prettierd", "prettier"), "injected" } end
       -- opts.formatters = {
       --   injected = {
       --     options = {},

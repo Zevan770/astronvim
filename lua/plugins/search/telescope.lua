@@ -156,9 +156,19 @@ return {
     },
     opts = {
       defaults = {
+        layout_config = {
+          preview_cutoff = 0,
+        },
         mappings = {
+          i = {
+            ["<c-space>"] = function()
+              require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf())
+            end,
+          },
           n = {
-            ["<leader>6"] = function() require("telescope.actions.layout").cycle_layout_next(0) end,
+            ["<c-space>"] = function()
+              require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf())
+            end,
           },
         },
       },
@@ -195,7 +205,7 @@ return {
       { "<leader>fp", "<Cmd>Telescope pathogen<CR>", silent = true },
       { "<leader>fpf", "<Cmd>Telescope pathogen find_files<CR>", silent = true },
       { "<leader>fpg", "<Cmd>Telescope pathogen grep_string<CR>", silent = true },
-      { "<leader>bb", "<Cmd>Telescope pathogen quick_buffer<CR>", silent = true },
+      -- { "<leader>bb", "<Cmd>Telescope pathogen quick_buffer<CR>", silent = true },
     },
   },
 }

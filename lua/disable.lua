@@ -2,7 +2,7 @@ local M = {}
 local disabled = {
   "codeium.nvim",
   "image.nvim",
-  "dropbar.nvim",
+  -- "dropbar.nvim",
   -- "astrolsp",
   -- "im-select.nvim",
   -- "flash.nvim",

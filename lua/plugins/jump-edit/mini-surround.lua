@@ -30,18 +30,26 @@ return {
       mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, mappings)
       return vim.list_extend(mappings, keys)
     end,
-    opts = {
-      n_lines = 50,
-      mappings = {
-        add = prefix .. "a", -- Add surrounding in Normal modes
-        delete = prefix .. "d", -- Delete surrounding
-        find = prefix .. "f", -- Find surrounding (to the right)
-        find_left = prefix .. "F", -- Find surrounding (to the left)
-        highlight = prefix .. "h", -- Highlight surrounding
-        replace = prefix .. "c", -- Replace surrounding
-        update_n_lines = prefix .. "n", -- Update `n_lines`
-      },
-    },
+    opts = function()
+      local ts_input = require("mini.surround").gen_spec.input.treesitter
+      return {
+        n_lines = 50,
+        mappings = {
+          add = prefix .. "a", -- Add surrounding in Normal modes
+          delete = prefix .. "d", -- Delete surrounding
+          find = prefix .. "f", -- Find surrounding (to the right)
+          find_left = prefix .. "F", -- Find surrounding (to the left)
+          highlight = prefix .. "h", -- Highlight surrounding
+          replace = prefix .. "c", -- Replace surrounding
+          update_n_lines = prefix .. "n", -- Update `n_lines`
+        },
+        custom_surroundings = {
+          f = {
+            input = ts_input { outer = "@call.outer", inner = "@call.inner" },
+          },
+        },
+      }
+    end,
   },
   {
     "catppuccin",
