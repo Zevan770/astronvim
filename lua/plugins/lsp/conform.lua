@@ -22,7 +22,7 @@ return {
         return select(1, ...)
       end
       opts.formatters_by_ft = opts.formatters_by_ft or {}
-      -- opts.formatters_by_ft.markdown = function(bufnr) return { first(bufnr, "prettierd", "prettier"), "injected" } end
+      opts.formatters_by_ft.markdown = function(bufnr) return { first(bufnr, "prettierd", "prettier"), "injected" } end
       -- opts.formatters = {
       --   injected = {
       --     options = {},

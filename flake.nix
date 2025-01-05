@@ -96,10 +96,10 @@
             };
           };
           env = [
-            {
-              name = "NVIM_APPNAME";
-              value = "zvim";
-            }
+            # {
+            #   name = "NVIM_APPNAME";
+            #   value = "zvim";
+            # }
             {
               name = "PATH";
               prefix = "${self.packages.${system}.testEnv}/home-path/bin";
