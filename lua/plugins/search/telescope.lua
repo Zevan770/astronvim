@@ -153,6 +153,7 @@ return {
           }
         end,
       },
+      { "stevearc/dressing.nvim", optional = true, opts = { select = { backend = { "telescope" } } } },
     },
     opts = {
       defaults = {
@@ -202,10 +203,10 @@ return {
     },
     keys = {
       { "<leader>fpl", "<Cmd>Telescope pathogen live_grep<CR>", silent = true },
-      { "<leader>fp", "<Cmd>Telescope pathogen<CR>", silent = true },
+      -- { "<leader>fp", "<Cmd>Telescope pathogen<CR>", silent = true },
       { "<leader>fpf", "<Cmd>Telescope pathogen find_files<CR>", silent = true },
       { "<leader>fpg", "<Cmd>Telescope pathogen grep_string<CR>", silent = true },
-      -- { "<leader>bb", "<Cmd>Telescope pathogen quick_buffer<CR>", silent = true },
+      { "<leader>fpb", "<Cmd>Telescope pathogen quick_buffer<CR>", silent = true },
     },
   },
 }
