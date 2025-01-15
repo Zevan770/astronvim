@@ -136,8 +136,8 @@ in
       xdg.configFile = {
         "nvim/init.lua".source = ../../init.lua;
         "nvim/lua".source = ../../lua;
-        "nvim/snips".source = ../../snips;
-        "nvim/tutor".source = ../../tutor;
+        # "nvim/snips".source = ../../snips;
+        # "nvim/tutor".source = ../../tutor;
       } // optionalAttrs cfg.bindLazyLock {
         "nvim/lazy-lock.json".source = ../../lazy-lock.json;
       } // optionalAttrs cfg.mergeLazyLock {
