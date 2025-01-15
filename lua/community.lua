@@ -25,7 +25,7 @@ local M = {
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
-  { import = "astrocommunity.color.huez-nvim" },
+  -- { import = "astrocommunity.color.huez-nvim" },
 
   -- fuzzy
   -- { import = "astrocommunity.fuzzy-finder.fzf-lua" },

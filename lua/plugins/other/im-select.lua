@@ -6,6 +6,8 @@ return {
   "keaising/im-select.nvim",
   -- enabled = vim.g.vscode ~= 1,
   dev = true,
+  lazy = true,
+  event = "InsertEnter",
   opts = {
     -- IM will be set to `default_im_select` in `normal` mode
     -- For Windows/WSL, default: "1033", aka: English US Keyboard
