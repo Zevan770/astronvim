@@ -6,8 +6,8 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     -- keys = {},
-    cmd = {
-      "FeMaco",
-    },
+    -- cmd = {
+    --   "FeMaco",
+    -- },
   },
 }
