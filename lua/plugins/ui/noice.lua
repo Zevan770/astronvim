@@ -22,22 +22,6 @@ return {
       local presets = assert(opts.presets)
       presets.inc_rename = true
       presets.bottom_search = false
-      opts.lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-        },
-      }
-      -- opts.override = {
-      --   -- override the default lsp markdown formatter with Noice
-      --   ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      --   -- override the lsp markdown formatter with Noice
-      --   ["vim.lsp.util.stylize_markdown"] = true,
-      --   -- override cmp documentation with Noice (needs the other options to work)
-      --   ["cmp.entry.get_documentation"] = true,
-      -- }
       return opts
     end,
     -- stylua: ignore
@@ -48,5 +32,6 @@ return {
       { "<leader>and", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
       { "<leader>ant", function() require("noice").cmd("pick") end, desc = "Noice Picker (Telescope/FzfLua)" },
     }
+,
   },
 }
