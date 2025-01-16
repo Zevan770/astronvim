@@ -1,14 +1,8 @@
-" set clipboard-=unnamed
-"设置在光标距离窗口顶部或底部一定行数时，开始滚动屏幕内容的行为
 set scrolloff=9
-" " --递增搜索功能：在执行搜索（使用 / 或 ? 命令）时，
-" " Vim 会 在您输入搜索模式的过程中逐步匹配并高亮显示匹配的文本。
 set incsearch
-" "--将搜索匹配的文本高亮显示
 set hlsearch
 " set guifont=LXGWWenKaiMono\ Nerd\ Font:h14
 set guifont=consolaslxgw:h14
-" "--在搜索时忽略大小写
 set ignorecase
 set smartcase
 set tabstop=4
@@ -33,13 +27,6 @@ vmap <c-k> :m'<-2<cr>`>my`<mzgv`yo`z
 " inoremap <C-k> <Esc> :m -2<Enter>gi
 " xnoremap <C-j> :m '>+1<Enter>gv=gv
 " xnoremap <C-k> :m '<-2<Enter>gv=gv
-
-"--格式化（规范化）文本，即对选定的文本进行换行或重排，适应指定的文本宽度。
-" map      Q          gq
-" bookmark 切换书签
-
-"search
-" map      <leader>nh :noh<CR>
 
 nnoremap [<Space> O<Esc>'[
 nnoremap ]<Space> o<Esc>
@@ -121,11 +108,3 @@ noremap    zv      <C-v>
 nmap     zw         <c-w>
 nmap    zg         za
 nmap <enter> za
-
-
-" noremap Q q
-" map q @
-" map qq @@
-
-noremap ; :
-" noremap : ;
