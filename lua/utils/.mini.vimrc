@@ -8,7 +8,6 @@ set smartcase
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-" set easymotion
 " source ~/.config/minimal-vim/.key.vimrc
 
 "--普通模式下使用回车键，向下/向上 增加一行
@@ -108,3 +107,11 @@ noremap    zv      <C-v>
 nmap     zw         <c-w>
 nmap    zg         za
 nmap <enter> za
+
+
+" noremap Q q
+" map q @
+" map qq @@
+
+noremap ; :
+" noremap : ;
