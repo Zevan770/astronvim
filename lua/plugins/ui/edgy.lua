@@ -65,20 +65,17 @@ return {
     dependencies = {
       {
         "AstroNvim/astrocore",
-        opts = {
-          mappings = {
-            n = {
-              ["<Leader>ts"] = {
-                function() require("edgy").toggle() end,
-                desc = "Toggle Sidebars",
-              },
-              ["<Leader>aa"] = {
-                function() require("edgy").select() end,
-                desc = "Pick Sidebar",
-              },
-            },
-          },
-        },
+        opts = function(_, opts)
+          local maps = opts.mappings
+          maps.n["<Leader>ue"] = {
+            function() require("edgy.editor").toggle() end,
+            desc = "Toggle Sidebars",
+          }
+          maps.n["<Leader>aa"] = {
+            function() require("edgy.editor").select() end,
+            desc = "Pick Sidebar",
+          }
+        end,
       },
     },
     opts = function(_, opts)

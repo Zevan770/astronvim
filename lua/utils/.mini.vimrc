@@ -2,7 +2,7 @@ set scrolloff=9
 set incsearch
 set hlsearch
 " set guifont=LXGWWenKaiMono\ Nerd\ Font:h14
-set guifont=consolaslxgw:h14
+" set guifont=consolaslxgw:h14
 set ignorecase
 set smartcase
 set tabstop=4
@@ -14,10 +14,10 @@ set softtabstop=4
 " nnoremap <S-Enter> O<Esc>
 " nnoremap <Enter> o<Esc>
 
-nmap <c-j> mz:m+<cr>`z
-nmap <c-k> mz:m-2<cr>`z
-vmap <c-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <c-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" nmap <c-j> mz:m+<cr>`z
+" nmap <c-k> mz:m-2<cr>`z
+" vmap <c-j> :m'>+<cr>`<my`>mzgv`yo`z
+" vmap <c-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 "--在普通和插入模式下，向下交换行/向上交换行
 " nnoremap <C-j> :m +1<Enter>
@@ -36,6 +36,8 @@ nmap      U          <C-R>
 " better hjkl
 noremap      H          g^
 noremap      L          g$
+noremap  <c-j>      <c-d>
+noremap  <c-k>      <c-u>
 noremap  J          5gj
 noremap  K          5gk
 " vunmap K
@@ -106,7 +108,7 @@ noremap    zv      <C-v>
 " nmap     <C-S-z>    <C-r>
 nmap     zw         <c-w>
 nmap    zg         za
-nmap <enter> za
+" nmap <enter> za
 
 
 " noremap Q q

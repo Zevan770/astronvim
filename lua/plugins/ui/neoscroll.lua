@@ -50,6 +50,8 @@ return {
       return {
         create_scroll_mapping("<C-u>", neoscroll.ctrl_u),
         create_scroll_mapping("<C-d>", neoscroll.ctrl_d),
+        create_scroll_mapping("<C-k>", neoscroll.ctrl_u),
+        create_scroll_mapping("<C-j>", neoscroll.ctrl_d),
         create_scroll_mapping("<C-f>", neoscroll.ctrl_f),
         create_scroll_mapping("<PageDown>", neoscroll.ctrl_f),
         create_scroll_mapping("<C-b>", neoscroll.ctrl_b),
