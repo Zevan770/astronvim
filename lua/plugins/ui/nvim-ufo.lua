@@ -2,6 +2,7 @@
 return {
   {
     "kevinhwang91/nvim-ufo",
+    -- note that nvim 0.11 doesn't require this plugin
     version = false,
     ---@param opts UfoConfig
     opts = function(_, opts)
