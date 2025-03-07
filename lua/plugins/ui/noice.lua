@@ -13,7 +13,7 @@ return {
       opts.render = "wrapped-compact"
       return opts
     end,
-    -- enabled = false,
+    enabled = false,
   },
   {
     "folke/noice.nvim",
