@@ -2,6 +2,7 @@
 return {
   {
     "AckslD/nvim-FeMaco.lua",
+    event = "User AstroFile",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },

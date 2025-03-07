@@ -1,3 +1,4 @@
+if true then return {} end
 ---@type LazySpec
 return {
   "notomo/cmdbuf.nvim",
@@ -14,7 +15,7 @@ return {
       mode = "c",
       "<C-f>",
       function()
-        require("cmmdbuf").split_open(vim.o.cmdwinheight, { line = vim.fn.getcmdline(), column = vim.fn.getcmdpos() })
+        require("cmdbuf").split_open(vim.o.cmdwinheight, { line = vim.fn.getcmdline(), column = vim.fn.getcmdpos() })
       end,
       { noremap = true, silent = true },
     },
