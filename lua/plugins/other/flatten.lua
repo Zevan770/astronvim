@@ -73,15 +73,15 @@ return {
       }
     end,
   },
-  {
-    "lewis6991/fileline.nvim",
-    lazy = false,
-    priority = 10000,
-  },
-  {
-    "wsdjeg/vim-fetch",
-    enabled = false,
-    lazy = false,
-    priority = 10000,
-  },
+  -- {
+  --   "lewis6991/fileline.nvim",
+  --   lazy = false,
+  --   priority = 10000,
+  -- },
+  -- {
+  --   "wsdjeg/vim-fetch",
+  --   enabled = false,
+  --   lazy = false,
+  --   priority = 10000,
+  -- },
 }
