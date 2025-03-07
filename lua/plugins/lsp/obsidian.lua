@@ -11,26 +11,12 @@ return {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
     "nvim-telescope/telescope.nvim",
-    -- {
-    --   "AstroNvim/astrocore",
-    --   ---@type AstroCoreOpts
-    --   opts = {
-    --     mappings = {
-    --       n = {
-    --         ["gf"] = {
-    --           function() return require("obsidian").util.gf_passthrough() end,
-    --           desc = "Obsidian Follow Link",
-    --         },
-    --       },
-    --     },
-    --   },
-    -- },
   },
   opts = {
     ui = { enable = false },
     use_advanced_uri = true,
     finder = "telescope.nvim",
-    dir = vim.fn.has "win32" == 1 and "E:/desktop/大三上/notes" or "/mnt/e/desktop/大三上/notes",
+    dir = vim.fn.has "win32" == 1 and "E:/desktop/notes" or "/mnt/e/desktop/notes",
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
       -- Set to false to disable completion.
@@ -60,12 +46,22 @@ return {
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
     -- URL it will be ignored but you can customize this behavior here.
     follow_url_func = vim.ui.open or function(url) require("astrocore").system_open(url) end,
-  },
-  keys = {
-    {
-      "gf",
-      function() return require("obsidian").util.gf_passthrough() end,
-      desc = "Obsidian Follow Link",
+    mappings = {
+      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+      ["gf"] = {
+        action = function() return require("obsidian").util.gf_passthrough() end,
+        opts = { noremap = false, expr = true, buffer = true },
+      },
+      -- Toggle check-boxes.
+      ["<leader>ch"] = {
+        action = function() return require("obsidian").util.toggle_checkbox() end,
+        opts = { buffer = true },
+      },
+      -- Smart action depending on context, either follow link or toggle checkbox.
+      ["<cr>"] = {
+        action = function() return require("obsidian").util.smart_action() end,
+        opts = { buffer = true, expr = true },
+      },
     },
   },
 }
