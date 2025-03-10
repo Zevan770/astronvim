@@ -18,11 +18,18 @@ return {
   {
     "folke/noice.nvim",
     -- enabled = false,
-    opts = function(self, opts)
-      local presets = assert(opts.presets)
-      presets.inc_rename = true
-      presets.bottom_search = false
-      return opts
+    ---@param opts NoiceConfig
+    opts = function(_, opts)
+      local utils = require "astrocore"
+      return utils.extend_tbl(opts, {
+        lsp = {
+          hover = { enabled = false },
+          signature = { enabled = false },
+        },
+        presets = {
+          bottom_search = false, -- use a classic bottom cmdline for search
+        },
+      })
     end,
     -- stylua: ignore
     keys = {
