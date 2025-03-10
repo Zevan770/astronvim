@@ -2,6 +2,6 @@ return {
   {
     "AstroNvim/astrocommunity",
     { import = "astrocommunity.pack.python" },
-    -- { import = "astrocommunity.lsp.nvim-java" },
+    -- { import = "astrocommunity.pack.python-ruff" },
   },
 }
