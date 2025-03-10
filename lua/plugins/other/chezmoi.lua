@@ -2,11 +2,6 @@
 return {
   "xvzc/chezmoi.nvim",
   enabled = vim.fn.has "win32" ~= 1,
-  config = function()
-    require("chezmoi").setup {
-      -- your configurations
-    }
-  end,
   opts = function(_, opts)
     --  e.g. ~/.local/share/chezmoi/*
     vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -41,7 +36,7 @@ return {
       "fzf.lua",
       optional = true,
       opts = function()
-        fzf_chezmoi = function()
+        local fzf_chezmoi = function()
           require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
             actions = {
               ["default"] = function(selected, opts)

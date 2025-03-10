@@ -1,5 +1,6 @@
 -- if true then return {} end
 ---@type LazySpec
+if vim.fn.has "nvim-0.11" == 1 then return {} end
 return {
   { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
   { import = "astrocommunity.utility.telescope-lazy-nvim" },
@@ -52,14 +53,10 @@ return {
             desc = "File recent",
           }
           maps.n["<Leader>fr"] = {
-            function() require("telescope.builtin").oldfiles() end,
-            desc = "File recent",
-          }
-          maps.n["<Leader>fR"] = {
             function() require("telescope.builtin").registers() end,
             desc = "Find registers",
           }
-          maps.n["<Leader>fo"] = {
+          maps.n["<Leader>fO"] = {
             function() require("telescope.builtin").vim_options() end,
             desc = "Find options",
           }

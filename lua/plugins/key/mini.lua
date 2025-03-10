@@ -28,7 +28,7 @@ return {
       maps.v["<C-y>"] = "3<C-y>"
       -- maps.i["<C-y>"] = { "<C-\\><C-n><Cmd>normal! <C-y><CR>a", noremap = true }
       -- maps.i["<C-y>"] = "<C-o>3<C-y>"
-      maps.n[";"] = { ":", remap = true }
+      -- maps.n[";"] = { ":", remap = true }
       maps.i["jk"] = false
       maps.i["jj"] = false
     end,

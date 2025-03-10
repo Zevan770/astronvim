@@ -56,7 +56,7 @@ return {
           end,
         },
         icon_provider = "devicons",
-        -- filetypes = { "markdown", "quarto", "rmd", "html", "yaml", "codecompanion", "copilot" },
+        filetypes = { "markdown", "quarto", "rmd", "html", "yaml", "codecompanion", "copilot" },
       },
     },
     config = function(_, opts)

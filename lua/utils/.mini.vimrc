@@ -109,11 +109,13 @@ noremap    zv      <C-v>
 nmap     zw         <c-w>
 nmap    zg         za
 " nmap <enter> za
+nnoremap <A-left> <c-o>
+nnoremap <A-right> <c-i>
 
 
 " noremap Q q
 " map q @
 " map qq @@
 
-noremap ; :
+"noremap ; :
 " noremap : ;
