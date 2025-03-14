@@ -1,3 +1,4 @@
+local key = require "plugins.key.which-key"
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
@@ -9,6 +10,7 @@ return {
   {
     "yetone/avante.nvim",
     build = ":AvanteBuild",
+    -- init = function() vim.treesitter.language.register("markdown", "avante") end,
     cmd = {
       "AvanteAsk",
       "AvanteBuild",
@@ -32,63 +34,8 @@ return {
       "MunifTanjim/nui.nvim",
       {
         "AstroNvim/astrocore",
-        opts = function(_, opts)
-          local maps = assert(opts.mappings)
-          local prefix = "<Leader>ai"
-
-          maps.n[prefix] = { desc = "Avante functionalities" }
-
-          maps.n[prefix .. "a"] = {
-            function() require("avante.api").ask() end,
-            desc = "Avante ask",
-          }
-          maps.v[prefix .. "a"] = {
-            function() require("avante.api").ask() end,
-            desc = "Avante ask",
-          }
-
-          maps.v[prefix .. "r"] = {
-            function() require("avante.api").refresh() end,
-            desc = "Avante refresh",
-          }
-
-          maps.n[prefix .. "e"] = {
-            function() require("avante.api").edit() end,
-            desc = "Avante edit",
-          }
-          maps.v[prefix .. "e"] = {
-            function() require("avante.api").edit() end,
-            desc = "Avante edit",
-          }
-
-          maps.n[prefix .. "o"] = { "<Cmd>AvanteChat<CR>", desc = "Avante chat" }
-          maps.v[prefix .. "o"] = { "<Cmd>AvanteChat<CR>", desc = "Avante chat" }
-
-          -- -- the following key bindings do not have an official api implementation
-          -- maps.n.co = { "<Cmd>AvanteConflictChooseOurs<CR>", desc = "Choose ours" }
-          -- maps.v.co = { "<Cmd>AvanteConflictChooseOurs<CR>", desc = "Choose ours" }
-          --
-          -- maps.n.ct = { "<Cmd>AvanteConflictChooseTheirs<CR>", desc = "Choose theirs" }
-          -- maps.v.ct = { "<Cmd>AvanteConflictChooseTheirs<CR>", desc = "Choose theirs" }
-          --
-          -- maps.n.ca = { "<Cmd>AvanteConflictChooseAllTheirs<CR>", desc = "Choose all theirs" }
-          -- maps.v.ca = { "<Cmd>AvanteConflictChooseAllTheirs<CR>", desc = "Choose all theirs" }
-          --
-          -- maps.n.c0 = { "<Cmd>AvanteConflictChooseNone<CR>", desc = "Choose none" }
-          -- maps.v.c0 = { "<Cmd>AvanteConflictChooseNone<CR>", desc = "Choose none" }
-          --
-          -- maps.n.cb = { "<Cmd>AvanteConflictChooseBoth<CR>", desc = "Choose both" }
-          -- maps.v.cb = { "<Cmd>AvanteConflictChooseBoth<CR>", desc = "Choose both" }
-          --
-          -- maps.n.cu = { "<Cmd>AvanteConflictChooseCursor<CR>", desc = "Choose cursor" }
-          -- maps.v.cu = { "<Cmd>AvanteConflictChooseCursor<CR>", desc = "Choose cursor" }
-          --
-          -- maps.n["]x"] = { "<Cmd>AvanteConflictPrevConflict<CR>", desc = "Move to previous conflict" }
-          -- maps.v["]x"] = { "<Cmd>AvanteConflictPrevConflict<CR>", desc = "Move to previous conflict" }
-          --
-          -- maps.n["[x"] = { "<Cmd>AvanteConflictNextConflict<CR>", desc = "Move to next conflict" }
-          -- maps.x["[x"] = { "<Cmd>AvanteConflictNextConflict<CR>", desc = "Move to next conflict" }
-        end,
+        ---@param opts AstroCoreOpts
+        opts = function(_, opts) opts.mappings.n["<Leader>ai"] = { desc = " Avante" } end,
       },
       {
         -- make sure `Avante` is added as a filetype
@@ -109,16 +56,32 @@ return {
         end,
       },
     },
+    ---@type avante.Config
     opts = {
       behaviour = {
-        auto_suggestions = false, -- Experimental stage
+        auto_suggestions = false,
         auto_set_highlight_group = true,
-        auto_set_keymaps = false,
+        auto_set_keymaps = true,
         auto_apply_diff_after_generation = false,
         support_paste_from_clipboard = false,
+        enable_cursor_planning_mode = true, -- enable cursor planning mode!
       },
       mappings = {
-        --- @class AvanteConflictMappings
+        ask = "<leader>aia",
+        edit = "<leader>aie",
+        refresh = "<leader>air",
+        focus = "<leader>aif",
+        toggle = {
+          default = "<leader>ait",
+          debug = "<leader>aid",
+          hint = "<leader>aih",
+          suggestion = "<leader>ais",
+          repomap = "<leader>aiR",
+        },
+        files = {
+          add_current = "<leader>aic", -- Add current buffer to selected files
+        },
+        select_model = "<leader>ai?", -- Select model command
         diff = {
           ours = "co",
           theirs = "ct",
@@ -134,17 +97,8 @@ return {
           prev = "<M-[>",
           dismiss = "<C-]>",
         },
-        jump = {
-          next = "]]",
-          prev = "[[",
-        },
-        submit = {
-          normal = "<CR>",
-          insert = "<C-s>",
-        },
-        sidebar = {
-          switch_windows = "<Tab>",
-          reverse_switch_windows = "<S-Tab>",
+        hints = {
+          enabled = false,
         },
       },
     },
