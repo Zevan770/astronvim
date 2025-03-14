@@ -80,4 +80,5 @@ local clip_windows = {
   cache_enabled = true, -- 或者使用 false 来表示布尔值
 }
 
+vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 vim.g.clipboard = vim.fn.has "android" == 1 and clip_termux or clip_win32
