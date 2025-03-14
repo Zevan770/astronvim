@@ -1,4 +1,4 @@
-if true then return {} end
+-- if true then return {} end
 local prefix = "<Leader>c"
 local astrocore = require "astrocore"
 
@@ -10,15 +10,22 @@ function M.pick(kind)
     local actions = require "CopilotChat.actions"
     local items = actions[kind .. "_actions"]()
     if not items then
-      astrocore.notify "No items to show"
+      astrocore.notify("No " .. kind .. " found on the current line")
       return
     end
-    local ok = pcall(require, "fzf-lua")
-    require("CopilotChat.integrations." .. (ok and "fzflua" or "telescope")).pick(items)
+    local map = {
+      "telescope",
+      "fzflua",
+      "snacks",
+    }
+    for _, m in ipairs(map) do
+      local ok = astrocore.is_available(m)
+      if ok then return require("CopilotChat.integrations." .. m).pick(items) end
+    end
+    astrocore.notify.error "No picker found"
   end
 end
 
-vim.treesitter.language.register("markdown", "copilot-chat")
 ---@type LazySpec
 return {
   -- ai/completion
@@ -91,6 +98,7 @@ return {
     },
     config = function(_, opts)
       local chat = require "CopilotChat"
+      vim.treesitter.language.register("markdown", "copilot-chat")
 
       vim.api.nvim_create_autocmd("BufEnter", {
         pattern = "copilot-chat",

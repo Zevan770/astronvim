@@ -1,3 +1,4 @@
+if true then return {} end
 ---@type LazySpec
 return {
   {
@@ -10,11 +11,12 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = assert(opts.mappings)
-          maps.n["<leader>c"] = { desc = " Copilot Chat" }
+          maps.n["<leader>c"] = { nil, desc = " Copilot Chat" }
           maps.v["<leader>c"] = maps.n["<leader>c"]
         end,
       },
     },
+    init = function() vim.treesitter.language.register("codecompanion", "avante") end,
     specs = {
       {
         -- Edgy integration
