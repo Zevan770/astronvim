@@ -4,23 +4,21 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
+    ---@param opts Flash.Config
     opts = function(_, opts)
       opts.labels = "fjghdktyrueivncmwoxsla;qp"
+
       opts.modes = {
-        -- search = {
-        --   enabled = true,
-        -- },
         char = {
           enabled = true,
           -- dynamic configuration for ftFT motions
-          config = function(opts)
+          config = function(o)
             -- autohide flash when in operator-pending mode
-            opts.autohide = opts.autohide or (vim.fn.mode(true):find "no" and vim.v.operator == "y")
+            o.autohide = o.autohide or (vim.fn.mode(true):find "no" and vim.v.operator == "y")
 
             -- disable jump labels when not enabled, when using a count,
             -- or when recording/executing registers
-            opts.jump_labels = opts.jump_labels
+            o.jump_labels = o.jump_labels
               and vim.v.count == 0
               and vim.fn.reg_executing() == ""
               and vim.fn.reg_recording() == ""
@@ -52,9 +50,6 @@ return {
               -- clever-f style
               [motion:lower()] = "next",
               [motion:upper()] = "prev",
-              -- jump2d style: same case goes next, opposite case goes prev
-              -- [motion] = "next",
-              -- [motion:match("%l") and motion:upper() or motion:lower()] = "prev",
             }
           end,
           search = { wrap = false },
@@ -66,10 +61,44 @@ return {
             autojump = true,
           },
         },
+        treesitter = {
+
+          label = {
+            rainbow = {
+              enabled = true,
+              -- number between 1 and 9
+              shade = 5,
+            },
+          },
+        },
       }
       return opts
     end,
     keys = {
+      {
+        "r",
+        function() require("flash").remote() end,
+        desc = "Remote Flash",
+        mode = { "o" },
+      },
+      {
+        "R",
+        function() require("flash").treesitter_search() end,
+        desc = "Treesitter Search",
+        mode = { "o", "x" },
+      },
+      {
+        "s",
+        function() require("flash").jump() end,
+        desc = "Flash",
+        mode = { "o", "n", "x" },
+      },
+      {
+        "S",
+        function() require("flash").treesitter() end,
+        desc = "Flash Treesitter",
+        mode = { "o", "n", "x" },
+      },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
       {
         "<A-s>",
@@ -94,12 +123,12 @@ return {
         desc = "Flash Treesitter",
       },
       {
-        "<leader>jl",
+        "gl",
         mode = { "n", "v", "o" },
         function()
           require("flash").jump {
             search = { mode = "search", max_length = 0 },
-            label = { after = { 0, vim.api.nvim_win_get_cursor(0)[2] } },
+            label = { before = true, after = false },
             style = "right_align",
             pattern = "^",
           }
@@ -174,7 +203,6 @@ return {
   {
     "rainzm/flash-zh.nvim",
     -- enabled = false,
-    event = "VeryLazy",
     dependencies = {
       { "folke/flash.nvim" },
     },
