@@ -1,3 +1,4 @@
+local notedir = vim.fn.has "win32" == 1 and "E:/desktop/notes" or "/mnt/e/Desktop/notes"
 ---@type LazySpec
 return {
   "epwalsh/obsidian.nvim",
@@ -5,7 +6,7 @@ return {
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
   event = {
-    "BufReadPre  */notes/*.md",
+    "BufReadPre  " .. notedir .. "/**.md",
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -16,7 +17,7 @@ return {
     ui = { enable = false },
     use_advanced_uri = true,
     finder = "telescope.nvim",
-    dir = vim.fn.has "win32" == 1 and "E:/desktop/notes" or "/mnt/e/desktop/notes",
+    dir = notedir,
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
       -- Set to false to disable completion.
