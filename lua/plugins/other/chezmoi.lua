@@ -2,55 +2,90 @@
 return {
   "xvzc/chezmoi.nvim",
   enabled = vim.fn.has "win32" ~= 1,
-  opts = function(_, opts)
-    --  e.g. ~/.local/share/chezmoi/*
-    vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-      pattern = { os.getenv "HOME" .. "/.local/share/chezmoi/*" },
-      callback = function(ev)
-        local bufnr = ev.buf
-        local edit_watch = function() require("chezmoi.commands.__edit").watch(bufnr) end
-        vim.schedule(edit_watch)
-      end,
-    })
-  end,
+  opts = {
+    edit = {
+      watch = true,
+      force = false,
+    },
+    notification = {
+      on_open = true,
+      on_apply = true,
+      on_watch = true,
+    },
+  },
   specs = {
-    "nvim-lua/plenary.nvim",
     {
-      "nvim-telescope/telescope.nvim",
-      optional = true,
-      opts = function(_, opts)
-        -- telscope-config.lua
-        local telescope = require "telescope"
-        telescope.load_extension "chezmoi"
-      end,
-      keys = {
-        {
-          "<leader>hc",
-          function() require("telescope").extensions.chezmoi.find_files() end,
-          mode = { "n" },
-          desc = "Config/Chezmoi files",
+      "AstroNvim/astrocore",
+      ---@type AstroCoreOpts
+      opts = {
+        autocmds = {
+          chezmoi = {
+            {
+              event = { "BufRead", "BufNewFile" },
+              pattern = { os.getenv "HOME" .. "/.local/share/chezmoi/*" },
+              callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
+            },
+          },
         },
       },
     },
     {
-      "fzf.lua",
+      "nvim-telescope/telescope.nvim",
       optional = true,
-      opts = function()
-        local fzf_chezmoi = function()
-          require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
-            actions = {
-              ["default"] = function(selected, opts)
-                require("chezmoi.commands").edit {
-                  targets = { "~/" .. selected[1] },
-                  args = { "--watch" },
-                }
-              end,
+      dependencies = {
+        "xvzc/chezmoi.nvim",
+        {
+          "AstroNvim/astrocore",
+          opts = {
+            mappings = {
+              n = {
+                ["<Leader>hc"] = {
+                  function() require("telescope").extensions.chezmoi.find_files() end,
+                  desc = "Find chezmoi config",
+                },
+              },
             },
-          })
-        end
-
-        vim.api.nvim_create_user_command("ChezmoiFzf", fzf_chezmoi, {})
-      end,
+          },
+        },
+      },
+      opts = function() require("telescope").load_extension "chezmoi" end,
+    },
+    {
+      "ibhagwan/fzf-lua",
+      optional = true,
+      dependencies = {
+        {
+          "AstroNvim/astrocore",
+          ---@type AstroCoreOpts
+          opts = {
+            commands = {
+              ChezmoiFzf = {
+                function()
+                  require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
+                    actions = {
+                      ["default"] = function(selected, _)
+                        require("chezmoi.commands").edit {
+                          targets = { "~/" .. selected[1] },
+                          args = { "--watch" },
+                        }
+                      end,
+                    },
+                  })
+                end,
+                desc = "Search Chezmoi configuration with FZF",
+              },
+            },
+            mappings = {
+              n = {
+                ["<Leader>hc"] = {
+                  function() vim.cmd.ChezmoiFzf() end,
+                  desc = "Find chezmoi config",
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
 }
