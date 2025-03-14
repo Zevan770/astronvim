@@ -2,10 +2,9 @@
 --- @type LazySpec
 return {
   "otavioschwanck/arrow.nvim",
-  lazy = false,
   opts = {
     show_icons = true,
-    leader_key = "<A-a>", -- Recommended to be a single key
+    leader_key = "<M-a>", -- Recommended to be a single key
     buffer_leader_key = "<leader>m", -- Per Buffer Mappings
   },
   keys = {

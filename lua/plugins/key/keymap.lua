@@ -7,9 +7,6 @@ return {
       -- Mappings can be configured through AstroCore as well.
       -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
       local maps = assert(opts.mappings)
-      -- navigate buffer tabs with `H` and `L`
-      -- L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-      -- H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
       --- App
       maps.n["<Leader>a"] = { desc = "Appalication" }
@@ -59,66 +56,12 @@ return {
         function() require("astrocore.buffer").close_right() end,
         desc = "Close all buffers to the right",
       }
-      maps.n["<Leader>bse"] = {
-        function() require("astrocore.buffer").sort "extension" end,
-        desc = "By extension",
-      }
-      maps.n["<Leader>bsr"] = {
-        function() require("astrocore.buffer").sort "unique_path" end,
-        desc = "By relative path",
-      }
-      maps.n["<Leader>bsp"] = {
-        function() require("astrocore.buffer").sort "full_path" end,
-        desc = "By full path",
-      }
-      maps.n["<Leader>bsi"] = {
-        function() require("astrocore.buffer").sort "bufnr" end,
-        desc = "By buffer number",
-      }
-      maps.n["<Leader>bsm"] = {
-        function() require("astrocore.buffer").sort "modified" end,
-        desc = "By modification",
-      }
 
       -- Session/Project
       maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
       maps.n["<Leader>pa"] = {
         function() require("astrocore").update_packages() end,
         desc = "Update Lazy and Mason",
-      }
-      maps.n["<Leader>S"] = false
-      maps.n["<Leader>pl"] = {
-        function() require("resession").load "Last Session" end,
-        desc = "Load last session",
-      }
-      maps.n["<Leader>ps"] = {
-        function() require("resession").save() end,
-        desc = "Save this session",
-      }
-      maps.n["<Leader>pS"] = {
-        function() require("resession").save(vim.fn.getcwd(), { dir = "dirsession" }) end,
-        desc = "Save this dirsession",
-      }
-      maps.n["<Leader>pt"] = {
-        function() require("resession").save_tab() end,
-        desc = "Save this tab's session",
-      }
-      maps.n["<Leader>pd"] = {
-        function() require("resession").delete() end,
-        desc = "Delete a session",
-      }
-      maps.n["<Leader>pD"] = {
-        function() require("resession").delete(nil, { dir = "dirsession" }) end,
-        desc = "Delete a dirsession",
-      }
-      maps.n["<Leader>po"] = { function() require("resession").load() end, desc = "Load a session" }
-      maps.n["<Leader>pp"] = {
-        function() require("resession").load(nil, { dir = "dirsession" }) end,
-        desc = "Load a dirsession",
-      }
-      maps.n["<Leader>pc"] = {
-        function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
-        desc = "Load current dirsession",
       }
 
       -- search
@@ -171,6 +114,52 @@ return {
       }
       maps.n["<Leader>k"] = function() vim.cmd "normal! K" end
     end,
+  },
+  {
+    "stevearc/resession.nvim",
+    specs = {
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          maps.n["<Leader>p"] = maps.n["<Leader>S"]
+          maps.n["<Leader>S"] = false
+          maps.n["<Leader>pl"] = {
+            function() require("resession").load "Last Session" end,
+            desc = "Load last session",
+          }
+          maps.n["<Leader>ps"] = {
+            function() require("resession").save() end,
+            desc = "Save this session",
+          }
+          maps.n["<Leader>pS"] = {
+            function() require("resession").save(vim.fn.getcwd(), { dir = "dirsession" }) end,
+            desc = "Save this dirsession",
+          }
+          maps.n["<Leader>pt"] = {
+            function() require("resession").save_tab() end,
+            desc = "Save this tab's session",
+          }
+          maps.n["<Leader>pd"] = {
+            function() require("resession").delete() end,
+            desc = "Delete a session",
+          }
+          maps.n["<Leader>pD"] = {
+            function() require("resession").delete(nil, { dir = "dirsession" }) end,
+            desc = "Delete a dirsession",
+          }
+          maps.n["<Leader>po"] = { function() require("resession").load() end, desc = "Load a session" }
+          maps.n["<Leader>pp"] = {
+            function() require("resession").load(nil, { dir = "dirsession" }) end,
+            desc = "Load a dirsession",
+          }
+          maps.n["<Leader>pc"] = {
+            function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
+            desc = "Load current dirsession",
+          }
+        end,
+      },
+    },
   },
   {
     "AstroNvim/astrolsp",
