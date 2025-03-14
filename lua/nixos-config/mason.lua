@@ -1,4 +1,3 @@
-if not os.getenv "NIX_PATH" then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 -- customize mason plugins
 local suggested_packages = {}
 

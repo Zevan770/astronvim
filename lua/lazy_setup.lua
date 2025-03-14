@@ -21,9 +21,9 @@ require("lazy").setup({
   { import = "plugins.search" },
   { import = "plugins.ui" },
   { import = "plugins.other" },
-  { import = "vscode-config" },
-  { import = "nixos-config" },
-  { import = "termux-config" },
+  vim.g.vscode and { import = "vscode-config" } or nil,
+  os.getenv "NIX_PATH" and { import = "nixos-config" } or nil,
+  vim.fn.has "android" and { import = "termux-config" } or nil,
   { import = "clipboard-buffer" },
   { import = "disable" },
 } --[[@as LazySpec]], {
