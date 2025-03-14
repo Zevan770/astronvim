@@ -13,7 +13,7 @@ local M = {
   { import = "astrocommunity.split-and-window.minimap-vim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-  { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  -- { import = "astrocommunity.editing-support.zen-mode-nvim" },
 
   { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.quickfix.quicker-nvim" },
@@ -33,13 +33,12 @@ local M = {
   -- edit
   -- { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
   -- { import = "astrocommunity.file-explorer.mini-files" },
-  { import = "astrocommunity.editing-support.telescope-undo-nvim" },
+  -- { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   --- force save file with sudo
   { import = "astrocommunity.editing-support.suda-vim" },
 
   -- motion/jump/navigation
   -- { import = "astrocommunity.motion.leap-nvim" },
-  { import = "astrocommunity.motion.portal-nvim" },
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.motion.mini-ai" },
@@ -53,6 +52,7 @@ local M = {
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.game.leetcode-nvim" },
   { import = "astrocommunity.docker.lazydocker" },
+  { import = "astrocommunity.programming-language-support.csv-vim" },
   -- { import = "astrocommunity.note-taking.venn-nvim" },
 }
 

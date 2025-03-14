@@ -3,6 +3,7 @@ local disabled = {
   "codeium.nvim",
   "image.nvim",
   "cmdbuf.nvim",
+  -- "telescope.nvim",
   -- "neoscroll.nvim",
   -- "dropbar.nvim",
   -- "astrolsp",
