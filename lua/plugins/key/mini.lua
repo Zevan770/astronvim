@@ -11,7 +11,7 @@ return {
     "AstroNvim/astrocore",
     ---@param opts AstroCoreOpts
     opts = function(_, opts)
-      local mini_path = vim.fn.has "win32" == 1 and "~/.mini.vimrc" or "~/.config/nvim/lua/utils/.mini.vimrc"
+      local mini_path = vim.fn.stdpath "config" .. "/lua/utils/.mini.vimrc"
       pcall(vim.cmd.source, mini_path)
       -- vim.cmd.source(mini_path)
 
