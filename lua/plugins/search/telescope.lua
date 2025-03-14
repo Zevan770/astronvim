@@ -52,10 +52,6 @@ return {
             function() require("telescope.builtin").buffers() end,
             desc = "File recent",
           }
-          maps.n["<Leader>fr"] = {
-            function() require("telescope.builtin").registers() end,
-            desc = "Find registers",
-          }
           maps.n["<Leader>fO"] = {
             function() require("telescope.builtin").vim_options() end,
             desc = "Find options",

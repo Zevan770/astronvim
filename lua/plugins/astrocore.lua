@@ -36,6 +36,10 @@ return {
         mousemoveevent = true,
         startofline = true,
         foldmarker = "#region, #endregion",
+        jumpoptions = "view",
+        pumblend = 10,
+        pumheight = 10,
+        confirm = true,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

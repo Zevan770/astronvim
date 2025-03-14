@@ -127,13 +127,13 @@ return {
         --   open = function() require("aerial").open() end,
         -- },
         { title = "Grug Far", ft = "grug-far", size = { width = 0.4 } },
-        {
-          ft = "help",
-          -- don't open help files in edgy that we're editing
-          filter = function(buf) return vim.bo[buf].buftype == "help" end,
-          title = "Help",
-          size = { width = 0.5 },
-        },
+        -- {
+        --   ft = "help",
+        --   -- don't open help files in edgy that we're editing
+        --   filter = function(buf) return vim.bo[buf].buftype == "help" end,
+        --   title = "Help",
+        --   size = { width = 0.5 },
+        -- },
         {
           title = "Symbol Outline",
           ft = "lspsaga",
