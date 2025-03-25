@@ -73,9 +73,9 @@ return {
 
       -- terminal
       maps.t["<A-[>"] = { "<C-\\><C-n>", desc = "enter terminal buffer normal mode" }
-      maps.n["<A-t>"] = "<Cmd>ToggleTerm<CR>"
-      maps.i["<A-t>"] = maps.n["<A-t>"]
-      maps.t["<A-t>"] = maps.n["<A-t>"]
+      maps.n["<M-t>"] = "<Cmd>ToggleTerm direction=float<CR>"
+      maps.i["<M-t>"] = maps.n["<M-t>"]
+      maps.t["<M-t>"] = maps.n["<M-t>"]
 
       maps.t["<C-H>"] = false
       maps.t["<C-J>"] = false

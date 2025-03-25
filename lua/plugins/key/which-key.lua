@@ -2,10 +2,10 @@
 return {
   "folke/which-key.nvim",
   ---@class wk.Opts
-  opts = function(_, opts)
-    opts.preset = "helix"
-    opts.delay = 100
-  end,
+  opts = {
+    preset = "helix",
+    delay = 100,
+  },
   specs = {
     {
       "AstroNvim/astrocore",
@@ -154,6 +154,11 @@ return {
               -- loop = true,
             }
           end,
+        }
+
+        maps.n["<Leader>?"] = {
+          function() require("which-key").show { global = false } end,
+          desc = "Buffer Keymaps (which-key)",
         }
       end,
     },

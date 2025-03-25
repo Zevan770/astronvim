@@ -1,7 +1,6 @@
 -- if true then return {} end
 ---@type LazySpec
 return {
-  { import = "astrocommunity.motion.flash-nvim" },
   {
     "folke/flash.nvim",
     ---@param opts Flash.Config
@@ -87,12 +86,12 @@ return {
         desc = "Treesitter Search",
         mode = { "o", "x" },
       },
-      {
-        "s",
-        function() require("flash").jump() end,
-        desc = "Flash",
-        mode = { "o", "n", "x" },
-      },
+      -- {
+      --   "s",
+      --   function() require("flash").jump() end,
+      --   desc = "Flash",
+      --   mode = { "o", "n", "x" },
+      -- },
       {
         "S",
         function() require("flash").treesitter() end,
