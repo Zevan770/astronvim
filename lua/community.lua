@@ -14,6 +14,7 @@ local M = {
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   -- { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
 
   { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.quickfix.quicker-nvim" },
@@ -41,8 +42,7 @@ local M = {
   -- { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.vim-matchup" },
-  { import = "astrocommunity.motion.mini-ai" },
-  { import = "astrocommunity.motion.tabout-nvim" },
+  -- { import = "astrocommunity.motion.tabout-nvim" },
 
   -- lsp
   -- { import = "astrocommunity.lsp.lsp-signature-nvim" },

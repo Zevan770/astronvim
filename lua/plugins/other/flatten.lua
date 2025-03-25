@@ -4,6 +4,7 @@ return {
   {
     "willothy/flatten.nvim",
     lazy = false,
+    priority = 10000,
     dependencies = {
       {
         "willothy/wezterm.nvim",
@@ -69,7 +70,7 @@ return {
               end
             end)
           end,
-          one_per = { wezterm = true },
+          -- one_per = { wezterm = true },
         },
       }
     end,

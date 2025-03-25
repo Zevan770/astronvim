@@ -77,7 +77,7 @@ local clip_windows = {
     ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).ToString().Replace("`r", ""))',
     ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).ToString().Replace("`r", ""))',
   },
-  cache_enabled = true, -- 或者使用 false 来表示布尔值
+  cache_enabled = true,
 }
 
 vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard

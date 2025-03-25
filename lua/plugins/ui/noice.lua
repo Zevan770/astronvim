@@ -5,7 +5,100 @@
 
 ---@type LazySpec
 return {
-  { import = "astrocommunity.utility.noice-nvim" },
+  -- { import = "astrocommunity.utility.noice-nvim" },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = function(_, opts)
+      local utils = require "astrocore"
+      return utils.extend_tbl(opts, {
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          hover = { enabled = false },
+          signature = { enabled = false },
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        presets = {
+          bottom_search = false, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = utils.is_available "inc-rename.nvim", -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false, -- add a border to hover docs and signature help
+        },
+      })
+    end,
+    keys = {
+      { "<leader>anl", function() require("noice").cmd "last" end, desc = "Noice Last Message" },
+      { "<leader>anh", function() require("noice").cmd "history" end, desc = "Noice History" },
+      { "<leader>ana", function() require("noice").cmd "all" end, desc = "Noice All" },
+      { "<leader>and", function() require("noice").cmd "dismiss" end, desc = "Dismiss All" },
+      { "<leader>ant", function() require("noice").cmd "pick" end, desc = "Noice Picker (Telescope/FzfLua)" },
+    },
+    specs = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        opts = function(_, opts)
+          if opts.ensure_installed ~= "all" then
+            opts.ensure_installed = require("astrocore").list_insert_unique(
+              opts.ensure_installed,
+              { "bash", "markdown", "markdown_inline", "regex", "vim" }
+            )
+          end
+        end,
+      },
+      {
+        "AstroNvim/astrolsp",
+        optional = true,
+        ---@param opts AstroLSPOpts
+        opts = function(_, opts)
+          local noice_opts = require("astrocore").plugin_opts "noice.nvim"
+          -- disable the necessary handlers in AstroLSP
+          if not opts.lsp_handlers then opts.lsp_handlers = {} end
+          if vim.tbl_get(noice_opts, "lsp", "hover", "enabled") ~= false then
+            opts.lsp_handlers["textDocument/hover"] = false
+          end
+          if vim.tbl_get(noice_opts, "lsp", "signature", "enabled") ~= false then
+            opts.lsp_handlers["textDocument/signatureHelp"] = false
+            if not opts.features then opts.features = {} end
+            opts.features.signature_help = false
+          end
+        end,
+      },
+      {
+        "rebelot/heirline.nvim",
+        optional = true,
+        opts = function(_, opts)
+          local noice_opts = require("astrocore").plugin_opts "noice.nvim"
+          if vim.tbl_get(noice_opts, "lsp", "progress", "enabled") ~= false then -- check if lsp progress is enabled
+            opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
+          end
+        end,
+      },
+      {
+        "folke/edgy.nvim",
+        optional = true,
+        opts = function(_, opts)
+          if not opts.bottom then opts.bottom = {} end
+          table.insert(opts.bottom, {
+            ft = "noice",
+            size = { height = 0.4 },
+            filter = function(_, win) return vim.api.nvim_win_get_config(win).relative == "" end,
+          })
+        end,
+      },
+      {
+        "catppuccin",
+        optional = true,
+        ---@type CatppuccinOptions
+        opts = { integrations = { noice = true } },
+      },
+    },
+  },
   {
     "rcarriga/nvim-notify",
     opts = function(_, opts)
@@ -13,31 +106,5 @@ return {
       return opts
     end,
     enabled = false,
-  },
-  {
-    "folke/noice.nvim",
-    -- enabled = false,
-    ---@param opts NoiceConfig
-    opts = function(_, opts)
-      local utils = require "astrocore"
-      return utils.extend_tbl(opts, {
-        lsp = {
-          hover = { enabled = false },
-          signature = { enabled = false },
-        },
-        presets = {
-          bottom_search = false, -- use a classic bottom cmdline for search
-        },
-      })
-    end,
-    -- stylua: ignore
-    keys = {
-      { "<leader>anl", function() require("noice").cmd("last") end, desc = "Noice Last Message" },
-      { "<leader>anh", function() require("noice").cmd("history") end, desc = "Noice History" },
-      { "<leader>ana", function() require("noice").cmd("all") end, desc = "Noice All" },
-      { "<leader>and", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
-      { "<leader>ant", function() require("noice").cmd("pick") end, desc = "Noice Picker (Telescope/FzfLua)" },
-    }
-,
   },
 }

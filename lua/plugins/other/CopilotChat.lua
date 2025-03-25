@@ -33,7 +33,7 @@ return {
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    -- branch = "canary",
+    branch = "main",
     cmd = "CopilotChat",
     dependencies = {
       {

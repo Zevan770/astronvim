@@ -1,6 +1,5 @@
 local M = {}
 local disabled = {
-  "codeium.nvim",
   "image.nvim",
   "cmdbuf.nvim",
   -- "telescope.nvim",

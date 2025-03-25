@@ -1,9 +1,12 @@
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
-  { import = "astrocommunity.completion.codeium-nvim" },
+  {
+    "AstroNvim/astrocommunity",
+    { import = "astrocommunity.completion.codeium-nvim" },
+  },
   {
     "Exafunction/codeium.nvim",
+    enabled = false,
     opts = {
       enable_cmp_source = true,
       virtual_text = {

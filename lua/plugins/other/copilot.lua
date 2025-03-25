@@ -1,10 +1,18 @@
-local key = require "plugins.key.which-key"
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
-  -- { import = "astrocommunity.completion.copilot-lua" },
-  -- { import = "astrocommunity.completion.copilot-cmp" },
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  {
+    "AstroNvim/astrocommunity",
+    -- { import = "astrocommunity.completion.copilot-lua" },
+    { import = "astrocommunity.completion.copilot-cmp" },
+    -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    config = function(_, opts)
+      vim.g.copilot_proxy_strict_ssl = false
+      require("copilot").setup { opts }
+    end,
+  },
   -- { import = "astrocommunity.completion.avante-nvim" },
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
   {
@@ -100,6 +108,13 @@ return {
         hints = {
           enabled = false,
         },
+      },
+    },
+    keys = {
+      {
+        mode = "n",
+        "<leader>ai",
+        desc = " Avante",
       },
     },
     specs = { -- configure optional plugins

@@ -1,7 +1,7 @@
 return {
   "sphamba/smear-cursor.nvim",
   event = "VeryLazy",
-  cond = vim.g.neovide == nil,
+  cond = vim.g.neovide == nil and not vim.env.KITTY_PID,
   opts = {
     hide_target_hack = true,
     cursor_color = "none",
