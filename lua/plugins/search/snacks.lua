@@ -3,7 +3,7 @@ return {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = {
-      image = { enabled = true },
+      image = { enabled = not not vim.env.KITTY_PID },
       dim = { enabled = true },
     },
     specs = {
@@ -44,17 +44,19 @@ return {
           }
           maps.n["<Leader>sp"] = maps.n["<Leader>fw"]
           maps.n["<Leader>sP"] = maps.n["<Leader>fc"]
+          maps.n["<Leader>fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
+          maps.n["<Leader>fr"] = { function() Snacks.picker.recent() end, desc = "Find Recents" }
           maps.n["<Leader>fj"] = { function() Snacks.picker.jumps() end, desc = "Find Jumps" }
           maps.n["<Leader>fu"] = { function() Snacks.picker.undo() end, desc = "Find Undo history" }
           maps.n["<Leader>fx"] = { function() Snacks.picker.lazy() end, desc = "Find lazy eXtension specs" }
           maps.n["<Leader>fz"] = { function() Snacks.picker.zoxide() end, desc = "Find Zoxide" }
-          maps.n["<Leader>fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
-          maps.n["<Leader>f:"] =
-            { function() Snacks.picker.command_history() end, desc = "Find Command history" }
-          maps.n["<Leader>f/"] =
-            { function() Snacks.picker.search_history() end, desc = "Find Search history" }
+          maps.n['<Leader>f"'] = { function() Snacks.picker.registers() end, desc = "Find register" }
+          maps.n["<Leader>f:"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }
+          maps.n["<Leader>f/"] = { function() Snacks.picker.search_history() end, desc = "Find Search history" }
 
           maps.n["<Leader>f<space>"] = { function() Snacks.picker() end, desc = "pick ?" }
+
+          maps.n["<Leader>e"] = { function() Snacks.picker.explorer() end, desc = "Snacks treE" }
           maps.c["<C-t>"] = {
             function()
               vim.api.nvim_feedkeys(vim.keycode "<C-c>", "n", true)
@@ -68,9 +70,100 @@ return {
           maps.n["<Leader>."] = { function() Snacks.scratch() end, desc = "new Scratch buffer" }
 
           maps.n["<Leader>ap"] = { function() Snacks.profiler.scratch() end, desc = "Profiler" }
+
+          maps.n["<Leader>lg"] = {
+            function() require("snacks").picker.lsp_workspace_symbols() end,
+            desc = "Search workspace symbols",
+          }
         end,
       },
     },
+  },
+  {
+    "folke/snacks.nvim",
+    ---@param opts snacks.Config
+    opts = function(_, opts)
+      local get_icon = require("astroui").get_icon
+      local buf_utils = require "astrocore.buffer"
+
+      local buaa_logo_section
+      if vim.fn.has "win32" == 1 or not vim.fn.executable "chafa" then
+        buaa_logo_section = {
+          section = "header",
+        }
+      else
+        buaa_logo_section = {
+          section = "terminal",
+          cmd = "chafa --format symbols --symbols vhalf "
+            .. vim.fn.stdpath "config"
+            .. "/resorces/Beihang-university-logo.svg --size 60x30; sleep .1",
+          height = 30,
+        }
+      end
+
+      opts.dashboard = {
+        preset = {
+          keys = {
+            { key = "n", action = "<Leader>n", icon = get_icon("FileNew", 0, true), desc = "New File  " },
+            { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
+            { key = "r", action = "<Leader>fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
+            { key = "s", action = "<Leader>fw", icon = get_icon("WordFile", 0, true), desc = "Search Project  " },
+            { key = "'", action = "<Leader>f'", icon = get_icon("Bookmarks", 0, true), desc = "Bookmarks  " },
+            { key = "l", action = "<Leader>Sl", icon = get_icon("Refresh", 0, true), desc = "Last Session  " },
+            { key = "q", action = "<Leader>Q", icon = get_icon("Quit", 0, true), desc = "wtf is this, i'll Quit" },
+            { key = "c", action = "<Leader>fa", icon = get_icon("AstroNvim", 0, true), desc = "open Configuration" },
+          },
+          header = table.concat({
+            "                           .:i1ttftfffffffffftffft1i:.                           ",
+            "                      .;1ffft1;:..,.         ,...:;1tfff1;.                      ",
+            "                   :1fft;,.     ,;CC1f:     iL,,1.    .,itff1:                   ",
+            "                :tLfi.  ,.      ft1fi..   :1Giif1,         .ifLt:                ",
+            "             .1Lfi.  L::Gt.      .L8t:    i1f;iti,     .;Gf;  .ifL1.             ",
+            "           .tCt,    ,LG;;f1i1    ::..           i:  .:;080L,     ,tCt.           ",
+            "         .tC1        t8ff::i:  .,:i1tfffLLfftt1;,.   :;:Cf         .1Ct.         ",
+            "        iGt..,:,    .;:,,  .;fLLLf1i;::,,,,:;i1tLLLf1,  .Cf,    ..  ..tGi        ",
+            "      .LC,  fC1L ,,     ,tCCfi,                   ,;tLCf; ..  ,,iGtC0. ,CL.      ",
+            "     ,0t   .t:L8tf;   iCCt,                           .iCGt.  ,tiC8tt    t0,     ",
+            "    ;8i     . ,:t;  1GL;             .                   ,fGf.   f8       i8;    ",
+            "   :8;         ;  :GC:              ii             ,;Lt.   ,f01  ,t.       ;8:   ",
+            "  ,8;  ;fG,,1    t81            ...,GG...      ,iLG@@f,,,:1. :0C.     ,;.,, ;8,  ",
+            "  0t   ii1ift   L8,             ;tLG@@Lt;,.:1L0@@@@81.,.:;.    C0.   .iLCfL; t0  ",
+            " t0   .L@C1    L8.          ,;tLfi. GL.:1C8@@@@@@@C,   ::       L8. LffLfGCCf 0t ",
+            ".8;     ;:G1  1@,       ,1C0@@81. ,;C08@@@@@@@@@@f   .;,         0C ,,.; 1t.: ;8.",
+            "10        ,: .@1      ;C@@@@@f  ;L0@@@@@@@@@@@@8i   .iGCi        ,@i           01",
+            "Gf           t8     ,C@@@@@@L   .:;;t8@@@@@@@@G,   :t8@@@G,       C0           fG",
+            "8;           0L    .0@@@@@@@,   .:,..:8@@@@@@f   ,:i@@@@@@0.      i@.          i8",
+            "@:           8t    ;@@@@@@@8         .8@@@@@i   :; :@@@@@@@i      :@:          :@",
+            "@:           8t    ,G0G0000G.        1@@@@0:   :,  ;8088080,      :@:          :@",
+            "8;           0C     f0GGGGGGGCGGGGGGi0@@@L.  .1GCGCG000000L       i@.          i8",
+            "Gf           t@     ;i1LLLLLCfiiiiiif@@@1   ,::iiiLCLLLL1i;       CG           fG",
+            "10           .@t   ,CGG0000880GGCCGi8@8L  .;CGCCG0888800GGGt     :@;           01",
+            ".8;           i@,  .;;;::::;;1fCGL;C@L:, ,:,;1LCf1;;::::;;;:     0C    ,,.    ;8.",
+            " t0    ,i1:    f8,              .,1@t , ::  .,.                 C0     :::    0t ",
+            "  0t    ,,      f8:              ,0; :,:,                     .GG.   ..      t0  ",
+            "  ,8;     :;,    18t            .1, ,i:.                     ;0L     :::    ;8,  ",
+            "   :8;   .:.      ,CG;             .t,                     ,L0i   ..   .   ;8:   ",
+            "    ;8i     .:,     iGCi           ..                    :LGt     .::.    i8;    ",
+            "     ,0t    ,. .,     ;LGf;        ::,;;.;i ,i.       ,1CC1.    :,.      t0,     ",
+            "      .LC,    .;i;.     ,1LCL1:.   :: :i ,; ,:   .,ifCCt:       :;,    ,CL.      ",
+            "        iGt.    ,   ,.     .;tLLLftt1;;::;:;1ttfLLLti,      ,1;.     .tGi        ",
+            "         .tC1.    .,1.  ,       ,:i1ttffffftt1i;,.      ,,.  ::.   .1Ct.         ",
+            "           .tCt,    .  .i;.  .                     .... .i:.     ,tCt.           ",
+            "             .1Lfi.    ..,  ;::.     .. .  ,..  :. .:i.       .ifL1.             ",
+            "                :tLfi,      .,:      ,i.,  ;;:  ::   .     ,ifLt:                ",
+            "                   :1ffti,.           ,.   . .        .,itff1:                   ",
+            "                      .;1tfft1;:,.             .,:;1tfft1;.                      ",
+            "                           .:;1ttffffffffffffffftt1;:.                           ",
+          }, "\n"),
+        },
+        sections = {
+          -- { section = "header", padding = 0 },
+          buaa_logo_section,
+          { section = "keys", gap = 1, padding = 3 },
+          { section = "startup" },
+        },
+      }
+    end,
   },
   {
     "folke/snacks.nvim",
@@ -96,4 +189,72 @@ return {
       end
     end,
   },
+  -- {
+  --   "folke/snacks.nvim",
+  --   ---@type snacks.Config
+  --   specs = {
+  --     {
+  --       "AstroNvim/astrocore",
+  --       ---@type AstroCoreOpts
+  --       opts = {
+  --         commands = {
+  --           Pick = {
+  --             function(cmd)
+  --               local opts = { source = cmd.fargs[1] }
+  --
+  --               for i = 2, #cmd.fargs do
+  --                 local k, v = cmd.fargs[i]:match "^(%w+)=(.*)$" -- escaping ws works
+  --                 if not k then error("Invalid argument: " .. cmd.fargs[i]) end
+  --                 if v == "true" then
+  --                   opts[k] = true
+  --                 elseif v == "false" then
+  --                   opts[k] = false
+  --                 else
+  --                   opts[k] = vim.fn.expandcmd(v) -- lets $ENV , %:p, etc work
+  --                 end
+  --               end
+  --
+  --               Snacks.picker.pick(opts)
+  --             end,
+  --
+  --             -- arglead, cmdline, cursorpos
+  --             complete = function(arglead, cmdline, _)
+  --               if cmdline == "Pick " then
+  --                 return vim.tbl_keys(Snacks.picker.config.get().sources --[[@as table]])
+  --               end
+  --
+  --               local opts = Snacks.picker.config.get { source = cmdline:match "Pick (%S+)" }
+  --
+  --               local opt = arglead:match "^(%w+)="
+  --               if not opt then
+  --                 local ret = { "cwd=" }
+  --                 local skip = { enabled = true, source = true }
+  --
+  --                 for k, v in pairs(opts) do
+  --                   if not skip[k] and type(v) ~= "table" then table.insert(ret, k .. "=") end
+  --                 end
+  --                 return ret
+  --               end
+  --
+  --               if opt == "focus" then
+  --                 return { "input", "list" }
+  --               elseif opt == "finder" then
+  --                 return vim
+  --                   .iter(Snacks.picker.config.get().sources)
+  --                   :map(function(_, v) return type(v.finder) == "string" and v.finder or nil end)
+  --                   :totable()
+  --               elseif opt == "layout" then
+  --                 return vim.tbl_keys(Snacks.picker.config.get().layouts)
+  --               elseif opt == "cwd" then
+  --                 return vim.fn.getcompletion(arglead:sub(#opt + 2), "dir", true)
+  --               elseif type(opts[opt]) == "boolean" then
+  --                 return { "true", "false" }
+  --               end
+  --             end,
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 }
