@@ -10,10 +10,40 @@ return {
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "hrsh7th/nvim-cmp",
     "nvim-telescope/telescope.nvim",
+    {
+      "saghen/blink.cmp",
+      dependencies = { "saghen/blink.compat" },
+      opts = {
+        sources = {
+          default = { "obsidian", "obsidian_new", "obsidian_tags" },
+          providers = {
+            obsidian = {
+              name = "obsidian",
+              module = "blink.compat.source",
+            },
+            obsidian_new = {
+              name = "obsidian_new",
+              module = "blink.compat.source",
+            },
+            obsidian_tags = {
+              name = "obsidian_tags",
+              module = "blink.compat.source",
+            },
+          },
+        },
+      },
+    },
   },
-  ---@type obsidian.config.OpenStrategy
+  config = function(_, opts)
+    require("obsidian").setup(opts)
+
+    -- HACK: fix error, disable completion.nvim_cmp option, manually register sources
+    local cmp = require "cmp"
+    cmp.register_source("obsidian", require("cmp_obsidian").new())
+    cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
+    cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
+  end,
   opts = {
     ui = { enable = false },
     use_advanced_uri = true,
@@ -22,9 +52,7 @@ return {
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
       -- Set to false to disable completion.
-      nvim_cmp = true,
-      -- Trigger completion at 2 chars.
-      min_chars = 2,
+      nvim_cmp = false,
     },
     templates = {
       subdir = "templates",
