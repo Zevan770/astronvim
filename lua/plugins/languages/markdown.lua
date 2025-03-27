@@ -10,20 +10,17 @@ return {
   -- { import = "astrocommunity.note-taking.obsidian-nvim" },
 
   -- #region render-markdown.nvim
-  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    opts = { file_types = { "markdown", "Avante", "copilot-chat", "codecompanion" } },
-    dependencies = {
-      "nvim-cmp",
-      opts = function(_, opts)
-        local cmp = require "cmp"
-        cmp.setup {
-          sources = cmp.config.sources {
-            { name = "render-markdown" },
-          },
-        }
-      end,
+    cmd = "RenderMarkdown",
+    ft = function()
+      local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
+      local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+      return opts.file_types or { "markdown" }
+    end,
+    opts = {
+      completions = { blink = { enabled = true } },
+      file_types = { "markdown", "Avante", "copilot-chat", "codecompanion" },
     },
   },
   -- #endregion
