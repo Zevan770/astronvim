@@ -5,7 +5,7 @@ return {
     -- branch = "v5",
     version = false,
   },
-  { "AstroNvim/astrocore", version = false, branch = "v2" },
-  { "AstroNvim/astrolsp", version = false, branch = "v3" },
-  { "AstroNvim/astroui", version = false, branch = "v3" },
+  -- { "AstroNvim/astrocore", version = false, branch = "v2" },
+  -- { "AstroNvim/astrolsp", version = false, branch = "v3" },
+  -- { "AstroNvim/astroui", version = false, branch = "v3" },
 }
