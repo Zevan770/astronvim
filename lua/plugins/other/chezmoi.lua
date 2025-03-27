@@ -48,64 +48,64 @@ return vim.fn.has "win32" == 1 and {}
             },
           },
         },
-        {
-          "nvim-telescope/telescope.nvim",
-          optional = true,
-          dependencies = {
-            "xvzc/chezmoi.nvim",
-            {
-              "AstroNvim/astrocore",
-              opts = {
-                mappings = {
-                  n = {
-                    ["<Leader>hc"] = {
-                      function() require("telescope").extensions.chezmoi.find_files() end,
-                      desc = "Find chezmoi config",
-                    },
-                  },
-                },
-              },
-            },
-          },
-          opts = function() require("telescope").load_extension "chezmoi" end,
-        },
-        {
-          "ibhagwan/fzf-lua",
-          optional = true,
-          dependencies = {
-            {
-              "AstroNvim/astrocore",
-              ---@type AstroCoreOpts
-              opts = {
-                commands = {
-                  ChezmoiFzf = {
-                    function()
-                      require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
-                        actions = {
-                          ["default"] = function(selected, _)
-                            require("chezmoi.commands").edit {
-                              targets = { "~/" .. selected[1] },
-                              args = { "--watch" },
-                            }
-                          end,
-                        },
-                      })
-                    end,
-                    desc = "Search Chezmoi configuration with FZF",
-                  },
-                },
-                mappings = {
-                  n = {
-                    ["<Leader>hc"] = {
-                      function() vim.cmd.ChezmoiFzf() end,
-                      desc = "Find chezmoi config",
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
+        -- {
+        --   "nvim-telescope/telescope.nvim",
+        --   optional = true,
+        --   dependencies = {
+        --     "xvzc/chezmoi.nvim",
+        --     {
+        --       "AstroNvim/astrocore",
+        --       opts = {
+        --         mappings = {
+        --           n = {
+        --             ["<Leader>hc"] = {
+        --               function() require("telescope").extensions.chezmoi.find_files() end,
+        --               desc = "Find chezmoi config",
+        --             },
+        --           },
+        --         },
+        --       },
+        --     },
+        --   },
+        --   opts = function() require("telescope").load_extension "chezmoi" end,
+        -- },
+        -- {
+        --   "ibhagwan/fzf-lua",
+        --   optional = true,
+        --   dependencies = {
+        --     {
+        --       "AstroNvim/astrocore",
+        --       ---@type AstroCoreOpts
+        --       opts = {
+        --         commands = {
+        --           ChezmoiFzf = {
+        --             function()
+        --               require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
+        --                 actions = {
+        --                   ["default"] = function(selected, _)
+        --                     require("chezmoi.commands").edit {
+        --                       targets = { "~/" .. selected[1] },
+        --                       args = { "--watch" },
+        --                     }
+        --                   end,
+        --                 },
+        --               })
+        --             end,
+        --             desc = "Search Chezmoi configuration with FZF",
+        --           },
+        --         },
+        --         mappings = {
+        --           n = {
+        --             ["<Leader>hc"] = {
+        --               function() vim.cmd.ChezmoiFzf() end,
+        --               desc = "Find chezmoi config",
+        --             },
+        --           },
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
         {
           "folke/snacks.nvim",
           optional = true,
