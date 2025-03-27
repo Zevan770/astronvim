@@ -1,15 +1,29 @@
-if vim.fn.has "win" then return {} end
+if vim.fn.has "win32" == 1 then return {} end
 
 return {
   {
-    "AstroNvim/astrocommunity",
-    { import = "astrocommunity.note-taking.neorg" },
-  },
-  {
     "nvim-neorg/neorg",
-    version = "^8",
-    event = "VeryLazy",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = true,
+    lazy = false,
+    version = "*",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      {
+        "saghen/blink.cmp",
+        dependencies = { "saghen/blink.compat" },
+        opts = {
+          sources = {
+            default = { "neorg" },
+            providers = {
+              neorg = {
+                name = "neorg",
+                module = "blink.compat.source",
+              },
+            },
+          },
+        },
+      },
+    },
     opts = {
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
@@ -18,14 +32,16 @@ return {
         ["core.completion"] = {
           config = {
             engine = "nvim-cmp",
+            name = "neorg",
           },
         }, -- Enables support for completion plugins
         ["core.journal"] = {}, -- Enables support for the journal module
         ["core.dirman"] = { -- Manages Neorg workspaces
           config = {
             workspaces = {
-              org = "$USERPROFILE/org",
+              notes = "~/neorg",
             },
+            -- default_workspace = "neorg",
           },
         },
       },
