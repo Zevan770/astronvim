@@ -3,7 +3,7 @@ return {
   {
     "AstroNvim/astrocommunity",
     -- { import = "astrocommunity.completion.copilot-lua" },
-    { import = "astrocommunity.completion.copilot-cmp" },
+    { import = "astrocommunity.completion.copilot-lua" },
     -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   },
   {
@@ -37,7 +37,6 @@ return {
       "AvanteSwitchProvider",
     },
     dependencies = {
-      -- "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       {
