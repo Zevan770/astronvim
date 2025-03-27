@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local notedir = vim.fn.has "win32" == 1 and "E:/desktop/notes" or "/mnt/e/Desktop/notes"
 ---@type LazySpec
 return {
@@ -6,7 +7,8 @@ return {
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/*.md" },
   event = {
-    "BufReadPre  " .. notedir .. "/*.md",
+    -- "BufReadPre  " .. notedir .. "/*.md",
+    "BufReadPre *.md",
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -44,11 +46,33 @@ return {
     -- cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
     -- cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
   end,
+  ---@type obsidian.config.ClientOpts
   opts = {
     ui = { enable = false },
     use_advanced_uri = true,
     finder = "telescope.nvim",
-    dir = notedir,
+    -- dir = notedir,
+    workspaces = {
+      {
+        name = "notes",
+        path = notedir,
+      },
+      {
+        name = "no-vault",
+        path = function()
+          -- alternatively use the CWD:
+          return assert(vim.fn.getcwd())
+        end,
+        overrides = {
+          notes_subdir = "notes", -- have to use 'vim.NIL' instead of 'nil'
+          new_notes_location = "notes_subdir",
+          templates = {
+            folder = vim.NIL,
+          },
+          disable_frontmatter = true,
+        },
+      },
+    },
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
       -- Set to false to disable completion.
@@ -61,23 +85,6 @@ return {
       date_format = "%Y-%m-%d-%a",
       time_format = "%H:%M",
     },
-
-    note_frontmatter_func = function(note)
-      -- Add the title of the note as an alias.
-      if note.title then note:add_alias(note.title) end
-
-      local out = { id = note.id, aliases = note.aliases, tags = note.tags }
-
-      -- `note.metadata` contains any manually added fields in the frontmatter.
-      -- So here we just make sure those fields are kept in the frontmatter.
-      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-        for k, v in pairs(note.metadata) do
-          out[k] = v
-        end
-      end
-
-      return out
-    end,
 
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
     -- URL it will be ignored but you can customize this behavior here.
@@ -98,6 +105,10 @@ return {
         action = function() return require("obsidian").util.smart_action() end,
         opts = { buffer = true, expr = true },
       },
+    },
+
+    picker = {
+      name = "snacks.picker",
     },
   },
 }
