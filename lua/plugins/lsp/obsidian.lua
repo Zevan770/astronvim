@@ -1,7 +1,7 @@
 local notedir = vim.fn.has "win32" == 1 and "E:/desktop/notes" or "/mnt/e/Desktop/notes"
 ---@type LazySpec
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   -- the obsidian vault in this default config  ~/obsidian-vault
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/*.md" },
@@ -11,38 +11,38 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
-    {
-      "saghen/blink.cmp",
-      dependencies = { "saghen/blink.compat" },
-      opts = {
-        sources = {
-          default = { "obsidian", "obsidian_new", "obsidian_tags" },
-          providers = {
-            obsidian = {
-              name = "obsidian",
-              module = "blink.compat.source",
-            },
-            obsidian_new = {
-              name = "obsidian_new",
-              module = "blink.compat.source",
-            },
-            obsidian_tags = {
-              name = "obsidian_tags",
-              module = "blink.compat.source",
-            },
-          },
-        },
-      },
-    },
+    -- {
+    --   "saghen/blink.cmp",
+    --   dependencies = { "saghen/blink.compat" },
+    --   opts = {
+    --     sources = {
+    --       default = { "obsidian", "obsidian_new", "obsidian_tags" },
+    --       providers = {
+    --         obsidian = {
+    --           name = "obsidian",
+    --           module = "blink.compat.source",
+    --         },
+    --         obsidian_new = {
+    --           name = "obsidian_new",
+    --           module = "blink.compat.source",
+    --         },
+    --         obsidian_tags = {
+    --           name = "obsidian_tags",
+    --           module = "blink.compat.source",
+    --         },
+    --       },
+    --     },
+    --   },
+    -- },
   },
   config = function(_, opts)
     require("obsidian").setup(opts)
 
-    -- HACK: fix error, disable completion.nvim_cmp option, manually register sources
-    local cmp = require "cmp"
-    cmp.register_source("obsidian", require("cmp_obsidian").new())
-    cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
-    cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
+    -- -- HACK: fix error, disable completion.nvim_cmp option, manually register sources
+    -- local cmp = require "cmp"
+    -- cmp.register_source("obsidian", require("cmp_obsidian").new())
+    -- cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
+    -- cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
   end,
   opts = {
     ui = { enable = false },
@@ -53,6 +53,8 @@ return {
     completion = {
       -- Set to false to disable completion.
       nvim_cmp = false,
+      blink = true,
+      min_chars = 2,
     },
     templates = {
       subdir = "templates",
