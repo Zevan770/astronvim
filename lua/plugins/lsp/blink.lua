@@ -1,10 +1,10 @@
 return {
   "Saghen/blink.cmp",
   ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
+  ---@param opts blink.cmp.Config
   opts = function(_, opts)
     opts.keymap = {
-      preset = "enter",
+      preset = "super-tab",
       ["<C-y>"] = { "select_and_accept" },
     }
     opts.completion = {
