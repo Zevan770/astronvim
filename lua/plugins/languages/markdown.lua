@@ -111,6 +111,10 @@ return {
   {
     "Myzel394/easytables.nvim",
     ft = markdown_ft,
+    cmd = {
+      "EasyTablesCreateNew",
+      "EasyTablesImportThisTable",
+    },
     opts = {
       table = {
         -- Whether to enable the header by default
