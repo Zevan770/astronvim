@@ -382,6 +382,6 @@ return {
       { "<leader>tsx", "<Cmd>Telescope lazy_plugins", silent = true },
     },
   },
-  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+  -- { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
   { import = "astrocommunity.utility.telescope-lazy-nvim" },
 }

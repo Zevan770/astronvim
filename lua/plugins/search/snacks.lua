@@ -22,6 +22,7 @@ return {
             vim.fn.stdpath "data" .. "/lazy/astrocommunity",
             vim.fn.stdpath "config",
           }
+          maps.n["<Leader>hh"] = maps.n["h"]
           maps.n["<Leader>h"] = { desc = require("astroui").get_icon("Help", 1, true) .. "Help" }
           maps.v["<Leader>h"] = maps.n["<Leader>h"]
           maps.n["<Leader>hD"] = {
