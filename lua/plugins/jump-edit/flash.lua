@@ -92,12 +92,12 @@ return {
       --   desc = "Flash",
       --   mode = { "o", "n", "x" },
       -- },
-      {
-        "S",
-        function() require("flash").treesitter() end,
-        desc = "Flash Treesitter",
-        mode = { "o", "n", "x" },
-      },
+      -- {
+      --   "S",
+      --   function() require("flash").treesitter() end,
+      --   desc = "Flash Treesitter",
+      --   mode = { "o", "n", "x" },
+      -- },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
       {
         "<A-s>",
@@ -117,7 +117,7 @@ return {
       },
       {
         "<C-Space>",
-        mode = { "n", "v" },
+        mode = { "n", "v", "o" },
         function() require("flash").treesitter() end,
         desc = "Flash Treesitter",
       },

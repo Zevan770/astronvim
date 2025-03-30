@@ -64,6 +64,9 @@ return {
         desc = "Update Lazy and Mason",
       }
 
+      local prefix = "<Leader>O"
+      maps.n[prefix] = { desc = require("astroui").get_icon("Octo", 1, true) .. "Octo" }
+
       -- search
       -- maps.n["<Leader>s"] = { desc = "Search" }
       -- maps.n["<Leader>fw"] = false
@@ -73,7 +76,7 @@ return {
 
       -- terminal
       maps.t["<A-[>"] = { "<C-\\><C-n>", desc = "enter terminal buffer normal mode" }
-      maps.n["<M-t>"] = "<Cmd>ToggleTerm direction=float<CR>"
+      maps.n["<M-t>"] = "<Cmd>ToggleTerm<CR>"
       maps.i["<M-t>"] = maps.n["<M-t>"]
       maps.t["<M-t>"] = maps.n["<M-t>"]
 
