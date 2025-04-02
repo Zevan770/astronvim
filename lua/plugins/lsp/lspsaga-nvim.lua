@@ -18,8 +18,8 @@ return {
       "AstroNvim/astrolsp",
       opts = function(_, opts)
         local maps = opts.mappings
-        maps.n["<Leader>k"] =
-          { "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover symbol details", cond = "textDocument/hover" }
+        -- maps.n["<Leader>k"] =
+        --   { "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover symbol details", cond = "textDocument/hover" }
 
         -- call hierarchy
         maps.n["<Leader>lc"] =
@@ -65,21 +65,26 @@ return {
   opts = function(_, opts)
     local astroui = require "astroui"
     local get_icon = function(icon) return astroui.get_icon(icon, 0, true) end
-    opts.code_action = { extend_gitsigns = require("astrocore").is_available "gitsigns.nvim" }
-    opts.lightbulb = { sign = true, virtual_text = false, debounce = 500 }
-    opts.ui = {
-      code_action = get_icon "DiagnosticHint",
-      expand = get_icon "FoldClosed",
-      collapse = get_icon "FoldOpened",
-    }
-    opts.symbol_in_winbar = { enable = false }
-    opts.finder = {
-      keys = {
-        vsplit = "<c-v>",
-        split = "<C-s>",
-        tabe = "<C-t>",
-        tabnew = "r",
-        quit = "q",
+    local lspsaga = require "lspsaga"
+    return {
+      code_action = { extend_gitsigns = require("astrocore").is_available "gitsigns.nvim" },
+      lightbulb = {
+        enable = false,
+      },
+      ui = {
+        code_action = get_icon "DiagnosticHint",
+        expand = get_icon "FoldClosed",
+        collapse = get_icon "FoldOpened",
+      },
+      symbol_in_winbar = { enable = false },
+      finder = {
+        keys = {
+          vsplit = "<c-v>",
+          split = "<C-s>",
+          tabe = "<C-t>",
+          tabnew = "r",
+          quit = "q",
+        },
       },
     }
   end,

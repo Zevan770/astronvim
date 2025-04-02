@@ -17,7 +17,6 @@ return {
   },
   {
     "saghen/blink.cmp",
-    optional = true,
     dependencies = { "fang2hou/blink-copilot" },
     opts = {
       sources = {
@@ -38,7 +37,7 @@ return {
   {
     "yetone/avante.nvim",
     build = ":AvanteBuild",
-    -- init = function() vim.treesitter.language.register("markdown", "avante") end,
+    event = "User AstroFile",
     cmd = {
       "AvanteAsk",
       "AvanteBuild",
@@ -57,6 +56,27 @@ return {
       "AvanteSwitchProvider",
     },
     dependencies = {
+      {
+        "saghen/blink.cmp",
+        dependencies = {
+          "Kaiser-Yang/blink-cmp-avante",
+        },
+        opts = {
+          sources = {
+            -- Add 'avante' to the list
+            default = { "avante" },
+            providers = {
+              avante = {
+                module = "blink-cmp-avante",
+                name = "Avante",
+                opts = {
+                  -- options for blink-cmp-avante
+                },
+              },
+            },
+          },
+        },
+      },
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       {
@@ -83,6 +103,7 @@ return {
         end,
       },
     },
+    config = function(_, opts) require("avante").setup(opts) end,
     ---@type avante.Config
     opts = {
       behaviour = {
@@ -92,6 +113,14 @@ return {
         auto_apply_diff_after_generation = false,
         support_paste_from_clipboard = false,
         enable_cursor_planning_mode = true, -- enable cursor planning mode!
+      },
+      rag_service = {
+        enabled = false, -- Enables the RAG service
+        host_mount = os.getenv "HOME", -- Host mount path for the rag service
+        provider = "openai", -- The provider to use for RAG service (e.g. openai or ollama)
+        llm_model = "deepseek-chat", -- The LLM model to use for RAG service
+        embed_model = "text-embedding-v3", -- The embedding model to use for RAG service
+        endpoint = "http://localhost:3000", -- The API endpoint for RAG service
       },
       mappings = {
         ask = "<leader>aia",
@@ -127,13 +156,6 @@ return {
         hints = {
           enabled = false,
         },
-      },
-    },
-    keys = {
-      {
-        mode = "n",
-        "<leader>ai",
-        desc = " Avante",
       },
     },
     specs = { -- configure optional plugins

@@ -67,6 +67,8 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = opts.mappings
+          local opt = assert(opts.options.opt)
+          opt.splitkeep = "screen"
           maps.n["<Leader>ue"] = {
             function() require("edgy.editor").toggle() end,
             desc = "Toggle Sidebars",
@@ -99,6 +101,12 @@ return {
       }
       opts.left = {
         {
+          ft = "aerial",
+          title = "Symbol Outline",
+          pinned = true,
+          open = function() require("aerial").open() end,
+        },
+        {
           title = "Files",
           ft = "neo-tree",
           filter = function(buf) return vim.b[buf].neo_tree_source == "filesystem" end,
@@ -120,12 +128,6 @@ return {
         "neo-tree",
       }
       opts.right = {
-        -- {
-        --   ft = "aerial",
-        --   title = "Symbol Outline",
-        --   pinned = true,
-        --   open = function() require("aerial").open() end,
-        -- },
         { title = "Grug Far", ft = "grug-far", size = { width = 0.4 } },
         -- {
         --   ft = "help",

@@ -7,10 +7,12 @@ return {
       preset = "super-tab",
       ["<C-y>"] = { "select_and_accept" },
     }
-    opts.completion = {
-      menu = {
-        auto_show = true,
-      },
-    }
+
+    opts.cmdline = { enabled = true }
+    -- opts.completion = {
+    --   menu = {
+    --     auto_show = true,
+    --   },
+    -- }
   end,
 }
