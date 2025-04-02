@@ -41,6 +41,7 @@ return {
           maps.v[prefix] = { desc = astroui.get_icon("CopilotChat", 1, true) .. "CopilotChat" }
 
           maps.n[prefix .. "o"] = { "<Cmd>CopilotChatOpen<CR>", desc = "Open Chat" }
+          maps.v[prefix .. "o"] = maps.n[prefix .. "o"]
           maps.n[prefix .. "c"] = { "<Cmd>CopilotChatClose<CR>", desc = "Close Chat" }
           maps.n[prefix .. "t"] = { "<Cmd>CopilotChatToggle<CR>", desc = "Toggle Chat" }
           maps.n[prefix .. "r"] = { "<Cmd>CopilotChatReset<CR>", desc = "Reset Chat" }

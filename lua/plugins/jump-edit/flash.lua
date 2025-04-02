@@ -99,12 +99,12 @@ return {
       --   mode = { "o", "n", "x" },
       -- },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-      {
-        "<A-s>",
-        mode = { "n" },
-        function() require("flash").jump { pattern = vim.fn.getreg "/" } end,
-        desc = "Toggle Flash Search",
-      },
+      -- {
+      --   "<A-s>",
+      --   mode = { "n" },
+      --   function() require("flash").jump { pattern = vim.fn.getreg "/" } end,
+      --   desc = "Toggle Flash Search",
+      -- },
       {
         "<leader>*",
         mode = { "n", "v" },

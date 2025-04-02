@@ -40,7 +40,7 @@ return {
         }
 
         local maps_clone = vim.deepcopy(maps)
-        --stylua: ignore
+        -- stylua: ignore
         local maps_to_be_transient = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
 
         local function make_transient_keymap(key, transient_key)
@@ -156,7 +156,7 @@ return {
           end,
         }
 
-        maps.n["<Leader>?"] = {
+        maps.n["<Leader>hk"] = {
           function() require("which-key").show { global = false } end,
           desc = "Buffer Keymaps (which-key)",
         }
