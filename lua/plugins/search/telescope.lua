@@ -8,8 +8,9 @@ return {
       { "nvim-lua/plenary.nvim", lazy = true },
       {
         "AstroNvim/astrocore",
+        ---@param opts AstroCoreOpts
         opts = function(_, opts)
-          local maps = opts.mappings
+          local maps = assert(opts.mappings)
           local astro = require "astrocore"
           local is_available = astro.is_available
           maps.n["<Leader>ts"] = vim.tbl_get(opts, "_map_sections", "f")
@@ -177,27 +178,22 @@ return {
             desc = "Find keymaps",
           }
           -- maps.n["<Leader><Leader>"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
-
-          maps.n["<Leader>tsx"] = {
-            "<Cmd>Telescope lazy<CR>",
-            desc = "Find commands",
-          }
         end,
       },
-      {
-        "nvim-neo-tree/neo-tree.nvim",
-        optional = true,
-        opts = {
-          commands = {
-            find_in_dir = function(state)
-              local node = state.tree:get_node()
-              local path = node.type == "file" and node:get_parent_id() or node:get_id()
-              require("telescope.builtin").find_files { cwd = path }
-            end,
-          },
-          window = { mappings = { F = "find_in_dir" } },
-        },
-      },
+      -- {
+      --   "nvim-neo-tree/neo-tree.nvim",
+      --   optional = true,
+      --   opts = {
+      --     commands = {
+      --       find_in_dir = function(state)
+      --         local node = state.tree:get_node()
+      --         local path = node.type == "file" and node:get_parent_id() or node:get_id()
+      --         require("telescope.builtin").find_files { cwd = path }
+      --       end,
+      --     },
+      --     window = { mappings = { F = "find_in_dir" } },
+      --   },
+      -- },
     },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
@@ -259,7 +255,7 @@ return {
             vertical = { mirror = false },
             width = 0.87,
             height = 0.80,
-            preview_cutoff = 120,
+            -- preview_cutoff = 120,
           },
           mappings = {
             i = {
@@ -267,17 +263,17 @@ return {
               ["<C-K>"] = actions.move_selection_previous,
               ["<CR>"] = open_selected,
               ["<M-CR>"] = open_all,
-              ["<c-space>"] = function()
-                require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf())
-              end,
+              ["<M-n>"] = function() require("telescope.actions.layout").toggle_mirror(vim.api.nvim_get_current_buf()) end,
+              ["<M-p>"] = function() require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf()) end,
             },
             n = {
               q = actions.close,
               ["<CR>"] = open_selected,
               ["<M-CR>"] = open_all,
-              ["<c-space>"] = function()
-                require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf())
+              ["<M-n>"] = function()
+                require("telescope.actions.layout").toggle_prompt_position(vim.api.nvim_get_current_buf())
               end,
+              ["M-p"] = function() require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf()) end,
             },
           },
         },
@@ -376,12 +372,25 @@ return {
       dependencies = {
         { "polirritmico/telescope-lazy-plugins.nvim" },
       },
-      opts = function(_, opts) require("telescope").load_extension "lazy-plugins" end,
+      opts = function(_, opts) require("telescope").load_extension "lazy_plugins" end,
     },
     keys = {
-      { "<leader>tsx", "<Cmd>Telescope lazy_plugins", silent = true },
+      { "<leader>tsx", "<Cmd>Telescope lazy_plugins<CR>", silent = true },
     },
   },
   -- { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
-  { import = "astrocommunity.utility.telescope-lazy-nvim" },
+  {
+    "tsakirist/telescope-lazy.nvim",
+    lazy = true,
+    specs = {
+      {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "tsakirist/telescope-lazy.nvim" },
+        opts = function() require("telescope").load_extension "lazy" end,
+      },
+    },
+    keys = {
+      { "<Leader>tsz", "<Cmd>Telescope lazy<CR>", silent = true },
+    },
+  },
 }
