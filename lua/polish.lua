@@ -2,34 +2,6 @@
 -- things like custom filetypes. This just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 
--- Set up custom filetypes
-vim.filetype.add {
-  extension = {
-    foo = "fooscript",
-    ahk2 = "autohotkey",
-    ahk1 = "autohotkey",
-    -- log = "logtalk",
-  },
-  filename = {
-    ["Foofile"] = "fooscript",
-    -- see zsh as bash
-    ["%.zsh"] = "bash",
-    ["%.zshrc"] = "bash",
-    ["%.zshenv"] = "bash",
-    ["%.zprofile"] = "bash",
-    ["%.zlogin"] = "bash",
-    ["%.zlogout"] = "bash",
-    ["%.vindrc"] = "vim",
-  },
-  pattern = {
-    ["~/%.config/foo/.*"] = "fooscript",
-    [".*settings.*%.json"] = "jsonc",
-    [".*keybindings.*%.json"] = "jsonc",
-    [".*neoconf.*%.json"] = "jsonc",
-    ["github%.com_*%.txt"] = "markdown",
-  },
-}
-
 local clip_win32 = {
   name = "win32yank-wsl",
   copy = {
