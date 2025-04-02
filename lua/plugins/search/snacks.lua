@@ -1,4 +1,5 @@
 -- if true then return {} end
+---@type LazySpec
 return {
   {
     "folke/snacks.nvim",
@@ -7,7 +8,7 @@ return {
       image = { enabled = not not vim.env.KITTY_PID },
       dim = { enabled = true },
     },
-    specs = {
+    dependencies = {
       {
         "AstroNvim/astrocore",
         opts = function(_, opts)
@@ -45,7 +46,14 @@ return {
             desc = title,
           }
           maps.n["<Leader>sp"] = maps.n["<Leader>fw"]
+          maps.n["<Leader>/"] = maps.n["<Leader>fw"]
           maps.n["<Leader>sP"] = maps.n["<Leader>fc"]
+          maps.n["<C-p>"] = maps.n["<Leader>ff"]
+          maps.n["<Leader>pf"] = maps.n["<Leader>ff"]
+          maps.n["<A-b>"] = maps.n["<Leader>fb"]
+          maps.n["<Leader>:"] = maps.n["<Leader>fC"]
+          maps.n["<A-x>"] = maps.n["<Leader>fC"]
+
           maps.n["<Leader>fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
           maps.n["<Leader>fr"] = { function() Snacks.picker.recent() end, desc = "Find Recents" }
           maps.n["<Leader>fj"] = { function() Snacks.picker.jumps() end, desc = "Find Jumps" }
