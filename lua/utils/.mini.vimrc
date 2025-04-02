@@ -111,6 +111,9 @@ nmap    zg         za
 " nmap <enter> za
 nnoremap <A-left> <c-o>
 nnoremap <A-right> <c-i>
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ; ;<c-g>u
 
 
 " noremap Q q
