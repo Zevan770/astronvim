@@ -13,23 +13,6 @@ local disable_auto_install = function(_, opts)
 end
 
 return {
-  -- use mason-lspconfig to configure LSP installations
-  {
-    "williamboman/mason-lspconfig.nvim",
-    -- overrides `require("mason-lspconfig").setup(...)`
-    opts = disable_auto_install,
-  },
-  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-  {
-    "jay-babu/mason-null-ls.nvim",
-    -- overrides `require("mason-null-ls").setup(...)`
-    opts = disable_auto_install,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    -- overrides `require("mason-nvim-dap").setup(...)`
-    opts = disable_auto_install,
-  },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     -- overrides `require("mason-tool-installer").setup(...)`
