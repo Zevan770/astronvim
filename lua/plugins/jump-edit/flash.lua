@@ -3,6 +3,7 @@
 return {
   {
     "folke/flash.nvim",
+    event = "User AstroFile",
     ---@param opts Flash.Config
     opts = function(_, opts)
       opts.labels = "fjghdktyrueivncmwoxsla;qp"
