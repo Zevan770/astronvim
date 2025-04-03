@@ -1,6 +1,7 @@
 return {
   "smoka7/multicursors.nvim",
   event = "VeryLazy",
+  enabled = false,
   dependencies = { "nvimtools/hydra.nvim" },
   config = true,
   opts = {},
