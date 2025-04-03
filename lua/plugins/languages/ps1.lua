@@ -3,5 +3,12 @@ return {
   {
     "AstroNvim/astrocommunity",
     { import = "astrocommunity.pack.ps1" },
+    {
+      "TheLeoP/powershell.nvim",
+      ---@type powershell.user_config
+      opts = {
+        bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services",
+      },
+    },
   },
 }

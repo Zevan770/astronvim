@@ -17,7 +17,7 @@ return {
         -- { path = "luvit-meta/library", words = { "vim%.uv" } },
         -- Load the wezterm types when the `wezterm` module is required
         -- Needs `justinsgithub/wezterm-types` to be installed
-        { path = "wezterm-types", mods = { "wezterm" } },
+        -- { path = "wezterm-types", mods = { "wezterm" } },
         { path = "snacks.nvim", words = { "Snacks" } },
         -- "lazy.nvim",
       },
