@@ -51,7 +51,6 @@ return {
           maps.n["<C-p>"] = maps.n["<Leader>ff"]
           maps.n["<Leader>pf"] = maps.n["<Leader>ff"]
           maps.n["<A-b>"] = maps.n["<Leader>fb"]
-          maps.n["<Leader>:"] = maps.n["<Leader>fC"]
           maps.n["<A-x>"] = maps.n["<Leader>fC"]
 
           maps.n["<Leader>fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
@@ -89,6 +88,8 @@ return {
       },
     },
   },
+
+  -- configure dashboard
   {
     "folke/snacks.nvim",
     ---@param opts snacks.Config
@@ -97,6 +98,7 @@ return {
       local buf_utils = require "astrocore.buffer"
 
       local buaa_logo_section
+      local buaa_logo_path = vim.fn.stdpath "config" .. "/resorces/Beihang-university-logo.svg"
       if vim.fn.has "win32" == 1 or not vim.fn.executable "chafa" then
         buaa_logo_section = {
           section = "header",
@@ -104,9 +106,7 @@ return {
       else
         buaa_logo_section = {
           section = "terminal",
-          cmd = "chafa --format symbols --symbols vhalf "
-            .. vim.fn.stdpath "config"
-            .. "/resorces/Beihang-university-logo.svg --size 60x30; sleep .1",
+          cmd = "chafa --format symbols --symbols vhalf " .. buaa_logo_path .. " --size 60x30; sleep .1",
           height = 30,
         }
       end
