@@ -1,4 +1,4 @@
--- if vim.fn.has "win" or vim.fn.has "android" then return {} end
+if utils.is_windows or utils.is_android then return {} end
 return {
   {
     "AstroNvim/astrocommunity",
