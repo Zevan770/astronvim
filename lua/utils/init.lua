@@ -22,5 +22,5 @@ M.replace_group = function(modes, maps, group, new_group)
     end
   end
 end
-_G.utils = M
+_G.my_utils = M
 return M

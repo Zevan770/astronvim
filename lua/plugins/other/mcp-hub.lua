@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
   },
-  enabled = not utils.is_windows,
+  enabled = not my_utils.is_windows,
   event = "User AstroFile",
   cmd = "MCPHub",
   build = "pnpm install -g mcp-hub@latest", -- Installs required mcp-hub npm module

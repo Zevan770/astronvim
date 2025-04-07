@@ -1,4 +1,4 @@
-if utils.is_windows or utils.is_android then return {} end
+if my_utils.is_windows or my_utils.is_android then return {} end
 return {
   {
     "AstroNvim/astrocommunity",

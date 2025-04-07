@@ -8,7 +8,7 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = opts.mappings
-          utils.replace_group("n", maps, "<leader>M", "<Leader>:")
+          my_utils.replace_group("n", maps, "<leader>M", "<Leader>:")
         end,
       },
     },
