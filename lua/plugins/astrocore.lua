@@ -23,9 +23,9 @@ return {
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
-      virtual_text = false,
+      virtual_text = true,
       underline = true,
-      virtual_lines = function() return { current_line = false } end,
+      virtual_lines = function() return { current_line = true } end,
     },
     -- vim options can be configured here
     options = {
