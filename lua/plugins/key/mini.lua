@@ -1,9 +1,3 @@
--- if true then return end
-vim.keymap.set({ "n", "v", "i", "t" }, "<A-q>", "<Cmd>wincmd q<CR>")
--- vim.keymap.set({ "n", "v", "i", "t" }, "<A-h>", "<Cmd>wincmd h<CR>")
--- vim.keymap.set({ "n", "v", "i", "t" }, "<A-j>", "<Cmd>wincmd j<CR>")
--- vim.keymap.set({ "n", "v", "i", "t" }, "<A-k>", "<Cmd>wincmd k<CR>")
--- vim.keymap.set({ "n", "v", "i", "t" }, "<A-l>", "<Cmd>wincmd l<CR>")
 ---@type LazySpec
 return {
   -- add a few keybindings
@@ -11,7 +5,7 @@ return {
     "AstroNvim/astrocore",
     ---@param opts AstroCoreOpts
     opts = function(_, opts)
-      local mini_path = vim.fn.stdpath "config" .. "/lua/utils/.mini.vimrc"
+      local mini_path = vim.fn.stdpath "config" .. "/lua/utils/basic.vimrc"
       pcall(vim.cmd.source, mini_path)
       -- vim.cmd.source(mini_path)
 
@@ -20,6 +14,9 @@ return {
       -- maps.v["<C-u>"] = { "<C-u>zz", remap = false }
       -- maps.n["<C-d>"] = { "<C-d>zz", remap = false }
       -- maps.v["<C-d>"] = { "<C-d>zz", remap = false }
+      for _, mode in ipairs { "n", "v", "i", "t" } do
+        maps[mode]["<A-q>"] = { "<Cmd>wincmd q<CR>" }
+      end
       maps.n["<C-e>"] = "3<C-e>"
       maps.v["<C-e>"] = "3<C-e>"
       -- maps.i["<C-e>"] = { "<C-\\><C-n>:normal! <C-e><CR>a", noremap = true }
