@@ -127,21 +127,7 @@ return {
         endpoint = "http://localhost:3000", -- The API endpoint for RAG service
       },
       mappings = {
-        ask = "<leader>aia",
-        edit = "<leader>aie",
-        refresh = "<leader>air",
-        focus = "<leader>aif",
-        toggle = {
-          default = "<leader>ait",
-          debug = "<leader>aid",
-          hint = "<leader>aih",
-          suggestion = "<leader>ais",
-          repomap = "<leader>aiR",
-        },
-        files = {
-          add_current = "<leader>aic", -- Add current buffer to selected files
-        },
-        select_model = "<leader>ai?", -- Select model command
+        ---@class AvanteConflictMappings
         diff = {
           ours = "co",
           theirs = "ct",
@@ -152,13 +138,81 @@ return {
           prev = "[x",
         },
         suggestion = {
-          accept = "<C-l>",
+          accept = "<M-l>",
           next = "<M-]>",
           prev = "<M-[>",
           dismiss = "<C-]>",
         },
-        hints = {
-          enabled = false,
+        jump = {
+          next = "]]",
+          prev = "[[",
+        },
+        submit = {
+          normal = "<CR>",
+          insert = "<C-s>",
+        },
+        cancel = {
+          normal = { "<C-c>", "<Esc>", "q" },
+          insert = { "<C-c>" },
+        },
+        -- NOTE: The following will be safely set by avante.nvim
+        ask = "<leader>aia",
+        edit = "<leader>aie",
+        refresh = "<leader>air",
+        focus = "<leader>aif",
+        stop = "<leader>aiS",
+        toggle = {
+          default = "<leader>aitt",
+          debug = "<leader>aitd",
+          hint = "<leader>aith",
+          suggestion = "<leader>aits",
+          repomap = "<leader>aitR",
+        },
+        sidebar = {
+          apply_all = "A",
+          apply_cursor = "a",
+          retry_user_request = "r",
+          edit_user_request = "e",
+          switch_windows = "<F13>",
+          reverse_switch_windows = "<F14>",
+          remove_file = "d",
+          add_file = "@",
+          close = { "<Esc>", "q" },
+          close_from_input = nil, -- e.g., { normal = "<Esc>", insert = "<C-d>" }
+        },
+        files = {
+          add_current = "<leader>aic", -- Add current buffer to selected files
+          add_all_buffers = "<leader>aiB", -- Add all buffer files to selected files
+        },
+        select_model = "<leader>aim", -- Select model command
+        select_history = "<leader>aih", -- Select history command
+      },
+      hints = {
+        enabled = false,
+      },
+      windows = {
+        position = "smart",
+        wrap = true, -- similar to vim.o.wrap
+        width = 30, -- default % based on available width in vertical layout
+        height = 30, -- default % based on available height in horizontal layout
+        sidebar_header = {
+          enabled = true, -- true, false to enable/disable the header
+          align = "center", -- left, center, right for title
+          rounded = true,
+        },
+        input = {
+          prefix = "> ",
+          height = 8, -- Height of the input window in vertical layout
+        },
+        edit = {
+          border = { " ", " ", " ", " ", " ", " ", " ", " " },
+          start_insert = true, -- Start insert mode when opening the edit window
+        },
+        ask = {
+          floating = true, -- Open the 'AvanteAsk' prompt in a floating window
+          border = "rounded",
+          start_insert = true, -- Start insert mode when opening the ask window
+          focus_on_apply = "ours", -- which diff to focus after applying
         },
       },
     },

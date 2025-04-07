@@ -196,9 +196,9 @@ return {
       maps.n["['"] = function() vscode.action "bookmarks.jumpToPrevious" end
       -- maps.n["m"] = function() vscode.action "bookmarks.toggle" end
       maps.n["gc;"] = "gcc"
-      -- maps.n["u"] = function() vscode.action "undo" end
-      -- maps.n["<C-r>"] = function() vscode.action "redo" end
-      -- maps.n["U"] = function() vscode.action "redo" end
+      maps.n["u"] = function() vscode.action "undo" end
+      maps.n["<C-r>"] = function() vscode.action "redo" end
+      maps.n["U"] = function() vscode.action "redo" end
 
       -- -- basic actions
       -- maps.n["<Leader>q"] = function() vscode.action "workbench.action.closeWindow" end
@@ -241,7 +241,7 @@ return {
     end,
   },
   -- disable colorscheme setting
-  -- { "AstroNvim/astroui", opts = { colorscheme = false } },
+  { "AstroNvim/astroui", opts = { colorscheme = false } },
   -- disable treesitter highlighting
   { "nvim-treesitter/nvim-treesitter", opts = { highlight = { enable = false } } },
 }
