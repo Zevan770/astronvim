@@ -8,7 +8,15 @@ return {
       ["<C-y>"] = { "select_and_accept" },
     }
 
-    opts.cmdline = { enabled = true }
+    opts.cmdline = {
+      enabled = true,
+      keymap = {
+        preset = "super-tab",
+        ["<C-y>"] = { "select_and_accept" },
+      },
+      completion = { menu = { auto_show = true } },
+    }
+
     -- opts.completion = {
     --   menu = {
     --     auto_show = true,
