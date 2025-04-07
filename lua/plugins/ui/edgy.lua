@@ -69,6 +69,7 @@ return {
           local maps = opts.mappings
           local opt = assert(opts.options.opt)
           opt.splitkeep = "screen"
+
           maps.n["<Leader>ue"] = {
             function() require("edgy.editor").toggle() end,
             desc = "Toggle Sidebars",
@@ -83,6 +84,9 @@ return {
     opts = function(_, opts)
       opts = opts or {}
       opts.exit_when_last = true
+      opts.animate = {
+        enabled = false,
+      }
       opts.bottom = {
         { ft = "qf", title = "QuickFix" },
         {
