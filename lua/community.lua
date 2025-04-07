@@ -16,9 +16,6 @@ local M = {
   -- { import = "astrocommunity.editing-support.zen-mode-nvim" },
   -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
 
-  { import = "astrocommunity.quickfix.nvim-bqf" },
-  { import = "astrocommunity.quickfix.quicker-nvim" },
-
   -- color
   { import = "astrocommunity.color.transparent-nvim" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
