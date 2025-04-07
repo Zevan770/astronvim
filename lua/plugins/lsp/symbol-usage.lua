@@ -23,11 +23,10 @@ return {
       local stacked_functions_content = symbol.stacked_count > 0 and ("+%s"):format(symbol.stacked_count) or ""
 
       if symbol.references then
-        local usage = symbol.references <= 1 and "usage" or "usages"
         local num = symbol.references == 0 and "no" or symbol.references
         table.insert(res, round_start)
         table.insert(res, { "󰌹 ", "SymbolUsageRef" })
-        table.insert(res, { ("%s %s"):format(num, usage), "SymbolUsageContent" })
+        table.insert(res, { tostring(num), "SymbolUsageContent" })
         table.insert(res, round_end)
       end
 
@@ -35,7 +34,7 @@ return {
         if #res > 0 then table.insert(res, { " ", "NonText" }) end
         table.insert(res, round_start)
         table.insert(res, { "󰳽 ", "SymbolUsageDef" })
-        table.insert(res, { symbol.definition .. " defs", "SymbolUsageContent" })
+        table.insert(res, { tostring(symbol.definition), "SymbolUsageContent" })
         table.insert(res, round_end)
       end
 
@@ -43,7 +42,7 @@ return {
         if #res > 0 then table.insert(res, { " ", "NonText" }) end
         table.insert(res, round_start)
         table.insert(res, { "󰡱 ", "SymbolUsageImpl" })
-        table.insert(res, { symbol.implementation .. " impls", "SymbolUsageContent" })
+        table.insert(res, { tostring(symbol.implementation), "SymbolUsageContent" })
         table.insert(res, round_end)
       end
 
@@ -58,8 +57,12 @@ return {
       return res
     end
 
+    ---@type UserOpts
     return {
       text_format = text_format,
+      ---@type 'above'|'end_of_line'|'textwidth'|'signcolumn' `above` by default
+      vt_position = "end_of_line",
+      vt_priority = nil, ---@type integer Virtual text priority (see `nvim_buf_set_extmark`)
     }
   end,
 }
