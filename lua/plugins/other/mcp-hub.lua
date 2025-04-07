@@ -6,7 +6,7 @@ return {
   enabled = not utils.is_windows,
   event = "User AstroFile",
   cmd = "MCPHub",
-  build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+  build = "pnpm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
   opts = {
     port = 3001,
     config = vim.fn.expand "~/mcpservers.json",

@@ -1,7 +1,7 @@
 -- if true then return {} end
 local format_git_hunks = function(bufnr)
   bufnr = bufnr or 0
-  local ignore_filetypes = { "lua" }
+  local ignore_filetypes = { "lua", "python" }
   local format = require("conform").format
   if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
     format { lsp_fallback = true, timeout_ms = 500 }
