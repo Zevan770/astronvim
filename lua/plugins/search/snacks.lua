@@ -65,7 +65,7 @@ return {
 
           maps.n["<Leader>f<space>"] = { function() Snacks.picker() end, desc = "pick ?" }
 
-          maps.n["<Leader>e"] = { function() Snacks.picker.explorer() end, desc = "Snacks treE" }
+          maps.n["<Leader>fe"] = { function() Snacks.picker.explorer() end, desc = "Snacks treE" }
           maps.c["<C-t>"] = {
             function()
               vim.api.nvim_feedkeys(vim.keycode "<C-c>", "n", true)
@@ -167,7 +167,6 @@ return {
           ]],
         },
         sections = {
-          -- { section = "header", padding = 0 },
           buaa_logo_section,
           { section = "keys", gap = 1, padding = 3 },
           { section = "startup" },
