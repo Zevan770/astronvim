@@ -23,10 +23,9 @@ return {
       local stacked_functions_content = symbol.stacked_count > 0 and ("+%s"):format(symbol.stacked_count) or ""
 
       if symbol.references then
-        local num = symbol.references == 0 and "no" or symbol.references
         table.insert(res, round_start)
         table.insert(res, { "󰌹 ", "SymbolUsageRef" })
-        table.insert(res, { tostring(num), "SymbolUsageContent" })
+        table.insert(res, { tostring(symbol.references), "SymbolUsageContent" })
         table.insert(res, round_end)
       end
 

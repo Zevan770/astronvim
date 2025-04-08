@@ -74,7 +74,8 @@ return {
     },
     rooter = {
       autochdir = false,
-      notify = false,
+      scope = "tab",
+      notify = true,
     },
     filetypes = {
       extension = {
