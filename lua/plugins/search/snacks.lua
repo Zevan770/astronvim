@@ -68,7 +68,7 @@ return {
           maps.n["<Leader>fe"] = { function() Snacks.picker.explorer() end, desc = "Snacks treE" }
           maps.c["<C-t>"] = {
             function()
-              vim.api.nvim_feedkeys(vim.keycode "<C-c>", "n", true)
+              vim.api.nvim_feedkeys(vim.keycode "<Esc>", "n", true)
               Snacks.picker.command_history {
                 config = function(o) o.pattern = vim.fn.getreg ":" end,
               }
@@ -266,4 +266,9 @@ return {
   --     },
   --   },
   -- },
+  --
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
+  },
 }

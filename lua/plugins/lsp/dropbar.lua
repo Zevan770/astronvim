@@ -5,19 +5,49 @@ return {
   event = "UIEnter",
   opts = function(_, opts)
     local utils = require "dropbar.utils"
-    if not opts.menu then opts.menu = {} end
-    if not opts.menu.keymaps then opts.menu.keymaps = {} end
-    opts.menu.keymaps = {
-      ["<A-l>"] = function()
-        local menu = utils.menu.get_current()
-        if not menu then return end
-        local cursor = vim.api.nvim_win_get_cursor(menu.win)
-        local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
-        if component then menu:click_on(component, nil, 1, "l") end
-      end,
+    local sources = require "dropbar.sources"
+
+    ---@type dropbar_configs_t
+    return {
+      bar = {
+        sources = function(buf, _)
+          if vim.bo[buf].ft == "markdown" then
+            return {
+              sources.path,
+              sources.markdown,
+            }
+          end
+          if vim.bo[buf].buftype == "terminal" then return {
+            sources.terminal,
+          } end
+          return {
+            sources.path,
+            utils.source.fallback {
+              sources.lsp,
+              sources.treesitter,
+            },
+          }
+        end,
+      },
+      sources = {
+        path = {
+          max_depth = 2,
+        },
+      },
+      menu = {
+        keymaps = {
+          ["<A-l>"] = function()
+            local menu = utils.menu.get_current()
+            if not menu then return end
+            local cursor = vim.api.nvim_win_get_cursor(menu.win)
+            local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
+            if component then menu:click_on(component, nil, 1, "l") end
+          end,
+        },
+      },
     }
   end,
-  specs = {
+  dependencies = {
     {
       "rebelot/heirline.nvim",
       optional = true,

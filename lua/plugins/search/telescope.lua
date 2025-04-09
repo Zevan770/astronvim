@@ -265,6 +265,8 @@ return {
               ["<M-CR>"] = open_all,
               ["<M-n>"] = function() require("telescope.actions.layout").toggle_mirror(vim.api.nvim_get_current_buf()) end,
               ["<M-p>"] = function() require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf()) end,
+              ["<C-s>"] = actions.cycle_previewers_next,
+              ["<C-a>"] = actions.cycle_previewers_prev,
             },
             n = {
               q = actions.close,
@@ -295,7 +297,6 @@ return {
 
   {
     "nvim-telescope/telescope-frecency.nvim",
-    enabled = false,
     specs = {
       {
         "nvim-telescope/telescope.nvim",
