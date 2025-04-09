@@ -63,9 +63,6 @@ return {
         desc = "Update Lazy and Mason",
       }
 
-      local prefix = "<Leader>O"
-      maps.n[prefix] = { desc = require("astroui").get_icon("Octo", 1, true) .. "Octo" }
-
       -- search
       -- maps.n["<Leader>s"] = { desc = "Search" }
       -- maps.n["<Leader>fw"] = false
@@ -75,9 +72,10 @@ return {
 
       -- terminal
       maps.t["<A-[>"] = { "<C-\\><C-n>", desc = "enter terminal buffer normal mode" }
-      maps.n["<M-t>"] = "<Cmd>ToggleTerm<CR>"
-      maps.i["<M-t>"] = maps.n["<M-t>"]
-      maps.t["<M-t>"] = maps.n["<M-t>"]
+      local modes = { "n", "i", "t" }
+      for _, mode in ipairs(modes) do
+        maps[mode]["<M-t>"] = "<Cmd>ToggleTerm<CR>"
+      end
 
       maps.t["<C-H>"] = false
       maps.t["<C-J>"] = false
@@ -102,18 +100,18 @@ return {
         desc = "Insert empty line below",
       }
 
-      maps.n["h"] = {
-        function()
-          local onIndentOrFirstNonBlank = vim.fn.virtcol "." <= vim.fn.indent "." + 1
-          local shouldCloseFold = vim.tbl_contains(vim.opt_local.foldopen:get(), "hor")
-          if onIndentOrFirstNonBlank and shouldCloseFold then
-            local wasFolded = pcall(function() vim.cmd "silent! foldclose" end)
-            if wasFolded then return end
-          end
-          vim.cmd.normal { "h", bang = true }
-        end,
-        desc = "h (+ close fold at BoL)",
-      }
+      -- maps.n["h"] = {
+      --   function()
+      --     local onIndentOrFirstNonBlank = vim.fn.virtcol "." <= vim.fn.indent "." + 1
+      --     local shouldCloseFold = vim.tbl_contains(vim.opt_local.foldopen:get(), "hor")
+      --     if onIndentOrFirstNonBlank and shouldCloseFold then
+      --       local wasFolded = pcall(function() vim.cmd "silent! foldclose" end)
+      --       if wasFolded then return end
+      --     end
+      --     vim.cmd.normal { "h", bang = true }
+      --   end,
+      --   desc = "h (+ close fold at BoL)",
+      -- }
       maps.n["<Leader>k"] = function() vim.cmd "normal! K" end
     end,
   },
