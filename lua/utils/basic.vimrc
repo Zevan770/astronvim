@@ -74,13 +74,6 @@ vnoremap D "Id
 nnoremap gp         o<esc>"*p
 nnoremap \p         "*p
 nnoremap \P         "*P
-" nnoremap     >          >>
-" nnoremap     <          <<
-
-" vmap     iq         i"
-" omap     iq         i"
-" vmap     aq         a"
-" omap     aq         a"
 
 " map      <C-D>      <C-D>zz
 " map      <C-U>      <C-U>zz
@@ -88,9 +81,8 @@ nnoremap \P         "*P
 " noremap      <C-y>      3<C-y>zz
 
 
-" for windows muscle memory
-
 nmap    <C-S-q>   :q!<CR>
+
 vmap     <C-c>      "+y
 vmap     <C-x>      "+d   
 nmap     <C-x>      :x<CR>
@@ -102,10 +94,6 @@ cnoremap     <C-v>     <C-r>*
 
 nmap     <C-a>      ggVG
 noremap    zv      <C-v>
-" nmap     <C-z>     u
-" imap     <C-z>      <esc>u   
-" nmap     <C-z>      u   
-" nmap     <C-S-z>    <C-r>
 nmap     zw         <c-w>
 nmap    zg         za
 " nmap <enter> za
