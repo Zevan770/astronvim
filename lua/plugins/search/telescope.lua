@@ -297,34 +297,35 @@ return {
 
   {
     "nvim-telescope/telescope-frecency.nvim",
+    lazy = true,
     specs = {
       {
         "nvim-telescope/telescope.nvim",
-      },
-    },
-    config = function() require("telescope").load_extension "frecency" end,
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        opts = function(_, opts)
-          local maps = assert(opts.mappings)
+        opts = function() require("telescope").load_extension "frecency" end,
+        dependencies = {
+          {
+            "AstroNvim/astrocore",
+            opts = function(_, opts)
+              local maps = assert(opts.mappings)
 
-          maps.n["<Leader>tsr"] = {
-            function() require("telescope").extensions.frecency.frecency {} end,
-            desc = "Frecency",
-          }
-          -- Use a specific workspace tag:
-          maps.n["<Leader>tsf"] = {
-            function()
-              require("telescope").extensions.frecency.frecency {
-                workspace = "CWD",
-                path_display = { "shorten" },
-                theme = "ivy",
+              maps.n["<Leader>tsr"] = {
+                function() require("telescope").extensions.frecency.frecency {} end,
+                desc = "Frecency",
+              }
+              -- Use a specific workspace tag:
+              maps.n["<Leader>tsf"] = {
+                function()
+                  require("telescope").extensions.frecency.frecency {
+                    workspace = "CWD",
+                    path_display = { "shorten" },
+                    theme = "ivy",
+                  }
+                end,
+                desc = "Frecency CWD",
               }
             end,
-            desc = "Frecency CWD",
-          }
-        end,
+          },
+        },
       },
     },
   },

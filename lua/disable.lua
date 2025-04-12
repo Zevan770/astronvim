@@ -1,7 +1,7 @@
 local M = {}
 local disabled = {
   "image.nvim",
-  "cmdbuf.nvim",
+  "neotree.nvim",
   -- "telescope.nvim",
   -- "neoscroll.nvim",
   -- "dropbar.nvim",

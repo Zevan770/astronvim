@@ -50,6 +50,10 @@ return {
           maps.n["<Leader>sP"] = maps.n["<Leader>fc"]
           maps.n["<C-p>"] = maps.n["<Leader>ff"]
           maps.n["<Leader>pf"] = maps.n["<Leader>ff"]
+          maps.n["<Leader>fb"] = {
+            function() Snacks.picker.buffers { layout = "ivy_split" } end,
+            desc = maps.n["<Leader>fb"].desc,
+          }
           maps.n["<A-b>"] = maps.n["<Leader>fb"]
           maps.n["<A-x>"] = maps.n["<Leader>fC"]
 
@@ -95,11 +99,10 @@ return {
     ---@param opts snacks.Config
     opts = function(_, opts)
       local get_icon = require("astroui").get_icon
-      local buf_utils = require "astrocore.buffer"
 
       local buaa_logo_section
       local buaa_logo_path = vim.fn.stdpath "config" .. "/resorces/Beihang-university-logo.svg"
-      if vim.fn.has "win32" == 1 or not vim.fn.executable "chafa" then
+      if my_utils.is_windows or not vim.fn.executable "chafa" then
         buaa_logo_section = {
           section = "header",
         }
@@ -174,6 +177,8 @@ return {
       }
     end,
   },
+
+  -- trouble integration
   {
     "folke/snacks.nvim",
     opts = function(_, opts)
@@ -267,8 +272,4 @@ return {
   --   },
   -- },
   --
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
-  },
 }
