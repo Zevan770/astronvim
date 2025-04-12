@@ -5,8 +5,8 @@ if vim.env.PROF then
   vim.opt.rtp:append(snacks)
   require("snacks.profiler").startup {
     startup = {
-      event = "VimEnter", -- stop profiler on this event. Defaults to `VimEnter`
-      -- event = "UIEnter",
+      -- event = "VimEnter", -- stop profiler on this event. Defaults to `VimEnter`
+      event = vim.env.PROF,
       -- event = "VeryLazy",
     },
   }
