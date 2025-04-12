@@ -31,5 +31,6 @@ return {
       LSPLoading10 = "⠏",
       Eye = "",
     },
+    lazygit = false,
   },
 }
