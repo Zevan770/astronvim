@@ -62,25 +62,6 @@ return {
   {
     "folke/edgy.nvim",
     event = "VeryLazy",
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        opts = function(_, opts)
-          local maps = opts.mappings
-          local opt = assert(opts.options.opt)
-          opt.splitkeep = "screen"
-
-          maps.n["<Leader>ue"] = {
-            function() require("edgy.editor").toggle() end,
-            desc = "Toggle Sidebars",
-          }
-          maps.n["<Leader>aa"] = {
-            function() require("edgy.editor").select() end,
-            desc = "Pick Sidebar",
-          }
-        end,
-      },
-    },
     opts = function(_, opts)
       opts = opts or {}
       opts.exit_when_last = true
@@ -180,7 +161,6 @@ return {
         -- reset all custom sizing
         ["<c-w>="] = function(win) win.view.edgebar:equalize() end,
       }
-      return opts
     end,
     specs = {
       {
@@ -192,6 +172,23 @@ return {
             statusline = false,
           },
         },
+      },
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          local opt = assert(opts.options.opt)
+          opt.splitkeep = "screen"
+
+          maps.n["<Leader>ue"] = {
+            function() require("edgy.editor").toggle() end,
+            desc = "Toggle Sidebars",
+          }
+          maps.n["<Leader>aa"] = {
+            function() require("edgy.editor").select() end,
+            desc = "Pick Sidebar",
+          }
+        end,
       },
     },
   },

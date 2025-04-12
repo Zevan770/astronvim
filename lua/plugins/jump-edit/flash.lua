@@ -4,11 +4,11 @@ return {
   {
     "folke/flash.nvim",
     event = "User AstroFile",
-    ---@param opts Flash.Config
-    opts = function(_, opts)
-      opts.labels = "fjghdktyrueivncmwoxsla;qp"
+    ---@type Flash.Config
+    opts = {
+      labels = "fjghdktyrueivncmwoxsla;qp",
 
-      opts.modes = {
+      modes = {
         char = {
           enabled = true,
           -- dynamic configuration for ftFT motions
@@ -71,9 +71,8 @@ return {
             },
           },
         },
-      }
-      return opts
-    end,
+      },
+    },
     keys = {
       {
         "r",

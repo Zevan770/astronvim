@@ -1,27 +1,9 @@
 ---@type LazySpec
 return {
+  { import = "astrocommunity.completion.avante-nvim" },
   {
     "yetone/avante.nvim",
-    build = ":AvanteBuild",
-    event = "User AstroFile",
-    cmd = {
-      "AvanteAsk",
-      "AvanteBuild",
-      "AvanteConflictChooseAllTheirs",
-      "AvanteConflictChooseBase",
-      "AvanteConflictChooseBoth",
-      "AvanteConflictChooseCursor",
-      "AvanteConflictChooseNone",
-      "AvanteConflictChooseOurs",
-      "AvanteConflictChooseTheirs",
-      "AvanteConflictListQf",
-      "AvanteConflictNextConflict",
-      "AvanteConflictPrevConflict",
-      "AvanteEdit",
-      "AvanteRefresh",
-      "AvanteSwitchProvider",
-    },
-    dependencies = {
+    specs = {
       {
         "saghen/blink.cmp",
         dependencies = {
@@ -43,30 +25,10 @@ return {
           },
         },
       },
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
       {
         "AstroNvim/astrocore",
         ---@param opts AstroCoreOpts
         opts = function(_, opts) opts.mappings.n["<Leader>ai"] = { desc = " Avante" } end,
-      },
-      {
-        -- make sure `Avante` is added as a filetype
-        "MeanderingProgrammer/render-markdown.nvim",
-        optional = true,
-        opts = function(_, opts)
-          if not opts.file_types then opts.filetypes = { "markdown" } end
-          opts.file_types = require("astrocore").list_insert_unique(opts.file_types, { "Avante" })
-        end,
-      },
-      {
-        -- make sure `Avante` is added as a filetype
-        "OXY2DEV/markview.nvim",
-        optional = true,
-        opts = function(_, opts)
-          if not opts.preview.filetypes then opts.preview.filetypes = { "markdown", "quarto", "rmd" } end
-          opts.preview.filetypes = require("astrocore").list_insert_unique(opts.preview.filetypes, { "Avante" })
-        end,
       },
     },
     config = function(_, opts) require("avante").setup(opts) end,
@@ -175,20 +137,6 @@ return {
           border = "rounded",
           start_insert = true, -- Start insert mode when opening the ask window
           focus_on_apply = "ours", -- which diff to focus after applying
-        },
-      },
-    },
-    specs = { -- configure optional plugins
-      { -- if copilot.lua is available, default to copilot provider
-        "zbirenbaum/copilot.lua",
-        optional = true,
-        specs = {
-          {
-            "yetone/avante.nvim",
-            opts = {
-              provider = "copilot",
-            },
-          },
         },
       },
     },

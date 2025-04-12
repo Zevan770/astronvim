@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "junegunn/vim-easy-align",
-  event = "User AstroFile",
+  lazy = true,
   keys = {
     {
       mode = { "n", "v" },
