@@ -1,7 +1,9 @@
+if true then return {} end
 ---@type LazySpec
 return {
   { import = "astrocommunity.code-runner.compiler-nvim" },
   {
-    "compiler.nvim",
+    "Zeioth/compiler.nvim",
+    opts = {},
   },
 }

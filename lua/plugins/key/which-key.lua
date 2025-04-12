@@ -5,6 +5,10 @@ return {
   opts = {
     preset = "helix",
     delay = 100,
+    keys = {
+      scroll_down = "<tab>", -- binding to scroll down inside the popup
+      scroll_up = "<S-tab>", -- binding to scroll up inside the popup
+    },
   },
   specs = {
     {

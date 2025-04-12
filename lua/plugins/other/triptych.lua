@@ -1,3 +1,4 @@
+-- file manager
 return {
   {
     "simonmclean/triptych.nvim",
@@ -9,7 +10,7 @@ return {
     },
     opts = {}, -- config options here
     keys = {
-      { "<leader>-", ":Triptych<CR>" },
+      { "<leader>-", "<Cmd>Triptych<CR>", silent = true },
     },
   },
 }

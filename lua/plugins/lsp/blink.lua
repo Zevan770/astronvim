@@ -27,7 +27,7 @@ return {
   },
 
   {
-    "saghen/blink.cmp",
+    "Saghen/blink.cmp",
     dependencies = { "mikavilpas/blink-ripgrep.nvim" },
     opts = {
       sources = {

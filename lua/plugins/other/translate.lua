@@ -5,7 +5,6 @@ return {
     cmd = {
       "Pantran",
     },
-    config = true,
     opts = {
       -- Default engine to use for translation. To list valid engine names run
       -- `:lua =vim.tbl_keys(require("pantran.engines"))`.
@@ -16,8 +15,11 @@ return {
           -- Default languages can be defined on a per engine basis. In this case
           -- `:lua require("pantran.async").run(function() vim.print(require("pantran.engines").google:languages()) end)`
           -- can be used to list available language identifiers.
+          fallback = {
+            default_source = "auto",
+            default_target = "zh-CN",
+          },
           -- default_source = "auto",
-          default_target = "Japanese",
           -- default_target = "zh-CN",
         },
       },

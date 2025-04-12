@@ -81,8 +81,8 @@ return {
         keys = {
           vsplit = "<c-v>",
           split = "<C-s>",
-          tabe = "<C-t>",
-          tabnew = "r",
+          tabe = "t",
+          tabnew = "<C-t>",
           quit = "q",
         },
       },
