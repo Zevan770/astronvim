@@ -50,6 +50,7 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "im-select.nvim",
   "fast-cursor-move.nvim",
   "which-key.nvim",
+  "nvim-origami",
 })
 
 local Config = require "lazy.core.config"
@@ -146,27 +147,35 @@ return {
       -- maps.n["3s"] = function() vscode.action "metaGo.gotoSmart" end
 
       -- folding
-      maps.v["zf"] = function()
-        vscode.call "editor.createFoldingRangeFromSelection"
-        -- backto normal mode and move down
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>j", true, true, true), "n", true)
-      end
+      -- maps.v["zf"] = function()
+      --   vscode.call "editor.createFoldingRangeFromSelection"
+      --   -- backto normal mode and move down
+      --   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>j", true, true, true), "n", true)
+      -- end
+      -- maps.n["zf"] = function()
+      --   -- enter visual mode and wait for motion
+      --   vim.api.nvim_feedkeys("v", "n", false)
+      --   -- create folding range from selection
+      --   vim.api.nvim_create_autocmd("CursorMoved", {
+      --     once = true,
+      --     -- should after vscode.cursor autocmd
+      --
+      --     callback = function()
+      --       vim.notify "hello"
+      --       vscode.call "editor.createFoldingRangeFromSelection"
+      --       -- vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, true, true), "n", true)
+      --     end,
+      --   })
+      -- end
 
-      maps.n["zf"] = function()
-        -- enter visual mode and wait for motion
-        vim.api.nvim_feedkeys("v", "n", false)
-        -- create folding range from selection
-        vim.api.nvim_create_autocmd("CursorMoved", {
-          once = true,
-          -- should after vscode.cursor autocmd
-
-          callback = function()
-            vim.notify "hello"
-            vscode.call "editor.createFoldingRangeFromSelection"
-            -- vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, true, true), "n", true)
-          end,
-        })
+      local esc_j = function()
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, true, true), "n", false)
       end
+      local create_fold = vscode.to_op(
+        function(ctx) vscode.action("editor.createFoldingRangeFromSelection", { range = ctx.range, callback = esc_j }) end
+      )
+      maps.n["zf"] = { create_fold, expr = true }
+      maps.v["zf"] = maps.n["zf"]
 
       maps.n["zd"] = function() vscode.action "editor.removeManualFoldingRanges" end
       maps.n["zc"] = function() vscode.action "editor.fold" end

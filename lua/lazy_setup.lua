@@ -20,10 +20,6 @@ require("lazy").setup({
   { import = "plugins.search" },
   { import = "plugins.ui" },
   { import = "plugins.other" },
-  vim.g.vscode and { import = "os/vscode" } or nil,
-  my_utils.is_nixos and { import = "os/nixos" } or nil,
-  my_utils.is_android and { import = "os/termux" } or nil,
-  { import = "clipboard-buffer" },
   { import = "disable" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
