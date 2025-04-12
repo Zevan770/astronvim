@@ -42,6 +42,7 @@ local M = {
 
   -- lsp
   -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
 
   -- utility/tools/games
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
