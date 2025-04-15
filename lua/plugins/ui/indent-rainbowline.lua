@@ -52,20 +52,5 @@ return {
       hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
       return opts
     end,
-    specs = {
-      {
-        "catppuccin",
-        optional = true,
-        ---@type CatppuccinOptions
-        opts = {
-          integrations = {
-            indent_blankline = {
-              enabled = true,
-              colored_indent_levels = true,
-            },
-          },
-        },
-      },
-    },
   },
 }

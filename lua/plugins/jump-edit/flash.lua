@@ -53,7 +53,7 @@ return {
             }
           end,
           search = { wrap = false },
-          highlight = { backdrop = true },
+          -- highlight = { backdrop = true },
           jump = {
             register = false,
             -- when using jump labels, set to 'true' to automatically jump

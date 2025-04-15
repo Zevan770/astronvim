@@ -14,14 +14,6 @@ return {
     dependencies = {
       "tpope/vim-repeat",
     },
-    specs = {
-      {
-        "catppuccin",
-        optional = true,
-        ---@type CatppuccinOptions
-        opts = { integrations = { leap = true } },
-      },
-    },
     opts = function(self, opts)
       require("leap").opts.equivalence_classes = { " \t\r\n", "([{", ")]}", "'\"`" }
       require("leap.user").set_repeat_keys("<enter>", "<backspace>")

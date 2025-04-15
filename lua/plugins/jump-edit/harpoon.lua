@@ -46,12 +46,6 @@ return {
   },
   specs = {
     {
-      "catppuccin",
-      optional = true,
-      ---@type CatppuccinOptions
-      opts = { integrations = { harpoon = true } },
-    },
-    {
       "rebelot/heirline.nvim",
       dependencies = "abeldekat/harpoonline",
       config = function(plugin, opts)

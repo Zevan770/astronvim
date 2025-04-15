@@ -43,17 +43,4 @@ return {
       format_text = function(text) return text end,
     },
   },
-  {
-    "catppuccin",
-    opts = {
-      integretions = {
-        navic = {
-          enabled = true,
-        },
-      },
-    },
-  },
-  -- {
-  --   ""
-  -- }
 }

@@ -43,12 +43,6 @@ return {
     specs = {
       { "neo-tree.nvim", optional = true, enabled = false },
       {
-        "catppuccin",
-        optional = true,
-        ---@type CatppuccinOptions
-        opts = { integrations = { mini = true } },
-      },
-      {
         "AstroNvim/astrolsp",
         optional = true,
         specs = {

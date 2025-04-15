@@ -23,14 +23,4 @@ return {
   --       U = ai.gen_spec.function_call { name_pattern = "[%w_]" }, -- without dot in function name
   --     },
   --   }
-  -- end,
-
-  specs = {
-    {
-      "catppuccin",
-      optional = true,
-      ---@type CatppuccinOptions
-      opts = { integrations = { mini = true } },
-    },
-  },
 }
