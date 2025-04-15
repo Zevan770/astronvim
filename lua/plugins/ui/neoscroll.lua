@@ -15,7 +15,11 @@ return {
         if info == "cursorline" then vim.wo.cursorline = false end
       end,
       post_hook = function(info)
-        if info == "cursorline" then vim.wo.cursorline = true end
+        if info == "cursorline" then
+          vim.wo.cursorline = true
+        elseif info == "center" then
+          vim.cmd "normal! zz"
+        end
       end,
       performance_mode = false, -- Disable "Performance Mode" on all buffers.
       ignored_events = { -- Events ignored while scrolling
@@ -30,7 +34,7 @@ return {
       local function create_scroll_mapping(key, func)
         return {
           key,
-          function() func { duration = 100 } end,
+          function() func { duration = 100, info = "center" } end,
           mode = { "n", "v", "x" },
         }
       end
