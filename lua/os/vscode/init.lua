@@ -49,7 +49,7 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "flash-zh.nvim",
   "im-select.nvim",
   "fast-cursor-move.nvim",
-  "which-key.nvim",
+  -- "which-key.nvim",
   "nvim-origami",
 })
 

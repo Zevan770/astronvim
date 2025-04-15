@@ -89,8 +89,8 @@ nmap     <C-x>      :x<CR>
 nmap     <C-s>      :w<cr>
 nnoremap     <C-v>      p
 vnoremap     <C-v>      pgvy
-inoremap     <C-v>     <C-r>*
-cnoremap     <C-v>     <C-r>*
+" inoremap     <C-v>     <C-r>*
+" cnoremap     <C-v>     <C-r>*
 
 nmap     <C-a>      ggVG
 noremap    zv      <C-v>
