@@ -3,6 +3,7 @@
 return {
   "Bekaboo/dropbar.nvim",
   event = "UIEnter",
+  enabled = vim.fn.has "nvim-0.11" == 1,
   opts = function(_, opts)
     local utils = require "dropbar.utils"
     local sources = require "dropbar.sources"
