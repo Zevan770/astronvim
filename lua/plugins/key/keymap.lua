@@ -159,13 +159,12 @@ return {
           }
 
           -- tabs
-          maps.n["<leader><tab>l"] = { "<cmd>tablast<cr>", desc = "Last Tab" }
-          maps.n["<leader><tab>o"] = { "<cmd>tabonly<cr>", desc = "Close Other Tabs" }
-          maps.n["<leader><tab>f"] = { "<cmd>tabfirst<cr>", desc = "First Tab" }
-          maps.n["<leader><tab><tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" }
-          maps.n["<leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" }
-          maps.n["<leader><tab>d"] = { "<cmd>tabclose<cr>", desc = "Close Tab" }
-          maps.n["<leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" }
+          maps.n["<Leader><tab>o"] = { "<cmd>tabonly<cr>", desc = "Close Other Tabs" }
+          maps.n["<Leader><tab><tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" }
+          maps.n["<Leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" }
+          maps.n["<Leader><tab>d"] = { "<cmd>tabclose<cr>", desc = "Close Tab" }
+          maps.n["<Leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" }
+          maps.n["<Leader><tab>0"] = { "<cmd>tabnext 0<cr>", desc = "nth Tab" }
         end,
       },
     },

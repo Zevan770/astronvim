@@ -164,6 +164,16 @@ return {
           function() require("which-key").show { global = false } end,
           desc = "Buffer Keymaps (which-key)",
         }
+
+        local wk = require "which-key"
+        wk.add {
+          {
+            "<leader>b",
+            group = "buffers",
+            expand = function() return require("which-key.extras").expand.buf() end,
+          },
+        }
+        maps.n["<Leader>b"] = false
       end,
     },
   },

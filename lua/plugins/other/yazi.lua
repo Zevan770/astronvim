@@ -46,7 +46,7 @@ return {
       open_file_in_tab = "<c-t>",
       grep_in_directory = "<c-g>",
       replace_in_directory = "<c-r>",
-      cycle_open_buffers = "<tab>",
+      cycle_open_buffers = "<c-n>",
       copy_relative_path_to_selected_files = "<c-y>",
       send_to_quickfix_list = "<c-q>",
       change_working_directory = "<c-\\>",

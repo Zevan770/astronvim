@@ -7,6 +7,9 @@ return {
     opts = {
       image = { enabled = not not vim.env.KITTY_PID },
       dim = { enabled = true },
+      picker = {
+        actions = {},
+      },
     },
     dependencies = {
       {
@@ -61,7 +64,34 @@ return {
           maps.n["<Leader>fj"] = { function() Snacks.picker.jumps() end, desc = "Find Jumps" }
           maps.n["<Leader>fu"] = { function() Snacks.picker.undo() end, desc = "Find Undo history" }
           maps.n["<Leader>fx"] = { function() Snacks.picker.lazy() end, desc = "Find lazy eXtension specs" }
-          maps.n["<Leader>fz"] = { function() Snacks.picker.zoxide() end, desc = "Find Zoxide" }
+          maps.n["<Leader>fz"] = {
+            function()
+              Snacks.picker.zoxide {
+                win = {
+                  input = {
+                    keys = {
+                      -- every action will always first change the cwd of the current tabpage to the project
+                      ["<c-e>"] = { { "tcd", "picker_explorer" }, mode = { "n", "i" } },
+                      ["<c-f>"] = { { "tcd", "picker_files" }, mode = { "n", "i" } },
+                      ["<c-g>"] = { { "tcd", "picker_grep" }, mode = { "n", "i" } },
+                      ["<c-r>"] = { { "tcd", "picker_recent" }, mode = { "n", "i" } },
+                      ["<c-w>"] = { { "tcd" }, mode = { "n", "i" } },
+                      ["<c-t>"] = {
+                        function(picker)
+                          vim.cmd "tabnew"
+                          Snacks.notify "New tab opened"
+                          picker:close()
+                          Snacks.picker.projects()
+                        end,
+                        mode = { "n", "i" },
+                      },
+                    },
+                  },
+                },
+              }
+            end,
+            desc = "Find Zoxide",
+          }
           maps.n['<Leader>f"'] = { function() Snacks.picker.registers() end, desc = "Find register" }
           maps.n["<Leader>f:"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }
           maps.n["<Leader>f/"] = { function() Snacks.picker.search_history() end, desc = "Find Search history" }
@@ -285,6 +315,7 @@ return {
 
   {
     "dawsers/file-history.nvim",
+    enabled = not my_utils.is_windows,
     config = function()
       local file_history = require "file_history"
       file_history.setup {

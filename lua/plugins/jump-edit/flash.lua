@@ -61,8 +61,16 @@ return {
             autojump = true,
           },
         },
+        treesitter_search = {
+          label = {
+            rainbow = {
+              enabled = true,
+              -- number between 1 and 9
+              shade = 5,
+            },
+          },
+        },
         treesitter = {
-
           label = {
             rainbow = {
               enabled = true,
