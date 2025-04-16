@@ -7,7 +7,7 @@ return {
       -- requires with `nvim-ufo`
       keepFoldsAcrossSessions = package.loaded["ufo"] ~= nil,
 
-      pauseFoldsOnSearch = true,
+      pauseFoldsOnSearch = false,
 
       -- incompatible with `nvim-ufo`
       foldtextWithLineCount = {
