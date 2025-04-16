@@ -15,7 +15,26 @@ end
 return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    -- overrides `require("mason-tool-installer").setup(...)`
+    opts = disable_auto_install,
+  },
+  -- use mason-lspconfig to configure LSP installations
+  {
+    "williamboman/mason-lspconfig.nvim",
+    optional = true,
+    -- overrides `require("mason-lspconfig").setup(...)`
+    opts = disable_auto_install,
+  },
+  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
+  {
+    "jay-babu/mason-null-ls.nvim",
+    optional = true,
+    -- overrides `require("mason-null-ls").setup(...)`
+    opts = disable_auto_install,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    optional = true,
+    -- overrides `require("mason-nvim-dap").setup(...)`
     opts = disable_auto_install,
   },
 }
