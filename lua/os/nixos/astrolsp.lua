@@ -16,6 +16,8 @@ return {
     ---@type AstroLSPOpts
     opts = {
       servers = {
+        "basedpyright",
+        "efm",
         -- "pyright",
         -- "clangd",
         -- "eslint",
@@ -24,7 +26,7 @@ return {
         -- "jsonls",
         -- "lemminx",
         -- "lua_ls",
-        -- "marksman",
+        "marksman",
         -- "sqls",
         -- "taplo",
         -- "vimls",
