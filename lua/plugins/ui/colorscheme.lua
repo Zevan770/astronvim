@@ -1,5 +1,14 @@
 ---@type LazySpec
 return {
+  -- color
+  { import = "astrocommunity.color.transparent-nvim" },
+  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+  { import = "astrocommunity.colorscheme.github-nvim-theme" },
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  { import = "astrocommunity.colorscheme.nightfox-nvim" },
+
   {
     "EdenEast/nightfox.nvim",
     lazy = true,

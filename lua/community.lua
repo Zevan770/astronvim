@@ -16,14 +16,6 @@ local M = {
   -- { import = "astrocommunity.editing-support.zen-mode-nvim" },
   -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
 
-  -- color
-  { import = "astrocommunity.color.transparent-nvim" },
-  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
-  { import = "astrocommunity.colorscheme.github-nvim-theme" },
-  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
-
   -- fuzzy
   -- { import = "astrocommunity.fuzzy-finder.fzf-lua" },
 
