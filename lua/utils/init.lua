@@ -23,4 +23,19 @@ M.replace_group = function(modes, maps, group, new_group)
   end
 end
 _G.my_utils = M
+
+M.dap_breakpoint = function()
+  -- 获取当前缓冲区的所有错误诊断
+  local diagnostics = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+
+  -- 获取nvim-dap模块
+  local dap = require "dap"
+
+  -- 遍历所有错误诊断并在相应行添加断点
+  for _, diagnostic in ipairs(diagnostics) do
+    local line = diagnostic.lnum
+    dap.set_breakpoint(nil, nil, nil, { line = line + 1 }) -- 行号是0索引的，所以需要加1
+  end
+end
+
 return M
