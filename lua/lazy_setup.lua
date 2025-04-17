@@ -21,6 +21,7 @@ require("lazy").setup({
   { import = "plugins.ui" },
   { import = "plugins.other" },
   { import = "disable" },
+  { import = "os" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = {
