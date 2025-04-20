@@ -25,7 +25,7 @@ return {
     diagnostics = {
       virtual_text = true,
       underline = true,
-      virtual_lines = function() return { current_line = true } end,
+      -- virtual_lines = function() return { current_line = true } end,
     },
     -- vim options can be configured here
     options = {

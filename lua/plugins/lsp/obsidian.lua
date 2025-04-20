@@ -64,7 +64,7 @@ return {
           return assert(vim.fn.getcwd())
         end,
         overrides = {
-          notes_subdir = "notes", -- have to use 'vim.NIL' instead of 'nil'
+          notes_subdir = vim.NIL, -- have to use 'vim.NIL' instead of 'nil'
           new_notes_location = "notes_subdir",
           templates = {
             folder = vim.NIL,

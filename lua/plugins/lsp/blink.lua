@@ -29,6 +29,7 @@ return {
   {
     "Saghen/blink.cmp",
     dependencies = { "mikavilpas/blink-ripgrep.nvim" },
+    ---@type blink.cmp.Config
     opts = {
       sources = {
         default = { "ripgrep" },

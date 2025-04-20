@@ -17,7 +17,7 @@ return {
     opts = {
       servers = {
         "basedpyright",
-        "efm",
+        -- "efm",
         -- "pyright",
         -- "clangd",
         -- "eslint",

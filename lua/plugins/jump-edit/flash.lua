@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- if true then return {} end
 ---@type LazySpec
 return {
@@ -7,6 +8,9 @@ return {
     ---@type Flash.Config
     opts = {
       labels = "fjghdktyrueivncmwoxsla;qp",
+      label = {
+        uppercase = false,
+      },
 
       modes = {
         char = {
@@ -53,7 +57,7 @@ return {
             }
           end,
           search = { wrap = false },
-          -- highlight = { backdrop = true },
+          highlight = { backdrop = false },
           jump = {
             register = false,
             -- when using jump labels, set to 'true' to automatically jump

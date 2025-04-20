@@ -62,7 +62,7 @@ return {
       -- vim.notify(vim.inspect(opts), vim.log.levels.INFO, { title = "conform opts" })
       return require("astrocore").extend_tbl(opts, {
         formatters_by_ft = {
-          markdown = function(bufnr) return { first(bufnr, "prettierd", "prettier"), "injected" } end,
+          markdown = function(_) return { "prettier", "injected" } end,
         },
         formatters = {
           injected = { options = { ignore_errors = true } },
@@ -81,14 +81,5 @@ return {
         desc = "Format Injected Langs",
       },
     },
-    -- opts = {
-    --   log_level = vim.log.levels.DEBUG,
-    --   formatters_by_ft = {
-    --     ["*"] = { "injected" },
-    --     html = { "prettier" },
-    --     markdown = { "prettier" },
-    --     lua = { "stylua" },
-    --   },
-    -- },
   },
 }

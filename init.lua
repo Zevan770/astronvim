@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 vim.deprecate = function() end
 require "snacks_profiler_setup"
 -- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
