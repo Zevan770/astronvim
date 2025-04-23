@@ -19,10 +19,15 @@ return {
       local opts = require("lazy.core.plugin").values(plugin, "opts", false)
       return opts.file_types or { "markdown" }
     end,
+    ---@module "render-markdown"
+    ---@type render.md.UserConfig
     opts = {
       preset = "obsidian",
       completions = { blink = { enabled = true } },
       file_types = markdown_ft,
+      code = {
+        border = "thin",
+      },
     },
   },
   -- #endregion
