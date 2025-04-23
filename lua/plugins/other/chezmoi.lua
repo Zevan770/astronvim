@@ -122,8 +122,8 @@ return {
                         args = {
                           "--path-style",
                           "absolute",
-                          "--include",
-                          "files",
+                          -- "--include",
+                          -- "files",
                           "--exclude",
                           "externals",
                         },

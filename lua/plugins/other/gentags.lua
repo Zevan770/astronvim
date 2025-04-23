@@ -7,11 +7,10 @@ return {
   },
   {
     "JMarkin/gentags.lua",
-    cond = vim.fn.executable "ctags" == 1,
+    enabled = not my_utils.is_windows and vim.fn.executable "ctags" == 1,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    enabled = not vim.fn.has "win32",
     event = "VeryLazy",
     opts = {},
   },

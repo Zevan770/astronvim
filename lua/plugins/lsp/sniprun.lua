@@ -1,9 +1,10 @@
 ---@type LazySpec
 return {
-  { import = "astrocommunity.code-runner.sniprun" },
   {
     "michaelb/sniprun",
-
+    enabled = not my_utils.is_windows,
+    build = "bash ./install.sh 1",
+    cmd = "SnipRun",
     opts = {
 
       selected_interpreters = { "Rust_original" }, --# use those instead of the default for the current filetype
