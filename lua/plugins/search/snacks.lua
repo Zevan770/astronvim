@@ -147,11 +147,12 @@ return {
         { key = "n", action = "<Leader>n", icon = get_icon("FileNew", 0, true), desc = "New File  " },
         { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
         { key = "r", action = "<Leader>fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
-        { key = "s", action = "<Leader>fw", icon = get_icon("WordFile", 0, true), desc = "grep Search project  " },
+        { key = "s", action = "<Leader>sp", icon = get_icon("WordFile", 0, true), desc = "Search/grep project  " },
         { key = "'", action = "<Leader>f'", icon = get_icon("Bookmarks", 0, true), desc = "Bookmarks  " },
         { key = "l", action = "<Leader>Sl", icon = get_icon("Refresh", 0, true), desc = "Last session  " },
+        { key = "c", action = "<Leader>pc", icon = "", desc = "Current dir session" },
         { key = "q", action = "<Leader>Q", icon = get_icon("TabClose", 0, true), desc = "Quit vim  " },
-        { key = "c", action = "<Leader>fa", icon = get_icon("Package", 0, true), desc = "open Configuration" },
+        { key = "a", action = "<Leader>fa", icon = get_icon("Package", 0, true), desc = "Astronvim configuration" },
       }
 
       -- opts.dashboard = {
