@@ -2,7 +2,7 @@
 return {
   {
     "johmsalas/text-case.nvim",
-    event = "User AstroFile",
+    -- event = "User AstroFile",
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
       require("textcase").setup {

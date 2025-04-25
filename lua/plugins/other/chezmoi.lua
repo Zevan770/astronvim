@@ -48,6 +48,8 @@ return {
           },
         },
       },
+    },
+    specs = {
       -- {
       --   "nvim-telescope/telescope.nvim",
       --   optional = true,

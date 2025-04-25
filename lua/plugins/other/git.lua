@@ -2,8 +2,22 @@
 return {
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.diffview-nvim" },
-  { import = "astrocommunity.git.gitlinker-nvim" },
   { import = "astrocommunity.git.octo-nvim" },
+  {
+    "linrongbin16/gitlinker.nvim",
+    cmd = "GitLink",
+    dependencies = {
+      "AstroNvim/astrocore",
+      opts = function(_, opts)
+        local prefix = "<Leader>g"
+        opts.mappings.n[prefix .. "y"] = { "<Cmd>GitLink<CR>", desc = "Git link copy" }
+        opts.mappings.n[prefix .. "z"] = { "<Cmd>GitLink!<CR>", desc = "Git link open" }
+        opts.mappings.v[prefix .. "y"] = { "<Cmd>GitLink<CR>", desc = "Git link copy" }
+        opts.mappings.v[prefix .. "z"] = { "<Cmd>GitLink!<CR>", desc = "Git link open" }
+      end,
+    },
+    opts = {},
+  },
   {
     "NeogitOrg/neogit",
     ---@type NeogitConfig

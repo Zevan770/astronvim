@@ -25,4 +25,23 @@ return {
       },
     },
   },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    optional = true,
+    enabled = false,
+    -- overrides `require("mason-lspconfig").setup(...)`
+  },
+  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
+  {
+    "jay-babu/mason-null-ls.nvim",
+    optional = true,
+    -- overrides `require("mason-null-ls").setup(...)`
+    enabled = false,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    optional = true,
+    -- overrides `require("mason-nvim-dap").setup(...)`
+    enabled = false,
+  },
 }
