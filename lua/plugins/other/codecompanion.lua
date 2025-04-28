@@ -5,7 +5,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim",
+      "nvim-snacks/telescope.nvim",
     },
     specs = {
       {
@@ -30,13 +30,98 @@ return {
       },
     },
     keys = {
+      {
+        "<leader>cp",
+        "<cmd>CodeCompanionActions<cr>",
+        desc = "Code Companion - Prompt Actions",
+      },
+      {
+        "<leader>ca",
+        function()
+          vim.cmd "CodeCompanionChat Toggle"
+          vim.cmd "startinsert"
+        end,
+        desc = "Code Companion - Toggle",
+        mode = { "n", "v" },
+      },
+      -- Some common usages with visual mode
+      {
+        "<leader>ce",
+        "<cmd>CodeCompanion /explain<cr>",
+        desc = "Code Companion - Explain code",
+        mode = "v",
+      },
+      {
+        "<leader>cf",
+        "<cmd>CodeCompanion /fix<cr>",
+        desc = "Code Companion - Fix code",
+        mode = "v",
+      },
+      {
+        "<leader>cl",
+        "<cmd>CodeCompanion /lsp<cr>",
+        desc = "Code Companion - Explain LSP diagnostic",
+        mode = { "n", "v" },
+      },
+      {
+        "<leader>ct",
+        "<cmd>CodeCompanion /tests<cr>",
+        desc = "Code Companion - Generate unit test",
+        mode = "v",
+      },
+      {
+        "<leader>cm",
+        "<cmd>CodeCompanion /commit<cr>",
+        desc = "Code Companion - Git commit message",
+      },
+      -- Custom prompts
+      {
+        "<leader>cM",
+        "<cmd>CodeCompanion /staged-commit<cr>",
+        desc = "Code Companion - Git commit message (staged)",
+      },
+      {
+        "<leader>cd",
+        "<cmd>CodeCompanion /inline-doc<cr>",
+        desc = "Code Companion - Inline document code",
+        mode = "v",
+      },
+      { "<leader>cD", "<cmd>CodeCompanion /doc<cr>", desc = "Code Companion - Document code", mode = "v" },
+      {
+        "<leader>cr",
+        "<cmd>CodeCompanion /refactor<cr>",
+        desc = "Code Companion - Refactor code",
+        mode = "v",
+      },
+      {
+        "<leader>cR",
+        "<cmd>CodeCompanion /review<cr>",
+        desc = "Code Companion - Review code",
+        mode = "v",
+      },
+      {
+        "<leader>cn",
+        "<cmd>CodeCompanion /naming<cr>",
+        desc = "Code Companion - Better naming",
+        mode = "v",
+      },
+      -- Quick chat
+      {
+        "<leader>cq",
+        function()
+          local input = vim.fn.input "Quick Chat: "
+          if input ~= "" then vim.cmd("CodeCompanion " .. input) end
+        end,
+        desc = "Code Companion - Quick chat",
+      },
       { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Run CodeCompanion", mode = { "n", "v" } },
       { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Open chat", mode = { "n", "v" } },
       { "<leader>c;", ":CodeCompanionCmd ", desc = "Run command" },
     },
     config = function(_, opts)
       require("codecompanion").setup(opts)
-      require("utils.codecompanion").setup()
+      require("utils.codecompanion.signcolumn").setup()
+      require("utils.codecompanion.spinner"):init()
     end,
     opts = {
       opts = { language = "Chinese" },
@@ -48,61 +133,50 @@ return {
       strategies = {
         chat = {
           adapter = "copilot",
-          slash_commands = {
-            ["buffer"] = {
-              callback = "strategies.chat.slash_commands.buffer",
-              description = "Insert open buffers",
-              opts = {
-                contains_code = true,
-                provider = "default", -- default|telescope|mini_pick|fzf_lua
+          tools = {
+            groups = {
+              ["all_in_one"] = {
+                description = "Everything but the kitchen sink (we're working on that)",
+                system_prompt = "You are an agent, please keep going until the user's query is completely resolved, before ending your turn and yielding back to the user. Only terminate your turn when you are sure that the problem is solved. If you are not sure about file content or codebase structure pertaining to the user's request, use your tools to read files and gather the relevant information: do NOT guess or make up an answer. You MUST plan extensively before each function call, and reflect extensively on the outcomes of the previous function calls. DO NOT do this entire process by making function calls only, as this can impair your ability to solve the problem and think insightfully.",
+                tools = {
+                  "cmd_runner",
+                  "editor",
+                  "files",
+                  "mcp",
+                },
               },
             },
-            ["fetch"] = {
-              callback = "strategies.chat.slash_commands.fetch",
-              description = "Insert URL contents",
-              opts = {
-                adapter = "jina",
-              },
+            ["mcp"] = {
+              -- Prevent mcphub from loading before needed
+              callback = function() return require "mcphub.extensions.codecompanion" end,
+              description = "Call tools and resources from the MCP Servers",
             },
-            ["file"] = {
-              callback = "strategies.chat.slash_commands.file",
-              description = "Insert a file",
-              opts = {
-                contains_code = true,
-                max_lines = 3000,
-                provider = "telescope", -- default|telescope|mini_pick|fzf_lua
-              },
+          },
+          slash_commands = {},
+          keymaps = {
+            send = {
+              callback = function(chat)
+                vim.cmd "stopinsert"
+                chat:submit()
+              end,
+              index = 1,
+              description = "Send",
             },
-            ["help"] = {
-              callback = "strategies.chat.slash_commands.help",
-              description = "Insert content from help tags",
-              opts = {
-                contains_code = false,
-                max_lines = 128, -- Maximum amount of lines to of the help file to send (NOTE: each vimdoc line is typically 10 tokens)
-                provider = "telescope", -- telescope|mini_pick|fzf_lua
+            close = {
+              modes = {
+                n = "q",
               },
+              index = 3,
+              callback = "keymaps.close",
+              description = "Close Chat",
             },
-            ["now"] = {
-              callback = "strategies.chat.slash_commands.now",
-              description = "Insert the current date and time",
-              opts = {
-                contains_code = false,
+            stop = {
+              modes = {
+                n = "<C-c>",
               },
-            },
-            ["symbols"] = {
-              callback = "strategies.chat.slash_commands.symbols",
-              description = "Insert symbols for a selected file",
-              opts = {
-                contains_code = true,
-                provider = "default", -- default|telescope|mini_pick|fzf_lua
-              },
-            },
-            ["terminal"] = {
-              callback = "strategies.chat.slash_commands.terminal",
-              description = "Insert terminal output",
-              opts = {
-                contains_code = false,
-              },
+              index = 4,
+              callback = "keymaps.stop",
+              description = "Stop Request",
             },
           },
         },
@@ -116,10 +190,10 @@ return {
       adapters = {
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
-            name = "claude 3.5",
+            name = "claude 3.7",
             schema = {
               model = {
-                default = "claude-3.5-sonnet",
+                default = "claude-3.7-sonnet",
               },
             },
           })

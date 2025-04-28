@@ -69,8 +69,8 @@ end
 local function create_autocmds(opts)
   vim.api.nvim_create_autocmd({ "User" }, {
     pattern = { "CodeCompanionRequest*" },
-    callback =     --- @param args {buf: number, data : CodeCompanion.InlineArgs, match: string}
-function(args)
+    --- @param args {buf: number, data : CodeCompanion.InlineArgs, match: string}
+    callback = function(args)
       local data = args.data or {}
       local context = data and data.context or {}
       if data and data.context then
