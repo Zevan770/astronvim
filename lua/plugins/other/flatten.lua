@@ -11,7 +11,7 @@ return {
       },
     },
     specs = { "akinsho/toggleterm.nvim" },
-    ---@param opts Flatten.PartialConfig
+    ---@return  Flatten.PartialConfig
     opts = function(_, opts)
       ---@type Terminal?
       local saved_terminal
@@ -70,8 +70,8 @@ return {
               end
             end)
           end,
-          -- one_per = { wezterm = true },
         },
+        integrations = { wezterm = false },
       }
     end,
   },

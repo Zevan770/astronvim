@@ -6,6 +6,7 @@ return {
   opts = {
     hide_target_hack = true,
     cursor_color = "none",
+    legacy_computing_symbols_support = true,
   },
   specs = {
     -- disable mini.animate cursor
