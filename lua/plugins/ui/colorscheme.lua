@@ -50,6 +50,7 @@ return {
         dropbar = true,
         grug_far = true,
         leap = true,
+        fidget = true,
       },
     },
   },

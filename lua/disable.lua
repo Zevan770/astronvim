@@ -2,7 +2,7 @@ local M = {}
 local disabled = {
   "image.nvim",
   "neotree.nvim",
-  "mcphub.nvim",
+  -- "mcphub.nvim",
   "vim-illuminate",
   -- "vim-fetch",
   -- "neogit",
