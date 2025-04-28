@@ -2,3 +2,4 @@ lazy-lock.json
 lua/local_plugins/im-select.nvim
 lua/local_plugins/wezterm-types
 notes
+lua/local_plugins/snacks.nvim
