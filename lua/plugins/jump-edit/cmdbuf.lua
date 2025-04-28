@@ -35,7 +35,7 @@ return {
       { noremap = true, silent = true },
     },
   },
-  opts = function()
+  config = function()
     -- Custom buffer mappings
     vim.api.nvim_create_autocmd({ "User" }, {
       group = vim.api.nvim_create_augroup("cmdbuf_setting", {}),
