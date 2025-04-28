@@ -1,4 +1,3 @@
-if true then return {} end
 ---@type LazySpec
 return {
   {
@@ -7,16 +6,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope.nvim",
-      {
-        "AstroNvim/astrocore",
-        opts = function(_, opts)
-          local maps = assert(opts.mappings)
-          maps.n["<leader>c"] = { nil, desc = " Copilot Chat" }
-          maps.v["<leader>c"] = maps.n["<leader>c"]
-        end,
-      },
     },
-    init = function() vim.treesitter.language.register("codecompanion", "avante") end,
     specs = {
       {
         -- Edgy integration
@@ -30,17 +20,31 @@ return {
           })
         end,
       },
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = assert(opts.mappings)
+          maps.n["<Leader>c"] = { desc = " Copilot Chat" }
+          maps.v["<Leader>c"] = maps.n["<Leader>c"]
+        end,
+      },
     },
     keys = {
-      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Inline", mode = { "n", "v" } },
-      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Chat", mode = { "n", "v" } },
+      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Run CodeCompanion", mode = { "n", "v" } },
+      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Open chat", mode = { "n", "v" } },
+      { "<leader>c;", ":CodeCompanionCmd ", desc = "Run command" },
     },
+    config = function(_, opts)
+      require("codecompanion").setup(opts)
+      require("utils.codecompanion").setup()
+    end,
     opts = {
-      display = {
-        chat = {
-          show_settings = true,
-        },
-      },
+      opts = { language = "Chinese" },
+      -- display = {
+      --   chat = {
+      --     show_settings = true,
+      --   },
+      -- },
       strategies = {
         chat = {
           adapter = "copilot",
@@ -110,8 +114,22 @@ return {
         },
       },
       adapters = {
-        copilot = function() return require("codecompanion.adapters").extend("copilot", {}) end,
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            name = "claude 3.5",
+            schema = {
+              model = {
+                default = "claude-3.5-sonnet",
+              },
+            },
+          })
+        end,
       },
     },
+  },
+
+  {
+    "olimorris/codecompanion.nvim",
+    opts = function() vim.treesitter.language.register("codecompanion", "avante") end,
   },
 }

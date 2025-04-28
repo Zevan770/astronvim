@@ -6,6 +6,7 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
     version = "^3",
+    cond = false,
     cmd = {
       "CopilotChat",
       "CopilotChatOpen",
