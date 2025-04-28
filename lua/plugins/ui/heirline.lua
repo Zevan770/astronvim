@@ -30,6 +30,7 @@ return {
     dependencies = { "Zeioth/heirline-components.nvim" },
     opts = function(self, opts)
       local status = require "astroui.status"
+      opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
       -- local components = require "heirline-components.all"
       -- table.insert(opts.statusline, 10, components.component.file_encoding()) -- after file_info component
       -- opts.statuscolumn = {

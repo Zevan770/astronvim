@@ -14,6 +14,9 @@ return {
       local utils = require "astrocore"
       return utils.extend_tbl(opts, {
         lsp = {
+          progress = {
+            enabled = false,
+          },
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
           hover = { enabled = false },
           signature = { enabled = false },
@@ -66,16 +69,6 @@ return {
             opts.lsp_handlers["textDocument/signatureHelp"] = false
             if not opts.features then opts.features = {} end
             opts.features.signature_help = false
-          end
-        end,
-      },
-      {
-        "rebelot/heirline.nvim",
-        optional = true,
-        opts = function(_, opts)
-          local noice_opts = require("astrocore").plugin_opts "noice.nvim"
-          if vim.tbl_get(noice_opts, "lsp", "progress", "enabled") ~= false then -- check if lsp progress is enabled
-            opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
           end
         end,
       },
