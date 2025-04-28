@@ -12,12 +12,10 @@ return {
       opts.cmdline = {
         enabled = true,
         keymap = {
-          preset = "super-tab",
-          ["<C-y>"] = { "select_and_accept" },
+          preset = "inherit",
         },
         completion = { menu = { auto_show = true } },
       }
-
       -- opts.completion = {
       --   menu = {
       --     auto_show = true,

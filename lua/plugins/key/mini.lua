@@ -28,6 +28,10 @@ return {
       -- maps.n[";"] = { ":", remap = true }
       maps.i["jk"] = false
       maps.i["jj"] = false
+      maps.n["n"] = "nzz"
+      maps.v["n"] = "nzz"
+      maps.n["N"] = "Nzz"
+      maps.v["N"] = "Nzz"
     end,
   },
 }
