@@ -100,6 +100,8 @@ return {
         desc = "Insert empty line below",
       }
 
+      maps.n["<Leader>qq"] = maps.n["<Leader>Q"]
+
       -- maps.n["h"] = {
       --   function()
       --     local onIndentOrFirstNonBlank = vim.fn.virtcol "." <= vim.fn.indent "." + 1
@@ -112,65 +114,18 @@ return {
       --   end,
       --   desc = "h (+ close fold at BoL)",
       -- }
-      maps.n["<Leader>k"] = function() vim.cmd "normal! K" end
+
+      -- tabs
+      maps.n["<Leader><tab>o"] = { "<cmd>tabonly<cr>", desc = "Close Other Tabs" }
+      maps.n["<Leader><tab><tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" }
+      maps.n["<Leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" }
+      maps.n["<Leader><tab>d"] = { "<cmd>tabclose<cr>", desc = "Close Tab" }
+      maps.n["<Leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" }
+      maps.n["<Leader><tab>0"] = { "<cmd>tabnext 0<cr>", desc = "nth Tab" }
+
+      maps.n["gh"] = "K"
+      maps.v["gh"] = "K"
     end,
-  },
-  {
-    "stevearc/resession.nvim",
-    specs = {
-      {
-        "AstroNvim/astrocore",
-        opts = function(_, opts)
-          local maps = opts.mappings
-          maps.n["<Leader>p"] = maps.n["<Leader>S"]
-          maps.n["<Leader>S"] = false
-          maps.n["<Leader>pl"] = {
-            function() require("resession").load "Last Session" end,
-            desc = "Load last session",
-          }
-          maps.n["<Leader>ps"] = {
-            function() require("resession").save() end,
-            desc = "Save this session",
-          }
-          maps.n["<Leader>pS"] = {
-            function() require("resession").save(vim.fn.getcwd(), { dir = "dirsession" }) end,
-            desc = "Save this dirsession",
-          }
-          maps.n["<Leader>pt"] = {
-            function() require("resession").save_tab() end,
-            desc = "Save this tab's session",
-          }
-          maps.n["<Leader>pd"] = {
-            function() require("resession").delete() end,
-            desc = "Delete a session",
-          }
-          maps.n["<Leader>pD"] = {
-            function() require("resession").delete(nil, { dir = "dirsession" }) end,
-            desc = "Delete a dirsession",
-          }
-          maps.n["<Leader>po"] = { function() require("resession").load() end, desc = "Load a session" }
-          maps.n["<Leader>pp"] = {
-            function() require("resession").load(nil, { dir = "dirsession" }) end,
-            desc = "Load a dirsession",
-          }
-          maps.n["<Leader>pc"] = {
-            function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
-            desc = "Load current dirsession",
-          }
-
-          -- tabs
-          maps.n["<Leader><tab>o"] = { "<cmd>tabonly<cr>", desc = "Close Other Tabs" }
-          maps.n["<Leader><tab><tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" }
-          maps.n["<Leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" }
-          maps.n["<Leader><tab>d"] = { "<cmd>tabclose<cr>", desc = "Close Tab" }
-          maps.n["<Leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" }
-          maps.n["<Leader><tab>0"] = { "<cmd>tabnext 0<cr>", desc = "nth Tab" }
-
-          maps.n["gh"] = "K"
-          maps.v["gh"] = "K"
-        end,
-      },
-    },
   },
   {
     "AstroNvim/astrolsp",
