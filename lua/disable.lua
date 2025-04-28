@@ -4,6 +4,8 @@ local disabled = {
   "neotree.nvim",
   "mcphub.nvim",
   "vim-illuminate",
+  -- "vim-fetch",
+  -- "neogit",
   -- "telescope.nvim",
   -- "neoscroll.nvim",
   -- "dropbar.nvim",

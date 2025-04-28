@@ -1,7 +1,7 @@
 return {
   "sphamba/smear-cursor.nvim",
   event = "VeryLazy",
-  cond = vim.g.neovide == nil and not vim.env.KITTY_PID,
+  cond = not my_utils.is_neovide and not my_utils.is_firenvim and not vim.env.KITTY_PID,
   -- enabled = false,
   opts = {
     hide_target_hack = true,
