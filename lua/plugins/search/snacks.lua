@@ -87,7 +87,7 @@ return {
                     },
                   },
                 },
-                confirm = "tcd",
+                confirm = { "tcd", "close" },
               }
             end,
             desc = "Find Zoxide",

@@ -65,8 +65,7 @@ return {
   },
   {
     "wintermute-cell/gitignore.nvim",
-    lazy = true,
-    command = "Gitignore",
+    cmd = "Gitignore",
     config = function() require "gitignore" end,
   },
 }

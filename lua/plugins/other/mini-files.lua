@@ -31,7 +31,17 @@ return {
             n = {
               ["<Leader>e"] = {
                 function()
-                  if not require("mini.files").close() then require("mini.files").open() end
+                  if not require("mini.files").close() then
+                    require("mini.files").open(MiniFiles.get_latest_path(), true)
+                  end
+                end,
+                desc = "Explorer",
+              },
+              ["<Leader>o"] = {
+                function()
+                  if not require("mini.files").close() then
+                    require("mini.files").open(vim.api.nvim_buf_get_name(0), false)
+                  end
                 end,
                 desc = "Explorer",
               },

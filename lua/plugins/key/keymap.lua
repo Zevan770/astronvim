@@ -165,6 +165,9 @@ return {
           maps.n["<Leader><tab>d"] = { "<cmd>tabclose<cr>", desc = "Close Tab" }
           maps.n["<Leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" }
           maps.n["<Leader><tab>0"] = { "<cmd>tabnext 0<cr>", desc = "nth Tab" }
+
+          maps.n["gh"] = "K"
+          maps.v["gh"] = "K"
         end,
       },
     },

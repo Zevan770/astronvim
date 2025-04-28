@@ -1,6 +1,7 @@
 local disabled = {}
 vim.tbl_map(function(plugin) disabled[plugin] = true end, {
   "noice.nvim",
+  "neoscroll.nvim",
   "heirline.nvim",
   "ghost-text.nvim",
   "codeium.nvim",
