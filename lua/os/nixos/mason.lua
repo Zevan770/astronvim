@@ -21,6 +21,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
+    -- enabled = false,
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = disable_auto_install,
   },
@@ -28,12 +29,14 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
+    -- enabled = false,
     -- overrides `require("mason-null-ls").setup(...)`
     opts = disable_auto_install,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     optional = true,
+    -- enabled = false,
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = disable_auto_install,
   },

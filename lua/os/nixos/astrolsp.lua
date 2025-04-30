@@ -25,7 +25,7 @@ return {
         -- "jdtls",
         -- "jsonls",
         -- "lemminx",
-        -- "lua_ls",
+        "lua_ls",
         "marksman",
         -- "sqls",
         -- "taplo",

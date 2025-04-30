@@ -42,8 +42,6 @@ return {
   -- { "jay-babu/mason-null-ls.nvim", optional = true, opts = { methods = { formatting = false } } },
   {
     "stevearc/conform.nvim",
-    ---@module "conform"
-    ---@return conform.setupOpts
     opts = function(_, opts)
       -- opts.log_level = vim.log.levels.TRACE
 
@@ -60,18 +58,24 @@ return {
       end
 
       -- vim.notify(vim.inspect(opts), vim.log.levels.INFO, { title = "conform opts" })
-      return require("astrocore").extend_tbl(opts, {
-        formatters_by_ft = {
-          markdown = function(_) return { "prettier", "injected" } end,
-        },
-        formatters = {
-          injected = { options = { ignore_errors = true } },
-        },
-        default_format_opts = { lsp_format = "fallback" },
-        format_on_save = function(bufnr)
-          if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then format_git_hunks(bufnr) end
-        end,
-      })
+      return require("astrocore").extend_tbl(
+        opts,
+        ---@module "conform"
+        ---@type conform.setupOpts
+        {
+          formatters_by_ft = {
+            markdown = function(_) return { "prettier", "injected" } end,
+            yaml = { "prettier" },
+          },
+          formatters = {
+            injected = { options = { ignore_errors = true } },
+          },
+          default_format_opts = { lsp_format = "fallback" },
+          format_on_save = function(bufnr)
+            if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then format_git_hunks(bufnr) end
+          end,
+        }
+      )
     end,
     keys = {
       {
