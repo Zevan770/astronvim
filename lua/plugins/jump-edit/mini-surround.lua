@@ -1,4 +1,3 @@
-local prefix = "gs"
 ---@type LazySpec
 return {
   {
@@ -10,7 +9,7 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = opts.mappings
-          maps.n[prefix] = { desc = require("astroui").get_icon("Surround", 1, true) .. "Surround" }
+          maps.n["gs"] = { desc = require("astroui").get_icon("Surround", 1, true) .. "Surround" }
         end,
       },
     },
@@ -35,13 +34,13 @@ return {
       return {
         n_lines = 50,
         mappings = {
-          add = prefix .. "a", -- Add surrounding in Normal modes
-          delete = prefix .. "d", -- Delete surrounding
-          find = prefix .. "f", -- Find surrounding (to the right)
-          find_left = prefix .. "F", -- Find surrounding (to the left)
-          highlight = prefix .. "h", -- Highlight surrounding
-          replace = prefix .. "c", -- Replace surrounding
-          update_n_lines = prefix .. "n", -- Update `n_lines`
+          add = "gsa", -- Add surrounding in Normal modes
+          delete = "gsd", -- Delete surrounding
+          find = "gsf", -- Find surrounding (to the right)
+          find_left = "gsF", -- Find surrounding (to the left)
+          highlight = "gsh", -- Highlight surrounding
+          replace = "gsc", -- Replace surrounding
+          update_n_lines = "gsn", -- Update `n_lines`
         },
         custom_surroundings = {
           f = {

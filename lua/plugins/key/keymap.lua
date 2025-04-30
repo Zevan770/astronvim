@@ -7,6 +7,7 @@ return {
       -- Mappings can be configured through AstroCore as well.
       -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
       local maps = assert(opts.mappings)
+      local astro = require "astrocore"
 
       --- App
       maps.n["<Leader>a"] = { desc = "Appalication" }
@@ -121,15 +122,35 @@ return {
       maps.n["<Leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" }
       maps.n["<Leader><tab>d"] = { "<cmd>tabclose<cr>", desc = "Close Tab" }
       maps.n["<Leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" }
-      maps.n["<Leader><tab>0"] = { "<cmd>tabnext 0<cr>", desc = "nth Tab" }
+      -- for i = 0, 6 do
+      --   maps.n["<Leader><tab>" .. i] = { "<cmd>tabnext " .. i .. "<cr>" }
+      -- end
+      maps.n["g<Tab>"] = "gt"
+      maps.n["<Leader>qr"] = { "<Cmd>AstroReload<cr>" }
 
       maps.n["gh"] = "K"
       maps.v["gh"] = "K"
+
+      local lazygit = {
+        callback = function()
+          local worktree = astro.file_worktree()
+          local default_config = vim.env.HOME .. "/.config/lazygit/config.yml"
+          local extra_user_config = vim.fn.stdpath "config" .. "/lua/plugins/other/lazygit.yml"
+          local worktree_flags = worktree and ("--work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir)
+            or ""
+          local flags = ("-ucf=%s,%s %s"):format(default_config, extra_user_config, worktree_flags)
+          -- vim.notify("lazygit " .. flags)
+          astro.toggle_term_cmd { cmd = "lazygit " .. flags, direction = "float" }
+        end,
+        desc = "ToggleTerm lazygit",
+      }
+      maps.n["<Leader>gg"] = { lazygit.callback, desc = lazygit.desc }
+      maps.n["<Leader>tl"] = { lazygit.callback, desc = lazygit.desc }
     end,
   },
   {
     "AstroNvim/astrolsp",
-    ---@type AstroLSPOpts
+    ---@param opts AstroLSPOpts
     opts = function(_, opts)
       local maps = assert(opts.mappings)
       -- lsp

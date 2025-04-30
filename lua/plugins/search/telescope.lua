@@ -81,9 +81,9 @@ return {
               desc = "Find words in all files",
             }
           end
-          maps.n["<Leader>tlD"] =
+          maps.n["<Leader>llD"] =
             { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" }
-          maps.n["<Leader>tls"] = {
+          maps.n["<Leader>lls"] = {
             function()
               if is_available "aerial.nvim" then
                 require("telescope").extensions.aerial.aerial()
@@ -93,7 +93,7 @@ return {
             end,
             desc = "Search symbols",
           }
-          maps.n["<Leader>tlg"] = {
+          maps.n["<Leader>llg"] = {
             function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
             desc = "LSP symbols",
           }

@@ -78,10 +78,9 @@ return {
                       ["<c-r>"] = { { "tcd", "picker_recent" }, mode = { "n", "i" } },
                       ["<c-t>"] = {
                         function(picker)
+                          _G.last_picker = picker
                           vim.cmd "tabnew"
-                          Snacks.notify "New tab opened"
-                          picker:close()
-                          Snacks.picker.zoxide()
+                          picker:action "load_session"
                         end,
                         mode = { "n", "i" },
                       },

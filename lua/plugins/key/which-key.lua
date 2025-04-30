@@ -3,7 +3,7 @@ return {
   "folke/which-key.nvim",
   ---@class wk.Opts
   opts = {
-    preset = "helix",
+    -- preset = "helix",
     delay = 100,
     keys = {
       scroll_down = "<tab>", -- binding to scroll down inside the popup
