@@ -1,6 +1,7 @@
 return {
   {
     "Saghen/blink.cmp",
+    build = "cargo build --release",
     ---@module 'blink.cmp'
     ---@param opts blink.cmp.Config
     opts = function(_, opts)
