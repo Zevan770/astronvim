@@ -19,7 +19,7 @@ return {
   -- },
   {
     "lukas-reineke/indent-blankline.nvim",
-    ---@module ibl
+    ---@module 'ibl'
     ---@param opts ibl.config
     opts = function(_, opts)
       opts.indent = {

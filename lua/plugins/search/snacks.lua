@@ -10,6 +10,10 @@ return {
       dim = { enabled = true },
       picker = {
         actions = {},
+        previewers = {
+          git = { builtin = false },
+          diff = { native = true },
+        },
       },
     },
     dependencies = {
@@ -96,7 +100,8 @@ return {
           maps.n["<Leader>f:"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }
           maps.n["<Leader>f/"] = { function() Snacks.picker.search_history() end, desc = "Find Search history" }
 
-          maps.n["<Leader>f<space>"] = { function() Snacks.picker() end, desc = "pick ?" }
+          maps.n["<Leader>f<Space>"] = { function() Snacks.picker() end, desc = "pick ?" }
+          maps.n["<Leader><Space>"] = maps.n["<Leader>fs"]
 
           maps.n["<Leader>fe"] = { function() Snacks.picker.explorer() end, desc = "Snacks treE" }
           maps.c["<C-t>"] = {
@@ -150,7 +155,7 @@ return {
         { key = "s", action = "<Leader>sp", icon = get_icon("WordFile", 0, true), desc = "Search/grep project  " },
         { key = "'", action = "<Leader>f'", icon = get_icon("Bookmarks", 0, true), desc = "Bookmarks  " },
         { key = "l", action = "<Leader>ql", icon = get_icon("Refresh", 0, true), desc = "Last session  " },
-        { key = "c", action = "<Leader>pc", icon = "", desc = "Current dir session" },
+        { key = "c", action = "<Leader>qc", icon = "", desc = "Current dir session" },
         { key = "q", action = "<Leader>Q", icon = get_icon("TabClose", 0, true), desc = "Quit vim  " },
         { key = "a", action = "<Leader>fa", icon = get_icon("Package", 0, true), desc = "Astronvim configuration" },
       }
@@ -316,6 +321,7 @@ return {
 
   {
     "dawsers/file-history.nvim",
+    event = "BufReadPost",
     enabled = not my_utils.is_windows,
     config = function()
       local file_history = require "file_history"

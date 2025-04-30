@@ -1,6 +1,5 @@
 ---@diagnostic disable: missing-fields
 -- if true then return {} end
-require "toggleterm"
 ---@type LazySpec
 return {
   "akinsho/toggleterm.nvim",

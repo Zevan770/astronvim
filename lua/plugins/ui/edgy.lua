@@ -88,7 +88,7 @@ return {
         {
           ft = "aerial",
           title = "Symbol Outline",
-          pinned = true,
+          -- pinned = true,
           open = function() require("aerial").open() end,
         },
         {
