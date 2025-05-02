@@ -2,3 +2,7 @@
 keybinding:
   universal:
     quit: Q
+# customCommands:
+#   - key: 'q'
+#     context: 'global'
+#     command: 'nvim +close'

@@ -8,6 +8,10 @@ return {
     dependencies = {
       {
         "willothy/wezterm.nvim",
+        dev = true,
+        opts = {
+          executable = "wezterm.exe",
+        },
       },
     },
     specs = { "akinsho/toggleterm.nvim" },
