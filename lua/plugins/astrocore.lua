@@ -83,18 +83,17 @@ return {
         ahk2 = "autohotkey",
         ahk1 = "autohotkey",
         -- log = "logtalk",
+        -- see zsh as bash
+        zsh = "bash",
+        zshrc = "bash",
+        zshenv = "bash",
+        zprofile = "bash",
+        zlogin = "bash",
+        zlogout = "bash",
       },
       filename = {
         ["Foofile"] = "fooscript",
-        -- see zsh as bash
-        ["%.zsh"] = "bash",
-        ["%.zshrc"] = "bash",
-        ["%.zshenv"] = "bash",
-        ["%.zprofile"] = "bash",
-        ["%.zlogin"] = "bash",
-        ["%.zlogout"] = "bash",
         ["%.vindrc"] = "vim",
-        ["mcpservers.json"] = "jsonc",
       },
       pattern = {
         ["~/%.config/foo/.*"] = "fooscript",
