@@ -7,9 +7,15 @@ return {
     ---@type snacks.Config
     opts = {
       image = { enabled = not not vim.env.KITTY_PID },
-      dim = { enabled = true },
       picker = {
-        actions = {},
+        win = {
+          input = {
+            keys = {
+              -- every action will always first change the cwd of the current tabpage to the project
+              ["<c-o>"] = { { "pick_win", "jump" }, mode = { "n" } },
+            },
+          },
+        },
         previewers = {
           git = { builtin = false },
           diff = { native = true },

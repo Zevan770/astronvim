@@ -44,6 +44,7 @@ return {
         pumblend = 10,
         pumheight = 10,
         confirm = true,
+        sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

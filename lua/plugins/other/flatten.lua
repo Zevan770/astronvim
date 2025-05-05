@@ -55,7 +55,7 @@ return {
 
               -- If we're in a different wezterm pane/tab, switch to the current one
               -- Requires willothy/wezterm.nvim
-              require("wezterm").switch_pane.id(tonumber(os.getenv "WEZTERM_PANE"))
+              -- require("wezterm").switch_pane.id(tonumber(os.getenv "WEZTERM_PANE"))
             end
 
             -- If the file is a git commit, create one-shot autocmd to delete its buffer on write
@@ -64,7 +64,7 @@ return {
               vim.api.nvim_create_autocmd("BufWritePost", {
                 buffer = bufnr,
                 once = true,
-                callback = vim.schedule_wrap(function() vim.api.nvim_buf_delete(bufnr, {}) end),
+                callback = vim.schedule_wrap(function() require("astrocore.buffer").close(bufnr) end),
               })
             end
           end,

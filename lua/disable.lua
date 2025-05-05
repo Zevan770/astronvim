@@ -3,7 +3,7 @@ local disabled = {
   "image.nvim",
   "neotree.nvim",
   -- "mcphub.nvim",
-  "vim-illuminate",
+  -- "vim-illuminate",
   -- "vim-fetch",
   -- "neogit",
   -- "telescope.nvim",

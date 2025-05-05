@@ -3,6 +3,7 @@
 return {
   {
     "AstroNvim/astrocore",
+    ---@param opts AstroCoreOpts
     opts = function(_, opts) -- Configure core features of AstroNvim
       -- Mappings can be configured through AstroCore as well.
       -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
@@ -146,6 +147,7 @@ return {
       }
       maps.n["<Leader>gg"] = { lazygit.callback, desc = lazygit.desc }
       maps.n["<Leader>tl"] = { lazygit.callback, desc = lazygit.desc }
+      maps.n["<A-g>"] = { lazygit.callback, desc = lazygit.desc }
     end,
   },
   {

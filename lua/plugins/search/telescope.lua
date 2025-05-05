@@ -261,7 +261,7 @@ return {
             i = {
               ["<C-J>"] = actions.move_selection_next,
               ["<C-K>"] = actions.move_selection_previous,
-              ["<CR>"] = open_selected,
+              ["<C-o>"] = open_selected,
               ["<M-CR>"] = open_all,
               ["<M-n>"] = function() require("telescope.actions.layout").toggle_mirror(vim.api.nvim_get_current_buf()) end,
               ["<M-p>"] = function() require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf()) end,
@@ -270,7 +270,7 @@ return {
             },
             n = {
               q = actions.close,
-              ["<CR>"] = open_selected,
+              ["<C-o>"] = open_selected,
               ["<M-CR>"] = open_all,
               ["<M-n>"] = function()
                 require("telescope.actions.layout").toggle_prompt_position(vim.api.nvim_get_current_buf())
