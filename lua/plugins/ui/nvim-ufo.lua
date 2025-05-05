@@ -4,6 +4,8 @@ return {
     "kevinhwang91/nvim-ufo",
     -- note that nvim 0.11 doesn't require this plugin
     version = false,
+    enabled = true,
+    ---@module "ufo"
     ---@param opts UfoConfig
     opts = function(_, opts)
       opts.provider_selector = function(_, filetype, buftype)

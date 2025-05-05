@@ -2,16 +2,16 @@
 return {
   {
     "chrisgrieser/nvim-origami",
-    event = "VeryLazy",
+    event = "User AstroFile",
     opts = {
       -- requires with `nvim-ufo`
-      keepFoldsAcrossSessions = package.loaded["ufo"] ~= nil,
+      keepFoldsAcrossSessions = require("astrocore").is_available "nvim-ufo",
 
       pauseFoldsOnSearch = false,
 
       -- incompatible with `nvim-ufo`
       foldtextWithLineCount = {
-        enabled = package.loaded["ufo"] == nil,
+        enabled = false,
         template = "   %s lines", -- `%s` gets the number of folded lines
         hlgroupForCount = "Comment",
       },
