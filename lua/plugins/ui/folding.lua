@@ -3,9 +3,12 @@ return {
   {
     "chrisgrieser/nvim-origami",
     event = "User AstroFile",
+    dependencies = {
+      "kevinhwang91/nvim-ufo",
+    },
     opts = {
       -- requires with `nvim-ufo`
-      keepFoldsAcrossSessions = require("astrocore").is_available "nvim-ufo",
+      keepFoldsAcrossSessions = package.loaded["ufo"] ~= nil,
 
       pauseFoldsOnSearch = false,
 
