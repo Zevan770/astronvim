@@ -4,6 +4,7 @@ return {
   {
     "creativenull/efmls-configs-nvim",
     version = "v1.x.x", -- version is optional, but recommended
+    enabled = false,
     dependencies = { "neovim/nvim-lspconfig" },
     config = function()
       -- Register linters and formatters per language

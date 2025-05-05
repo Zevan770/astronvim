@@ -9,7 +9,7 @@ return {
     opts = {
       labels = "fjghdktyrueivncmwoxsla;qp",
       label = {
-        uppercase = false,
+        uppercase = true,
       },
 
       modes = {
@@ -82,6 +82,7 @@ return {
               shade = 5,
             },
           },
+          highlight = { backdrop = true },
         },
       },
     },

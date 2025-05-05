@@ -13,8 +13,8 @@ return {
         end,
       },
     },
-    keys = function(_, keys)
-      local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
+    keys = function(plugin, keys)
+      -- local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
       local opts = require("lazy.core.plugin").values(plugin, "opts", false) -- resolve mini.clue options
       -- Populate the keys based on the user's options
       local mappings = {

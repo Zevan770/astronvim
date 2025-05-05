@@ -31,7 +31,6 @@ return {
         opts = function(_, opts) opts.mappings.n["<Leader>ai"] = { desc = " Avante" } end,
       },
     },
-    config = function(_, opts) require("avante").setup(opts) end,
     ---@type avante.Config
     opts = {
       behaviour = {

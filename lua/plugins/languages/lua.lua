@@ -9,6 +9,8 @@ return {
     dependences = {
       "https://github.com/nekowinston/wezterm-types",
     },
+    ---@module "lazydev"
+    ---@type lazydev.Config
     opts = {
       library = {
         -- It can also be a table with trigger words / mods
