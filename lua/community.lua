@@ -40,7 +40,6 @@ local M = {
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.game.leetcode-nvim" },
   { import = "astrocommunity.docker.lazydocker" },
-  { import = "astrocommunity.programming-language-support.csv-vim" },
   -- { import = "astrocommunity.note-taking.venn-nvim" },
 }
 
