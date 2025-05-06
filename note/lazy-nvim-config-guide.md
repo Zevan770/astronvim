@@ -1,10 +1,34 @@
-## lazy.nvim-spec
+## `LazySpec`
 
 这是相关文档和示例。
 注意最重要的是插件配置部分，opts和config的关系
 
 - 如果一个插件有多个 `Spec `, 每一个 `Spec` 的 `opts` 会合并最终传给`config`
-  合并方式三种：就是根据`opts`的type.
+  合并方式根据opts的具体形式，有三种：
+
+  ```lua
+  ---will be merged
+  opts = { top_level = { some_options = "" } }
+  ---will replaces the old one
+  opts = function()
+    return {
+      -- a new table
+    }
+  end
+  ---will replaces opts with the one merged by extend_tbl
+  opts = function(_, opts)
+    return require("astrocore").extend_tbl(opts, {
+      ---some extra configs
+    })
+  end
+  ---will simply change the table
+  opts = function()
+    opts.some_option = "new_value"
+    opts.top_level = opts.top_level or {} -- validate
+    opts.top_level.another_option = "new_value"
+    --- no return value
+  end
+  ```
 
   ```help
 
@@ -257,17 +281,6 @@ EXAMPLES                                 *lazy.nvim-🔌-plugin-spec-examples*
         keys = { "<C-a>", { "<C-x>", mode = "n" } },
       },
 
-      -- local plugins need to be explicitly configured with dir
-      { dir = "~/projects/secret.nvim" },
-
-      -- you can use a custom url to fetch a plugin
-      { url = "git@github.com:folke/noice.nvim.git" },
-
-      -- local plugins can also be configured with the dev option.
-      -- This will use {config.dev.path}/noice.nvim/ instead of fetching it from GitHub
-      -- With the dev option, you can easily switch between the local and installed version of a plugin
-      { "folke/noice.nvim", dev = true },
-    }
 <
 ```
 
@@ -344,7 +357,7 @@ lazy.nvim 自带的功能，keys： Lazy-load on key mapping，可以实际定�
       },
 ```
 
-### Astrocore
+### `AstroCoreOpts.mappings`
 
 需要将`astrocore`放进插件的`dependencies`里面, 然后修改 `astrocore` 的opts.mappings字段.
 AstroNvim使用Astrocore进行键映射的目的是让AstroNvim定义的所有映射，在astrocore插件的opts被解析完成前，所有映射都只是保存在一个表里，而不是真正的进行映射。
@@ -353,17 +366,6 @@ AstroNvim使用Astrocore进行键映射的目的是让AstroNvim定义的所有�
 types:
 
 ```lua
---- @class vim.api.keyset.keymap
---- @field noremap? boolean
---- @field nowait? boolean
---- @field silent? boolean
---- @field script? boolean
---- @field expr? boolean
---- @field unique? boolean
---- @field callback? function
---- @field desc? string
---- @field replace_keycodes? boolean
-
 ---@class AstroCoreMapping: vim.api.keyset.keymap
 ---@field [1] AstroCoreMappingCmd? rhs of keymap
 
@@ -378,6 +380,7 @@ types:
     cmd = "GitLink",
     dependencies = {
       "AstroNvim/astrocore",
+      ---@param opts AstroCoreOpts
       opts = function(_, opts)
         local maps = assert(opts.mappings)
         for _, mode in ipairs { "n", "v" } do
@@ -396,16 +399,7 @@ types:
       local maps = assert(opts.mappings)
       local astro = require "astrocore"
 
-      --- App
       maps.n["<Leader>a"] = { desc = "Appalication" }
-      maps.n["<Leader>am"] = {
-        function() require("mason.ui").open() end,
-        desc = "Mason Installer",
-      }
-      maps.n["<Leader>ax"] = {
-        function() require("lazy").home() end,
-        desc = "Plugins",
-      }
     end
   },
   {
@@ -430,7 +424,24 @@ types:
   },
 ```
 
-### 插件opts中有键映射字段
+### `astrocore.set_mappins`
+
+```lua
+
+--- Table based API for setting keybindings
+--- 有rhs则vim.keymap.set, 没有rhs则自动添加到which-key
+---@param map_table AstroCoreMappings A nested table where the first key is the vim mode, the second key is the key to map, and the value is the function to set the mapping to
+---@param base? vim.keymap.set.Opts A base set of options to set on every keybinding
+function M.set_mappings(map_table, base)
+```
+
+上述 `AstroCoreMappings` 在底层使用这个函数。 手动调用`set_mappings`通常用于在插件自定义的类似`on_attach`, `hook`, 的字段中，或是 autocmd 中进行映射，以实现条件映射。
+
+> [!example]
+> hello
+> world
+
+### 插件opts中自定义的键映射字段
 
 只给例子，因为插件自定义的映射方式往往不遵循 `vim.api.keyset.opts`
 
@@ -463,7 +474,7 @@ types:
 ##### 2. 条件映射
 
 插件所映射的键只在特定场景生效，直接在opts中映射是全局映射，不能满足需求。
-例如只在 sidebar中生效的键就这么配置
+例如只在 sidebar 中生效的键就这么配置
 
 ```lua
   {
@@ -488,9 +499,11 @@ types:
     },
   },
 ```
+
 #### 复杂例子
 
-这是融合了以上三种的例子，插件本身提供了映射，又用 keys 获取这些映射并添加描述， 最后用 `astrocore` 为其提供顶级映射的 icon和desc
+这是融合了以上三种的例子，插件本身提供了映射，又用 `LazySpec.keys` 获取这些映射实现懒加载并添加描述， 最后用 `astrocore` 向 `which-key.nvim` 注册映射
+
 ```lua
   {
     "echasnovski/mini.surround",
@@ -548,6 +561,17 @@ types:
 
 ```lua
 
+--- @class vim.api.keyset.keymap
+--- @field noremap? boolean
+--- @field nowait? boolean
+--- @field silent? boolean
+--- @field script? boolean
+--- @field expr? boolean
+--- @field unique? boolean
+--- @field callback? function
+--- @field desc? string
+--- @field replace_keycodes? boolean
+
 --- Table of |:map-arguments|.
 --- Same as |nvim_set_keymap()| {opts}, except:
 --- - {replace_keycodes} defaults to `true` if "expr" is `true`.
@@ -591,4 +615,3 @@ types:
 ---@see |mapset()|
 function keymap.set(mode, lhs, rhs, opts) end
 ```
-
