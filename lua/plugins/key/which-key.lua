@@ -160,7 +160,7 @@ return {
           end,
         }
 
-        maps.n["<Leader>hk"] = {
+        maps.n["<localleader><localleader>"] = {
           function() require("which-key").show { global = false } end,
           desc = "Buffer Keymaps (which-key)",
         }
