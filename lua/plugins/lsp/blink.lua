@@ -15,13 +15,22 @@ return {
         keymap = {
           preset = "inherit",
         },
-        completion = { menu = { auto_show = true } },
+        completion = {
+          menu = { auto_show = true },
+          trigger = {
+            show_on_x_blocked_trigger_characters = { "'", '"', "(", "{", "!" },
+          },
+        },
       }
-      -- opts.completion = {
-      --   menu = {
-      --     auto_show = true,
-      --   },
-      -- }
+      return require("astrocore").extend_tbl(opts, {
+        sources = {
+          providers = {
+            cmdline = {
+              enabled = function() return vim.fn.getcmdline():sub(1, 1) ~= "!" end,
+            },
+          },
+        },
+      })
     end,
   },
   {
