@@ -29,7 +29,7 @@ local M = {
   -- { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.marks-nvim" },
   { import = "astrocommunity.motion.vim-matchup" },
-  -- { import = "astrocommunity.motion.tabout-nvim" },
+  { import = "astrocommunity.motion.tabout-nvim" },
 
   -- lsp
   -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
@@ -41,6 +41,8 @@ local M = {
   { import = "astrocommunity.game.leetcode-nvim" },
   { import = "astrocommunity.docker.lazydocker" },
   -- { import = "astrocommunity.note-taking.venn-nvim" },
+
+  { import = "astrocommunity.editing-support.refactoring-nvim" },
 }
 
 ---@type LazySpec
