@@ -66,6 +66,7 @@ return {
           formatters_by_ft = {
             markdown = function(_) return { "prettier", "injected" } end,
             yaml = { "prettier" },
+            nix = { "alejandra" },
           },
           formatters = {
             injected = { options = { ignore_errors = true } },
