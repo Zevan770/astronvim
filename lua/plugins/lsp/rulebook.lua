@@ -16,28 +16,28 @@ return {
       },
       -- ... (full list of sources with builtin support can be found in the README)
 
-      yourCustomSource = { -- exact, case-sensitive source-name
-        -- `%s` will be replaced with rule-id
-        comment = "// disabling-comment %s",
-
-        ---@type "prevLine"|"sameLine"|"encloseLine"
-        location = "sameLine",
-
-        -- whether multiple rules can be ignored with one comment, defaults to `false`
-        multiRuleIgnore = true,
-
-        -- separator for multiple rule-ids, defaults to ", "
-        multiRuleSeparator = ",",
-      },
-
-      -- if location is "encloseLine", needs to be a list of two strings
-      anotherCustomSource = {
-        comment = {
-          "// disable-rule %s",
-          "// enable-rule %s",
-        },
-        location = "encloseLine",
-      },
+      -- yourCustomSource = { -- exact, case-sensitive source-name
+      --   -- `%s` will be replaced with rule-id
+      --   comment = "// disabling-comment %s",
+      --
+      --   ---@type "prevLine"|"sameLine"|"encloseLine"
+      --   location = "sameLine",
+      --
+      --   -- whether multiple rules can be ignored with one comment, defaults to `false`
+      --   multiRuleIgnore = true,
+      --
+      --   -- separator for multiple rule-ids, defaults to ", "
+      --   multiRuleSeparator = ",",
+      -- },
+      --
+      -- -- if location is "encloseLine", needs to be a list of two strings
+      -- anotherCustomSource = {
+      --   comment = {
+      --     "// disable-rule %s",
+      --     "// enable-rule %s",
+      --   },
+      --   location = "encloseLine",
+      -- },
     },
 
     ruleDocs = {
@@ -52,7 +52,7 @@ return {
       -- the value of the rule documentations accept either a string or a function
       -- * if a string, `%s` will be replaced with rule-id
       -- * if a function, takes a `:h diagnostic-structure` as argument & return a url
-      yourCustomSource = "https://my-docs/%s.hthml",
+      -- yourCustomSource = "https://my-docs/%s.hthml",
     },
 
     suppressFormatter = {

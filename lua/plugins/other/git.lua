@@ -21,6 +21,7 @@ return {
   },
   {
     "NeogitOrg/neogit",
+    event = function() return {} end,
     ---@type NeogitConfig
     opts = {
       kind = "floating",

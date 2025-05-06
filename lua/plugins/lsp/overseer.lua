@@ -24,6 +24,8 @@ return {
         },
       },
     },
+    ---@module "overseer"
+    ---@type overseer.Config
     opts = {
       strategy = {
         "toggleterm",
