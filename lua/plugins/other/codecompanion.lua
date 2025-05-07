@@ -5,6 +5,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "ravitemer/codecompanion-history.nvim",
     },
     cmd = {
       "CodeCompanion",
@@ -13,18 +14,18 @@ return {
       "CodeCompanionCmd",
     },
     specs = {
-      {
-        -- Edgy integration
-        "folke/edgy.nvim",
-        optional = true,
-        opts = function(_, opts)
-          opts.left = opts.left or {}
-          table.insert(opts.left, {
-            ft = "codecompanion",
-            size = { width = 50 },
-          })
-        end,
-      },
+      -- {
+      --   -- Edgy integration
+      --   "folke/edgy.nvim",
+      --   optional = true,
+      --   opts = function(_, opts)
+      --     opts.left = opts.left or {}
+      --     table.insert(opts.left, {
+      --       ft = "codecompanion",
+      --       size = { width = 50 },
+      --     })
+      --   end,
+      -- },
       {
         "AstroNvim/astrocore",
         opts = function(_, opts)
@@ -163,14 +164,14 @@ return {
                 vim.cmd "stopinsert"
                 chat:submit()
               end,
-              index = 1,
+              -- index = 1,
               description = "Send",
             },
             close = {
               modes = {
                 n = "q",
               },
-              index = 3,
+              -- index = 3,
               callback = "keymaps.close",
               description = "Close Chat",
             },
@@ -178,12 +179,67 @@ return {
               modes = {
                 n = "<C-c>",
               },
-              index = 4,
+              -- index = 4,
               callback = "keymaps.stop",
               description = "Stop Request",
             },
           },
-          slash_commands = {},
+          slash_commands = {
+            ["buffer"] = {
+              callback = "strategies.chat.slash_commands.buffer",
+              description = "Insert open buffers",
+              opts = {
+                contains_code = true,
+                provider = "snacks",
+              },
+            },
+            ["fetch"] = {
+              callback = "strategies.chat.slash_commands.fetch",
+              description = "Insert URL contents",
+              opts = {
+                adapter = "jina",
+              },
+            },
+            ["file"] = {
+              callback = "strategies.chat.slash_commands.file",
+              description = "Insert a file",
+              opts = {
+                contains_code = true,
+                max_lines = 1000,
+                provider = "snacks",
+              },
+            },
+            ["help"] = {
+              callback = "strategies.chat.slash_commands.help",
+              description = "Insert content from help tags",
+              opts = {
+                contains_code = false,
+                provider = "snacks",
+              },
+            },
+            ["now"] = {
+              callback = "strategies.chat.slash_commands.now",
+              description = "Insert the current date and time",
+              opts = {
+                contains_code = false,
+              },
+            },
+            ["symbols"] = {
+              callback = "strategies.chat.slash_commands.symbols",
+              description = "Insert symbols for a selected file",
+              opts = {
+                contains_code = true,
+                provider = "snacks",
+              },
+            },
+            ["terminal"] = {
+              callback = "strategies.chat.slash_commands.terminal",
+              description = "Insert terminal output",
+              opts = {
+                contains_code = false,
+              },
+            },
+          },
         },
         roles = {
           llm = function(adapter)
@@ -216,11 +272,33 @@ return {
           })
         end,
       },
+
+      extensions = {
+        history = {
+          enabled = true,
+          opts = {
+            -- Keymap to open history from chat buffer (default: gh)
+            keymap = "<localleader>h",
+            -- Automatically generate titles for new chats
+            auto_generate_title = true,
+            ---On exiting and entering neovim, loads the last chat on opening chat
+            continue_last_chat = false,
+            ---When chat is cleared with `gx` delete the chat from history
+            delete_on_clearing_chat = false,
+            -- Picker interface ("telescope", "snacks" or "default")
+            picker = "snacks",
+            ---Enable detailed logging for history extension
+            enable_logging = false,
+            ---Directory path to save the chats
+            dir_to_save = vim.fn.stdpath "data" .. "/codecompanion-history",
+          },
+        },
+      },
     },
   },
 
   {
     "olimorris/codecompanion.nvim",
-    opts = function() vim.treesitter.language.register("codecompanion", "avante") end,
+    opts = function() vim.treesitter.language.register("markdown", "codecompanion") end,
   },
 }
