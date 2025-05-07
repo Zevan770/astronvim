@@ -66,6 +66,9 @@ return {
           },
         },
         treesitter_search = {
+          search = {
+            mode = "fuzzy",
+          },
           label = {
             rainbow = {
               enabled = true,

@@ -8,17 +8,25 @@ return {
     opts = {
       image = { enabled = not not vim.env.KITTY_PID },
       picker = {
+        matcher = {
+          cwd_bonus = true, -- give bonus for matching files in the cwd
+          frecency = true, -- frecency bonus
+          history_bonus = true, -- give more weight to chronological order
+        },
         win = {
           input = {
             keys = {
               -- every action will always first change the cwd of the current tabpage to the project
-              ["<c-o>"] = { { "pick_win", "jump" }, mode = { "n" } },
+              ["<c-g>"] = { { "pick_win", "jump" } },
             },
           },
         },
         previewers = {
           git = { builtin = false },
-          diff = { native = true },
+          diff = { builtin = false },
+        },
+        layout = {
+          preset = function() return vim.o.columns >= 120 and "default" or "ivy_split" end,
         },
       },
     },
@@ -102,6 +110,7 @@ return {
             end,
             desc = "Find Zoxide",
           }
+          maps.n["<Leader>f'"] = { function() Snacks.picker.marks { layout = "ivy_split" } end, desc = "Find marks" }
           maps.n['<Leader>f"'] = { function() Snacks.picker.registers() end, desc = "Find register" }
           maps.n["<Leader>f:"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }
           maps.n["<Leader>f/"] = { function() Snacks.picker.search_history() end, desc = "Find Search history" }
@@ -113,9 +122,11 @@ return {
           maps.c["<C-t>"] = {
             function()
               vim.api.nvim_feedkeys(vim.keycode "<Esc>", "n", true)
-              Snacks.picker.command_history {
-                config = function(o) o.pattern = vim.fn.getreg ":" end,
-              }
+              vim.schedule(function()
+                Snacks.picker.command_history {
+                  config = function(o) o.pattern = vim.fn.getreg ":" end,
+                }
+              end)
             end,
             desc = "command history",
           }
@@ -127,6 +138,26 @@ return {
           maps.n["<Leader>lg"] = {
             function() require("snacks").picker.lsp_workspace_symbols() end,
             desc = "Search workspace symbols",
+          }
+
+          maps.n["<Leader>ls"] = {
+            function()
+              ---@type snacks.picker.Config
+              local snacks_opts = {
+                layout = "right",
+              }
+
+              --#region
+              --#endregion
+
+              local aerial_avail, aerial = pcall(require, "aerial")
+              if aerial_avail and aerial.snacks_picker then
+                aerial.snacks_picker(snacks_opts)
+              else
+                require("snacks").picker.lsp_symbols(snacks_opts)
+              end
+            end,
+            desc = "Search symbols",
           }
         end,
       },
