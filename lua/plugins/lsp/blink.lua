@@ -18,7 +18,7 @@ return {
         completion = {
           menu = { auto_show = true },
           trigger = {
-            show_on_x_blocked_trigger_characters = { "'", '"', "(", "{", "!" },
+            -- show_on_x_blocked_trigger_characters = { "'", '"', "(", "{", "!" },
           },
         },
       }
@@ -27,6 +27,13 @@ return {
           providers = {
             cmdline = {
               enabled = function() return vim.fn.getcmdline():sub(1, 1) ~= "!" end,
+            },
+          },
+        },
+        completion = {
+          list = {
+            selection = {
+              preselect = true,
             },
           },
         },
