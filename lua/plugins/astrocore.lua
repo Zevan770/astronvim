@@ -83,7 +83,7 @@ return {
         foo = "fooscript",
         ahk2 = "autohotkey",
         ahk1 = "autohotkey",
-        -- log = "logtalk",
+        log = "log",
         -- see zsh as bash
         zsh = "bash",
         zshrc = "bash",
@@ -95,6 +95,7 @@ return {
       filename = {
         ["Foofile"] = "fooscript",
         ["%.vindrc"] = "vim",
+        ["messages"] = "log",
       },
       pattern = {
         ["~/%.config/foo/.*"] = "fooscript",
@@ -102,6 +103,8 @@ return {
         [".*keybindings.*%.json"] = "jsonc",
         [".*neoconf.*%.json"] = "jsonc",
         ["github%.com_*%.txt"] = "markdown",
+        ["/var/log/.*"] = "log",
+        ["messages%..*"] = "log",
       },
     },
   },
