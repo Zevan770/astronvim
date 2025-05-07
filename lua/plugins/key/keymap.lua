@@ -132,21 +132,21 @@ return {
       maps.n["gh"] = "K"
       maps.v["gh"] = "K"
 
-      local lazygit = {
-        callback = function()
-          local worktree = astro.file_worktree()
-          local default_config = vim.env.HOME .. "/.config/lazygit/config.yml"
-          local extra_user_config = vim.fn.stdpath "config" .. "/lua/plugins/other/lazygit.yml"
-          local worktree_flags = worktree and ("--work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir)
-            or ""
-          local flags = ("-ucf=%s,%s %s"):format(default_config, extra_user_config, worktree_flags)
-          -- vim.notify("lazygit " .. flags)
-          astro.toggle_term_cmd { cmd = "lazygit " .. flags, direction = "float" }
-        end,
-        desc = "ToggleTerm lazygit",
-      }
-      maps.n["<Leader>gg"] = { lazygit.callback, desc = lazygit.desc }
-      maps.n["<Leader>tl"] = { lazygit.callback, desc = lazygit.desc }
+      -- local lazygit = {
+      --   callback = function()
+      --     local worktree = astro.file_worktree()
+      --     local default_config = vim.env.HOME .. "/.config/lazygit/config.yml"
+      --     local extra_user_config = vim.fn.stdpath "config" .. "/lua/plugins/other/lazygit.yml"
+      --     local worktree_flags = worktree and ("--work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir)
+      --       or ""
+      --     local flags = ("-ucf=%s,%s %s"):format(default_config, extra_user_config, worktree_flags)
+      --     -- vim.notify("lazygit " .. flags)
+      --     astro.toggle_term_cmd { cmd = "lazygit " .. flags, direction = "float" }
+      --   end,
+      --   desc = "ToggleTerm lazygit",
+      -- }
+      -- maps.n["<Leader>gg"] = { lazygit.callback, desc = lazygit.desc }
+      -- maps.n["<Leader>tl"] = { lazygit.callback, desc = lazygit.desc }
     end,
   },
   {

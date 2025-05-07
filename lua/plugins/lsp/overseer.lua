@@ -65,11 +65,9 @@ return {
     dependencies = {
       "stevearc/overseer.nvim",
     },
-    config = function(_, opts)
-      -- HACK: neotest加载时再加载overseer consumer， 否则overseer会在解析 LazySpec 时就加载
+    opts = function(_, opts)
       if not opts.consumers then opts.consumers = {} end
       opts.consumers.overseer = require "neotest.consumers.overseer"
-      require("neotest").setup(opts)
     end,
   },
 }
