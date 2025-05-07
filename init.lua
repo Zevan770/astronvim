@@ -1,7 +1,10 @@
 ---@diagnostic disable: duplicate-set-field
+--#region  HACK: vim api
 vim.deprecate = function() end
 local original_vim_fn_executable = vim.fn.executable
 vim.fn.executable = function(_) return 1 end
+-- require "hack_vim_keymap_set"
+--#endregion
 
 require "snacks_profiler_setup"
 -- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
