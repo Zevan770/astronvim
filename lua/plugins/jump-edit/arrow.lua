@@ -7,7 +7,7 @@ return {
     always_show_path = false,
     separate_by_branch = false, -- Bookmarks will be separated by git branch
     hide_handbook = false, -- set to true to hide the shortcuts on menu.
-    hide_buffer_handbook = true, --set to true to hide shortcuts on buffer menu
+    hide_buffer_handbook = false, --set to true to hide shortcuts on buffer menu
     save_path = function() return vim.fn.stdpath "cache" .. "/arrow" end,
     mappings = {
       edit = "e",
@@ -34,7 +34,7 @@ return {
       border = "double",
     },
     per_buffer_config = {
-      lines = 4, -- Number of lines showed on preview.
+      lines = 8, -- Number of lines showed on preview.
       sort_automatically = true, -- Auto sort buffer marks.
       satellite = { -- default to nil, display arrow index in scrollbar at every update
         enable = false,
@@ -46,6 +46,7 @@ return {
     },
     separate_save_and_remove = false, -- if true, will remove the toggle and create the save/remove keymaps.
     leader_key = ";",
+    buffer_leader_key = "`",
     save_key = "git_root", -- what will be used as root to save the bookmarks. Can be also `git_root` and `git_root_bare`.
     global_bookmarks = false, -- if true, arrow will save files globally (ignores separate_by_branch)
     index_keys = "zxcbnm,afghjklwrtyuiop123456789", -- keys mapped to bookmark index, i.e. 1st bookmark will be accessible by 1, and 12th - by c

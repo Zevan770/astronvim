@@ -25,7 +25,7 @@ return {
           end,
           desc = "enter debug persist mode",
         }
-        maps.n["]."] = {
+        maps.n["]<Space>"] = {
           function()
             require("which-key").show {
               keys = "]",
@@ -34,7 +34,7 @@ return {
           end,
         }
 
-        maps.n["[."] = {
+        maps.n["[<Space>"] = {
           function()
             require("which-key").show {
               keys = "[",
@@ -43,86 +43,88 @@ return {
           end,
         }
 
-        local maps_clone = vim.deepcopy(maps)
-        -- stylua: ignore
-        local maps_to_be_transient = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
+        -- #region transient mode
+        -- local maps_clone = vim.deepcopy(maps)
+        -- -- stylua: ignore
+        -- local maps_to_be_transient = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
+        --
+        -- local function make_transient_keymap(key, transient_key)
+        --   maps.n[key] = {
+        --     function()
+        --       maps_clone.n[key][1]()
+        --       require("which-key").show {
+        --         keys = transient_key,
+        --         loop = false,
+        --       }
+        --     end,
+        --   }
+        --
+        --   maps.n[transient_key] = {
+        --     function() end,
+        --     desc = "Enter transient mode",
+        --   }
+        --
+        --   maps.n[transient_key .. "]"] = {
+        --     function()
+        --       maps_clone.n[key][1]()
+        --       require("which-key").show {
+        --         keys = transient_key,
+        --         loop = false,
+        --       }
+        --     end,
+        --     desc = maps_clone.n[key].desc,
+        --   }
+        --
+        --   maps.n[transient_key .. "["] = {
+        --     function()
+        --       maps_clone.n[key][1]()
+        --       require("which-key").show {
+        --         keys = transient_key,
+        --         loop = false,
+        --       }
+        --     end,
+        --     desc = maps_clone.n[key].desc,
+        --   }
+        -- end
+        --
+        -- make_transient_keymap("]t", "<leader><F1>t")
+        -- maps.n["]b"] = {
+        --   function()
+        --     maps_clone.n["]b"][1]()
+        --     require("which-key").show {
+        --       keys = "<leader><F1>b",
+        --       loop = false,
+        --     }
+        --   end,
+        -- }
+        --
+        -- maps.n["<leader><F1>b"] = {
+        --   function() end,
+        --   desc = "Enter buffer persist mode",
+        -- }
+        -- maps.n["<leader><F1>b]"] = {
+        --   function()
+        --     maps_clone.n["]b"][1]()
+        --     require("which-key").show {
+        --       keys = "<leader><F1>b",
+        --       loop = false, -- this will keep the popup open until you hit <esc>
+        --     }
+        --   end,
+        --   desc = maps_clone.n["]b"].desc,
+        -- }
+        -- maps.n["<leader><F1>b["] = {
+        --   function()
+        --     maps_clone.n["[b"][1]()
+        --     require("which-key").show {
+        --       keys = "<leader><F1>b",
+        --       loop = false, -- this will keep the popup open until you hit <esc>
+        --     }
+        --   end,
+        --   desc = maps_clone.n["[b"].desc,
+        -- }
+        -- #endregion
 
-        local function make_transient_keymap(key, transient_key)
-          maps.n[key] = {
-            function()
-              maps_clone.n[key][1]()
-              require("which-key").show {
-                keys = transient_key,
-                loop = false,
-              }
-            end,
-          }
-
-          maps.n[transient_key] = {
-            function() end,
-            desc = "Enter transient mode",
-          }
-
-          maps.n[transient_key .. "]"] = {
-            function()
-              maps_clone.n[key][1]()
-              require("which-key").show {
-                keys = transient_key,
-                loop = false,
-              }
-            end,
-            desc = maps_clone.n[key].desc,
-          }
-
-          maps.n[transient_key .. "["] = {
-            function()
-              maps_clone.n[key][1]()
-              require("which-key").show {
-                keys = transient_key,
-                loop = false,
-              }
-            end,
-            desc = maps_clone.n[key].desc,
-          }
-        end
-
-        make_transient_keymap("]t", "<leader><F1>t")
-        maps.n["]b"] = {
-          function()
-            maps_clone.n["]b"][1]()
-            require("which-key").show {
-              keys = "<leader><F1>b",
-              loop = false,
-            }
-          end,
-        }
-
-        maps.n["<leader><F1>b"] = {
-          function() end,
-          desc = "Enter buffer persist mode",
-        }
-        maps.n["<leader><F1>b]"] = {
-          function()
-            maps_clone.n["]b"][1]()
-            require("which-key").show {
-              keys = "<leader><F1>b",
-              loop = false, -- this will keep the popup open until you hit <esc>
-            }
-          end,
-          desc = maps_clone.n["]b"].desc,
-        }
-        maps.n["<leader><F1>b["] = {
-          function()
-            maps_clone.n["[b"][1]()
-            require("which-key").show {
-              keys = "<leader><F1>b",
-              loop = false, -- this will keep the popup open until you hit <esc>
-            }
-          end,
-          desc = maps_clone.n["[b"].desc,
-        }
-
-        maps.n["<C-w><space>"] = {
+        maps.n["<C-w><Space>"] = {
           function()
             require("which-key").show {
               keys = "<c-w>",
@@ -132,7 +134,7 @@ return {
           desc = "Enter window persist mode",
         }
 
-        maps.n["z<space>"] = {
+        maps.n["z<Space>"] = {
           function()
             require("which-key").show {
               keys = "z",
@@ -160,15 +162,17 @@ return {
           end,
         }
 
-        maps.n["<localleader><localleader>"] = {
+        maps.n["<C-_>"] = {
           function() require("which-key").show { global = false } end,
           desc = "Buffer Keymaps (which-key)",
         }
+        maps.i["<C-_>"] = maps.n["<C-_>"]
+        maps.x["<C-_>"] = maps.n["<C-_>"]
 
         local wk = require "which-key"
         wk.add {
           {
-            "<leader>b",
+            "<Leader>b",
             group = "buffers",
             expand = function() return require("which-key.extras").expand.buf() end,
           },

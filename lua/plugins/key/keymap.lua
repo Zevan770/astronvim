@@ -84,7 +84,7 @@ return {
       maps.t["<C-K>"] = false
       maps.t["<C-L>"] = false
 
-      maps.n["[<Space>"] = {
+      maps.n["<S-CR>"] = {
         function()
           local repeated = vim.fn["repeat"]({ "" }, vim.v.count1)
           local line = vim.api.nvim_win_get_cursor(0)[1]
@@ -93,7 +93,7 @@ return {
         desc = "Insert empty line below",
       }
 
-      maps.n["]<Space>"] = {
+      maps.n["<CR>"] = {
         function()
           local repeated = vim.fn["repeat"]({ "" }, vim.v.count1)
           local line = vim.api.nvim_win_get_cursor(0)[1]
@@ -147,7 +147,6 @@ return {
       }
       maps.n["<Leader>gg"] = { lazygit.callback, desc = lazygit.desc }
       maps.n["<Leader>tl"] = { lazygit.callback, desc = lazygit.desc }
-      maps.n["<A-g>"] = { lazygit.callback, desc = lazygit.desc }
     end,
   },
   {

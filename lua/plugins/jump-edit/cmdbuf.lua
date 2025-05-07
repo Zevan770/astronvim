@@ -15,7 +15,15 @@ return {
       mode = "c",
       "<C-f>",
       function()
-        require("cmdbuf").split_open(vim.o.cmdwinheight, { line = vim.fn.getcmdline(), column = vim.fn.getcmdpos() })
+        vim.api.nvim_feedkeys(vim.keycode "<Esc>", "n", true)
+        vim.schedule(
+          function()
+            require("cmdbuf").split_open(
+              vim.o.cmdwinheight,
+              { line = vim.fn.getcmdline(), column = vim.fn.getcmdpos() }
+            )
+          end
+        )
       end,
       { noremap = true, silent = true },
     },
