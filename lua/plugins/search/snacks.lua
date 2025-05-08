@@ -9,7 +9,6 @@ return {
       image = { enabled = not not vim.env.KITTY_PID },
       picker = {
         matcher = {
-          cwd_bonus = true, -- give bonus for matching files in the cwd
           frecency = true, -- frecency bonus
           history_bonus = true, -- give more weight to chronological order
         },
@@ -358,7 +357,7 @@ return {
 
   {
     "dawsers/file-history.nvim",
-    event = "BufReadPost",
+    event = "User AstroFile",
     enabled = not my_utils.is_windows,
     config = function()
       local file_history = require "file_history"

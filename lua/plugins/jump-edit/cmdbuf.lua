@@ -1,4 +1,4 @@
--- if true then return {} end
+if true then return {} end
 ---@type LazySpec
 return {
   "notomo/cmdbuf.nvim",
@@ -9,7 +9,6 @@ return {
         require("cmdbuf").split_open(vim.o.cmdwinheight)
         vim.api.nvim_feedkeys(vim.keycode "<C-c>", "n", true)
       end,
-      { noremap = true, silent = true },
     },
     {
       mode = "c",
@@ -25,22 +24,18 @@ return {
           end
         )
       end,
-      { noremap = true, silent = true },
     },
     {
       "ql",
       function() require("cmdbuf").split_open(vim.o.cmdwinheight, { type = "lua/cmd" }) end,
-      { noremap = true, silent = true },
     },
     {
       "q/",
       function() require("cmdbuf").split_open(vim.o.cmdwinheight, { type = "vim/search/forward" }) end,
-      { noremap = true, silent = true },
     },
     {
       "q?",
       function() require("cmdbuf").split_open(vim.o.cmdwinheight, { type = "vim/search/backward" }) end,
-      { noremap = true, silent = true },
     },
   },
   config = function()

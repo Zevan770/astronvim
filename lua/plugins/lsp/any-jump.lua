@@ -8,7 +8,7 @@ return {
     -- Auto search references
     vim.g.any_jump_references_enabled = 1
     -- Auto group results by filename
-    vim.g.any_jump_grouping_enabled = 0
+    vim.g.any_jump_grouping_enabled = 1
     -- Amount of preview lines for each search result
     vim.g.any_jump_preview_lines_count = 5
     -- Max search results, other results can be opened via [a]
