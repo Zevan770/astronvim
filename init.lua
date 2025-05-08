@@ -2,7 +2,8 @@
 --#region  HACK: vim api
 vim.deprecate = function() end
 vim.fn.executable0 = vim.fn.executable
-vim.fn.executable = function() return 1 end
+require("hack.vim_fn_executable").setup()
+-- vim.fn.executable = function() return 1 end
 
 -- require "hack_vim_keymap_set"
 --#endregion
@@ -30,4 +31,3 @@ end
 require "utils"
 require "lazy_setup"
 require "polish"
-require "hack.vim_fn_executable"
