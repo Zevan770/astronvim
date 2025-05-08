@@ -1,8 +1,9 @@
 ---@diagnostic disable: duplicate-set-field
 --#region  HACK: vim api
 vim.deprecate = function() end
-local original_vim_fn_executable = vim.fn.executable
-vim.fn.executable = function(_) return 1 end
+vim.fn.executable0 = vim.fn.executable
+vim.fn.executable = function() return 1 end
+
 -- require "hack_vim_keymap_set"
 --#endregion
 
@@ -29,4 +30,4 @@ end
 require "utils"
 require "lazy_setup"
 require "polish"
-vim.fn.executable = original_vim_fn_executable
+require "hack.vim_fn_executable"
