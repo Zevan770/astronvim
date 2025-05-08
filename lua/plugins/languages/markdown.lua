@@ -1,7 +1,3 @@
--- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   callback = function() vim.opt_local.wrap = true end,
---   pattern = { "*.md", "*.txt" },
--- })
 local markdown_ft = { "markdown", "Avante", "copilot-chat", "codecompanion" }
 ---@type LazySpec
 return {
