@@ -3,6 +3,11 @@
 return {
   { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.test.neotest" },
+  -- { import = "astrocommunity.code-runner.compiler-nvim" },
+  -- {
+  --   "Zeioth/compiler.nvim",
+  --   opts = {},
+  -- },
   {
     "stevearc/overseer.nvim",
     lazy = true,
@@ -11,7 +16,7 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = opts.mappings
-          my_utils.replace_group("n", maps, "<leader>M", "<Leader>:")
+          my_utils.replace_group("n", maps, "<leader>M", "<Leader>;")
         end,
       },
       {
