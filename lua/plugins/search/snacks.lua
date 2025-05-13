@@ -132,6 +132,13 @@ return {
 
           maps.n["<Leader>."] = { function() Snacks.scratch() end, desc = "new Scratch buffer" }
 
+          maps.n["<A-/>"] = {
+            function() Snacks.picker.keymaps { global = false, modes = { vim.api.nvim_get_mode().mode } } end,
+            desc = "Find keymaps",
+          }
+          maps.x["<A-/>"] = maps.n["<A-/>"]
+          maps.i["<A-/>"] = maps.n["<A-/>"]
+
           maps.n["<Leader>ap"] = { function() Snacks.profiler.scratch() end, desc = "Profiler" }
 
           maps.n["<Leader>lg"] = {
@@ -195,68 +202,6 @@ return {
         { key = "q", action = "<Leader>Q", icon = get_icon("TabClose", 0, true), desc = "Quit vim  " },
         { key = "a", action = "<Leader>fa", icon = get_icon("Package", 0, true), desc = "Astronvim configuration" },
       }
-
-      -- opts.dashboard = {
-      --   preset = {
-      --     keys = {
-      --       { key = "n", action = "<Leader>n", icon = get_icon("FileNew", 0, true), desc = "New File  " },
-      --       { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
-      --       { key = "r", action = "<Leader>fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
-      --       { key = "s", action = "<Leader>fw", icon = get_icon("WordFile", 0, true), desc = "grep Search project  " },
-      --       { key = "'", action = "<Leader>f'", icon = get_icon("Bookmarks", 0, true), desc = "Bookmarks  " },
-      --       { key = "l", action = "<Leader>Sl", icon = get_icon("Refresh", 0, true), desc = "Last session  " },
-      --       { key = "q", action = "<Leader>Q", icon = get_icon("TabClose", 0, true), desc = "Quit vim  " },
-      --       { key = "c", action = "<Leader>fa", icon = get_icon("Package", 0, true), desc = "open Configuration" },
-      --     },
-      --     header = [[
-      --                                  .:i1ttftfffffffffftffft1i:.
-      --                             .;1ffft1;:..,.         ,...:;1tfff1;.
-      --                          :1fft;,.     ,;CC1f:     iL,,1.    .,itff1:
-      --                       :tLfi.  ,.      ft1fi..   :1Giif1,         .ifLt:
-      --                    .1Lfi.  L::Gt.      .L8t:    i1f;iti,     .;Gf;  .ifL1.
-      --                  .tCt,    ,LG;;f1i1    ::..           i:  .:;080L,     ,tCt.
-      --                .tC1        t8ff::i:  .,:i1tfffLLfftt1;,.   :;:Cf         .1Ct.
-      --               iGt..,:,    .;:,,  .;fLLLf1i;::,,,,:;i1tLLLf1,  .Cf,    ..  ..tGi
-      --             .LC,  fC1L ,,     ,tCCfi,                   ,;tLCf; ..  ,,iGtC0. ,CL.
-      --            ,0t   .t:L8tf;   iCCt,                           .iCGt.  ,tiC8tt    t0,
-      --           ;8i     . ,:t;  1GL;             .                   ,fGf.   f8       i8;
-      --          :8;         ;  :GC:              ii             ,;Lt.   ,f01  ,t.       ;8:
-      --         ,8;  ;fG,,1    t81            ...,GG...      ,iLG@@f,,,:1. :0C.     ,;.,, ;8,
-      --         0t   ii1ift   L8,             ;tLG@@Lt;,.:1L0@@@@81.,.:;.    C0.   .iLCfL; t0
-      --        t0   .L@C1    L8.          ,;tLfi. GL.:1C8@@@@@@@C,   ::       L8. LffLfGCCf 0t
-      --       .8;     ;:G1  1@,       ,1C0@@81. ,;C08@@@@@@@@@@f   .;,         0C ,,.; 1t.: ;8.
-      --       10        ,: .@1      ;C@@@@@f  ;L0@@@@@@@@@@@@8i   .iGCi        ,@i           01
-      --       Gf           t8     ,C@@@@@@L   .:;;t8@@@@@@@@G,   :t8@@@G,       C0           fG
-      --       8;           0L    .0@@@@@@@,   .:,..:8@@@@@@f   ,:i@@@@@@0.      i@.          i8
-      --       @:           8t    ;@@@@@@@8         .8@@@@@i   :; :@@@@@@@i      :@:          :@
-      --       @:           8t    ,G0G0000G.        1@@@@0:   :,  ;8088080,      :@:          :@
-      --       8;           0C     f0GGGGGGGCGGGGGGi0@@@L.  .1GCGCG000000L       i@.          i8
-      --       Gf           t@     ;i1LLLLLCfiiiiiif@@@1   ,::iiiLCLLLL1i;       CG           fG
-      --       10           .@t   ,CGG0000880GGCCGi8@8L  .;CGCCG0888800GGGt     :@;           01
-      --       .8;           i@,  .;;;::::;;1fCGL;C@L:, ,:,;1LCf1;;::::;;;:     0C    ,,.    ;8.
-      --        t0    ,i1:    f8,              .,1@t , ::  .,.                 C0     :::    0t
-      --         0t    ,,      f8:              ,0; :,:,                     .GG.   ..      t0
-      --         ,8;     :;,    18t            .1, ,i:.                     ;0L     :::    ;8,
-      --          :8;   .:.      ,CG;             .t,                     ,L0i   ..   .   ;8:
-      --           ;8i     .:,     iGCi           ..                    :LGt     .::.    i8;
-      --            ,0t    ,. .,     ;LGf;        ::,;;.;i ,i.       ,1CC1.    :,.      t0,
-      --             .LC,    .;i;.     ,1LCL1:.   :: :i ,; ,:   .,ifCCt:       :;,    ,CL.
-      --               iGt.    ,   ,.     .;tLLLftt1;;::;:;1ttfLLLti,      ,1;.     .tGi
-      --                .tC1.    .,1.  ,       ,:i1ttffffftt1i;,.      ,,.  ::.   .1Ct.
-      --                  .tCt,    .  .i;.  .                     .... .i:.     ,tCt.
-      --                    .1Lfi.    ..,  ;::.     .. .  ,..  :. .:i.       .ifL1.
-      --                       :tLfi,      .,:      ,i.,  ;;:  ::   .     ,ifLt:
-      --                          :1ffti,.           ,.   . .        .,itff1:
-      --                             .;1tfft1;:,.             .,:;1tfft1;.
-      --                                  .:;1ttffffffffffffffftt1;:.
-      --     ]],
-      --   },
-      --   sections = {
-      --     buaa_logo_section,
-      --     { section = "keys", gap = 1, padding = 3 },
-      --     { section = "startup" },
-      --   },
-      -- }
     end,
   },
 

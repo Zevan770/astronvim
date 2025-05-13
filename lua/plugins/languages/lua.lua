@@ -19,6 +19,7 @@ return {
         { path = "snacks.nvim", words = { "Snacks" } },
         -- Needs `justinsgithub/wezterm-types` to be installed
         { path = "wezterm-types", mods = { "wezterm" } },
+        { path = "neotest", mods = { "neotest" } },
         -- "lazy.nvim",
       },
     },

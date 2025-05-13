@@ -241,6 +241,7 @@ return {
       maps.n["gD"] = function() vscode.action "editor.action.revealDeclaration" end
       maps.n["gr"] = function() vscode.action "editor.action.goToReferences" end
       maps.n["gy"] = function() vscode.action "editor.action.goToTypeDefinition" end
+      maps.n["gh"] = function() vscode.action "editor.action.showHover" end
       -- maps.n["<Leader>la"] = function() vscode.action "editor.action.quickFix" end
       -- maps.n["<Leader>lG"] = function() vscode.action "workbench.action.showAllSymbols" end
       -- maps.n["<Leader>lR"] = function() vscode.action "editor.action.goToReferences" end
