@@ -22,23 +22,26 @@ return {
           },
         },
       }
-      return require("astrocore").extend_tbl(opts, {
-        sources = {
-          providers = {
-            cmdline = {
-              enabled = function() return vim.fn.getcmdline():sub(1, 1) ~= "!" end,
-            },
-          },
-        },
-        completion = {
-          list = {
-            selection = {
-              preselect = true,
-            },
-          },
-        },
-      })
     end,
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        providers = {
+          cmdline = {
+            enabled = function() return vim.fn.getcmdline():sub(1, 1) ~= "!" end,
+          },
+        },
+      },
+      completion = {
+        list = {
+          selection = {
+            preselect = true,
+          },
+        },
+      },
+    },
   },
   {
     "saghen/blink.cmp",
@@ -113,15 +116,14 @@ return {
           },
         },
       },
-      keymap = {
-        -- 👇🏻👇🏻 (optional) add a keymap to invoke the search manually
-        ["<c-g>"] = {
-          function()
-            -- invoke manually, requires blink >v0.8.0
-            require("blink-cmp").show { providers = { "ripgrep" } }
-          end,
-        },
-      },
+      -- keymap = {
+      --   ["<c-g>"] = {
+      --     function()
+      --       -- invoke manually, requires blink >v0.8.0
+      --       require("blink-cmp").show { providers = { "ripgrep" } }
+      --     end,
+      --   },
+      -- },
     },
   },
 }
