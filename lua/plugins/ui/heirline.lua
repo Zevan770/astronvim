@@ -27,18 +27,63 @@ return {
   -- },
   {
     "rebelot/heirline.nvim",
-    dependencies = { "Zeioth/heirline-components.nvim" },
-    opts = function(self, opts)
+    dependencies = {
+      "Zeioth/heirline-components.nvim",
+    },
+    opts = function(_, opts)
       local status = require "astroui.status"
+      local components = require "heirline-components.all"
+      local bar = require "utils.bar"
       opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
-      -- local components = require "heirline-components.all"
-      -- table.insert(opts.statusline, 10, components.component.file_encoding()) -- after file_info component
-      -- opts.statuscolumn = {
-      --   init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
-      --   status.component.numbercolumn(),
-      --   status.component.signcolumn(),
-      --   status.component.foldcolumn(),
-      -- }
+      table.insert(opts.statusline, 10, components.component.compiler_state())
+
+      table.insert(opts.statusline, 6, status.component.breadcrumbs {})
+      -- table.insert(opts.statusline, 6, bar.navic())
+      opts.winbar = nil
+
+      table.insert(
+        opts.statusline,
+        3,
+        components.component.file_encoding {
+          file_format = { padding = { left = 0, right = 1 } }, -- if set, displays the OS the current buffer is currently encoded for.
+          file_encoding = { padding = { left = 0, right = 1 } }, -- if set, displays the encoding format the current buffer currently has.
+        }
+      )
     end,
+  },
+  {
+    "andymass/vim-matchup",
+    lazy = true,
+    specs = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          options = {
+            g = {
+              matchup_matchparen_offscreen = {},
+            },
+          },
+        },
+      },
+    },
+  },
+
+  -- navic
+  {
+    "SmiteshP/nvim-navic",
+    enabled = false,
+    opts = {
+      lsp = {
+        auto_attach = true,
+      },
+      highlight = true,
+      separator = " > ",
+      depth_limit = 0,
+      depth_limit_indicator = "..",
+      safe_output = true,
+      lazy_update_context = false,
+      click = true,
+      format_text = function(text) return text end,
+    },
   },
 }
