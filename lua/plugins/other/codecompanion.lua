@@ -76,7 +76,7 @@ return {
     config = function(_, opts)
       require("codecompanion").setup(opts)
       require("utils.codecompanion.signcolumn").setup()
-      require("utils.codecompanion.spinner"):init()
+      require("utils.codecompanion.spinner"):setup()
     end,
     opts = {
       opts = { language = "Chinese" },
