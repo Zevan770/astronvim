@@ -12,10 +12,10 @@ return {
 
       --- App
       maps.n["<Leader>a"] = { desc = "Appalication" }
-      maps.n["<Leader>am"] = {
-        function() require("mason.ui").open() end,
-        desc = "Mason Installer",
-      }
+      -- maps.n["<Leader>al"] = {
+      --   function() require("mason.ui").open() end,
+      --   desc = "Mason Installer",
+      -- }
       maps.n["<Leader>ax"] = {
         function() require("lazy").home() end,
         desc = "Plugins",

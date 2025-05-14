@@ -131,6 +131,7 @@ return {
           }
 
           maps.n["<Leader>."] = { function() Snacks.scratch() end, desc = "new Scratch buffer" }
+          maps.n["<Leader>fm"] = { function() Snacks.picker.git_status {} end, desc = "new Scratch buffer" }
 
           maps.n["<A-/>"] = {
             function() Snacks.picker.keymaps { global = false, modes = { vim.api.nvim_get_mode().mode } } end,

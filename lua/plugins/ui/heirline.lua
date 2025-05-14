@@ -37,7 +37,14 @@ return {
       opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
       table.insert(opts.statusline, 10, components.component.compiler_state())
 
-      table.insert(opts.statusline, 6, status.component.breadcrumbs {})
+      table.insert(
+        opts.statusline,
+        6,
+        status.component.breadcrumbs {
+          icon = { hl = true },
+        }
+      )
+      -- table.insert(opts.statusline, 6, components.component.breadcrumbs())
       -- table.insert(opts.statusline, 6, bar.navic())
       opts.winbar = nil
 
