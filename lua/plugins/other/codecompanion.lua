@@ -5,7 +5,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "ravitemer/codecompanion-history.nvim",
+      "ravitemer/mcphub.nvim",
     },
     cmd = {
       "CodeCompanion",
@@ -36,11 +36,8 @@ return {
       },
     },
     keys = {
-      {
-        "<leader>cp",
-        "<cmd>CodeCompanionActions<cr>",
-        desc = "Code Companion - Prompt Actions",
-      },
+      -- stylua: ignore start
+      { "<leader>cp", "<cmd>CodeCompanionActions<cr>", desc = "Code Companion - Prompt Actions" },
       {
         "<leader>ca",
         function()
@@ -51,66 +48,21 @@ return {
         mode = { "n", "v" },
       },
       -- Some common usages with visual mode
-      {
-        "<leader>ce",
-        "<cmd>CodeCompanion /explain<cr>",
-        desc = "Code Companion - Explain code",
-        mode = "v",
-      },
-      {
-        "<leader>cf",
-        "<cmd>CodeCompanion /fix<cr>",
-        desc = "Code Companion - Fix code",
-        mode = "v",
-      },
-      {
-        "<leader>cl",
-        "<cmd>CodeCompanion /lsp<cr>",
-        desc = "Code Companion - Explain LSP diagnostic",
-        mode = { "n", "v" },
-      },
-      {
-        "<leader>ct",
-        "<cmd>CodeCompanion /tests<cr>",
-        desc = "Code Companion - Generate unit test",
-        mode = "v",
-      },
-      {
-        "<leader>cm",
-        "<cmd>CodeCompanion /commit<cr>",
-        desc = "Code Companion - Git commit message",
-      },
+      { "<leader>ce", "<cmd>CodeCompanion /explain<cr>", desc = "Code Companion - Explain code", mode = "v" },
+      { "<leader>cf", "<cmd>CodeCompanion /fix<cr>", desc = "Code Companion - Fix code", mode = "v" },
+      { "<leader>cl", "<cmd>CodeCompanion /lsp<cr>", desc = "Code Companion - Explain LSP diagnostic", mode = { "n", "v" } },
+      { "<leader>ct", "<cmd>CodeCompanion /tests<cr>", desc = "Code Companion - Generate unit test", mode = "v" },
+      { "<leader>cm", "<cmd>CodeCompanion /commit<cr>", desc = "Code Companion - Git commit message" },
       -- Custom prompts
-      {
-        "<leader>cM",
-        "<cmd>CodeCompanion /staged-commit<cr>",
-        desc = "Code Companion - Git commit message (staged)",
-      },
-      {
-        "<leader>cd",
-        "<cmd>CodeCompanion /inline-doc<cr>",
-        desc = "Code Companion - Inline document code",
-        mode = "v",
-      },
+      { "<leader>cM", "<cmd>CodeCompanion /staged-commit<cr>", desc = "Code Companion - Git commit message (staged)" },
+      { "<leader>cd", "<cmd>CodeCompanion /inline-doc<cr>", desc = "Code Companion - Inline document code", mode = "v" },
       { "<leader>cD", "<cmd>CodeCompanion /doc<cr>", desc = "Code Companion - Document code", mode = "v" },
-      {
-        "<leader>cr",
-        "<cmd>CodeCompanion /refactor<cr>",
-        desc = "Code Companion - Refactor code",
-        mode = "v",
-      },
-      {
-        "<leader>cR",
-        "<cmd>CodeCompanion /review<cr>",
-        desc = "Code Companion - Review code",
-        mode = "v",
-      },
-      {
-        "<leader>cn",
-        "<cmd>CodeCompanion /naming<cr>",
-        desc = "Code Companion - Better naming",
-        mode = "v",
-      },
+      { "<leader>cr", "<cmd>CodeCompanion /refactor<cr>", desc = "Code Companion - Refactor code", mode = "v" },
+      { "<leader>cR", "<cmd>CodeCompanion /review<cr>", desc = "Code Companion - Review code", mode = "v" },
+      { "<leader>cn", "<cmd>CodeCompanion /naming<cr>", desc = "Code Companion - Better naming", mode = "v" },
+      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Run CodeCompanion", mode = { "n", "v" } },
+      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Open chat", mode = { "n", "v" } },
+      { "<leader>c;", ":CodeCompanionCmd ", desc = "Run command" },
       -- Quick chat
       {
         "<leader>cq",
@@ -120,9 +72,6 @@ return {
         end,
         desc = "Code Companion - Quick chat",
       },
-      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Run CodeCompanion", mode = { "n", "v" } },
-      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Open chat", mode = { "n", "v" } },
-      { "<leader>c;", ":CodeCompanionCmd ", desc = "Run command" },
     },
     config = function(_, opts)
       require("codecompanion").setup(opts)
@@ -151,11 +100,6 @@ return {
                   "mcp",
                 },
               },
-            },
-            ["mcp"] = {
-              -- Prevent mcphub from loading before needed
-              callback = function() return require "mcphub.extensions.codecompanion" end,
-              description = "Call tools and resources from the MCP Servers",
             },
           },
           keymaps = {
@@ -240,18 +184,18 @@ return {
               },
             },
           },
-        },
-        roles = {
-          llm = function(adapter)
-            local model_name = ""
-            if adapter.schema and adapter.schema.model and adapter.schema.model.default then
-              local model = adapter.schema.model.default
-              if type(model) == "function" then model = model(adapter) end
-              model_name = "(" .. model .. ")"
-            end
-            return "  " .. adapter.formatted_name .. model_name
-          end,
-          user = " User",
+          roles = {
+            llm = function(adapter)
+              local model_name = ""
+              if adapter.schema and adapter.schema.model and adapter.schema.model.default then
+                local model = adapter.schema.model.default
+                if type(model) == "function" then model = model(adapter) end
+                model_name = "(" .. model .. ")"
+              end
+              return "  " .. adapter.formatted_name .. model_name
+            end,
+            user = " User",
+          },
         },
         inline = {
           adapter = "copilot",
@@ -274,23 +218,38 @@ return {
       },
 
       extensions = {
+        mcphub = {
+          enabled = true,
+          callback = "mcphub.extensions.codecompanion",
+          opts = {
+            show_result_in_chat = true, -- Show the mcp tool result in the chat buffer
+            make_vars = true, -- make chat #variables from MCP server resources
+            make_slash_commands = true, -- make /slash_commands from MCP server prompts
+          },
+        },
         history = {
           enabled = true,
           opts = {
             -- Keymap to open history from chat buffer (default: gh)
-            keymap = "<localleader>h",
+            keymap = ",h",
+            -- Keymap to save the current chat manually (when auto_save is disabled)
+            save_chat_keymap = ",s",
+            -- Save all chats by default (disable to save only manually using 'sc')
+            auto_save = true,
+            -- Number of days after which chats are automatically deleted (0 to disable)
+            expiration_days = 0,
+            -- Picker interface ("telescope" or "snacks" or "default")
+            picker = "snacks",
             -- Automatically generate titles for new chats
             auto_generate_title = true,
             ---On exiting and entering neovim, loads the last chat on opening chat
             continue_last_chat = false,
             ---When chat is cleared with `gx` delete the chat from history
             delete_on_clearing_chat = false,
-            -- Picker interface ("telescope", "snacks" or "default")
-            picker = "snacks",
-            ---Enable detailed logging for history extension
-            enable_logging = false,
             ---Directory path to save the chats
             dir_to_save = vim.fn.stdpath "data" .. "/codecompanion-history",
+            ---Enable detailed logging for history extension
+            enable_logging = false,
           },
         },
       },
@@ -298,7 +257,16 @@ return {
   },
 
   {
-    "olimorris/codecompanion.nvim",
-    opts = function() vim.treesitter.language.register("markdown", "codecompanion") end,
+    "ravitemer/codecompanion-history.nvim",
+    dependencies = {
+      "olimorris/codecompanion.nvim",
+    },
+    keys = {
+      {
+        "<leader>ch",
+        "<cmd>CodeCompanionHistory<cr>",
+        desc = "Code Companion - History",
+      },
+    },
   },
 }
