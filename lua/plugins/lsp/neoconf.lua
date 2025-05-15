@@ -2,7 +2,6 @@
 return {
   {
     "folke/neoconf.nvim",
-    lazy = true,
     ---@module "neoconf"
     ---@type Config
     opts = {
