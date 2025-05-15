@@ -3,6 +3,9 @@ local disabled = {
   "obsidian.nvim",
   "codecompanion.nvim",
   "avante.nvim",
+  "im-select.nvim",
+  "smear-cursor.nvim",
+  "neoscroll.nvim",
 }
 
 -- mix disabled with "enabled = false"
