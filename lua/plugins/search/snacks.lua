@@ -111,7 +111,7 @@ return {
           }
           maps.n["<Leader>f'"] = { function() Snacks.picker.marks { layout = "ivy_split" } end, desc = "Find marks" }
           maps.n['<Leader>f"'] = { function() Snacks.picker.registers() end, desc = "Find register" }
-          maps.n["<Leader>f:"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }
+          maps.n["<Leader>f;"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }
           maps.n["<Leader>f/"] = { function() Snacks.picker.search_history() end, desc = "Find Search history" }
 
           maps.n["<Leader>f<Space>"] = { function() Snacks.picker() end, desc = "pick ?" }
@@ -134,7 +134,9 @@ return {
           maps.n["<Leader>fm"] = { function() Snacks.picker.git_status {} end, desc = "new Scratch buffer" }
 
           maps.n["<A-/>"] = {
-            function() Snacks.picker.keymaps { global = false, modes = { vim.api.nvim_get_mode().mode } } end,
+            function()
+              Snacks.picker.keymaps { global = false, modes = { vim.api.nvim_get_mode().mode }, layout = "select" }
+            end,
             desc = "Find keymaps",
           }
           maps.x["<A-/>"] = maps.n["<A-/>"]
@@ -151,12 +153,8 @@ return {
             function()
               ---@type snacks.picker.Config
               local snacks_opts = {
-                layout = "right",
+                layout = "sidebar",
               }
-
-              --#region
-              --#endregion
-
               local aerial_avail, aerial = pcall(require, "aerial")
               if aerial_avail and aerial.snacks_picker then
                 aerial.snacks_picker(snacks_opts)

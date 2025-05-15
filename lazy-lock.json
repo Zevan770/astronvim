@@ -19,6 +19,7 @@
   "blink-ripgrep.nvim": { "branch": "main", "commit": "a910b62c896eee2d0e74eb48b3ff5eedd211db69" },
   "blink.cmp": { "branch": "main", "commit": "54cbaac2064fe6198ec55b636b53cc8c9791ead3" },
   "blink.compat": { "branch": "main", "commit": "2ed6d9a28b07fa6f3bface818470605f8896408c" },
+  "blink.pairs": { "branch": "main", "commit": "903cddb0ba5b47f48ebb43574ba202c88e0dab07" },
   "catppuccin": { "branch": "main", "commit": "1bf070129c0b6f77cc23f6a2212dcdc868308c52" },
   "cellular-automaton.nvim": { "branch": "main", "commit": "1606e9d5d04ff254023c3f3c62842d065708d6d3" },
   "chezmoi.nvim": { "branch": "main", "commit": "838378806cac89ded93a4a27be32e98e066c0d2e" },
