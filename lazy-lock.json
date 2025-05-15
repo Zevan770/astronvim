@@ -1,6 +1,5 @@
 {
   "AstroNvim": { "branch": "main", "commit": "91af3dc567ebf1a62916021f8094d5ffad848c7c" },
-  "ChatGPT.nvim": { "branch": "main", "commit": "5b6d296eefc75331e2ff9f0adcffbd7d27862dd6" },
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "LuaSnip": { "branch": "master", "commit": "458560534a73f7f8d7a11a146c801db00b081df0" },
   "SchemaStore.nvim": { "branch": "main", "commit": "df87d16fc4ea7c2c67cfc00b513861738693fe07" },
@@ -125,6 +124,7 @@
   "nvim-window-picker": { "branch": "main", "commit": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec" },
   "obsidian.nvim": { "branch": "main", "commit": "7b4cd9247cfa71719b9a0191f10f4403fe616efa" },
   "octo.nvim": { "branch": "master", "commit": "57ab7aa6daa0144164af7fb40436b8e6fa7789ff" },
+  "oil.nvim": { "branch": "master", "commit": "685cdb4ffa74473d75a1b97451f8654ceeab0f4a" },
   "one-small-step-for-vimkind": { "branch": "main", "commit": "ba909c68fed65e268df8a4684bafef4ec889c8bc" },
   "onedarkpro.nvim": { "branch": "main", "commit": "fd8aa7248f8b34c1f18203a3a96adcfbdab29907" },
   "overseer.nvim": { "branch": "master", "commit": "72c68aab0358c92f451168b704c411c4a3e3410e" },
