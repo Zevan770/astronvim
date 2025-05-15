@@ -6,6 +6,7 @@ M.is_nixos = not not os.getenv "NIX_PATH"
 M.is_neovide = vim.g.neovide
 M.is_vscode = vim.g.vscode
 M.is_firenvim = vim.g.started_by_firenvim
+M.is_server = false
 
 ---@param modes any
 ---@param maps AstroCoreMappings
