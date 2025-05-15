@@ -1,4 +1,3 @@
--- if true then return {} end
 ---@type LazySpec
 return {
   { import = "astrocommunity.code-runner.overseer-nvim" },
@@ -60,6 +59,14 @@ return {
         on_create = nil,
       },
     },
+  },
+
+  {
+    "stevearc/overseer.nvim",
+    opts = function(_, opts)
+      opts.dap = false
+      require("astrocore").on_load("nvim-dap", function() require("overseer").enable_dap() end)
+    end,
   },
 
   {
