@@ -31,6 +31,7 @@ return {
         opts = function(_, opts) opts.mappings.n["<Leader>ai"] = { desc = " Avante" } end,
       },
     },
+    ---@module "avante"
     ---@type avante.Config
     opts = {
       behaviour = {
@@ -114,7 +115,7 @@ return {
         enabled = false,
       },
       windows = {
-        position = "smart",
+        -- position = "smart",
         wrap = true, -- similar to vim.o.wrap
         width = 30, -- default % based on available width in vertical layout
         height = 30, -- default % based on available height in horizontal layout
@@ -148,6 +149,12 @@ return {
         timeout = 30000, -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 20480,
+      },
+      vendors = {
+        ["copilot-claude-3.7"] = {
+          __inherited_from = "copilot",
+          model = "claude-3.7-sonnet",
+        },
       },
     },
   },
