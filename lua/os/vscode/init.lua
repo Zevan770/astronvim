@@ -1,10 +1,4 @@
 if not vim.g.vscode then return {} end -- don't do anything in non-vscode instances
-local astrocommunity_dev = false
-
-if astrocommunity_dev then return {
-  "AstroNvim/astrocommunity",
-  { import = "astrocommunity.recipes.vscode" },
-} end
 
 vim.api.nvim_create_autocmd("UIEnter", {
   callback = function()
