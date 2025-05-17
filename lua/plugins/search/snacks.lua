@@ -217,10 +217,9 @@ return {
             win = {
               input = {
                 keys = {
-                  ["<a-t>"] = {
-                    "trouble_open",
-                    mode = { "n", "i" },
-                  },
+                  ["<a-t>"] = { "trouble_open", mode = { "n", "i" } },
+                  ["<c-p>"] = { "history_back", mode = { "n", "i" } },
+                  ["<c-n>"] = { "history_forward", mode = { "n", "i" } },
                 },
               },
             },

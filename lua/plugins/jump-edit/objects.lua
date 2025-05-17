@@ -9,7 +9,6 @@ return {
       keymaps = {
         useDefaults = true,
         disabledDefaults = {
-          "gw",
           "n",
           "r",
           "R",
@@ -19,11 +18,35 @@ return {
           "an",
           "ig",
           "ag",
+          "i,",
+          "a,",
         },
       },
       notify = {
         whenObjectNotFound = true,
       },
     },
+  },
+  {
+
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      return require("astrocore").extend_tbl(
+        opts,
+        ---@module "nvim-treesitter"
+        ---@type TSConfig
+        {
+          incremental_selection = {
+            enable = true,
+            keymaps = {
+              init_selection = "g<space>",
+              node_incremental = "<c-l>",
+              scope_incremental = "<c-j>",
+              node_decremental = "<c-h>",
+            },
+          },
+        }
+      )
+    end,
   },
 }
