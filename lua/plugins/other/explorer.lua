@@ -164,6 +164,11 @@ return {
   { import = "astrocommunity.file-explorer.mini-files" },
   {
     "echasnovski/mini.files",
+    opts = {
+      mappings = {
+        synchronize = "<c-s>",
+      },
+    },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       {

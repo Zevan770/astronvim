@@ -131,7 +131,7 @@ return {
           }
 
           maps.n["<Leader>."] = { function() Snacks.scratch() end, desc = "new Scratch buffer" }
-          maps.n["<Leader>fm"] = { function() Snacks.picker.git_status {} end, desc = "new Scratch buffer" }
+          maps.n["<Leader>fm"] = { function() Snacks.picker.git_status {} end, desc = "git Modified files" }
 
           maps.n["<A-/>"] = {
             function()
@@ -336,4 +336,12 @@ return {
       -- stylua: ignore end
     end,
   },
+
+  -- {
+  --   "2kabhishek/nerdy.nvim",
+  --   dependencies = {
+  --     "folke/snacks.nvim",
+  --   },
+  --   cmd = "Nerdy",
+  -- },
 }

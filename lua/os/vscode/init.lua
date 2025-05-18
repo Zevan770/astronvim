@@ -1,4 +1,5 @@
 if not vim.g.vscode then return {} end -- don't do anything in non-vscode instances
+local astrocommunity_dev = false
 
 vim.api.nvim_create_autocmd("UIEnter", {
   callback = function()

@@ -392,7 +392,16 @@ return {
       },
     },
     keys = {
-      { "<Leader>tsz", "<Cmd>Telescope lazy<CR>", silent = true },
+      { "<Leader>tsx", "<Cmd>Telescope lazy<CR>", silent = true },
+    },
+  },
+
+  {
+    "roosta/telescope-folds.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function() require("telescope").load_extension "folds" end,
+    keys = {
+      { "<Leader>tsz", "<Cmd>Telescope folds<CR>", silent = true },
     },
   },
 }

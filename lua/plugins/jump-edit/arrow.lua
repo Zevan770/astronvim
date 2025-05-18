@@ -2,6 +2,7 @@
 --- @type LazySpec
 return {
   "otavioschwanck/arrow.nvim",
+  enabled = false,
   opts = {
     show_icons = true,
     always_show_path = false,
