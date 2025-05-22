@@ -1,10 +1,46 @@
----@diagnostic disable: missing-fields
 -- if true then return {} end
+local H = {}
+
+H.flash_remote_lsp = function(leader_key)
+  local prev_timeout = vim.opt.timeout
+
+  vim.opt.timeout = false
+
+  require("flash").jump {
+    action = function(match, state)
+      state:hide()
+
+      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+      vim.api.nvim_set_current_win(match.win)
+      vim.api.nvim_win_set_cursor(match.win, match.pos)
+
+      local key = vim.api.nvim_replace_termcodes("<Ignore>" .. leader_key, true, true, true)
+
+      vim.api.nvim_feedkeys(key, "i", false)
+
+      vim.schedule(function()
+        -- vim.api.nvim_win_set_cursor(match.win, { row, col })
+        -- state:restore()
+        vim.opt.timeout = prev_timeout
+      end)
+    end,
+    -- search = {
+    --   max_length = 2,
+    -- },
+    -- label = {
+    --   before = { 0, 2 },
+    --   after = false,
+    -- },
+  }
+end
+
 ---@type LazySpec
 return {
   {
     "folke/flash.nvim",
     event = "User AstroFile",
+    ---@module 'flash'
     ---@type Flash.Config
     opts = {
       labels = "fjghdktyrueivncmwoxsla;qp",
@@ -73,7 +109,7 @@ return {
             rainbow = {
               enabled = true,
               -- number between 1 and 9
-              shade = 5,
+              shade = 7,
             },
           },
         },
@@ -82,7 +118,7 @@ return {
             rainbow = {
               enabled = true,
               -- number between 1 and 9
-              shade = 5,
+              shade = 4,
             },
           },
           highlight = { backdrop = true },
@@ -90,46 +126,23 @@ return {
       },
     },
     keys = {
-      {
-        "r",
-        function() require("flash").remote() end,
-        desc = "Remote Flash",
-        mode = { "o" },
-      },
+      { "r", function() require("flash").remote() end, desc = "Remote Flash", mode = { "o" } },
       {
         "R",
-        function() require("flash").treesitter_search() end,
+        function() require("flash").treesitter_search { remote_op = { restore = true } } end,
         desc = "Treesitter Search",
         mode = { "o", "x" },
       },
-      -- {
-      --   "s",
-      --   function() require("flash").jump() end,
-      --   desc = "Flash",
-      --   mode = { "o", "n", "x" },
-      -- },
-      -- {
-      --   "S",
-      --   function() require("flash").treesitter() end,
-      --   desc = "Flash Treesitter",
-      --   mode = { "o", "n", "x" },
-      -- },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-      -- {
-      --   "<A-s>",
-      --   mode = { "n" },
-      --   function() require("flash").jump { pattern = vim.fn.getreg "/" } end,
-      --   desc = "Toggle Flash Search",
-      -- },
       {
-        "<leader>*",
-        mode = { "n", "v" },
-        function()
-          require("flash").jump {
-            pattern = vim.fn.expand "<cword>",
-          }
-        end,
-        desc = "Flash Cword",
+        "<A-s>",
+        mode = { "n" },
+        function() require("flash").jump { pattern = vim.fn.getreg "/" } end,
+        desc = "Toggle Flash Search",
+      },
+      {
+        "gm",
+        function() H.flash_remote_lsp "g" end,
       },
       {
         "<C-Space>",
@@ -137,12 +150,13 @@ return {
         function() require("flash").treesitter() end,
         desc = "Flash Treesitter",
       },
+      { "<space>", mode = { "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       {
         "gl",
         mode = { "n", "v", "o" },
         function()
           require("flash").jump {
-            search = { mode = "search", max_length = 0 },
+            search = { forward = true, mode = "search", max_length = 0 },
             -- label = { before = true, after = false },
             label = {
               after = { 0, vim.api.nvim_win_get_cursor(0)[2] },
@@ -231,9 +245,16 @@ return {
         "s",
         mode = { "n", "x", "o" },
         function()
-          require("flash-zh").jump {
-            chinese_only = false,
-          }
+          if vim.o.hlsearch then
+            require("flash-zh").jump {
+              chinese_only = false,
+              pattern = vim.fn.getreg "/",
+            }
+          else
+            require("flash-zh").jump {
+              chinese_only = false,
+            }
+          end
         end,
         desc = "Flash between Chinese",
       },
