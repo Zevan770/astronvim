@@ -106,22 +106,6 @@ return {
   --   end,
   -- },
 
-  -- {
-  --   "AstroNvim/astrocore",
-  --   ---@type AstroCoreOpts
-  --   opts = {
-  --     autocmds = {
-  --       my_ft_markdown = {
-  --         {
-  --           event = "Filetype",
-  --           pattern = "markdown",
-  --           callback = function() vim.opt_local.wrap = true end,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
-
   {
     "Myzel394/easytables.nvim",
     ft = markdown_ft,
