@@ -3,7 +3,6 @@
 return {
   {
     "folke/snacks.nvim",
-    dev = true,
     ---@type snacks.Config
     opts = {
       image = { enabled = not not vim.env.KITTY_PID },

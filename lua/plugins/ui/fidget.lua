@@ -3,6 +3,7 @@ return {
   {
     "j-hui/fidget.nvim",
     event = "UIEnter",
+    enabled = false,
     opts = {
       -- Options related to LSP progress subsystem
       progress = {
