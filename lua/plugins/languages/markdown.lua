@@ -4,7 +4,7 @@ local render_md_on_ft = table.insert(vim.deepcopy(markdown_ft), "gitcommit")
 return {
 
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.markdown" },
+  -- { import = "astrocommunity.pack.markdown" },
 
   -- #region render-markdown.nvim
   {
