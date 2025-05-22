@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "dstein64/nvim-scrollview",
+  enabled = false,
   event = { "BufReadPost", "BufNewFile" },
   opts = {
     excluded_filetypes = { "nerdtree" },
