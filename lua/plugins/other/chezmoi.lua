@@ -23,7 +23,7 @@ return {
     enabled = vim.fn.has "win32" ~= 1,
     opts = {
       edit = {
-        watch = true,
+        watch = false,
         force = false,
       },
       notification = {
