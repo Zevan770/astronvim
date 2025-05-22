@@ -7,6 +7,8 @@ return {
       manage_folds = false,
       link_folds_to_tree = false,
       link_tree_to_folds = false,
+      nav = { preview = true },
+      preview = true,
     })
     return opts
   end,

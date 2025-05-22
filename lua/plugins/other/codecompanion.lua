@@ -60,7 +60,7 @@ return {
       { "<leader>cr", "<cmd>CodeCompanion /refactor<cr>", desc = "Code Companion - Refactor code", mode = "v" },
       { "<leader>cR", "<cmd>CodeCompanion /review<cr>", desc = "Code Companion - Review code", mode = "v" },
       { "<leader>cn", "<cmd>CodeCompanion /naming<cr>", desc = "Code Companion - Better naming", mode = "v" },
-      { "<leader>ci", "<cmd>CodeCompanion<CR>", desc = "Run CodeCompanion", mode = { "n", "v" } },
+      { "<leader>ci", ":CodeCompanion<CR>", desc = "Run CodeCompanion", mode = { "n", "v" }, remap = true, silent = true},
       { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Open chat", mode = { "n", "v" } },
       { "<leader>c;", ":CodeCompanionCmd ", desc = "Run command" },
       -- Quick chat

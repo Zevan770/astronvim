@@ -8,7 +8,7 @@ return {
   -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/*.md" },
   event = {
     -- "BufReadPre  " .. notedir .. "/*.md",
-    "VeryLazy",
+    "User AstroFile",
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
