@@ -1,5 +1,6 @@
-local markdown_ft = { "markdown", "Avante", "copilot-chat", "codecompanion" }
+local markdown_ft = { "markdown", "Avante", "quarto", "rmd", "html", "copilot-chat", "codecompanion" }
 local render_md_on_ft = table.insert(vim.deepcopy(markdown_ft), "gitcommit")
+local markview_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "html", "yaml" })
 ---@type LazySpec
 return {
 
@@ -9,6 +10,7 @@ return {
   -- #region render-markdown.nvim
   {
     "MeanderingProgrammer/render-markdown.nvim",
+    enabled = false,
     cmd = "RenderMarkdown",
     -- enabled = false,
     ft = render_md_on_ft,
@@ -21,7 +23,6 @@ return {
         -- Out of the box language injections for known filetypes that allow markdown to be interpreted
         -- in specified locations, see :h treesitter-language-injections.
         -- Set enabled to false in order to disable.
-
         gitcommit = {
           enabled = true,
           query = [[
@@ -40,71 +41,67 @@ return {
   },
   -- #endregion
 
-  -- {
-  --   "OXY2DEV/markview.nvim",
-  --   ft = function()
-  --     local plugin = require("lazy.core.config").spec.plugins["markview.nvim"]
-  --     local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-  --     return opts.filetypes or { "markdown", "quarto", "rmd" }
-  --   end,
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --     opts = function(_, opts)
-  --       if opts.ensure_installed ~= "all" then
-  --         opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-  --           "html",
-  --           "markdown",
-  --           "markdown_inline",
-  --         })
-  --       end
-  --     end,
-  --   },
-  --   ---@type mkv.config
-  --   opts = {
-  --     preview = {
-  --       hybrid_modes = { "n" },
-  --       enable_hybrid_mode = true,
-  --       modes = { "n", "c" },
-  --       linewise_hybrid_mode = true,
-  --
-  --       callbacks = {
-  --         on_enable = function(_, win)
-  --           -- This will prevent Tree-sitter concealment being disabled on the cmdline mode
-  --           vim.wo[win].concealcursor = "c"
-  --           vim.wo[win].conceallevel = 2
-  --         end,
-  --       },
-  --       icon_provider = "devicons",
-  --       filetypes = {
-  --         "avante",
-  --         "markdown",
-  --         "quarto",
-  --         "rmd",
-  --         "html",
-  --         "yaml",
-  --         "codecompanion",
-  --         "copilot",
-  --       },
-  --     },
-  --     ---@diagnostic disable
-  --     markdown = {
-  --       list_items = {
-  --         wrap = true,
-  --         indent_size = function(buffer, item) end,
-  --       },
-  --       code_blocks = {
-  --         style = "simple"
-  --       }
-  --     },
-  --     ---@diagnostic enable
-  --   },
-  --   config = function(_, opts)
-  --     require("markview.extras.editor").setup()
-  --     require("markview.extras.headings").setup()
-  --     require("markview.extras.checkboxes").setup()
-  --     require("markview").setup(opts)
-  --   end,
-  -- },
+  {
+    "OXY2DEV/markview.nvim",
+    -- ft = function()
+    --   local plugin = require("lazy.core.config").spec.plugins["markview.nvim"]
+    --   local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+    --   return opts.filetypes or { "markdown", "quarto", "rmd" }
+    -- end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        if opts.ensure_installed ~= "all" then
+          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+            "html",
+            "markdown",
+            "markdown_inline",
+          })
+        end
+      end,
+    },
+    ---@type mkv.config
+    opts = {
+      preview = {
+        hybrid_modes = { "n" },
+        enable_hybrid_mode = true,
+        modes = { "n", "c" },
+        linewise_hybrid_mode = true,
+
+        callbacks = {
+          on_enable = function(_, win)
+            -- This will prevent Tree-sitter concealment being disabled on the cmdline mode
+            vim.wo[win].concealcursor = "c"
+            vim.wo[win].conceallevel = 2
+          end,
+        },
+        icon_provider = "devicons",
+        filetypes = markview_on_ft,
+      },
+      ---@diagnostic disable
+      markdown = {
+        -- list_items = {
+        --   wrap = true,
+        --   -- indent_size = function(buffer, item) end,
+        -- },
+        -- code_blocks = {
+        --   style = "simple",
+        -- },
+      },
+      ---@diagnostic enable
+    },
+    config = function(_, opts)
+      require("markview.extras.editor").setup()
+      require("markview.extras.headings").setup()
+      require("markview.extras.checkboxes").setup()
+      require("markview").setup(opts)
+    end,
+  },
+
+  {
+    "OXY2DEV/helpview.nvim",
+    lazy = false,
+  },
 
   {
     "Myzel394/easytables.nvim",
