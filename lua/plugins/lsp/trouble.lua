@@ -6,15 +6,6 @@ return {
     opts = {
       auto_open = false, -- auto open when there are items
     },
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        ---@param opts AstroCoreOpts
-        opts = function(_, opts)
-          local maps = opts.mappings
-          maps.n["<Leader>lx"] = { "<Cmd>Trouble lsp toggle<CR>", desc = "Trouble lsp" }
-        end,
-      },
-    },
+    keys = { { "<leader>lx", "<cmd>Trouble lsp toggle<CR>", mode = { "n", "v" }, desc = "Trouble lsp" } },
   },
 }

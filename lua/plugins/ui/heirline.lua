@@ -61,18 +61,7 @@ return {
   {
     "andymass/vim-matchup",
     lazy = true,
-    specs = {
-      {
-        "AstroNvim/astrocore",
-        opts = {
-          options = {
-            g = {
-              matchup_matchparen_offscreen = {},
-            },
-          },
-        },
-      },
-    },
+    init = function() vim.g.matchup_matchparen_offscreen = {} end,
   },
 
   -- navic

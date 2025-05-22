@@ -1,7 +1,6 @@
 if true then return {} end
 return {
   "echasnovski/mini.clue",
-  dependencies = { "AstroNvim/astrocore" },
   specs = {
     { "folke/which-key.nvim", optional = true, enabled = false },
   },
