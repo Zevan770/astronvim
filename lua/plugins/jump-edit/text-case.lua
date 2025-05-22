@@ -2,18 +2,18 @@
 return {
   {
     "johmsalas/text-case.nvim",
-    -- event = "User AstroFile",
+    enabled = false,
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
       require("textcase").setup {
         default_keymappings_enabled = true,
-        prefix = "gm",
+        prefix = "co",
       }
       require("telescope").load_extension "textcase"
     end,
     keys = {
-      "gm", -- Default invocation prefix
-      { "gm.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
+      "co", -- Default invocation prefix
+      { "cof", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
     },
     cmd = {
       -- NOTE: The Subs command name can be customized via the option "substitude_command_name"
@@ -22,6 +22,27 @@ return {
       "TextCaseOpenTelescopeQuickChange",
       "TextCaseOpenTelescopeLSPChange",
       "TextCaseStartReplacingCommand",
+    },
+  },
+
+  {
+    "gregorias/coerce.nvim",
+    tag = "v4.1.0",
+    opts = {
+      default_mode_keymap_prefixes = {
+        normal_mode = "co",
+        motion_mode = "coo",
+        visual_mode = "coo",
+      },
+      -- Set any field to false to disable that mode.
+      default_mode_mask = {
+        normal_mode = true,
+        motion_mode = true,
+        visual_mode = true,
+      },
+    },
+    keys = {
+      { "co" },
     },
   },
 }
