@@ -1,4 +1,5 @@
 local markdown_ft = { "markdown", "Avante", "copilot-chat", "codecompanion" }
+local render_md_on_ft = table.insert(vim.deepcopy(markdown_ft), "gitcommit")
 ---@type LazySpec
 return {
 
@@ -10,17 +11,28 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     cmd = "RenderMarkdown",
     -- enabled = false,
-    ft = function()
-      local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
-      local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-      return opts.file_types or { "markdown" }
-    end,
+    ft = render_md_on_ft,
     ---@module "render-markdown"
     ---@type render.md.UserConfig
     opts = {
       preset = "obsidian",
       completions = { blink = { enabled = true } },
-      file_types = markdown_ft,
+      injections = {
+        -- Out of the box language injections for known filetypes that allow markdown to be interpreted
+        -- in specified locations, see :h treesitter-language-injections.
+        -- Set enabled to false in order to disable.
+
+        gitcommit = {
+          enabled = true,
+          query = [[
+                ((message) @injection.content
+                    (#set! injection.combined)
+                    (#set! injection.include-children)
+                    (#set! injection.language "markdown"))
+            ]],
+        },
+      },
+      file_types = render_md_on_ft,
       code = {
         border = "thin",
       },
