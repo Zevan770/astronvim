@@ -3,9 +3,19 @@
 return {
   {
     "folke/snacks.nvim",
+    dev = true,
+    ---@module "snacks"
     ---@type snacks.Config
     opts = {
       image = { enabled = not not vim.env.KITTY_PID },
+      input = {
+        win = {
+          relative = "cursor",
+          row = -3,
+          col = 0,
+        },
+        enabled = false,
+      },
       picker = {
         matcher = {
           frecency = true, -- frecency bonus
@@ -16,8 +26,15 @@ return {
             keys = {
               -- every action will always first change the cwd of the current tabpage to the project
               ["<c-g>"] = { { "pick_win", "jump" } },
+              ["<c-y>"] = {
+                "yank_path",
+                mode = { "n", "i" },
+              },
             },
           },
+        },
+        actions = {
+          yank_path = { action = "yank", field = "_path" },
         },
         previewers = {
           git = { builtin = false },
