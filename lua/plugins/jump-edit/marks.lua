@@ -2,6 +2,10 @@ return {
   "chentoast/marks.nvim",
   event = "User AstroFile",
   opts = {
+    exclude_buftypes = {
+      "nofile",
+      "terminal",
+    },
     builtin_marks = { "'", "<", ">", "." },
     mappings = {
       preview = "',",

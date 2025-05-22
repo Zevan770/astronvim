@@ -16,54 +16,27 @@ return {
       --   function() require("mason.ui").open() end,
       --   desc = "Mason Installer",
       -- }
-      maps.n["<Leader>ax"] = {
-        function() require("lazy").home() end,
-        desc = "Plugins",
-      }
+      maps.n["<Leader>ax"] = { function() require("lazy").home() end, desc = "Plugins" }
       -- maps.n["<Leader>ae"] = { "<Leader>e", remap = true, desc = "explorer" }
 
       -- buffers
-      maps.n["<Leader>bq"] = {
-        function() require("astrocore.buffer").close() end,
-        desc = "Close buffer",
-      }
-      maps.n["<Leader>bd"] = {
-        function() require("astrocore.buffer").close() end,
-        desc = "Close buffer",
-      }
-      maps.n["<Leader>bx"] = {
-        function() require("astrocore.buffer").close(0, true) end,
-        desc = "Force close buffer",
-      }
-      maps.n["<Leader>bo"] = {
-        function() require("astrocore.buffer").close_all(true) end,
-        desc = "Close all buffers except current",
-      }
-      maps.n["<Leader>bC"] = {
-        function() require("astrocore.buffer").close_all() end,
-        desc = "Close all buffers",
-      }
-      maps.n["<Leader>bH"] = {
-        function() require("astrocore.buffer").close_left() end,
-        desc = "Close all buffers to the left",
-      }
+      maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
+      maps.n["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
+      maps.n["<Leader>bx"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
+      maps.n["<Leader>bo"] =
+        { function() require("astrocore.buffer").close_all(true) end, desc = "Close all buffers except current" }
+      maps.n["<Leader>bC"] = { function() require("astrocore.buffer").close_all() end, desc = "Close all buffers" }
+      maps.n["<Leader>bH"] =
+        { function() require("astrocore.buffer").close_left() end, desc = "Close all buffers to the left" }
       maps.n["<Leader>bl"] = false
       maps.n["<Leader>br"] = false
-      maps.n["<C-T>"] = {
-        function() require("astrocore.buffer").prev() end,
-        desc = "Previous buffer",
-      }
-      maps.n["<Leader>bL"] = {
-        function() require("astrocore.buffer").close_right() end,
-        desc = "Close all buffers to the right",
-      }
+      maps.n["<C-T>"] = { function() require("astrocore.buffer").prev() end, desc = "Previous buffer" }
+      maps.n["<Leader>bL"] =
+        { function() require("astrocore.buffer").close_right() end, desc = "Close all buffers to the right" }
 
       -- Session/Project
       maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
-      maps.n["<Leader>pa"] = {
-        function() require("astrocore").update_packages() end,
-        desc = "Update Lazy and Mason",
-      }
+      maps.n["<Leader>pa"] = { function() require("astrocore").update_packages() end, desc = "Update Lazy and Mason" }
 
       -- search
       -- maps.n["<Leader>s"] = { desc = "Search" }
@@ -132,6 +105,33 @@ return {
       maps.n["gh"] = "K"
       maps.v["gh"] = "K"
 
+      local mini_path = vim.fn.stdpath "config" .. "/lua/utils/basic.vimrc"
+      pcall(vim.cmd.source, mini_path)
+      -- vim.cmd.source(mini_path)
+
+      -- maps.n["<C-u>"] = { "<C-u>zz", remap = false }
+      -- maps.v["<C-u>"] = { "<C-u>zz", remap = false }
+      -- maps.n["<C-d>"] = { "<C-d>zz", remap = false }
+      -- maps.v["<C-d>"] = { "<C-d>zz", remap = false }
+      for _, mode in ipairs { "n", "v", "i", "t" } do
+        maps[mode]["<A-q>"] = { "<Cmd>wincmd q<CR>" }
+      end
+      maps.n["<C-e>"] = "3<C-e>"
+      maps.v["<C-e>"] = "3<C-e>"
+      -- maps.i["<C-e>"] = { "<C-\\><C-n>:normal! <C-e><CR>a", noremap = true }
+      -- maps.i["<C-e>"] = "<C-o>3<C-e>"
+      maps.n["<C-y>"] = "3<C-y>"
+      maps.v["<C-y>"] = "3<C-y>"
+      -- maps.i["<C-y>"] = { "<C-\\><C-n><Cmd>normal! <C-y><CR>a", noremap = true }
+      -- maps.i["<C-y>"] = "<C-o>3<C-y>"
+      -- maps.n[";"] = { ":", remap = true }
+      maps.i["jk"] = false
+      maps.i["jj"] = false
+      maps.n["n"] = "nzz"
+      maps.v["n"] = "nzz"
+      maps.n["N"] = "Nzz"
+      maps.v["N"] = "Nzz"
+
       -- local lazygit = {
       --   callback = function()
       --     local worktree = astro.file_worktree()
@@ -155,15 +155,9 @@ return {
     opts = function(_, opts)
       local maps = assert(opts.mappings)
       -- lsp
-      maps.n["gR"] = {
-        function() vim.lsp.buf.references() end,
-        desc = "LSP references",
-      }
+      maps.n["gR"] = { function() vim.lsp.buf.references() end, desc = "LSP references" }
 
-      maps.n["gh"] = {
-        function() vim.lsp.buf.hover() end,
-        desc = "Lsp Hover",
-      }
+      maps.n["gh"] = { function() vim.lsp.buf.hover() end, desc = "Lsp Hover" }
       -- maps.n["<Leader>k"] = {
       --   function() vim.lsp.buf.hover() end,
       --   desc = "hover",
