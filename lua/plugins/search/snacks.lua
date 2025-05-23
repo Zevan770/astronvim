@@ -3,7 +3,6 @@
 return {
   {
     "folke/snacks.nvim",
-    dev = true,
     ---@module "snacks"
     ---@type snacks.Config
     opts = {
