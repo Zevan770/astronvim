@@ -147,6 +147,7 @@ return {
       -- }
       -- maps.n["<Leader>gg"] = { lazygit.callback, desc = lazygit.desc }
       -- maps.n["<Leader>tl"] = { lazygit.callback, desc = lazygit.desc }
+      maps.i["<C-Space>"] = "<c-x><c-o>"
     end,
   },
   {

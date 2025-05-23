@@ -2,6 +2,7 @@ return {
   {
     "Saghen/blink.cmp",
     build = "cargo build --release",
+    cond = my_utils.blink_enabled,
     ---@module 'blink.cmp'
     ---@param opts blink.cmp.Config
     opts = function(_, opts)
@@ -26,6 +27,8 @@ return {
   },
   {
     "Saghen/blink.cmp",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
       sources = {
         providers = {

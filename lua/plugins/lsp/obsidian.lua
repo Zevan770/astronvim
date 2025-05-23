@@ -44,7 +44,7 @@ return {
     completion = {
       -- Set to false to disable completion.
       nvim_cmp = false,
-      blink = true,
+      blink = my_utils.blink_enabled,
       min_chars = 2,
     },
     templates = {

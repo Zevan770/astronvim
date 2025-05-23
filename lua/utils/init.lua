@@ -7,6 +7,7 @@ M.is_neovide = vim.g.neovide
 M.is_vscode = vim.g.vscode
 M.is_firenvim = vim.g.started_by_firenvim
 M.is_server = false
+M.blink_enabled = true
 
 ---@param modes any
 ---@param maps AstroCoreMappings
@@ -23,7 +24,6 @@ M.replace_group = function(modes, maps, group, new_group)
     end
   end
 end
-_G.my_utils = M
 
 M.dap_breakpoint = function()
   -- 获取当前缓冲区的所有错误诊断
@@ -39,4 +39,5 @@ M.dap_breakpoint = function()
   end
 end
 
+_G.my_utils = M
 return M
