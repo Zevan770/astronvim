@@ -60,41 +60,39 @@ return {
         end
       end,
     },
-    ---@type mkv.config
-    opts = {
-      preview = {
-        hybrid_modes = { "n" },
-        enable_hybrid_mode = true,
-        modes = { "n", "c" },
-        linewise_hybrid_mode = true,
+    opts = function()
+      local presets = require "markview.presets"
+      ---@type mkv.config
+      return {
+        preview = {
+          modes = { "n", "no", "c", "i" },
+          hybrid_modes = { "i" },
+          enable_hybrid_mode = true,
+          linewise_hybrid_mode = true,
+          edit_range = { 3, 2 },
 
-        callbacks = {
-          on_enable = function(_, win)
-            -- This will prevent Tree-sitter concealment being disabled on the cmdline mode
-            vim.wo[win].concealcursor = "c"
-            vim.wo[win].conceallevel = 2
-          end,
+          icon_provider = "mini",
+          filetypes = markview_on_ft,
         },
-        icon_provider = "devicons",
-        filetypes = markview_on_ft,
-      },
-      ---@diagnostic disable
-      markdown = {
-        -- list_items = {
-        --   wrap = true,
-        --   -- indent_size = function(buffer, item) end,
-        -- },
-        -- code_blocks = {
-        --   style = "simple",
-        -- },
-      },
-      ---@diagnostic enable
-    },
+        ---@diagnostic disable
+        markdown = {
+          headings = presets.headings.slanted,
+          list_items = {
+            indent_size = 2,
+            shift_width = 0,
+            --   function (buffer, item)
+            --   return
+            -- end
+          },
+        },
+        ---@diagnostic enable
+      }
+    end,
     config = function(_, opts)
+      require("markview").setup(opts)
       require("markview.extras.editor").setup()
       require("markview.extras.headings").setup()
       require("markview.extras.checkboxes").setup()
-      require("markview").setup(opts)
     end,
   },
 

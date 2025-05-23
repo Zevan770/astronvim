@@ -118,10 +118,10 @@ return {
             rainbow = {
               enabled = true,
               -- number between 1 and 9
-              shade = 4,
+              shade = 5,
             },
           },
-          highlight = { backdrop = true },
+          -- highlight = { backdrop = true },
         },
       },
     },
