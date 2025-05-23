@@ -73,13 +73,20 @@ return {
 
           icon_provider = "mini",
           filetypes = markview_on_ft,
+          callbacks = {
+            on_enable = function(_, win)
+              vim.wo[win].conceallevel = 0
+              -- This will prevent Tree-sitter concealment being disabled on the cmdline mode
+              vim.wo[win].concealcursor = "c"
+            end,
+          },
         },
         ---@diagnostic disable
         markdown = {
           headings = presets.headings.slanted,
           list_items = {
             indent_size = 2,
-            shift_width = 0,
+            shift_width = 1,
             --   function (buffer, item)
             --   return
             -- end
