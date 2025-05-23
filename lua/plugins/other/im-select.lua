@@ -3,7 +3,7 @@
 if vim.fn.has "android" == 1 then return {} end
 ---@type LazySpec
 return {
-  "keaising/im-select.nvim",
+  "Zevan770/im-select.nvim",
   -- enabled = vim.g.vscode ~= 1,
   dev = true,
   lazy = true,

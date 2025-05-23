@@ -1,5 +1,4 @@
 if not vim.g.vscode then return {} end -- don't do anything in non-vscode instances
-local astrocommunity_dev = false
 
 vim.api.nvim_create_autocmd("UIEnter", {
   callback = function()
@@ -110,14 +109,12 @@ return {
       maps.v["gk"] = { function() wrappedLine_move "k" end, expr = true }
 
       -- vspacecode
-      local function vspacecode_with_restore_im()
+      local vspacecode_with_restore_im = function()
         vscode.call "vspacecode.space"
         require("im_select").restore_default_im()
       end
 
-      maps.n["<Space>"] = false
       maps.n["<Space>"] = vspacecode_with_restore_im
-      maps.v["<Space>"] = false
       maps.v["<Space>"] = vspacecode_with_restore_im
 
       maps.n[","] = function()
