@@ -1,9 +1,27 @@
 ---@type LazySpec
 return {
-  { import = "astrocommunity.completion.avante-nvim" },
   {
     "yetone/avante.nvim",
+    build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+      or "make",
+    event = "User AstroFile", -- load on file open because Avante manages it's own bindings
     specs = {
+      { "stevearc/dressing.nvim", optional = true },
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      { -- if copilot.lua is available, default to copilot provider
+        "zbirenbaum/copilot.lua",
+        optional = true,
+        specs = {
+          {
+            "yetone/avante.nvim",
+            opts = {
+              provider = "copilot",
+              auto_suggestions_provider = "copilot",
+            },
+          },
+        },
+      },
       {
         "saghen/blink.cmp",
         dependencies = {
@@ -30,6 +48,9 @@ return {
         ---@param opts AstroCoreOpts
         opts = function(_, opts) opts.mappings.n["<Leader>ai"] = { desc = " Avante" } end,
       },
+    },
+    keys = {
+      "<Leader>ai",
     },
     ---@module "avante"
     ---@type avante.Config
