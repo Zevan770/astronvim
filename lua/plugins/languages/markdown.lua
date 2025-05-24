@@ -42,13 +42,11 @@ return {
 
   {
     "OXY2DEV/markview.nvim",
-    -- ft = function()
-    --   local plugin = require("lazy.core.config").spec.plugins["markview.nvim"]
-    --   local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-    --   return opts.filetypes or { "markdown", "quarto", "rmd" }
-    -- end,
     opts = function()
       local presets = require "markview.presets"
+
+      ---@type markdown.headings
+      local headings = vim.deepcopy(presets.headings.slanted)
       ---@type mkv.config
       return {
         preview = {
@@ -56,8 +54,8 @@ return {
           hybrid_modes = { "n", "i" },
           enable_hybrid_mode = true,
           linewise_hybrid_mode = true,
-          debounce = 100,
-          -- edit_range = { 3, 2 },
+          debounce = 50,
+          -- edit_range = { 2, 2 },
 
           icon_provider = "mini",
           filetypes = markview_on_ft,
@@ -74,23 +72,18 @@ return {
             --   return true
             -- end
           end,
-          callbacks = {
-            on_enable = function(_, win)
-              vim.wo[win].conceallevel = 0
-              -- This will prevent Tree-sitter concealment being disabled on the cmdline mode
-              vim.wo[win].concealcursor = "c"
-            end,
-          },
         },
         ---@diagnostic disable
         markdown = {
-          -- headings = presets.headings.arrowed,
+          headings = headings,
           list_items = {
-            indent_size = 2,
-            shift_width = 1,
-            --   function (buffer, item)
-            --   return
-            -- end
+            shift_width = function(buffer, item) return item.indent - 1 end,
+          },
+          code_blocks = {
+            label_direction = "left",
+            style = "simple",
+            pad_char = "k",
+            -- style = "block",
           },
         },
         ---@diagnostic enable
