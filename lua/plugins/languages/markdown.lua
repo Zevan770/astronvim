@@ -53,10 +53,11 @@ return {
       return {
         preview = {
           modes = { "n", "no", "c", "i" },
-          hybrid_modes = { "i" },
+          hybrid_modes = { "n", "i" },
           enable_hybrid_mode = true,
           linewise_hybrid_mode = true,
-          edit_range = { 3, 2 },
+          debounce = 100,
+          -- edit_range = { 3, 2 },
 
           icon_provider = "mini",
           filetypes = markview_on_ft,
@@ -83,7 +84,7 @@ return {
         },
         ---@diagnostic disable
         markdown = {
-          headings = presets.headings.slanted,
+          -- headings = presets.headings.arrowed,
           list_items = {
             indent_size = 2,
             shift_width = 1,
