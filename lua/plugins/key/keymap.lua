@@ -148,6 +148,8 @@ return {
       -- maps.n["<Leader>gg"] = { lazygit.callback, desc = lazygit.desc }
       -- maps.n["<Leader>tl"] = { lazygit.callback, desc = lazygit.desc }
       maps.i["<C-Space>"] = "<c-x><c-o>"
+
+      maps.n["gcp"] = { [["xyygcc"xp]], desc = "comment and duplicate line", remap = true }
     end,
   },
   {
