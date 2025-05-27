@@ -1,5 +1,5 @@
 local markdown_ft = { "markdown", "Avante", "quarto", "rmd", "html", "copilot-chat", "codecompanion" }
-local render_md_on_ft = table.insert(vim.deepcopy(markdown_ft), "gitcommit")
+local render_md_on_ft = { "neorg", "org" }
 local markview_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "html", "yaml" })
 ---@type LazySpec
 return {
@@ -9,8 +9,6 @@ return {
   -- #region render-markdown.nvim
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    enabled = false,
-    cmd = "RenderMarkdown",
     -- enabled = false,
     ft = render_md_on_ft,
     ---@module "render-markdown"
@@ -54,7 +52,7 @@ return {
           hybrid_modes = { "n", "i" },
           enable_hybrid_mode = true,
           linewise_hybrid_mode = true,
-          debounce = 50,
+          -- debounce = 50,
           -- edit_range = { 2, 2 },
 
           icon_provider = "mini",
@@ -77,12 +75,24 @@ return {
         markdown = {
           headings = headings,
           list_items = {
-            shift_width = function(buffer, item) return item.indent - 1 end,
+            shift_width = function(buffer, item)
+              --- Reduces the `indent` by 1 level.
+              ---
+              ---         indent                      1
+              --- ------------------------- = 1 ÷ --------- = new_indent
+              --- indent * (1 / new_indent)       new_indent
+              ---
+              local parent_indnet = math.max(1, item.indent - vim.bo[buffer].shiftwidth)
+
+              return item.indent * (1 / (parent_indnet * 2))
+            end,
+            marker_minus = {
+              add_padding = function(_, item) return item.indent > 1 end,
+            },
           },
           code_blocks = {
             label_direction = "left",
             style = "simple",
-            pad_char = "k",
             -- style = "block",
           },
         },
