@@ -2,7 +2,7 @@ return {
   "chentoast/marks.nvim",
   event = "User AstroFile",
   opts = {
-    exclude_buftypes = {
+    excluded_buftypes = {
       "nofile",
       "terminal",
     },
