@@ -16,7 +16,7 @@ return {
       opts = function(_, opts) -- Configure core features of AstroNvim
         -- persist mode
         local maps = assert(opts.mappings)
-        maps.n["<Leader>d."] = {
+        maps.n["<Leader>d<Space>"] = {
           function()
             require("which-key").show {
               keys = "<leader>d",
