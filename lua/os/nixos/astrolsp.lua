@@ -33,7 +33,29 @@ return {
         -- "vimls",
         "volar",
         "vtsls",
+        -- "nil_ls",
         "markdown_oxide",
+      },
+      ---@diagnostic disable: missing-fields
+      config = {
+        nixd = {
+          cmd = { "nixd" },
+          settings = {
+            nixd = {
+              nixpkgs = {
+                expr = "import <nixpkgs> { }",
+              },
+              options = {
+                nixos = {
+                  expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.nixos.options',
+                },
+                home_manager = {
+                  expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.nixos.options.home-manager.users.type.getSubOptions []",
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
