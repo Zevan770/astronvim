@@ -15,7 +15,7 @@ return {
     ---@type render.md.UserConfig
     opts = {
       preset = "obsidian",
-      completions = { blink = { enabled = true } },
+      completions = { blink = { enabled = my_utils.blink_enabled } },
       injections = {
         -- Out of the box language injections for known filetypes that allow markdown to be interpreted
         -- in specified locations, see :h treesitter-language-injections.

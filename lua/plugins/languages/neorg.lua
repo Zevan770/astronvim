@@ -1,9 +1,9 @@
 if vim.fn.has "win32" == 1 then return {} end
 
+---@type LazySpec
 return {
   {
     "nvim-neorg/neorg",
-    config = true,
     ft = "norg",
     keys = ",nn",
     version = "*",
@@ -11,6 +11,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       {
         "saghen/blink.cmp",
+        optional = true,
         dependencies = { "saghen/blink.compat" },
         opts = {
           sources = {
