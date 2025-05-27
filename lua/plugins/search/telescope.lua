@@ -223,7 +223,7 @@ return {
       },
     },
     cmd = "Telescope",
-    opts = function()
+    opts = function(_, opts)
       local actions, get_icon = require "telescope.actions", require("astroui").get_icon
       local function open_selected(prompt_bufnr)
         local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
@@ -241,7 +241,7 @@ return {
         actions.select_all(prompt_bufnr)
         open_selected(prompt_bufnr)
       end
-      return {
+      return require("astrocore").extend_tbl(opts, {
         defaults = {
           file_ignore_patterns = { "^%.git[/\\]", "[/\\]%.git[/\\]" },
           git_worktrees = require("astrocore").config.git_worktrees,
@@ -267,6 +267,7 @@ return {
               ["<M-p>"] = function() require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf()) end,
               ["<C-s>"] = actions.cycle_previewers_next,
               ["<C-a>"] = actions.cycle_previewers_prev,
+              ["<c-f>"] = actions.to_fuzzy_refine,
             },
             n = {
               q = actions.close,
@@ -275,7 +276,7 @@ return {
               ["<M-n>"] = function()
                 require("telescope.actions.layout").toggle_prompt_position(vim.api.nvim_get_current_buf())
               end,
-              ["M-p"] = function() require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf()) end,
+              ["<M-p>"] = function() require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf()) end,
             },
           },
         },
@@ -284,7 +285,7 @@ return {
             follow = true,
           },
         },
-      }
+      })
     end,
     config = function(_, opts)
       local telescope = require "telescope"
@@ -402,6 +403,52 @@ return {
     config = function() require("telescope").load_extension "folds" end,
     keys = {
       { "<Leader>tsz", "<Cmd>Telescope folds<CR>", silent = true },
+    },
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      {
+        "jonarrien/telescope-cmdline.nvim",
+        config = function() require("telescope").load_extension "cmdline" end,
+        keys = {
+          { ";", "<Cmd>Telescope cmdline<CR>" },
+        },
+      },
+    },
+    opts = {
+      extensions = {
+        cmdline = {
+          -- Adjust telescope picker size and layout
+          picker = {
+            layout_config = {
+              width = 120,
+              height = 25,
+            },
+          },
+          -- Adjust your mappings
+          mappings = {
+            complete = "<Tab>",
+            run_selection = "<C-CR>",
+            run_input = "<CR>",
+          },
+          -- Triggers any shell command using overseer.nvim (`:!`)
+          overseer = {
+            enabled = true,
+          },
+        },
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x", -- Recommended
+    dependencies = {
+      {
+        "mrcjkb/telescope-manix",
+        config = function() require("telescope").load_extension "manix" end,
+      },
     },
   },
 }
