@@ -168,7 +168,10 @@ return {
             function()
               ---@type snacks.picker.Config
               local snacks_opts = {
-                layout = "sidebar",
+                layout = {
+                  preset = "ivy",
+                  -- preview = "main",
+                },
               }
               local aerial_avail, aerial = pcall(require, "aerial")
               if aerial_avail and aerial.snacks_picker then
@@ -179,6 +182,7 @@ return {
             end,
             desc = "Search symbols",
           }
+          maps.n["go"] = maps.n["<Leader>ls"]
         end,
       },
     },

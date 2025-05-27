@@ -2,6 +2,8 @@ local M = {}
 local disabled = {
   "image.nvim",
   "neotree.nvim",
+  -- "render-markdown.nvim",
+  -- "markview.nvim",
   -- "mcphub.nvim",
   -- "vim-illuminate",
   -- "vim-fetch",

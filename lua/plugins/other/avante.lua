@@ -72,7 +72,7 @@ return {
         endpoint = "http://localhost:3000", -- The API endpoint for RAG service
       },
       mappings = {
-        ---@class AvanteConflictMappings
+        ---@type AvanteConflictMappings
         diff = {
           ours = "co",
           theirs = "ct",
@@ -102,6 +102,7 @@ return {
         },
         -- NOTE: The following will be safely set by avante.nvim
         ask = "<leader>aia",
+        new_ask = "<leader>ain",
         edit = "<leader>aie",
         refresh = "<leader>air",
         focus = "<leader>aif",
