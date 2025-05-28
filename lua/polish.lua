@@ -54,3 +54,4 @@ local clip_windows = {
 
 vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 vim.g.clipboard = vim.fn.has "android" == 1 and clip_termux or clip_win32
+if my_utils.is_vscode then vim.g.clipboard = vim.g.vscode_clipboard end
