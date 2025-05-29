@@ -57,6 +57,35 @@ return {
         desc = "Resize split right",
         mode = { "n", "i", "t" },
       },
+      {
+        "<A-C-k>",
+        function() require("smart-splits").swap_buf_up() end,
+        desc = "Resize split right",
+        mode = { "n", "i", "t" },
+      },
+      {
+        "<A-C-j>",
+        function() require("smart-splits").swap_buf_down() end,
+        desc = "Resize split right",
+        mode = { "n", "i", "t" },
+      },
+      {
+        "<A-C-h>",
+        function() require("smart-splits").swap_buf_left() end,
+        desc = "Resize split right",
+        mode = { "n", "i", "t" },
+      },
+      {
+        "<A-C-l>",
+        function() require("smart-splits").swap_buf_right() end,
+        desc = "Resize split right",
+        mode = { "n", "i", "t" },
+      },
+      {
+        "<c-t>",
+        function() require("smart-splits").move_cursor_previous() end,
+        desc = "Move to previous split",
+      },
     },
   },
   {

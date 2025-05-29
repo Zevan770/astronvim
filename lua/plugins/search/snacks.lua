@@ -86,7 +86,7 @@ return {
           maps.n["<C-p>"] = maps.n["<Leader>ff"]
           maps.n["<Leader>pf"] = maps.n["<Leader>ff"]
           maps.n["<Leader>fb"] = {
-            function() Snacks.picker.buffers { layout = "ivy_split" } end,
+            function() Snacks.picker.buffers { layout = "dropdown" } end,
             desc = maps.n["<Leader>fb"].desc,
           }
           maps.n["<A-b>"] = maps.n["<Leader>fb"]

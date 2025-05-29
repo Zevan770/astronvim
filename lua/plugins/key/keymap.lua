@@ -20,19 +20,18 @@ return {
       -- maps.n["<Leader>ae"] = { "<Leader>e", remap = true, desc = "explorer" }
 
       -- buffers
-      maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
       maps.n["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
-      maps.n["<Leader>bx"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
+      maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
       maps.n["<Leader>bo"] =
         { function() require("astrocore.buffer").close_all(true) end, desc = "Close all buffers except current" }
-      maps.n["<Leader>bC"] = { function() require("astrocore.buffer").close_all() end, desc = "Close all buffers" }
-      maps.n["<Leader>bH"] =
+      maps.n["<Leader>bxa"] = { function() require("astrocore.buffer").close_all() end, desc = "Close all buffers" }
+      maps.n["<Leader>bxh"] =
         { function() require("astrocore.buffer").close_left() end, desc = "Close all buffers to the left" }
+      maps.n["<C-T>"] = { function() require("astrocore.buffer").prev() end, desc = "Previous buffer" }
+      maps.n["<Leader>bxl"] =
+        { function() require("astrocore.buffer").close_right() end, desc = "Close all buffers to the right" }
       maps.n["<Leader>bl"] = false
       maps.n["<Leader>br"] = false
-      maps.n["<C-T>"] = { function() require("astrocore.buffer").prev() end, desc = "Previous buffer" }
-      maps.n["<Leader>bL"] =
-        { function() require("astrocore.buffer").close_right() end, desc = "Close all buffers to the right" }
 
       -- Session/Project
       maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
