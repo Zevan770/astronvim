@@ -19,6 +19,7 @@ return {
             markdown = function(_) return { "prettier", "injected" } end,
             yaml = { "prettier" },
             nix = { "alejandra" },
+            vue = { "prettier" },
           },
           formatters = {
             injected = { options = { ignore_errors = true } },

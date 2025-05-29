@@ -52,7 +52,7 @@ return {
           hybrid_modes = { "n", "i" },
           enable_hybrid_mode = true,
           linewise_hybrid_mode = true,
-          -- debounce = 50,
+          debounce = 50,
           -- edit_range = { 2, 2 },
 
           icon_provider = "mini",
