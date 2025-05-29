@@ -20,6 +20,7 @@ return {
           frecency = true, -- frecency bonus
           history_bonus = true, -- give more weight to chronological order
         },
+        auto_close = false,
         win = {
           input = {
             keys = {
@@ -169,8 +170,8 @@ return {
               ---@type snacks.picker.Config
               local snacks_opts = {
                 layout = {
-                  preset = "ivy",
-                  -- preview = "main",
+                  preset = "vertical",
+                  preview = "main",
                 },
               }
               local aerial_avail, aerial = pcall(require, "aerial")

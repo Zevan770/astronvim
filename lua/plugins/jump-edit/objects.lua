@@ -36,6 +36,17 @@ return {
         ---@module "nvim-treesitter"
         ---@type TSConfig
         {
+          textobjects = {
+            lsp_interop = {
+              enable = true,
+              border = "none",
+              floating_preview_opts = {},
+              peek_definition_code = {
+                ["<leader>lpf"] = "@function.outer",
+                ["<leader>lpc"] = "@class.outer",
+              },
+            },
+          },
           incremental_selection = {
             enable = true,
             keymaps = {

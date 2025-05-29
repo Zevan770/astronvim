@@ -215,6 +215,7 @@ return {
                 require("flash").jump {
                   pattern = "^",
                   label = { after = { 0, 0 } },
+                  highlight = { backdrop = false },
                   search = {
                     mode = "search",
                     exclude = {
