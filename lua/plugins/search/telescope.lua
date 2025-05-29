@@ -411,6 +411,7 @@ return {
     dependencies = {
       {
         "jonarrien/telescope-cmdline.nvim",
+        lazy = true,
         config = function() require("telescope").load_extension "cmdline" end,
         keys = {
           { ";", "<Cmd>Telescope cmdline<CR>" },
@@ -443,10 +444,10 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x", -- Recommended
     dependencies = {
       {
         "mrcjkb/telescope-manix",
+        lazy = true,
         config = function() require("telescope").load_extension "manix" end,
       },
     },
