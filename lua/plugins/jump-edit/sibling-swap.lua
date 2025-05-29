@@ -2,6 +2,7 @@
 return {
   {
     "Wansmer/sibling-swap.nvim",
+    enabled = false,
     opts = {
       allowed_separators = {
         ",",
