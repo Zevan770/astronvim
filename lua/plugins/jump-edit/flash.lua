@@ -141,7 +141,7 @@ return {
         desc = "Toggle Flash Search",
       },
       {
-        "gm",
+        "gb",
         function() H.flash_remote_lsp "g" end,
       },
       {
