@@ -35,6 +35,7 @@ return {
         "vtsls",
         -- "nil_ls",
         "markdown_oxide",
+        "ruff",
       },
       ---@diagnostic disable: missing-fields
       config = {
