@@ -37,13 +37,6 @@ return {
       maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
       maps.n["<Leader>pa"] = { function() require("astrocore").update_packages() end, desc = "Update Lazy and Mason" }
 
-      -- search
-      -- maps.n["<Leader>s"] = { desc = "Search" }
-      -- maps.n["<Leader>fw"] = false
-      -- maps.n["<Leader>;"] = { "gc", remap = true, desc = "Toggle comment" }
-      -- maps.n["<Leader>;;"] = { "gcc", remap = true, desc = "Toggle comment line" }
-      -- maps.x["<Leader>;"] = { "gc", remap = true, desc = "Toggle comment" }
-
       -- terminal
       maps.t["<A-[>"] = { "<C-\\><C-n>", desc = "enter terminal buffer normal mode" }
       local modes = { "n", "i", "t" }

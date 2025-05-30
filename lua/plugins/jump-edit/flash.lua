@@ -145,12 +145,11 @@ return {
         function() H.flash_remote_lsp "g" end,
       },
       {
-        "<C-Space>",
-        mode = { "n", "v", "o" },
+        ".",
+        mode = { "x", "o" },
         function() require("flash").treesitter() end,
         desc = "Flash Treesitter",
       },
-      { "<space>", mode = { "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       {
         "gl",
         mode = { "n", "v", "o" },
