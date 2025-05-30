@@ -245,7 +245,7 @@ return {
         "s",
         mode = { "n", "x", "o" },
         function()
-          if vim.o.hlsearch then
+          if vim.v.hlsearch == 1 then
             require("flash-zh").jump {
               chinese_only = false,
               pattern = vim.fn.getreg "/",

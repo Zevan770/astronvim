@@ -8,12 +8,12 @@ return {
     opts = {
       hide_target_hack = true,
       cursor_color = "none",
-      legacy_computing_symbols_support = true,
-      smear_horizontally = true,
-      smear_vertically = true,
-      min_horizontal_distance_smear = 8,
-      min_vertical_distance_smear = 3,
-      smear_between_neighbor_lines = false,
+      -- legacy_computing_symbols_support = true,
+      -- smear_horizontally = true,
+      -- smear_vertically = true,
+      -- min_horizontal_distance_smear = 8,
+      -- min_vertical_distance_smear = 3,
+      -- smear_between_neighbor_lines = false,
     },
     specs = {
       -- disable mini.animate cursor

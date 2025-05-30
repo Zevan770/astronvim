@@ -2,7 +2,7 @@
 return {
   "AstroNvim/astrocore",
   opts = function(_, opts)
-    return require("astrocore").extend_tbl(opts, {
+    return require("lazy.util").merge(opts, {
       -- Configure core features of AstroNvim
       features = {
         large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
@@ -53,6 +53,9 @@ return {
         autochdir = false,
         scope = "tab",
         notify = true,
+      },
+      on_keys = {
+        auto_hlsearch = false,
       },
       filetypes = {
         extension = {

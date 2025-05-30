@@ -115,10 +115,18 @@ return {
       -- maps.n[";"] = { ":", remap = true }
       maps.i["jk"] = false
       maps.i["jj"] = false
-      maps.n["n"] = "nzz"
-      maps.v["n"] = "nzz"
-      maps.n["N"] = "Nzz"
-      maps.v["N"] = "Nzz"
+      maps.n["<esc>"] = {
+        function()
+          vim.cmd "nohl"
+          return "<esc>"
+        end,
+        expr = true,
+        desc = "Escape and Clear hlsearch",
+      }
+      -- maps.n["n"] = "nzz"
+      -- maps.v["n"] = "nzz"
+      -- maps.n["N"] = "Nzz"
+      -- maps.v["N"] = "Nzz"
 
       -- local lazygit = {
       --   callback = function()
