@@ -21,19 +21,36 @@ return {
     opts = {},
     specs = {
       {
-        "rcarriga/nvim-dap-ui",
-        enabled = false,
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          maps.n["<Leader>d"] = vim.tbl_get(opts, "_map_sections", "d")
+          maps.n["<Leader>dE"] = { function() require("dap-view").add_expr() end, desc = "Add expression" }
+          maps.n["<Leader>du"] = { function() require("dap-view").toggle() end, desc = "Toggle Debugger UI" }
+        end,
       },
+      {
+        "mfussenegger/nvim-dap",
+        optional = true,
+        dependencies = "igorlfs/nvim-dap-view",
+        opts = function()
+          local dap, dap_view = require "dap", require "dap-view"
+          dap.listeners.after.event_initialized.dapview_config = function() dap_view.open() end
+          dap.listeners.before.event_terminated.dapview_config = function() dap_view.close() end
+          dap.listeners.before.event_exited.dapview_config = function() dap_view.close() end
+        end,
+      },
+      { "rcarriga/nvim-dap-ui", enabled = false },
     },
-    config = function(_, opts)
-      local dap, dv = require "dap", require "dap-view"
-      dv.setup(opts)
-
-      dap.listeners.before.attach["dap-view-config"] = dv.open
-      dap.listeners.before.launch["dap-view-config"] = dv.open
-      dap.listeners.before.event_terminated["dap-view-config"] = dv.close
-      dap.listeners.before.event_exited["dap-view-config"] = dv.close
-    end,
+    -- config = function(_, opts)
+    --   local dap, dv = require "dap", require "dap-view"
+    --   dv.setup(opts)
+    --
+    --   dap.listeners.before.attach["dap-view-config"] = dv.open
+    --   dap.listeners.before.launch["dap-view-config"] = dv.open
+    --   dap.listeners.before.event_terminated["dap-view-config"] = dv.close
+    --   dap.listeners.before.event_exited["dap-view-config"] = dv.close
+    -- end,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
