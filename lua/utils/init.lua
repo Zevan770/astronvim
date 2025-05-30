@@ -8,6 +8,7 @@ M.is_vscode = vim.g.vscode
 M.is_firenvim = vim.g.started_by_firenvim
 M.is_server = false
 M.blink_enabled = true
+M.my_animate = "snacks"
 
 ---@param modes any
 ---@param maps AstroCoreMappings
@@ -40,4 +41,10 @@ M.dap_breakpoint = function()
 end
 
 _G.my_utils = M
+_G.switch = function(param, case_table)
+  local case = case_table[param]
+  if case then return case() end
+  local def = case_table["default"]
+  return def and def() or nil
+end
 return M

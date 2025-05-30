@@ -1,4 +1,3 @@
--- if true then return {} end
 ---@type LazySpec
 return {
   {
@@ -52,32 +51,5 @@ return {
         create_scroll_mapping("<PageUp>", neoscroll.ctrl_b),
       }
     end,
-  },
-  {
-    "sphamba/smear-cursor.nvim",
-    event = "VeryLazy",
-    cond = not my_utils.is_neovide and not my_utils.is_firenvim and not vim.env.KITTY_PID and not my_utils.is_vscode,
-    -- enabled = false,
-    -- see ~/.local/share/nvim/lazy/smear-cursor.nvim/lua/smear_cursor/config.lua
-    opts = {
-      hide_target_hack = true,
-      cursor_color = "none",
-      legacy_computing_symbols_support = true,
-      smear_horizontally = true,
-      smear_vertically = true,
-      min_horizontal_distance_smear = 8,
-      min_vertical_distance_smear = 3,
-      smear_between_neighbor_lines = false,
-    },
-    specs = {
-      -- disable mini.animate cursor
-      {
-        "echasnovski/mini.animate",
-        optional = true,
-        opts = {
-          cursor = { enable = false },
-        },
-      },
-    },
   },
 }
