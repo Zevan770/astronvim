@@ -151,7 +151,24 @@ return {
 
           maps.n["<A-/>"] = {
             function()
-              Snacks.picker.keymaps { global = false, modes = { vim.api.nvim_get_mode().mode }, layout = "select" }
+              Snacks.picker.keymaps {
+                global = false,
+                modes = { vim.api.nvim_get_mode().mode },
+                layout = "dropdown",
+                ---@type fun(item:snacks.picker.finder.Item, ctx:snacks.picker.finder.ctx):(boolean|snacks.picker.finder.Item|nil)
+                transform = function(item, ctx)
+                  local km = item.item ---@type vim.api.keyset.get_keymap
+                  if
+                    km.desc:match "^which%-key%-trigger"
+                    or km.desc:match "^Next"
+                    or km.desc:match "^Previous"
+                    or km.desc:match "^Swap"
+                  then
+                    return false
+                  end
+                  return true
+                end,
+              }
             end,
             desc = "Find keymaps",
           }
