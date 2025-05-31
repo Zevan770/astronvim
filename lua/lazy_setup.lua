@@ -15,6 +15,7 @@ require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.languages" },
   { import = "plugins.lsp" },
+  { import = "plugins.insert" },
   { import = "plugins.jump-edit" },
   { import = "plugins.key" },
   { import = "plugins.search" },
