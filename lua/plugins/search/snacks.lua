@@ -154,10 +154,14 @@ return {
               Snacks.picker.keymaps {
                 global = false,
                 modes = { vim.api.nvim_get_mode().mode },
-                layout = "dropdown",
+                layout = {
+                  preset = "dropdown",
+                  preview = false,
+                },
                 ---@type fun(item:snacks.picker.finder.Item, ctx:snacks.picker.finder.ctx):(boolean|snacks.picker.finder.Item|nil)
                 transform = function(item, ctx)
                   local km = item.item ---@type vim.api.keyset.get_keymap
+                  if not km.desc then return true end
                   if
                     km.desc:match "^which%-key%-trigger"
                     or km.desc:match "^Next"

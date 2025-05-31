@@ -114,12 +114,12 @@ return {
         { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
       }
       opts.left = {
-        {
-          ft = "aerial",
-          title = "Symbol Outline",
-          -- pinned = true,
-          open = function() require("aerial").open() end,
-        },
+        -- {
+        --   ft = "aerial",
+        --   title = "Symbol Outline",
+        --   -- pinned = true,
+        --   open = function() require("aerial").open() end,
+        -- },
         {
           title = "Files",
           ft = "neo-tree",
