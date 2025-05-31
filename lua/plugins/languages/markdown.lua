@@ -96,6 +96,9 @@ return {
             -- style = "block",
           },
         },
+        yaml = {
+          enable = false,
+        },
         ---@diagnostic enable
       }
     end,

@@ -1,19 +1,21 @@
 return {
   "jbyuki/one-small-step-for-vimkind",
-  dependencies = "mfussenegger/nvim-dap",
-  config = function()
-    require("dap").configurations.lua = {
-      { type = "nlua", request = "attach", name = "Attach to running Neovim instance" },
-    }
-    require("dap").adapters.nlua = function(callback, config)
-      callback {
-        type = "server",
-        host = config.host or "127.0.0.1", ---@diagnostic disable-line: undefined-field
-        port = config.port or 8086, ---@diagnostic disable-line: undefined-field
+  dependencies = {
+    "mfussenegger/nvim-dap",
+    opts = function()
+      require("dap").configurations.lua = {
+        { type = "nlua", request = "attach", name = "Attach to running Neovim instance" },
       }
-    end
-  end,
-  -- INFO this debugger the only one that needs manual starting, other
+      require("dap").adapters.nlua = function(callback, config)
+        callback {
+          type = "server",
+          host = config.host or "127.0.0.1", ---@diagnostic disable-line: undefined-field
+          port = config.port or 8086, ---@diagnostic disable-line: undefined-field
+        }
+      end
+    end,
+  },
+  -- INFO: this debugger the only one that needs manual starting, other
   -- debuggers start with `continue` by themselves
   keys = {
     -- 1. Two nvim instances, one for debuggee and one for debugger
