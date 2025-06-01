@@ -97,6 +97,9 @@ return {
       maps.n["gh"] = "K"
       maps.v["gh"] = "K"
 
+      local mini_path = vim.fn.stdpath "config" .. "/lua/utils/basic.vimrc"
+      pcall(vim.cmd.source, mini_path)
+
       -- maps.n["<C-u>"] = { "<C-u>zz", remap = false }
       -- maps.v["<C-u>"] = { "<C-u>zz", remap = false }
       -- maps.n["<C-d>"] = { "<C-d>zz", remap = false }

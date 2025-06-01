@@ -9,6 +9,7 @@ M.is_firenvim = vim.g.started_by_firenvim
 M.is_server = false
 M.blink_enabled = true
 M.my_animate = "snacks"
+-- M.autopair = "blink"
 
 ---@param modes any
 ---@param maps AstroCoreMappings

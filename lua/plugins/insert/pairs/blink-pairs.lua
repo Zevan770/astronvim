@@ -1,9 +1,10 @@
-if true then return {} end
 return {
   {
     "saghen/blink.pairs",
-    version = "*", -- (recommended) only required with prebuilt binaries
-    build = "nix build .#build-plugin",
+    -- version = "*", -- (recommended) only required with prebuilt binaries
+
+    build = "cargo build --release",
+    -- build = "nix build .#build-plugin",
     specs = {
       {
         "windwp/nvim-autopairs",

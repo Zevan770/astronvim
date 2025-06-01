@@ -80,9 +80,6 @@ return {
 
       local set = vim.keymap.set
 
-      local mini_path = vim.fn.stdpath "config" .. "/lua/utils/basic.vimrc"
-      pcall(vim.cmd.source, mini_path)
-
       -- Add or skip cursor above/below the main cursor.
       set({ "n", "x" }, "<up>", function() mc.lineAddCursor(-1) end)
       set({ "n", "x" }, "<down>", function() mc.lineAddCursor(1) end)
