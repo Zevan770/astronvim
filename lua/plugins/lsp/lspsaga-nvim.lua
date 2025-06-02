@@ -53,6 +53,7 @@ return {
             return client.supports_method "textDocument/references"
               or client.supports_method "textDocument/implementation"
           end,
+          nowait = true,
         }
 
         -- -- rename

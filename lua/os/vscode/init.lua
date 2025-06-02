@@ -111,8 +111,8 @@ return {
         end
       end
 
-      maps.v["gj"] = { function() wrappedLine_move "j" end, expr = true }
-      maps.v["gk"] = { function() wrappedLine_move "k" end, expr = true }
+      maps.x["gj"] = { function() wrappedLine_move "j" end, expr = true }
+      maps.x["gk"] = { function() wrappedLine_move "k" end, expr = true }
 
       -- vspacecode
       local vspacecode_with_restore_im = function()
@@ -121,7 +121,7 @@ return {
       end
 
       maps.n["<Space>"] = vspacecode_with_restore_im
-      maps.v["<Space>"] = vspacecode_with_restore_im
+      maps.x["<Space>"] = vspacecode_with_restore_im
 
       maps.n[","] = function()
         vscode.call "vspacecode.space"
@@ -132,20 +132,20 @@ return {
         })
         require("im_select").restore_default_im()
       end
-      maps.v[","] = maps.n[","]
-      maps.v["m]"] = function() vscode.action "bookmarks.expandSelectionToNext" end
-      maps.v["m["] = function() vscode.action "bookmarks.expandSelectionToPrevious" end
+      maps.x[","] = maps.n[","]
+      maps.x["m]"] = function() vscode.action "bookmarks.expandSelectionToNext" end
+      maps.x["m["] = function() vscode.action "bookmarks.expandSelectionToPrevious" end
 
-      -- maps.v["3s"] = function() vscode.action "metaGo.selectAfter" end
-      -- maps.v["2s"] = function() vscode.action "metaGo.selectSmart" end
-      -- maps.v["s"] = function() vscode.action "metaGo.selectBefore" end
+      -- maps.x["3s"] = function() vscode.action "metaGo.selectAfter" end
+      -- maps.x["2s"] = function() vscode.action "metaGo.selectSmart" end
+      -- maps.x["s"] = function() vscode.action "metaGo.selectBefore" end
       -- maps.n["gl"] = function() vscode.action "metaGo.addCursorBefore" end
       -- maps.n["s"] = function() vscode.action "metaGo.gotoBefore" end
       -- maps.n["2s"] = function() vscode.action "metaGo.gotoAfter" end
       -- maps.n["3s"] = function() vscode.action "metaGo.gotoSmart" end
 
       -- folding
-      -- maps.v["zf"] = function()
+      -- maps.x["zf"] = function()
       --   vscode.call "editor.createFoldingRangeFromSelection"
       --   -- backto normal mode and move down
       --   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>j", true, true, true), "n", true)
@@ -173,7 +173,7 @@ return {
         function(ctx) vscode.action("editor.createFoldingRangeFromSelection", { range = ctx.range, callback = esc_j }) end
       )
       maps.n["zf"] = { create_fold, expr = true }
-      maps.v["zf"] = maps.n["zf"]
+      maps.x["zf"] = maps.n["zf"]
 
       maps.n["zd"] = function() vscode.action "editor.removeManualFoldingRanges" end
       maps.n["zc"] = function() vscode.action "editor.fold" end
@@ -185,12 +185,14 @@ return {
       maps.n["zR"] = { function() vscode.action "editor.unfoldAll" end, desc = "unfold all" }
 
       -- region
-      maps.v["ig"] = function() vscode.action "regionfolder.selectCurrentRegionContents" end
-      maps.v["ag"] = function() vscode.action "regionfolder.selectCurrentRegion" end
-      maps.v["gsg"] = function()
+      maps.x["ir"] = function() vscode.action "regionfolder.selectCurrentRegionContents" end
+      maps.o["ir"] = maps.x["ir"]
+      maps.x["ar"] = function() vscode.action "regionfolder.selectCurrentRegion" end
+      maps.o["ar"] = maps.x["ar"]
+      maps.x["gsar"] = function()
         vscode.with_insert(function() vscode.action "regionfolder.wrapWithRegion" end)
       end
-      maps.n["gsdg"] = function() vscode.action "regionfolder.deleteCurrentRegion" end
+      maps.n["gsdr"] = function() vscode.action "regionfolder.deleteCurrentRegion" end
 
       maps.n["'"] = "`"
       maps.n["ma"] = function() vscode.action "bookmarks.toggleLabeled" end
@@ -230,8 +232,8 @@ return {
       maps.n["<Leader><Tab>"] = "<Cmd>Tablast<CR>"
       --
       -- -- indentation
-      maps.v["<Tab>"] = function() vscode.action "editor.action.indentLines" end
-      maps.v["<S-Tab>"] = function() vscode.action "editor.action.outdentLines" end
+      maps.x["<Tab>"] = function() vscode.action "editor.action.indentLines" end
+      maps.x["<S-Tab>"] = function() vscode.action "editor.action.outdentLines" end
       -- -- LSP Mappings
       maps.n["K"] = function() vscode.action "editor.action.showHover" end
       maps.n["gI"] = function() vscode.action "editor.action.goToImplementation" end
