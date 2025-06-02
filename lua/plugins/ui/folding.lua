@@ -2,6 +2,7 @@
 return {
   {
     "chrisgrieser/nvim-origami",
+    enabled = false,
     event = "User AstroFile",
     dependencies = {
       "kevinhwang91/nvim-ufo",

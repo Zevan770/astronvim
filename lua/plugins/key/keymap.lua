@@ -149,6 +149,15 @@ return {
       maps.i["<C-Space>"] = "<c-x><c-o>"
 
       maps.n["gcp"] = { [["xyygcc"xp]], desc = "comment and duplicate line", remap = true }
+
+      maps.n["h"] = {
+        require("utils.folding").h,
+        desc = "h (+ close fold at BoL)",
+      }
+      maps.n["l"] = {
+        require("utils.folding").l,
+        desc = "l (+ open fold at folding)",
+      }
     end,
   },
   {
