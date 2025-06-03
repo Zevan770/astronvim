@@ -8,13 +8,5 @@ return {
         winblend = 99,
       },
     },
-    specs = {
-      {
-        "catppuccin",
-        optional = true,
-        ---@type CatppuccinOptions
-        opts = { integrations = { mini = true } },
-      },
-    },
   },
 }

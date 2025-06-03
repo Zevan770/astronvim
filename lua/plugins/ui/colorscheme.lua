@@ -42,6 +42,7 @@ return {
     opts = {
       -- transparent_background = true, -- disables setting the background color.
       show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+      no_bold = false,
       term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
       dim_inactive = {
         enabled = true, -- dims the background color of inactive window
@@ -55,11 +56,11 @@ return {
         functions = {},
         keywords = {},
         strings = {},
-        variables = {},
+        variables = { "bold" },
         numbers = {},
         booleans = {},
         properties = {},
-        types = {},
+        types = { "bold" },
         operators = {},
         -- miscs = {}, -- Uncomment to turn off hard-coded styles
       },
