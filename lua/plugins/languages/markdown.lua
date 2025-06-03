@@ -1,5 +1,5 @@
 local markdown_ft = { "markdown", "Avante", "quarto", "rmd", "html", "copilot-chat", "codecompanion" }
-local render_md_on_ft = { "neorg", "org" }
+local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "neorg", "org" })
 local markview_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "html", "yaml" })
 ---@type LazySpec
 return {
@@ -9,7 +9,7 @@ return {
   -- #region render-markdown.nvim
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    -- enabled = false,
+    enabled = my_utils.markdown_render == "render",
     ft = render_md_on_ft,
     ---@module "render-markdown"
     ---@type render.md.UserConfig
@@ -40,6 +40,7 @@ return {
 
   {
     "OXY2DEV/markview.nvim",
+    enabled = my_utils.markdown_render == "markview",
     opts = function()
       local presets = require "markview.presets"
 

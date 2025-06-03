@@ -10,6 +10,8 @@ M.is_server = false
 M.blink_enabled = true
 M.my_animate = "snacks"
 -- M.autopair = "blink"
+---@type "render"|"markview"
+M.markdown_render = "markview"
 
 ---@param modes any
 ---@param maps AstroCoreMappings
