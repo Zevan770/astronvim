@@ -209,12 +209,12 @@ return {
       -- vim.g.whichkeyAddSpec { "<leader>y", group = "󰅍 Yank" }
     end,
     keys = {
-		-- stylua: ignore start
-		{"<leader>ya", function() require("genghis").copyFilepathWithTilde() end, desc = "󰝰 Absolute path" },
-		{"<leader>yr", function() require("genghis").copyRelativePath() end, desc = "󰝰 Relative path" },
-		{"<leader>yn", function() require("genghis").copyFilename() end, desc = "󰈔 Name of file" },
-		{"<leader>yp", function() require("genghis").copyDirectoryPath() end, desc = "󰝰 Parent path" },
-		{"<leader>yf", function() require("genghis").copyFileItself() end, desc = "󱉥 File (macOS)" },
+		  -- stylua: ignore start
+		  {"<leader>ya", function() require("genghis").copyFilepathWithTilde() end, desc = "󰝰 Absolute path" },
+		  {"<leader>yr", function() require("genghis").copyRelativePath() end, desc = "󰝰 Relative path" },
+		  {"<leader>yn", function() require("genghis").copyFilename() end, desc = "󰈔 Name of file" },
+		  {"<leader>yp", function() require("genghis").copyDirectoryPath() end, desc = "󰝰 Parent path" },
+		  {"<leader>yf", function() require("genghis").copyFileItself() end, desc = "󱉥 File (macOS)" },
       -- stylua: ignore end
 
       { "<leader>Fr", function() require("genghis").renameFile() end, desc = "󰑕 Rename" },
