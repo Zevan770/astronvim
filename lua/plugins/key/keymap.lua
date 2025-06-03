@@ -92,7 +92,8 @@ return {
       --   maps.n["<Leader><tab>" .. i] = { "<cmd>tabnext " .. i .. "<cr>" }
       -- end
       maps.n["g<Tab>"] = "gt"
-      maps.n["<Leader>qr"] = { "<Cmd>AstroReload<cr>" }
+      maps.n["<Leader>hr"] = { "<Cmd>AstroReload<cr>" }
+      maps.n["<Leader>qr"] = { "<Cmd>restart<cr>" }
 
       maps.n["gh"] = "K"
       maps.v["gh"] = "K"
