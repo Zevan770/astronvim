@@ -27,6 +27,9 @@ return {
 
   {
     "gregorias/coerce.nvim",
+    dependencies = {
+      "gregorias/coop.nvim",
+    },
     tag = "v4.1.0",
     opts = {
       default_mode_keymap_prefixes = {
