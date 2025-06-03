@@ -291,6 +291,20 @@ return {
   },
 
   {
+    {
+      "Dan7h3x/LazyDo",
+      branch = "main",
+      cmd = { "LazyDoToggle", "LazyDoPin", "LazyDoToggleStorage" },
+      keys = { -- recommended keymap for easy toggle LazyDo in normal and insert modes (arbitrary)
+        { "<leader>at", "<CMD>LazyDoToggle<CR>", mode = { "n" } },
+      },
+      opts = {
+        -- your config here
+      },
+    },
+  },
+
+  {
     "iamcco/markdown-preview.nvim",
     build = function(plugin)
       local package_manager = vim.fn.executable "yarn" and "yarn" or vim.fn.executable "npx" and "npx -y yarn" or false
