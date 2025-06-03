@@ -88,10 +88,10 @@ return {
   --   lazy = false,
   --   priority = 10000,
   -- },
-  {
-    "wsdjeg/vim-fetch",
-    enabled = not my_utils.is_windows,
-    lazy = false,
-    priority = 10001,
-  },
+  -- {
+  --   "wsdjeg/vim-fetch",
+  --   enabled = not my_utils.is_windows,
+  --   lazy = false,
+  --   priority = 10001,
+  -- },
 }

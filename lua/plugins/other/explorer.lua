@@ -168,6 +168,9 @@ return {
       mappings = {
         synchronize = "<c-s>",
       },
+      windows = {
+        preview = true,
+      },
     },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
