@@ -145,6 +145,7 @@ return {
   },
   {
     "zaucy/mcos.nvim",
+    event = "VeryLazy",
     dependencies = {
       "jake-stewart/multicursor.nvim",
     },
