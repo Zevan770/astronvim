@@ -12,7 +12,7 @@ function M.h()
     local textBeforeCursor = vim.api.nvim_get_current_line():sub(1, col)
     local onIndentOrFirstNonBlank = textBeforeCursor:match "^%s*$"
     if onIndentOrFirstNonBlank then
-      local wasFolded = pcall(normal_no_bang, "zc")
+      local wasFolded = my_utils.is_vscode and pcall(normal_no_bang, "zc") or pcall(normal, "zc")
       if not wasFolded then normal "h" end
     else
       normal "h"
