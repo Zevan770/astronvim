@@ -1,14 +1,15 @@
 return {
   "gbprod/substitute.nvim",
-  config = function(_, opts)
-    require("substitute").setup(opts)
-    -- Lua
-    vim.keymap.set("n", "S", require("substitute").operator, { noremap = true })
-    vim.keymap.set("n", "SS", require("substitute").line, { noremap = true })
-    -- vim.keymap.set("n", "S", require("substitute").eol, { noremap = true })
-    vim.keymap.set("x", "S", require("substitute").visual, { noremap = true })
-  end,
-
+  event = { "User AstroFile" },
+  keys = {
+    { "gsr", function() require("substitute").operator() end, mode = { "n" }, { noremap = true } },
+    { "gsrr", function() require("substitute").line() end, mode = { "n" }, { noremap = true } },
+    { "gsr", function() require("substitute").visual() end, mode = { "x" }, { noremap = true } },
+    { "gss", function() require("substitute.range").operator() end, mode = { "n" }, { noremap = true } },
+    { "gsx", function() require("substitute.exchange").operator() end, mode = { "n" }, { noremap = true } },
+    { "gsxx", function() require("substitute.exchange").line() end, mode = { "n" }, { noremap = true } },
+    { "gsx", function() require("substitute.exchange").visual() end, mode = { "x" }, { noremap = true } },
+  },
   opts = {
     on_substitute = nil,
     yank_substituted_text = false,
