@@ -55,13 +55,18 @@ return {
                 },
               },
             },
-            markdown_oxide = {
-              capabilities = {
-                workspace = {
-                  didChangeWatchedFiles = {
-                    dynamicRegistration = true,
-                  },
-                },
+          },
+        },
+        markdown_oxide = {
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = true,
+              },
+            },
+            textDocument = {
+              semanticTokens = {
+                enabled = false,
               },
             },
           },
