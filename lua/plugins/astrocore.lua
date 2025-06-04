@@ -42,6 +42,7 @@ return {
           completeopt = require("astrocore").list_insert_unique(opts.options.opt.completeopt, { "fuzzy", "preview" }),
           wildoptions = "fuzzy,pum,tagfile",
           wildmode = "list:longest,full",
+          colorcolumn = { 80, 100 },
         },
         g = { -- vim.g.<key>
           -- configure global vim variables (vim.g)
