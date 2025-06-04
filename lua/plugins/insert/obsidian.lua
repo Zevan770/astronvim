@@ -13,10 +13,11 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  ---@module "obsidian"
   ---@type obsidian.config.ClientOpts
   opts = {
     ui = { enable = false },
-    use_advanced_uri = true,
+    -- use_advanced_uri = true,
     finder = "telescope.nvim",
     -- dir = notedir,
     workspaces = {
