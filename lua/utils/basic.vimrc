@@ -25,8 +25,8 @@ nmap      U          <C-R>
 " better hjkl
 noremap      H          g^
 noremap      L          g$
-noremap  <c-j>      <c-d>
-noremap  <c-k>      <c-u>
+"noremap  <c-j>      <c-d>
+"noremap  <c-k>      <c-u>
 noremap  J          5gj
 noremap  K          5gk
 " vunmap K

@@ -16,5 +16,21 @@ return {
       -- (see :h highlight-group for options)
       highlight_group = "CursorLine",
     },
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        ---@param opts AstroCoreOpts
+        opts = function(_, opts)
+          local maps = assert(opts.mappings)
+          -- 在normal和visual模式添加映射
+          for _, mode in ipairs { "n", "v" } do
+            maps[mode]["<C-K>"] = { "<cmd>Treewalker Up<cr>", desc = "Treewalker Up" }
+            maps[mode]["<C-J>"] = { "<cmd>Treewalker Down<cr>", desc = "Treewalker Down" }
+            maps[mode]["<C-H>"] = { "<cmd>Treewalker Left<cr>", desc = "Treewalker Left" }
+            maps[mode]["<C-L>"] = { "<cmd>Treewalker Right<cr>", desc = "Treewalker Right" }
+          end
+        end,
+      },
+    },
   },
 }

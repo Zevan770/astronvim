@@ -134,12 +134,12 @@ return {
         mode = { "o", "x" },
       },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-      {
-        "<A-s>",
-        mode = { "n" },
-        function() require("flash").jump { pattern = vim.fn.getreg "/" } end,
-        desc = "Toggle Flash Search",
-      },
+      -- {
+      --   "<A-s>",
+      --   mode = { "n" },
+      --   function() require("flash").jump { pattern = vim.fn.getreg "/" } end,
+      --   desc = "Toggle Flash Search",
+      -- },
       {
         "gb",
         function() H.flash_remote_lsp "g" end,
