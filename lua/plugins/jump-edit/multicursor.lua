@@ -96,6 +96,7 @@ return {
       -- string captured by `iw` inside range `ap`.
       -- This action is highly customizable, see `:h multicursor-operator`.
       set({ "n", "x" }, "gmm", mc.operator)
+      set({ "x" }, "gmv", mc.visualToCursors)
 
       -- Add and remove cursors with control + left click.
       set("n", "<c-leftmouse>", mc.handleMouse)
