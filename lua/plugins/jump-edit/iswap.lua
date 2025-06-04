@@ -18,7 +18,7 @@ return {
       debug = nil,
     },
     keys = {
-      { "gw", "<Cmd>IMoveWith<CR>" },
+      { "gw", "<Cmd>IMove<CR>" },
     },
   },
 }

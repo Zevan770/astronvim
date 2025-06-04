@@ -78,6 +78,7 @@ return {
       require("utils.codecompanion.signcolumn").setup()
       require("utils.codecompanion.spinner"):setup()
     end,
+    -- see /home/hw770/.local/share/nvim/lazy/codecompanion.nvim/lua/codecompanion/config.lua:10
     opts = {
       opts = { language = "Chinese" },
       -- display = {
