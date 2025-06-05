@@ -95,9 +95,6 @@ return {
       maps.n["<Leader>hr"] = { "<Cmd>AstroReload<cr>" }
       maps.n["<Leader>qr"] = { "<Cmd>restart<cr>" }
 
-      maps.n["gh"] = "K"
-      maps.v["gh"] = "K"
-
       local mini_path = vim.fn.stdpath "config" .. "/lua/utils/basic.vimrc"
       pcall(vim.cmd.source, mini_path)
 
@@ -151,14 +148,10 @@ return {
 
       maps.n["gcp"] = { [["xyygcc"xp]], desc = "comment and duplicate line", remap = true }
 
-      maps.n["h"] = {
-        require("utils.folding").h,
-        desc = "h (+ close fold at BoL)",
-      }
-      maps.n["l"] = {
-        require("utils.folding").l,
-        desc = "l (+ open fold at folding)",
-      }
+      maps.n["h"] = { require("utils.folding").h, desc = "h (+ close fold at BoL)" }
+      maps.n["gh"] = { require("utils.folding").gh, desc = "gh (+ close fold at BoL)" }
+      maps.n["l"] = { require("utils.folding").l, desc = "l (+ open fold at folding)" }
+      maps.n["gl"] = { require("utils.folding").gl, desc = "gl (+ open fold at folding)" }
     end,
   },
   {

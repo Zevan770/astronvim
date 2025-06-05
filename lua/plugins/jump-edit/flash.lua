@@ -151,7 +151,7 @@ return {
         desc = "Flash Treesitter",
       },
       {
-        "gl",
+        "g.",
         mode = { "n", "v", "o" },
         function()
           require("flash").jump {

@@ -15,6 +15,8 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "astroui",
   "Comment.nvim",
   "nvim-autopairs",
+  "coerce.nvim",
+  "coop.nvim",
   "nvim-treesitter",
   "nvim-ts-autotag",
   "nvim-treesitter-textobjects",
@@ -38,6 +40,7 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "sibling-swap.nvim",
   "quicker.nvim",
   "ts-comments.nvim",
+  "treewalker.nvim",
   "vim-easy-align",
   "vim-repeat",
   "vim-sandwich",
@@ -50,7 +53,6 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "im-select.nvim",
   "fast-cursor-move.nvim",
   -- "which-key.nvim",
-  "nvim-origami",
 })
 
 local Config = require "lazy.core.config"
@@ -80,16 +82,16 @@ return {
       -- Motion: basic move
       maps.n["j"] = function()
         if not vim.v.count == 0 then
-          vim.cmd(string.format("normal %dj", vim.v.count))
+          vim.cmd(string.format("normal! %dj", vim.v.count))
         else
           vim.cmd "normal gj"
         end
       end
       maps.n["k"] = function()
         if not vim.v.count == 0 then
-          vim.cmd(string.format("normal %dk", vim.v.count))
+          vim.cmd(string.format("normal! %dk", vim.v.count))
         else
-          vim.cmd "normal gk"
+          vim.cmd [[call VSCodeNotify('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count1 })]]
         end
       end
 
@@ -166,11 +168,11 @@ return {
       --   })
       -- end
 
-      local esc_j = function()
+      local esc = function()
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, true, true), "n", false)
       end
       local create_fold = vscode.to_op(
-        function(ctx) vscode.action("editor.createFoldingRangeFromSelection", { range = ctx.range, callback = esc_j }) end
+        function(ctx) vscode.action("editor.createFoldingRangeFromSelection", { range = ctx.range, callback = esc }) end
       )
       maps.n["zf"] = { create_fold, expr = true }
       maps.x["zf"] = maps.n["zf"]
@@ -235,13 +237,13 @@ return {
       maps.x["<Tab>"] = function() vscode.action "editor.action.indentLines" end
       maps.x["<S-Tab>"] = function() vscode.action "editor.action.outdentLines" end
       -- -- LSP Mappings
-      maps.n["K"] = function() vscode.action "editor.action.showHover" end
+      -- maps.n["K"] = function() vscode.action "editor.action.showHover" end
+      maps.n["gk"] = function() vscode.action "editor.action.showHover" end
       maps.n["gI"] = function() vscode.action "editor.action.goToImplementation" end
       maps.n["gd"] = function() vscode.action "editor.action.revealDefinition" end
       maps.n["gD"] = function() vscode.action "editor.action.revealDeclaration" end
       maps.n["gr"] = function() vscode.action "editor.action.goToReferences" end
       maps.n["gy"] = function() vscode.action "editor.action.goToTypeDefinition" end
-      maps.n["gh"] = function() vscode.action "editor.action.showHover" end
       -- maps.n["<Leader>la"] = function() vscode.action "editor.action.quickFix" end
       -- maps.n["<Leader>lG"] = function() vscode.action "workbench.action.showAllSymbols" end
       -- maps.n["<Leader>lR"] = function() vscode.action "editor.action.goToReferences" end
