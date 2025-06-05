@@ -263,7 +263,9 @@ return {
               ["<C-K>"] = actions.move_selection_previous,
               ["<C-o>"] = open_selected,
               ["<M-CR>"] = open_all,
-              ["<M-n>"] = function() require("telescope.actions.layout").toggle_mirror(vim.api.nvim_get_current_buf()) end,
+              ["<M-n>"] = function()
+                require("telescope.actions.layout").cycle_layout_next(vim.api.nvim_get_current_buf())
+              end,
               ["<M-p>"] = function() require("telescope.actions.layout").toggle_preview(vim.api.nvim_get_current_buf()) end,
               ["<C-s>"] = actions.cycle_previewers_next,
               ["<C-a>"] = actions.cycle_previewers_prev,
@@ -414,7 +416,7 @@ return {
         lazy = true,
         config = function() require("telescope").load_extension "cmdline" end,
         keys = {
-          { ";", "<Cmd>Telescope cmdline<CR>" },
+          { "<A-x>", "<Cmd>Telescope cmdline<CR>" },
         },
       },
     },

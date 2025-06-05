@@ -23,8 +23,8 @@ nnoremap ]<Space> o<Esc>
 nmap      U          <C-R>
 " nunmap <C-R>
 " better hjkl
-noremap      H          g^
-noremap      L          g$
+noremap      gh          g^
+noremap      gl          g$
 "noremap  <c-j>      <c-d>
 "noremap  <c-k>      <c-u>
 noremap  J          5gj

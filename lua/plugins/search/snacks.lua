@@ -91,7 +91,7 @@ return {
             desc = maps.n["<Leader>fb"].desc,
           }
           maps.n["<A-b>"] = maps.n["<Leader>fb"]
-          maps.n["<A-x>"] = maps.n["<Leader>fC"]
+          -- maps.n["<A-x>"] = maps.n["<Leader>fC"]
 
           maps.n["<Leader>fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
           maps.n["<Leader>fr"] = { function() Snacks.picker.recent() end, desc = "Find Recents" }

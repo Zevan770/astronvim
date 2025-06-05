@@ -169,11 +169,7 @@ return {
       -- lsp
       maps.n["gR"] = { function() vim.lsp.buf.references() end, desc = "LSP references" }
 
-      maps.n["gh"] = { function() vim.lsp.buf.hover() end, desc = "Lsp Hover" }
-      -- maps.n["<Leader>k"] = {
-      --   function() vim.lsp.buf.hover() end,
-      --   desc = "hover",
-      -- }
+      maps.n["gk"] = { function() vim.lsp.buf.hover() end, desc = "Lsp Hover" }
     end,
   },
 }
