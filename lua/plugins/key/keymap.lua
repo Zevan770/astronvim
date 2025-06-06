@@ -152,6 +152,9 @@ return {
       maps.n["gh"] = { require("utils.folding").gh, desc = "gh (+ close fold at BoL)" }
       maps.n["l"] = { require("utils.folding").l, desc = "l (+ open fold at folding)" }
       maps.n["gl"] = { require("utils.folding").gl, desc = "gl (+ open fold at folding)" }
+
+      maps.n["zr"] = false
+      maps.n["zm"] = false
     end,
   },
   {

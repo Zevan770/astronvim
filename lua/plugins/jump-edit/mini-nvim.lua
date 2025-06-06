@@ -14,6 +14,10 @@ return {
         end,
       },
     },
+    config = function(_, opts)
+      require("mini.surround").setup(opts)
+      vim.keymap.del("x", "yu")
+    end,
     keys = function(plugin, keys)
       -- local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
       local opts = require("lazy.core.plugin").values(plugin, "opts", false) -- resolve mini.clue options
@@ -26,6 +30,7 @@ return {
         { opts.mappings.highlight, desc = "Highlight surrounding" },
         { opts.mappings.replace, desc = "Replace surrounding" },
         { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+        { "S", "<Cmd>lua MiniSurround.add('visual')<CR>", mode = "x" },
       }
       mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, mappings)
       return vim.list_extend(mappings, keys)
@@ -35,13 +40,15 @@ return {
       return {
         n_lines = 50,
         mappings = {
-          add = "gsa", -- Add surrounding in Normal modes
-          delete = "gsd", -- Delete surrounding
+          add = "yu", -- Add surrounding in Normal modes
+          delete = "du", -- Delete surrounding
+          replace = "cu", -- Replace surrounding
           find = "gsf", -- Find surrounding (to the right)
           find_left = "gsF", -- Find surrounding (to the left)
           highlight = "gsh", -- Highlight surrounding
-          replace = "gsc", -- Replace surrounding
-          update_n_lines = "gsn", -- Update `n_lines`
+          update_n_lines = "", -- Update `n_lines`
+          suffix_last = "N", -- Suffix to search with "prev" method
+          suffix_next = "n", -- Suffix to search with "next" method
         },
         custom_surroundings = {
           f = {
