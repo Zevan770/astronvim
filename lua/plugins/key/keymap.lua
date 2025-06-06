@@ -154,7 +154,7 @@ return {
       maps.n["gl"] = { require("utils.folding").gl, desc = "gl (+ open fold at folding)" }
 
       maps.n["zr"] = false
-      maps.n["zm"] = false
+      -- maps.n["zm"] = false
     end,
   },
   {

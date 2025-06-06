@@ -33,7 +33,7 @@ return {
           diffopt = vim.opt.diffopt + "vertical", -- sets vim.opt.diffopt
           mousemoveevent = true,
           startofline = true,
-          foldmarker = "#region, #endregion",
+          -- foldmarker = "#region, #endregion",
           jumpoptions = "view",
           pumblend = 10,
           pumheight = 10,
