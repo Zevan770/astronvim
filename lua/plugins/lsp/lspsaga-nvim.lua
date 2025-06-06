@@ -67,9 +67,14 @@ return {
     local astroui = require "astroui"
     local get_icon = function(icon) return astroui.get_icon(icon, 0, true) end
     return {
-      code_action = { extend_gitsigns = require("astrocore").is_available "gitsigns.nvim" },
+      code_action = {
+        extend_gitsigns = require("astrocore").is_available "gitsigns.nvim",
+        show_server_name = true,
+      },
       lightbulb = {
-        enable = false,
+        enable = true,
+        sign = true,
+        virtual_text = false,
       },
       ui = {
         code_action = get_icon "DiagnosticHint",
@@ -77,6 +82,9 @@ return {
         collapse = get_icon "FoldOpened",
       },
       symbol_in_winbar = { enable = false },
+      outline = {
+        layout = "float",
+      },
       finder = {
         keys = {
           vsplit = "<c-v>",
