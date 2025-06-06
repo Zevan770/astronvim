@@ -58,11 +58,6 @@ return {
       )
     end,
   },
-  {
-    "andymass/vim-matchup",
-    lazy = true,
-    init = function() vim.g.matchup_matchparen_offscreen = {} end,
-  },
 
   -- navic
   {

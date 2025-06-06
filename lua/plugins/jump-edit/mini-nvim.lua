@@ -52,6 +52,35 @@ return {
     end,
   },
   {
+    "andymass/vim-matchup",
+    lazy = true,
+    event = "VeryLazy",
+    keys = {
+      { "gsd%", "<plug>(matchup-ds%)", noremap = true },
+      { "gsc%", "<plug>(matchup-cs%)", remap = true },
+    },
+    specs = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          options = {
+            g = {
+              matchup_matchparen_nomode = "i",
+              matchup_matchparen_deferred = 1,
+              matchup_matchparen_offscreen = {},
+              matchup_surround_enabled = true,
+            },
+          },
+        },
+      },
+      {
+        "nvim-treesitter/nvim-treesitter",
+        dependencies = { "andymass/vim-matchup" },
+        opts = { matchup = { enable = true } },
+      },
+    },
+  },
+  {
     "echasnovski/mini.ai",
     event = "User AstroFile",
     opts = function()
