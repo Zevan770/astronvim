@@ -33,9 +33,9 @@ return {
     tag = "v4.1.0",
     opts = {
       default_mode_keymap_prefixes = {
-        normal_mode = "co",
-        motion_mode = "coo",
-        visual_mode = "coo",
+        normal_mode = "cx",
+        motion_mode = "cxx",
+        visual_mode = "X",
       },
       -- Set any field to false to disable that mode.
       default_mode_mask = {
@@ -45,7 +45,7 @@ return {
       },
     },
     keys = {
-      { "co" },
+      { "cx" },
     },
   },
 }

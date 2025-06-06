@@ -16,7 +16,7 @@ return {
     },
     config = function(_, opts)
       require("mini.surround").setup(opts)
-      vim.keymap.del("x", "yu")
+      vim.keymap.del("x", "yo")
     end,
     keys = function(plugin, keys)
       -- local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
@@ -30,7 +30,7 @@ return {
         { opts.mappings.highlight, desc = "Highlight surrounding" },
         { opts.mappings.replace, desc = "Replace surrounding" },
         { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
-        { "S", "<Cmd>lua MiniSurround.add('visual')<CR>", mode = "x" },
+        { "S", ":<C-u>lua MiniSurround.add('visual')<CR>", mode = "x", silent = true },
       }
       mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, mappings)
       return vim.list_extend(mappings, keys)
@@ -40,9 +40,9 @@ return {
       return {
         n_lines = 50,
         mappings = {
-          add = "yu", -- Add surrounding in Normal modes
-          delete = "du", -- Delete surrounding
-          replace = "cu", -- Replace surrounding
+          add = "yo", -- Add surrounding in Normal modes
+          delete = "do", -- Delete surrounding
+          replace = "co", -- Replace surrounding
           find = "gsf", -- Find surrounding (to the right)
           find_left = "gsF", -- Find surrounding (to the left)
           highlight = "gsh", -- Highlight surrounding
