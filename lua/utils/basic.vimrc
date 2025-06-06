@@ -78,6 +78,9 @@ nmap    zg         za
 " nmap <enter> za
 nnoremap <A-left> <c-o>
 nnoremap <A-right> <c-i>
+
+map <X1Mouse> <C-O>
+map <X2Mouse> <C-I>
 imap , ,<c-g>u
 imap . .<c-g>u
 imap ; ;<c-g>u
