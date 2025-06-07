@@ -6,6 +6,7 @@ vim.tbl_map(function(plugin) disabled[plugin] = true end, {
   "ghost-text.nvim",
   "codeium.nvim",
   "smear-cursor.nvim",
+  "incline.nvim",
 })
 
 local Config = require "lazy.core.config"
