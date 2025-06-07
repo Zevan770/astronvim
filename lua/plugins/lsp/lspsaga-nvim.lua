@@ -72,7 +72,7 @@ return {
         show_server_name = true,
       },
       lightbulb = {
-        enable = true,
+        enable = false,
         sign = true,
         virtual_text = false,
       },

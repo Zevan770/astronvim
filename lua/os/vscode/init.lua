@@ -178,8 +178,14 @@ return {
       maps.x["zf"] = maps.n["zf"]
 
       maps.n["zd"] = function() vscode.action "editor.removeManualFoldingRanges" end
-      maps.n["zc"] = function() vscode.action "editor.fold" end
-      maps.n["zC"] = function() vscode.action "editor.foldRecursively" end
+      maps.n["zc"] = function()
+        vscode.call "editor.fold"
+        vim.cmd.normal "^"
+      end
+      maps.n["zC"] = function()
+        vscode.call "editor.foldRecursively"
+        vim.cmd.normal "^"
+      end
       maps.n["zo"] = function() vscode.action "editor.unfold" end
       maps.n["zO"] = function() vscode.action "editor.unfoldRecursively" end
       maps.n["za"] = { function() vscode.action "editor.toggleFold" end, desc = "toggle fold" }
