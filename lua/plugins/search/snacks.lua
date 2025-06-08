@@ -6,7 +6,29 @@ return {
     ---@module "snacks"
     ---@type snacks.Config
     opts = {
-      image = { enabled = not not vim.env.KITTY_PID },
+      image = {
+        enabled = not not vim.env.KITTY_PID,
+        -- enabled = true,
+        doc = {
+          -- Personally I set this to false, I don't want to render all the
+          -- images in the file, only when I hover over them
+          -- render the image inline in the buffer
+          -- if your env doesn't support unicode placeholders, this will be disabled
+          -- takes precedence over `opts.float` on supported terminals
+          inline = my_utils.neovim_mode == "kitty" and true or false,
+          -- only_render_image_at_cursor = my_utils.neovim_mode == "skitty" and false or true,
+          -- render the image in a floating window
+          -- only used if `opts.inline` is disabled
+          float = true,
+          -- Sets the size of the image
+          -- max_width = 60,
+          -- max_width = my_utils.neovim_mode == "skitty" and 20 or 60,
+          -- max_height = my_utils.neovim_mode == "skitty" and 10 or 30,
+          max_width = my_utils.neovim_mode == "kitty" and 5 or 60,
+          max_height = my_utils.neovim_mode == "kitty" and 2.5 or 30,
+          -- max_height = 30,
+        },
+      },
       input = {
         win = {
           relative = "cursor",
@@ -14,6 +36,10 @@ return {
           col = 0,
         },
         enabled = false,
+      },
+      notifier = {
+        enabled = true,
+        top_down = false, -- place notifications from top to bottom
       },
       picker = {
         matcher = {
@@ -42,6 +68,12 @@ return {
         },
         layout = {
           preset = function() return vim.o.columns >= 120 and "default" or "ivy_split" end,
+        },
+      },
+      styles = {
+        snacks_image = {
+          relative = "editor",
+          col = -1,
         },
       },
     },
@@ -87,11 +119,18 @@ return {
           maps.n["<C-p>"] = maps.n["<Leader>ff"]
           maps.n["<Leader>pf"] = maps.n["<Leader>ff"]
           maps.n["<Leader>fb"] = {
-            function() Snacks.picker.buffers { layout = "dropdown" } end,
+            function()
+              Snacks.picker.buffers {
+                layout = {
+                  preset = "ivy_split",
+                  -- preview = "main",
+                },
+              }
+            end,
             desc = maps.n["<Leader>fb"].desc,
           }
           maps.n["<A-b>"] = maps.n["<Leader>fb"]
-          -- maps.n["<A-x>"] = maps.n["<Leader>fC"]
+          maps.n["<A-x>"] = maps.n["<Leader>fC"]
 
           maps.n["<Leader>fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
           maps.n["<Leader>fr"] = { function() Snacks.picker.recent() end, desc = "Find Recents" }
@@ -180,6 +219,7 @@ return {
           maps.i["<A-/>"] = maps.n["<A-/>"]
 
           maps.n["<Leader>ap"] = { function() Snacks.profiler.scratch() end, desc = "Profiler" }
+          require("snacks").toggle.zoom():map "<leader>wm"
 
           maps.n["<Leader>lg"] = {
             function() require("snacks").picker.lsp_workspace_symbols() end,
