@@ -41,6 +41,9 @@ return {
         },
       },
       file_types = render_md_on_ft,
+      indent = {
+        enabled = true,
+      },
       code = {
         border = "thin",
       },
@@ -56,7 +59,7 @@ return {
 
       ---@type markdown.headings
       local headings = vim.deepcopy(presets.headings.slanted)
-      -- headings.org_indent = true
+      headings.org_indent = true
 
       require("utils.lsp_hover").setup {}
       ---@type mkv.config
