@@ -7,7 +7,6 @@ return {
     event = "WinLeave",
     -- enabled = false,
     init = function()
-      local ignore_filetypes = { "neo-tree" }
       local ignore_buftypes = { "nofile", "prompt", "popup" }
 
       local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
@@ -24,17 +23,18 @@ return {
         desc = "Disable focus autoresize for BufType",
       })
 
-      vim.api.nvim_create_autocmd("FileType", {
-        group = augroup,
-        callback = function(_)
-          if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
-            vim.b.focus_disable = true
-            -- else
-            --   vim.w.focus_disable = false
-          end
-        end,
-        desc = "Disable focus autoresize for FileType",
-      })
+      -- local ignore_filetypes = { "neo-tree" }
+      -- vim.api.nvim_create_autocmd("FileType", {
+      --   group = augroup,
+      --   callback = function(_)
+      --     if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+      --       vim.b.focus_disable = true
+      --       -- else
+      --       --   vim.w.focus_disable = false
+      --     end
+      --   end,
+      --   desc = "Disable focus autoresize for FileType",
+      -- })
     end,
     opts = {
       enable = true, -- Enable module
