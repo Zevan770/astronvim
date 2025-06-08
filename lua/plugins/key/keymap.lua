@@ -153,7 +153,7 @@ return {
       maps.n["l"] = { require("utils.folding").l, desc = "l (+ open fold at folding)" }
       maps.n["gl"] = { require("utils.folding").gl, desc = "gl (+ open fold at folding)" }
 
-      maps.n["zr"] = false
+      -- maps.n["zr"] = false
       -- maps.n["zm"] = false
     end,
   },
@@ -166,6 +166,21 @@ return {
       maps.n["gR"] = { function() vim.lsp.buf.references() end, desc = "LSP references" }
 
       maps.n["gk"] = { function() vim.lsp.buf.hover() end, desc = "Lsp Hover" }
+
+      if my_utils.markdown_render == "markview" then
+        maps.n["gk"] = {
+          function()
+            local window = vim.api.nvim_get_current_win()
+
+            vim.lsp.buf_request(
+              0,
+              "textDocument/hover",
+              vim.lsp.util.make_position_params(window, "utf-8"),
+              require("utils.lsp_hover").hover
+            )
+          end,
+        }
+      end
     end,
   },
 }

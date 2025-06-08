@@ -1,5 +1,15 @@
-local markdown_ft = { "markdown", "Avante", "quarto", "rmd", "html", "copilot-chat", "codecompanion" }
-local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "neorg", "org" })
+local markdown_ft = {
+  "markdown",
+  "Avante",
+  "quarto",
+  "rmd",
+  "html",
+  "copilot-chat",
+  "codecompanion",
+  "blink-cmp-documentation",
+  "blink-cmp-signature",
+}
+local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, {})
 local markview_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "html", "yaml" })
 ---@type LazySpec
 return {
@@ -46,6 +56,9 @@ return {
 
       ---@type markdown.headings
       local headings = vim.deepcopy(presets.headings.slanted)
+      -- headings.org_indent = true
+
+      require("utils.lsp_hover").setup {}
       ---@type mkv.config
       return {
         preview = {
