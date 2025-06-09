@@ -1,76 +1,65 @@
 local M = {}
 
-function M.toggle_search_pattern(flag)
+function M.toggle_search_flag(flag, flag_pattern, flag_replacement)
   return function()
     local t = vim.fn.getcmdtype()
-    if vim.api.nvim_get_mode().mode:sub(1, 1) ~= "c" and t ~= "/" and t ~= "?" then return end
+    if vim.api.nvim_get_mode().mode:sub(1, 1) ~= "c" or (t ~= "/" and t ~= "?") then return end
 
     local pattern = vim.fn.getcmdline()
-    if not pattern or pattern:sub(1, 1) == t then return end
+    if not pattern then return end
 
-    local flag_w1, flag_w2, flag_c, flag_r
-    local flag_end
-    local i = 1
-    while i <= #pattern do
-      local c = pattern:sub(i, i)
-      if flag_end then
-        if c == "\\" then
-          i = i + 1
-          if i > #pattern then break end
-          local c2 = pattern:sub(i, i)
-          if c2 == ">" and not flag_r and i == #pattern then flag_w2 = true end
-        else
-          if c == ">" and flag_r and i == #pattern then flag_w2 = true end
-        end
-        goto continue
-      end
-
-      if c == "\\" then
-        i = i + 1
-        if i > #pattern then break end
-        local c2 = pattern:sub(i, i)
-        if c2 == "<" and not flag_r then
-          flag_w1 = true
-        elseif c2 == "C" then
-          flag_c = true
-        elseif c2 == "v" then
-          flag_r = true
-        else
-          flag_end = i - 1
-          i = i - 2
-        end
-      else
-        if c == "<" and flag_r then
-          flag_w1 = true
-        else
-          flag_end = i
-          i = i - 1
-        end
-      end
-
-      ::continue::
-      i = i + 1
-    end
-
-    local w2_len
-    if flag_w2 then
-      w2_len = flag_r and 1 or 2
+    -- 检查是否存在标志
+    if pattern:find(flag_pattern) then
+      -- 移除标志
+      pattern = pattern:gsub(vim.pesc(flag_pattern), "")
     else
-      w2_len = 0
+      -- 添加标志到开头
+      pattern = flag_replacement .. pattern
     end
 
-    pattern = flag_end and pattern:sub(flag_end, #pattern - w2_len) or ""
-    if flag == "w" and (not flag_w1 or not flag_w2) or flag ~= "w" and flag_w1 and flag_w2 then
-      w2_len = flag_r and 1 or 2
-      pattern = (flag_r and "<" or "\\<") .. pattern .. (flag_r and ">" or "\\>")
+    vim.fn.setcmdline(pattern, #pattern + 1)
+    -- vscode 兼容性处理
+    if vim.g.vscode then vim.api.nvim_input " <BS>" end
+  end
+end
+
+-- 预定义一些常用标志的切换函数
+M.toggle_very_magic = M.toggle_search_flag("v", "\\v", "\\v")
+M.toggle_very_nomagic = M.toggle_search_flag("V", "\\V", "\\V")
+M.toggle_case_sensitive = M.toggle_search_flag("C", "\\C", "\\C")
+M.toggle_ignore_case = M.toggle_search_flag("c", "\\c", "\\c")
+
+M.toggle_word_boundary = function()
+  return function()
+    local t = vim.fn.getcmdtype()
+    if vim.api.nvim_get_mode().mode:sub(1, 1) ~= "c" or (t ~= "/" and t ~= "?") then return end
+
+    local pattern = vim.fn.getcmdline()
+    if not pattern then return end
+
+    -- 检查模式中是否使用了 very magic 模式
+    local has_very_magic = pattern:find "\\v" ~= nil
+
+    -- 根据正则模式选择正确的边界标记
+    -- 在 very magic 模式下，单词边界是 < 和 >
+    -- 在普通模式下，单词边界是 \< 和 \>
+    local start_boundary = has_very_magic and "<" or "\\<"
+    local end_boundary = has_very_magic and ">" or "\\>"
+
+    -- 检查是否已有单词边界
+    local has_start = pattern:match("^" .. vim.pesc(start_boundary))
+    local has_end = pattern:match(vim.pesc(end_boundary) .. "$")
+
+    if has_start and has_end then
+      -- 移除单词边界
+      pattern = pattern:gsub("^" .. vim.pesc(start_boundary), "")
+      pattern = pattern:gsub(vim.pesc(end_boundary) .. "$", "")
     else
-      w2_len = 0
+      -- 添加单词边界
+      pattern = start_boundary .. pattern .. end_boundary
     end
-    if flag == "c" and not flag_c or flag ~= "c" and flag_c then pattern = "\\C" .. pattern end
-    if flag == "r" and not flag_r or flag ~= "r" and flag_r then pattern = "\\v" .. pattern end
 
-    vim.fn.setcmdline(pattern, #pattern + 1 - w2_len)
-    -- vscode does not trigger flash after setcmdline
+    vim.fn.setcmdline(pattern, #pattern + 1)
     if vim.g.vscode then vim.api.nvim_input " <BS>" end
   end
 end
