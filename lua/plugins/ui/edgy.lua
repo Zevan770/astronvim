@@ -81,11 +81,11 @@ return {
         desc = "Resize split right",
         mode = { "n", "i", "t" },
       },
-      {
-        "<c-t>",
-        function() require("smart-splits").move_cursor_previous() end,
-        desc = "Move to previous split",
-      },
+      -- {
+      --   "<c-t>",
+      --   function() require("smart-splits").move_cursor_previous() end,
+      --   desc = "Move to previous split",
+      -- },
     },
   },
   {
