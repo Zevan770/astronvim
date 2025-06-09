@@ -117,4 +117,9 @@ return {
       }
     end,
   },
+  {
+    "echasnovski/mini.align",
+    event = "User AstroFile",
+    opts = {},
+  },
 }
