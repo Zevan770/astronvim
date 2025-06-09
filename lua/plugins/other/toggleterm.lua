@@ -19,7 +19,7 @@ return {
         esc_timer = esc_timer or vim.uv.new_timer()
         if esc_timer:is_active() then
           esc_timer:stop()
-          vim.api.nvim_feedkeys(vim.keycode "a", "n", false) -- add this line for `--vim`
+          -- vim.api.nvim_feedkeys(vim.keycode "a", "n", false) -- add this line for `--vim`
           vim.cmd "stopinsert"
         else
           esc_timer:start(200, 0, function() end)

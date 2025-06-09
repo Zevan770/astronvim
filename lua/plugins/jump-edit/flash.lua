@@ -1,6 +1,5 @@
 -- if true then return {} end
 local H = {}
-
 H.flash_remote_lsp = function(leader_key)
   local prev_timeout = vim.opt.timeout
 
@@ -143,16 +142,16 @@ return {
       { "gb", function() H.flash_remote_lsp "g" end },
       { ".", mode = { "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       {
-        "gsj",
+        "[",
         "<Cmd>lua require('flash').treesitter({jump={pos='start'}})<CR>",
         mode = { "n", "o", "x" },
         desc = "Outter Start Of Treesitter Node",
       },
       {
-        "gsk",
+        "]",
         "<Cmd>lua require('flash').treesitter({jump={pos='end'}})<CR>",
         mode = { "n", "o", "x" },
-        desc = "Outter Start Of Treesitter Node",
+        desc = "Outter end Of Treesitter Node",
       },
       {
         "g.",
