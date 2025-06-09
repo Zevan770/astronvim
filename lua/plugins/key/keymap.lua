@@ -153,6 +153,10 @@ return {
       maps.n["l"] = { require("utils.folding").l, desc = "l (+ open fold at folding)" }
       maps.n["gl"] = { require("utils.folding").gl, desc = "gl (+ open fold at folding)" }
 
+      maps.c["<A-w>"] = { require("utils.search").toggle_search_pattern "w", desc = "Match Whole Word" }
+      maps.c["<A-c>"] = { require("utils.search").toggle_search_pattern "c", desc = "Match Case" }
+      maps.c["<A-r>"] = { require("utils.search").toggle_search_pattern "r", desc = "Toggle Very Magic" }
+
       -- maps.n["zr"] = false
       -- maps.n["zm"] = false
     end,
