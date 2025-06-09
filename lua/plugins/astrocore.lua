@@ -35,6 +35,7 @@ return {
           startofline = true,
           -- foldmarker = "#region, #endregion",
           jumpoptions = "view",
+          winblend = 10,
           pumblend = 10,
           pumheight = 10,
           confirm = true,
