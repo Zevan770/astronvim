@@ -54,7 +54,7 @@ return {
         conditionals = { "italic" },
         loops = {},
         functions = {},
-        keywords = {},
+        keywords = { "italic" },
         strings = {},
         variables = { "bold" },
         numbers = {},
@@ -94,5 +94,9 @@ return {
         which_key = true,
       },
     },
+  },
+  {
+    "dasupradyumna/midnight.nvim",
+    lazy = true,
   },
 }

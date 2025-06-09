@@ -282,6 +282,15 @@ return {
         { key = "q", action = "<Leader>Q", icon = get_icon("TabClose", 0, true), desc = "Quit vim  " },
         { key = "a", action = "<Leader>fa", icon = get_icon("Package", 0, true), desc = "Astronvim configuration" },
       }
+
+      return require("astrocore").extend_tbl(opts, {
+        dashboard = {
+          sections = {
+            { section = "keys", gap = 1, padding = 3 },
+            { section = "startup" },
+          },
+        },
+      })
     end,
   },
 
