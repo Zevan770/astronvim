@@ -34,9 +34,10 @@ return {
       local status = require "astroui.status"
       local components = require "heirline-components.all"
       local bar = require "utils.bar"
+
       opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
       table.insert(opts.statusline, 10, components.component.compiler_state())
-
+      table.insert(opts.statusline, 6, bar.lsp_def_ref())
       table.insert(
         opts.statusline,
         6,
@@ -44,10 +45,6 @@ return {
           icon = { hl = true },
         }
       )
-      -- table.insert(opts.statusline, 6, components.component.breadcrumbs())
-      -- table.insert(opts.statusline, 6, bar.navic())
-      opts.winbar = nil
-
       table.insert(
         opts.statusline,
         3,
@@ -56,6 +53,9 @@ return {
           file_encoding = { padding = { left = 0, right = 1 } }, -- if set, displays the encoding format the current buffer currently has.
         }
       )
+      -- table.insert(opts.statusline, 6, components.component.breadcrumbs())
+      -- table.insert(opts.statusline, 6, bar.navic())
+      opts.winbar = nil
     end,
   },
 
