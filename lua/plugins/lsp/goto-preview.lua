@@ -11,7 +11,7 @@ return {
         default_mappings = true, -- Bind default mappings
         debug = false, -- Print debug information
         opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
-        resizing_mappings = true, -- Binds arrow keys to resizing the floating window.
+        resizing_mappings = false, -- Binds arrow keys to resizing the floating window.
         post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
         post_close_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
         references = { -- Configure the telescope UI for slowing the references cycling window.

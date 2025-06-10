@@ -57,6 +57,7 @@ return {
         augend.date.alias["%Y/%m/%d"],
         augend.constant.alias.bool,
         augend.semver.alias.semver,
+        augend.misc.alias.markdown_header,
         augend.date.new {
           pattern = "%B", -- titlecased month names
           default_kind = "day",
