@@ -95,8 +95,7 @@ return {
       },
     },
   },
-  {
-    "dasupradyumna/midnight.nvim",
-    lazy = true,
-  },
+  { "dasupradyumna/midnight.nvim", lazy = true },
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = true },
+  { "savq/melange-nvim", lazy = true },
 }
