@@ -204,6 +204,7 @@ return {
   },
   {
     "bngarren/checkmate.nvim",
+    enabled = false,
     ft = markdown_ft, -- Lazy loads for Markdown files matching patterns in 'files'
     -- opts = {},
     config = true,
@@ -231,8 +232,8 @@ return {
         },
         default_list_marker = "-",
         todo_markers = {
-          unchecked = "",
-          checked = "",
+          unchecked = "□",
+          checked = "✔",
         },
         style = {},
         todo_action_depth = 1, --  Depth within a todo item's hierachy from which actions (e.g. toggle) will act on the parent todo item
