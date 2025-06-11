@@ -68,7 +68,7 @@ return {
           modes = { "n", "no", "c", "i" },
           hybrid_modes = { "n", "i" },
           enable_hybrid_mode = true,
-          linewise_hybrid_mode = true,
+          -- linewise_hybrid_mode = true,
           debounce = 50,
           -- edit_range = { 2, 2 },
 
@@ -230,10 +230,10 @@ return {
           ["<localleader>ta"] = "archive", -- Archive checked/completed todo items (move to bottom section)
         },
         default_list_marker = "-",
-        -- todo_markers = {
-        --   unchecked = "□",
-        --   checked = "✔",
-        -- },
+        todo_markers = {
+          unchecked = "",
+          checked = "",
+        },
         style = {},
         todo_action_depth = 1, --  Depth within a todo item's hierachy from which actions (e.g. toggle) will act on the parent todo item
         enter_insert_after_new = true, -- Should enter INSERT mode after :CheckmateCreate (new todo)
