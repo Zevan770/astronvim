@@ -404,7 +404,7 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function() require("telescope").load_extension "folds" end,
     keys = {
-      { "<Leader>tsz", "<Cmd>Telescope folds<CR>", silent = true },
+      { "<Leader>tsz", "<Cmd>Telescope folds theme=ivy<CR>", silent = true },
     },
   },
 
