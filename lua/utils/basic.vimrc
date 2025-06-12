@@ -5,9 +5,9 @@ set hlsearch
 " set guifont=consolaslxgw:h14
 set ignorecase
 set smartcase
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+"set tabstop=4
+"set shiftwidth=4
+"set softtabstop=4
 
 " nmap <c-j> mz:m+<cr>`z
 " nmap <c-k> mz:m-2<cr>`z
