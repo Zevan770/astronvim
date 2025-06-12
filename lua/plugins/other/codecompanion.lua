@@ -208,10 +208,20 @@ return {
       adapters = {
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
-            name = "claude 3.7",
+            name = "claude 3.7 (默认)",
             schema = {
               model = {
                 default = "claude-3.7-sonnet",
+              },
+            },
+          })
+        end,
+        claude35 = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            name = "claude 3.5",
+            schema = {
+              model = {
+                default = "claude-3-5-sonnet",
               },
             },
           })
