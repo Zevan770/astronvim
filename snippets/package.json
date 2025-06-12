@@ -8,6 +8,12 @@
                     "lua"
                 ],
                 "path": "./lua.json"
+            },
+            {
+                "language": [
+                    "all"
+                ],
+                "path": "./region.json"
             }
         ]
     }
