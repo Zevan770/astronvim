@@ -68,7 +68,7 @@ return {
           modes = { "n", "no", "c", "i" },
           hybrid_modes = { "n", "i" },
           enable_hybrid_mode = true,
-          -- linewise_hybrid_mode = true,
+          linewise_hybrid_mode = true,
           debounce = 50,
           -- edit_range = { 2, 2 },
 
@@ -115,6 +115,9 @@ return {
         },
         yaml = {
           enable = false,
+        },
+        experimental = {
+          linewise_ignore_org_indent = true,
         },
         ---@diagnostic enable
       }
