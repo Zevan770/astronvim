@@ -81,11 +81,11 @@ return {
     -- see /home/hw770/.local/share/nvim/lazy/codecompanion.nvim/lua/codecompanion/config.lua:10
     opts = {
       opts = { language = "Chinese" },
-      -- display = {
-      --   chat = {
-      --     show_settings = true,
-      --   },
-      -- },
+      display = {
+        chat = {
+          show_settings = true,
+        },
+      },
       strategies = {
         chat = {
           adapter = "copilot",
@@ -208,20 +208,19 @@ return {
       adapters = {
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
-            name = "claude 3.7 (默认)",
+            -- name = "claude 3.5 (默认)",
             schema = {
               model = {
-                default = "claude-3.7-sonnet",
+                default = "claude-3.5-sonnet",
               },
             },
           })
         end,
-        claude35 = function()
+        claude37 = function()
           return require("codecompanion.adapters").extend("copilot", {
-            name = "claude 3.5",
             schema = {
               model = {
-                default = "claude-3-5-sonnet",
+                default = "claude-3.7-sonnet",
               },
             },
           })
