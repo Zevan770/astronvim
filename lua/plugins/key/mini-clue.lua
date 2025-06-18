@@ -1,4 +1,4 @@
-if true then return {} end
+-- if true then return {} end
 return {
   "echasnovski/mini.clue",
   specs = {
@@ -22,7 +22,7 @@ return {
     astrocore.which_key_queue = nil
     return {
       window = {
-        delay = 300,
+        delay = 0,
         config = { row = "auto", col = "auto" },
       },
       triggers = {

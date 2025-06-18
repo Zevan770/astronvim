@@ -1,3 +1,4 @@
+if true then return {} end
 ---@diagnostic disable: missing-fields
 local notedir = vim.fn.has "win32" == 1 and "E:/desktop/notes" or "/mnt/e/Desktop/notes"
 ---@type LazySpec
