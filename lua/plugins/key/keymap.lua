@@ -9,7 +9,7 @@ return {
       -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
       local maps = assert(opts.mappings)
       local astro = require "astrocore"
-
+      vim.keymap.set("i", "<Tab>", "<Tab>")
       --- App
       maps.n["<Leader>a"] = { desc = "Appalication" }
       -- maps.n["<Leader>al"] = {

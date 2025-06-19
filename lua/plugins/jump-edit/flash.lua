@@ -142,13 +142,13 @@ return {
       { "gb", function() H.flash_remote_lsp "g" end },
       { ".", mode = { "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       {
-        "[",
+        "gs[",
         "<Cmd>lua require('flash').treesitter({jump={pos='start'}})<CR>",
         mode = { "n", "o", "x" },
         desc = "Outter Start Of Treesitter Node",
       },
       {
-        "]",
+        "gs]",
         "<Cmd>lua require('flash').treesitter({jump={pos='end'}})<CR>",
         mode = { "n", "o", "x" },
         desc = "Outter end Of Treesitter Node",
