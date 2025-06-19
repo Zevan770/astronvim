@@ -33,16 +33,47 @@ return {
       sources = {
         providers = {
           cmdline = {
-            enabled = function() return vim.fn.getcmdline():sub(1, 1) ~= "!" end,
+            enabled = function() return vim.fn.getcmdtype() ~= ":" or not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!" end,
+          },
+          lsp = {
+            override = {
+              get_trigger_characters = require("utils.blink").get_trigger_characters,
+            },
+          },
+          buffer = {
+            override = {
+              get_trigger_characters = require("utils.blink").get_trigger_characters,
+            },
           },
         },
       },
+      signature = {
+        window = {
+          border = "rounded",
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+        },
+      },
       completion = {
+        menu = {
+          max_height = 15,
+          winblend = 10,
+        },
+        documentation = {
+          window = {
+            winblend = 10,
+          },
+        },
         list = {
           selection = {
             preselect = true,
           },
         },
+        trigger = {
+          show_on_blocked_trigger_characters = {},
+        },
+      },
+      term = {
+        enabled = true,
       },
     },
   },
