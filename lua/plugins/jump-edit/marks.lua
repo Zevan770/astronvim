@@ -2,6 +2,8 @@ return {
   "chentoast/marks.nvim",
   event = "User AstroFile",
   opts = {
+    -- force_write_shada = true,
+    sign_priority = { lower = 2, upper = 3, builtin = 1, bookmark = 4 },
     excluded_buftypes = {
       "nofile",
       "terminal",
