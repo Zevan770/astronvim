@@ -44,6 +44,24 @@ return {
           wildoptions = "fuzzy,pum,tagfile",
           wildmode = "list:longest,full",
           colorcolumn = { 80, 100 },
+          inccommand = "split",
+          list = true,
+          listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:> " }, ","),
+          fillchars = table.concat(
+            -- Special UI symbols
+            {
+              "eob: ",
+              "fold:╌",
+              "horiz:═",
+              "horizdown:╦",
+              "horizup:╩",
+              "vert:║",
+              "verthoriz:╬",
+              "vertleft:╣",
+              "vertright:╠",
+            },
+            ","
+          ),
         },
         g = { -- vim.g.<key>
           -- configure global vim variables (vim.g)

@@ -39,6 +39,7 @@ local M = {
   -- { import = "astrocommunity.note-taking.venn-nvim" },
 
   { import = "astrocommunity.editing-support.refactoring-nvim" },
+  { import = "astrocommunity.media.img-clip-nvim" },
 }
 
 ---@type LazySpec

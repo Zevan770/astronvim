@@ -83,7 +83,7 @@ return {
       opts = { language = "Chinese" },
       display = {
         chat = {
-          show_settings = true,
+          show_settings = false,
         },
       },
       strategies = {
@@ -208,19 +208,18 @@ return {
       adapters = {
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
-            -- name = "claude 3.5 (默认)",
             schema = {
               model = {
-                default = "claude-3.5-sonnet",
+                default = "claude-3.7-sonnet",
               },
             },
           })
         end,
-        claude37 = function()
+        claude35 = function()
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "claude-3.7-sonnet",
+                default = "claude-3.5-sonnet",
               },
             },
           })
