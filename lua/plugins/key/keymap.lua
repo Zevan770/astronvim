@@ -49,7 +49,7 @@ return {
       maps.t["<C-K>"] = false
       maps.t["<C-L>"] = false
 
-      maps.n["<S-CR>"] = {
+      maps.n["<Leader>ik"] = {
         function()
           local repeated = vim.fn["repeat"]({ "" }, vim.v.count1)
           local line = vim.api.nvim_win_get_cursor(0)[1]
@@ -58,7 +58,7 @@ return {
         desc = "Insert empty line below",
       }
 
-      maps.n["<CR>"] = {
+      maps.n["<Leader>ij"] = {
         function()
           local repeated = vim.fn["repeat"]({ "" }, vim.v.count1)
           local line = vim.api.nvim_win_get_cursor(0)[1]

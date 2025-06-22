@@ -97,7 +97,7 @@ return {
           insert = "<C-s>",
         },
         cancel = {
-          normal = { "<C-c>", "<Esc>", "q" },
+          normal = { "<C-c>", "q" },
           insert = { "<C-c>" },
         },
         -- NOTE: The following will be safely set by avante.nvim
@@ -123,7 +123,7 @@ return {
           reverse_switch_windows = "<a-k>",
           remove_file = "d",
           add_file = "@",
-          close = { "<Esc>", "q" },
+          close = { "q" },
           close_from_input = nil, -- e.g., { normal = "<Esc>", insert = "<C-d>" }
         },
         files = {
