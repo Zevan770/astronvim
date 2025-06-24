@@ -166,7 +166,7 @@ return {
       providers = {
         copilot = {
           endpoint = "https://api.githubcopilot.com",
-          model = "claude-3.5-sonnet",
+          model = "claude-3.7-sonnet",
           proxy = nil, -- [protocol://]host[:port] Use this proxy
           allow_insecure = false, -- Allow insecure server connections
           timeout = 30000, -- Timeout in milliseconds
@@ -175,9 +175,13 @@ return {
             -- max_tokens = 20480,
           },
         },
-        ["copilot-claude-3.7"] = {
+        ["copilot-claude-3.5"] = {
           __inherited_from = "copilot",
-          model = "claude-3.7-sonnet",
+          model = "claude-3.5-sonnet",
+        },
+        ["copilot-gpt4.1"] = {
+          __inherited_from = "copilot",
+          model = "gpt-4.1",
         },
       },
     },

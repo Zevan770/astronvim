@@ -25,7 +25,7 @@ return {
     ---@type NeogitConfig
     opts = {
       kind = "floating",
-      graph_style = "unicode",
+      graph_style = "kitty",
     },
   },
   {

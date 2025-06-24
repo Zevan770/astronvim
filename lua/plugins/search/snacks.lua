@@ -42,6 +42,9 @@ return {
         top_down = false, -- place notifications from top to bottom
       },
       picker = {
+        main = {
+          file = false,
+        },
         matcher = {
           frecency = true, -- frecency bonus
           history_bonus = true, -- give more weight to chronological order
@@ -51,7 +54,7 @@ return {
           input = {
             keys = {
               -- every action will always first change the cwd of the current tabpage to the project
-              ["<c-g>"] = { { "pick_win", "jump" } },
+              ["<c-o>"] = { { "pick_win", "jump" } },
               ["<c-y>"] = {
                 "yank_path",
                 mode = { "n", "i" },

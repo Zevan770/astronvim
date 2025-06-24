@@ -22,7 +22,6 @@ return {
     -- (If you wish to replace, use `opts.sources = {}` instead of the `list_insert_unique` function)
     opts.sources = require("astrocore").list_insert_unique(opts.sources, {
       diagnostics.selene,
-      require "none-ls.formatting.jq",
 
       -- Common Code Actions
       -- code_actions.gitsigns,
