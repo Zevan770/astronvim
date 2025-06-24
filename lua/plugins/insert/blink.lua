@@ -33,6 +33,7 @@ return {
       sources = {
         providers = {
           cmdline = {
+            -- fix wsl stuck on cmdline completion
             enabled = function() return vim.fn.getcmdtype() ~= ":" or not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!" end,
           },
           lsp = {
@@ -49,8 +50,7 @@ return {
       },
       signature = {
         window = {
-          border = "rounded",
-          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+          winblend = 10,
         },
       },
       completion = {
@@ -74,6 +74,14 @@ return {
       },
       term = {
         enabled = true,
+      },
+      keymap = {
+        ["<a-a>"] = {
+          function()
+            -- invoke manually, requires blink >v0.8.0
+            require("blink-cmp").show { providers = { "lsp" } }
+          end,
+        },
       },
     },
   },
