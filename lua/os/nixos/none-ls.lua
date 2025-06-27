@@ -26,7 +26,7 @@ return {
       -- Common Code Actions
       -- code_actions.gitsigns,
       -- common refactoring actions based off the Refactoring book by Martin Fowler
-      code_actions.refactoring,
+      -- code_actions.refactoring,
       -- code_actions.proselint, -- English prose linter
 
       -- nix

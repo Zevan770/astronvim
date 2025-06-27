@@ -2,7 +2,7 @@
 return {
   { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.test.neotest" },
-  -- { import = "astrocommunity.code-runner.compiler-nvim" },
+  { import = "astrocommunity.code-runner.compiler-nvim" },
   -- {
   --   "Zeioth/compiler.nvim",
   --   opts = {},
