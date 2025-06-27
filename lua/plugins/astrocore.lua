@@ -46,7 +46,7 @@ return {
           colorcolumn = { 80, 100 },
           inccommand = "split",
           list = true,
-          listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:> " }, ","),
+          listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:  " }, ","),
           fillchars = table.concat(
             -- Special UI symbols
             {

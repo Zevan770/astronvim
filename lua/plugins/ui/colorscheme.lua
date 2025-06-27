@@ -8,6 +8,7 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
+  { import = "astrocommunity.colorscheme.vim-moonfly-colors" },
 
   {
     "EdenEast/nightfox.nvim",
@@ -96,6 +97,20 @@ return {
     },
   },
   { "dasupradyumna/midnight.nvim", lazy = true },
-  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = true },
+  { "sainnhe/everforest", lazy = true },
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+      require("everforest").setup {
+        italics = true,
+        ui_contrast = "high",
+      }
+    end,
+  },
+  { "rose-pine/neovim", name = "rose-pine" },
   -- { "savq/melange-nvim", lazy = true },
 }
