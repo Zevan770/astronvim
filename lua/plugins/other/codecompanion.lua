@@ -238,6 +238,7 @@ return {
         },
         history = {
           enabled = true,
+          -- ~/.local/share/nvim/lazy/codecompanion-history.nvim/doc/codecompanion-history.txt:126
           opts = {
             -- Keymap to open history from chat buffer (default: gh)
             keymap = ",h",

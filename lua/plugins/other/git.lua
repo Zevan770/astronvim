@@ -70,4 +70,12 @@ return {
     cmd = "Gitignore",
     config = function() require "gitignore" end,
   },
+
+  {
+    "AstroNvim/astrocore",
+    opts = function(_, opts)
+      local maps = opts.mappings
+      maps.n["<Leader>gn"] = { "<Cmd>Neogit<CR>", desc = "Open Neogit Tab Page" }
+    end,
+  },
 }

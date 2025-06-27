@@ -65,6 +65,7 @@ return {
       ---@type mkv.config
       return {
         preview = {
+          map_gx = false,
           modes = { "n", "no", "c", "i" },
           hybrid_modes = { "n", "i" },
           enable_hybrid_mode = true,
@@ -125,7 +126,7 @@ return {
     config = function(_, opts)
       require("markview").setup(opts)
       require("markview.extras.editor").setup()
-      require("markview.extras.headings").setup()
+      -- require("markview.extras.headings").setup()
       require("markview.extras.checkboxes").setup()
     end,
   },

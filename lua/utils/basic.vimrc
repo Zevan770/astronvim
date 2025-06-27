@@ -81,9 +81,9 @@ nnoremap <A-right> <c-i>
 
 map <X1Mouse> <C-O>
 map <X2Mouse> <C-I>
-imap , ,<c-g>u
-imap . .<c-g>u
-imap ; ;<c-g>u
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ; ;<c-g>u
 
 "noremap ; :
 " noremap : ;
