@@ -27,12 +27,13 @@ return {
     ---@type blink.cmp.Config
     opts = {
       sources = {
+        default = { "ripgrep" },
         providers = {
           -- 👇🏻👇🏻 add the ripgrep provider config below
           ripgrep = {
             module = "blink-ripgrep",
             name = "Ripgrep",
-            score_offset = -1,
+            score_offset = -20, --NOTE: score_offset is 0 by default
             -- the options below are optional, some default values are shown
             ---@module "blink-ripgrep"
             ---@type blink-ripgrep.Options
@@ -91,6 +92,39 @@ return {
             async = true,
             override = {
               get_trigger_characters = require("utils.blink").get_trigger_characters,
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      {
+        "Kaiser-Yang/blink-cmp-dictionary",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
+    },
+    opts = {
+      sources = {
+        -- Add 'dictionary' to the list
+        default = { "dictionary" },
+        providers = {
+          dictionary = {
+            module = "blink-cmp-dictionary",
+            max_items = 8,
+            score_offset = -20,
+            name = "Dict",
+            -- Make sure this is at least 2.
+            -- 3 is recommended
+            min_keyword_length = 3,
+            --- @type blink-cmp-dictionary.Options
+            opts = {
+              dictionary_files = {
+                vim.fn.expand "~/.config/english-words/words.txt",
+              },
+              -- options for blink-cmp-dictionary
             },
           },
         },
