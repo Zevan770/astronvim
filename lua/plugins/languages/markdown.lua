@@ -53,6 +53,8 @@ return {
 
   {
     "OXY2DEV/markview.nvim",
+    priority = 1001,
+    lazy = false,
     enabled = my_utils.markdown_render == "markview",
     opts = function()
       local presets = require "markview.presets"
@@ -119,6 +121,7 @@ return {
         },
         experimental = {
           linewise_ignore_org_indent = true,
+          check_rtp = false,
         },
         ---@diagnostic enable
       }
