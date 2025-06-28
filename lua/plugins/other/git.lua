@@ -2,6 +2,12 @@
 return {
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.diffview-nvim" },
+  -- { import = "astrocommunity.git.fugit2-nvim" },
+  -- {
+  --   "SuperBo/fugit2.nvim",
+  --   build = false,
+  --   opts = {},
+  -- },
   { import = "astrocommunity.git.octo-nvim" },
   {
     "linrongbin16/gitlinker.nvim",
@@ -13,7 +19,7 @@ return {
         local maps = assert(opts.mappings)
         for _, mode in ipairs { "n", "v" } do
           maps[mode]["<Leader>gy"] = { "<Cmd>GitLink<CR>", desc = "Git link copy" }
-          maps[mode]["<Leader>gz"] = { "<Cmd>GitLink!<CR>", desc = "Git link open" }
+          maps[mode]["<Leader>go"] = { "<Cmd>GitLink!<CR>", desc = "Git link open" }
         end
       end,
     },
@@ -21,16 +27,21 @@ return {
   },
   {
     "NeogitOrg/neogit",
-    event = function() return {} end,
+    -- event = function() return {} end,
+    ---@module "neogit"
     ---@type NeogitConfig
     opts = {
       kind = "floating",
       graph_style = "kitty",
+      disable_commit_confirmation = true,
+      disable_signs = false,
     },
   },
   {
     "lewis6991/gitsigns.nvim",
+    enabled = false,
     opts = {
+      debug_mode = true,
       current_line_blame = true,
       current_line_blame_opts = {
         virt_text = true,

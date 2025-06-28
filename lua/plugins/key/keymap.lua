@@ -92,7 +92,7 @@ return {
       --   maps.n["<Leader><tab>" .. i] = { "<cmd>tabnext " .. i .. "<cr>" }
       -- end
       maps.n["g<Tab>"] = "gt"
-      maps.n["<Leader>hr"] = { "<Cmd>AstroReload<cr>" }
+      maps.n["<Leader>hr"] = { "<Cmd>AstroReload<cr><Cmd>AstroReload<CR>" }
       maps.n["<Leader>qr"] = { "<Cmd>restart<cr>" }
 
       local mini_path = vim.fn.stdpath "config" .. "/lua/utils/basic.vimrc"

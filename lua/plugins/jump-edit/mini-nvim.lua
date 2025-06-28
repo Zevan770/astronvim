@@ -43,12 +43,12 @@ return {
           add = "yo", -- Add surrounding in Normal modes
           delete = "do", -- Delete surrounding
           replace = "co", -- Replace surrounding
-          find = "gsf", -- Find surrounding (to the right)
-          find_left = "gsF", -- Find surrounding (to the left)
-          highlight = "gsh", -- Highlight surrounding
+          find = "", -- Find surrounding (to the right)
+          find_left = "", -- Find surrounding (to the left)
+          highlight = "", -- Highlight surrounding
           update_n_lines = "", -- Update `n_lines`
-          suffix_last = "N", -- Suffix to search with "prev" method
-          suffix_next = "n", -- Suffix to search with "next" method
+          suffix_last = "", -- Suffix to search with "prev" method
+          suffix_next = "", -- Suffix to search with "next" method
         },
         custom_surroundings = {
           f = {
@@ -63,8 +63,8 @@ return {
     lazy = true,
     event = "VeryLazy",
     keys = {
-      { "gsd%", "<plug>(matchup-ds%)", noremap = true },
-      { "gsc%", "<plug>(matchup-cs%)", remap = true },
+      { "do%", "<plug>(matchup-ds%)", noremap = true },
+      { "co%", "<plug>(matchup-cs%)", remap = true },
     },
     specs = {
       {

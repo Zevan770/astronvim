@@ -6,6 +6,7 @@ return {
     { "gsrr", function() require("substitute").line() end, mode = { "n" }, { noremap = true } },
     { "gsr", function() require("substitute").visual() end, mode = { "x" }, { noremap = true } },
     { "gss", function() require("substitute.range").operator() end, mode = { "n" }, { noremap = true } },
+    { "gss", function() require("substitute.range").visual() end, mode = { "x" }, { noremap = true } },
     { "gsx", function() require("substitute.exchange").operator() end, mode = { "n" }, { noremap = true } },
     { "gsxx", function() require("substitute.exchange").line() end, mode = { "n" }, { noremap = true } },
     { "gsx", function() require("substitute.exchange").visual() end, mode = { "x" }, { noremap = true } },
@@ -13,7 +14,7 @@ return {
   opts = {
     on_substitute = nil,
     yank_substituted_text = false,
-    preserve_cursor_position = false,
+    preserve_cursor_position = true,
     modifiers = nil,
     highlight_substituted_text = {
       enabled = true,
