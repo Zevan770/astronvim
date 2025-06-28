@@ -33,7 +33,7 @@ return {
           ripgrep = {
             module = "blink-ripgrep",
             name = "Ripgrep",
-            score_offset = -20, --NOTE: score_offset is 0 by default
+            score_offset = -99, --NOTE: score_offset is 0 by default
             -- the options below are optional, some default values are shown
             ---@module "blink-ripgrep"
             ---@type blink-ripgrep.Options
@@ -114,7 +114,7 @@ return {
           dictionary = {
             module = "blink-cmp-dictionary",
             max_items = 8,
-            score_offset = -20,
+            score_offset = -100,
             name = "Dict",
             -- Make sure this is at least 2.
             -- 3 is recommended
@@ -122,7 +122,7 @@ return {
             --- @type blink-cmp-dictionary.Options
             opts = {
               dictionary_files = {
-                vim.fn.expand "~/.config/english-words/words.txt",
+                vim.fn.expand "~/.config/english-words.txt",
               },
               -- options for blink-cmp-dictionary
             },
