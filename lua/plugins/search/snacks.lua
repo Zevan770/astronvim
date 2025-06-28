@@ -54,7 +54,7 @@ return {
           input = {
             keys = {
               -- every action will always first change the cwd of the current tabpage to the project
-              ["<c-o>"] = { { "pick_win", "jump" } },
+              ["<c-l>"] = { { "pick_win", "jump" } },
               ["<c-y>"] = {
                 "yank_path",
                 mode = { "n", "i" },

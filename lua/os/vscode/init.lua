@@ -33,6 +33,7 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "mini.pairs",
   "mini.surround",
   "mini.splitjoin",
+  "markdown-toggle.nvim",
   "treesj",
   "gx.nvim",
   "substitute.nvim",
