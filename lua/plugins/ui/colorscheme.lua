@@ -97,7 +97,7 @@ return {
     },
   },
   { "dasupradyumna/midnight.nvim", lazy = true },
-  { "sainnhe/everforest", lazy = true },
+  -- { "sainnhe/everforest", lazy = true },
   {
     "neanias/everforest-nvim",
     version = false,
@@ -111,6 +111,8 @@ return {
       }
     end,
   },
-  { "rose-pine/neovim", name = "rose-pine" },
+  { "rose-pine/neovim", name = "rose-pine", lazy = true },
+  { "UtkarshVerma/molokai.nvim", lazy = true },
+  { "loctvl842/monokai-pro.nvim", lazy = true },
   -- { "savq/melange-nvim", lazy = true },
 }
