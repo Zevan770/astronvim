@@ -31,7 +31,7 @@ return {
     ---@module "neogit"
     ---@type NeogitConfig
     opts = {
-      kind = "floating",
+      -- kind = "floating",
       graph_style = "kitty",
       disable_commit_confirmation = true,
       disable_signs = false,

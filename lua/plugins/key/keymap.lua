@@ -39,11 +39,12 @@ return {
 
       -- terminal
       maps.t["<A-[>"] = { "<C-\\><C-n>", desc = "enter terminal buffer normal mode" }
-      local modes = { "n", "i", "t" }
+      local modes = { "n", "t" }
       for _, mode in ipairs(modes) do
         maps[mode]["<M-t>"] = { function() return "<Cmd>" .. vim.v.count .. "ToggleTerm<CR>" end, expr = true }
       end
 
+      -- maps.n["<Leader>t"] = { function() return "<Cmd>ToggleTerm<CR>" end, expr = true }
       maps.t["<C-H>"] = false
       maps.t["<C-J>"] = false
       maps.t["<C-K>"] = false

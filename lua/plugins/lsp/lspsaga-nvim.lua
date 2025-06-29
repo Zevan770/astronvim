@@ -18,8 +18,8 @@ return {
       "AstroNvim/astrolsp",
       opts = function(_, opts)
         local maps = opts.mappings
-        -- maps.n["<Leader>k"] =
-        --   { "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover symbol details", cond = "textDocument/hover" }
+        maps.n["<Leader>k"] =
+          { "<Cmd>Lspsaga hover_doc<CR>", desc = "Hover symbol details", cond = "textDocument/hover" }
 
         -- call hierarchy
         maps.n["<Leader>lc"] =
