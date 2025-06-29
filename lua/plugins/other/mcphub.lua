@@ -7,11 +7,13 @@ return {
   event = "User AstroFile",
   cmd = "MCPHub",
   build = "pnpm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+  ---@module "mcphub"
+  ---@type MCPHub.Config
   opts = {
     port = 3001,
     auto_approve = true, -- Auto approve mcp tool calls
     auto_toggle_mcp_servers = true, -- Let LLMs start and stop MCP servers automatically
-    config = vim.fn.expand "~/mcpservers.json",
+    config = vim.fn.expand "~/.config/mcphub/servers.json", -- Default config location
     extensions = {
       avante = {
         make_slash_commands = true, -- make /slash commands from MCP server prompts
