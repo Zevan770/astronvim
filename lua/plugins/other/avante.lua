@@ -9,19 +9,6 @@ return {
       { "stevearc/dressing.nvim", optional = true },
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      { -- if copilot.lua is available, default to copilot provider
-        "zbirenbaum/copilot.lua",
-        optional = true,
-        specs = {
-          {
-            "yetone/avante.nvim",
-            opts = {
-              provider = "copilot",
-              auto_suggestions_provider = "copilot",
-            },
-          },
-        },
-      },
       {
         "saghen/blink.cmp",
         dependencies = {
@@ -147,8 +134,9 @@ return {
           rounded = true,
         },
         input = {
-          prefix = "> ",
-          height = 8, -- Height of the input window in vertical layout
+          provider = "snacks",
+          -- prefix = "> ",
+          -- height = 8, -- Height of the input window in vertical layout
         },
         edit = {
           border = { " ", " ", " ", " ", " ", " ", " ", " " },
@@ -166,7 +154,7 @@ return {
       providers = {
         copilot = {
           endpoint = "https://api.githubcopilot.com",
-          model = "claude-3.7-sonnet",
+          model = "gpt-4.1",
           proxy = nil, -- [protocol://]host[:port] Use this proxy
           allow_insecure = false, -- Allow insecure server connections
           timeout = 30000, -- Timeout in milliseconds

@@ -58,12 +58,12 @@ return {
       -- },
 
       --# customize highlight groups (setting this overrides colorscheme)
-      -- snipruncolors = {
-      --   SniprunVirtualTextOk = { bg = "#66eeff", fg = "#000000", ctermbg = "Cyan", cterfg = "Black" },
-      --   SniprunFloatingWinOk = { fg = "#66eeff", ctermfg = "Cyan" },
-      --   SniprunVirtualTextErr = { bg = "#881515", fg = "#000000", ctermbg = "DarkRed", cterfg = "Black" },
-      --   SniprunFloatingWinErr = { fg = "#881515", ctermfg = "DarkRed" },
-      -- },
+      snipruncolors = {
+        SniprunVirtualTextOk = { link = "@comment.info" },
+        SniprunFloatingWinOk = { link = "@comment.info" },
+        SniprunVirtualTextErr = { link = "@comment.error" },
+        SniprunFloatingWinErr = { link = "@comment.error" },
+      },
 
       live_mode_toggle = "enable", --# live mode toggle, either 'off' or 'enable'
 

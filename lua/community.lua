@@ -25,7 +25,7 @@ local M = {
 
   -- motion/jump/navigation
   -- { import = "astrocommunity.motion.leap-nvim" },
-  { import = "astrocommunity.motion.tabout-nvim" },
+  -- { import = "astrocommunity.motion.tabout-nvim" },
 
   -- lsp
   -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
