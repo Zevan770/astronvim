@@ -44,7 +44,7 @@ return {
           wildoptions = "fuzzy,pum,tagfile",
           wildmode = "list:longest,full",
           colorcolumn = { 80, 100 },
-          inccommand = "split",
+          -- inccommand = "split",
           list = true,
           listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:  " }, ","),
           fillchars = table.concat(
