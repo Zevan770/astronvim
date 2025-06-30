@@ -4,7 +4,7 @@ return {
     "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
   },
   enabled = true,
-  event = "User AstroFile",
+  -- event = "User AstroFile",
   cmd = "MCPHub",
   build = "pnpm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
   ---@module "mcphub"
@@ -38,6 +38,9 @@ return {
     {
       "yetone/avante.nvim",
       optional = true,
+      dependencies = {
+        "mcphub.nvim",
+      },
       opts = {
         system_prompt = function()
           local hub = require("mcphub").get_hub_instance()
