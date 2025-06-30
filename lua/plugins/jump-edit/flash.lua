@@ -207,7 +207,7 @@ return {
             win = {
               input = {
                 keys = {
-                  ["<a-s>"] = { "flash", mode = { "n", "i" } },
+                  ["<a-s>"] = { { "flash", "confirm" }, mode = { "n", "i" } },
                   ["s"] = { "flash" },
                 },
               },
@@ -227,7 +227,6 @@ return {
                   action = function(match)
                     local idx = picker.list:row2idx(match.pos[1])
                     picker.list:_move(idx, true, true)
-                    picker:action "confirm"
                   end,
                 }
               end,
