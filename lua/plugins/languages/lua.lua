@@ -1,4 +1,5 @@
 -- if vim.fn.has "android" then return {} end
+---@type LazySpec
 return {
   {
     "AstroNvim/astrocommunity",
@@ -6,7 +7,7 @@ return {
   },
   {
     "folke/lazydev.nvim",
-    dependences = {
+    dependencies = {
       "https://github.com/nekowinston/wezterm-types",
     },
     ---@module "lazydev"
