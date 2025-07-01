@@ -54,6 +54,32 @@ return {
           f = {
             input = ts_input { outer = "@call.outer", inner = "@call.inner" },
           },
+          ["c"] = {
+            -- #region: https://github.com/echasnovski/mini.nvim/discussions/462
+            output = function()
+              -- is_visual doesn't work
+              -- local is_visual = vim.tbl_contains({ 'v', 'V', '\22' }, vim.fn.mode())
+              -- local mark_from = is_visual and "'<" or "'["
+              -- local mark_to = is_visual and "'>" or "']"
+              local mark_from = "'<"
+              local mark_to = "'>"
+              local startline = vim.fn.line(mark_from)
+              local endline = vim.fn.line(mark_to)
+              local n_content_lines = endline - startline
+              if n_content_lines == 0 then return { left = "`", right = "`" } end
+              local firstline = vim.api.nvim_buf_get_lines(0, startline - 1, startline, false)
+              local _, indent = string.find(firstline[1], "^%s*")
+              if indent ~= nil then
+                return { left = "```\n" .. string.rep(" ", indent), right = "\n" .. string.rep(" ", indent) .. "```\n" }
+              else
+                return { left = "```\n", right = "\n```\n" }
+              end
+            end,
+            -- #endregion:
+          },
+          ["8"] = {
+            output = { left = "**", right = "**" },
+          },
         },
       }
     end,
