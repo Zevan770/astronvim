@@ -77,12 +77,6 @@ return {
     },
   },
   {
-    "wintermute-cell/gitignore.nvim",
-    cmd = "Gitignore",
-    config = function() require "gitignore" end,
-  },
-
-  {
     "AstroNvim/astrocore",
     opts = function(_, opts)
       local maps = opts.mappings

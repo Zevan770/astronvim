@@ -19,4 +19,8 @@ return {
     "iqxd/vim-mine-sweeping",
     cmd = "MineSweep",
   },
+  {
+    "ThePrimeagen/vim-be-good",
+    cmd = "VimBeGood",
+  },
 }
