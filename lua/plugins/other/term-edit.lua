@@ -11,7 +11,7 @@ return {
   {
     "xb-bx/editable-term.nvim",
     event = "TermOpen",
-    -- enabled = false,
+    enabled = false,
     opts = {
       promts = {
         ["^%(gdb%) "] = {}, -- gdb promt

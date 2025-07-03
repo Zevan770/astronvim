@@ -130,9 +130,9 @@ return {
           show_on_blocked_trigger_characters = {},
         },
       },
-      term = {
-        enabled = true,
-      },
+      -- term = {
+      --   enabled = true,
+      -- },
       keymap = {
         ["<a-a>"] = {
           function()

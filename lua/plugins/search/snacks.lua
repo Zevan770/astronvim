@@ -150,7 +150,10 @@ return {
 
           maps.n["<Leader>fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
           maps.n["<Leader>fr"] = { function() Snacks.picker.recent() end, desc = "Find Recents" }
-          maps.n["<Leader>fj"] = { function() Snacks.picker.jumps() end, desc = "Find Jumps" }
+          maps.n["<Leader>fj"] = {
+            function() Snacks.picker.jumps { layout = { preset = "vertical", preview = "main" } } end,
+            desc = "Find Jumps",
+          }
           maps.n["<Leader>fu"] = { function() Snacks.picker.undo() end, desc = "Find Undo history" }
           maps.n["<Leader>fx"] = { function() Snacks.picker.lazy() end, desc = "Find lazy eXtension specs" }
           maps.n["<Leader>fz"] = {

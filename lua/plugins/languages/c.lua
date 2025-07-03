@@ -13,6 +13,18 @@ return {
     "Civitasv/cmake-tools.nvim",
     lazy = true,
     ft = { "c", "cpp" },
+    config = function()
+      local osys = require "cmake-tools.osys"
+      require("cmake-tools").setup {
+        cmake_executor = { -- executor to use
+          name = "toggleterm", -- name of the executor
+        },
+        cmake_runner = { -- runner to use
+          name = "toggleterm", -- name of the runner
+        },
+        cmake_use_scratch_buffer = false, -- A buffer that shows what cmake-tools has done
+      }
+    end,
     -- init = function()
     --   local loaded = false
     --   local function check()
