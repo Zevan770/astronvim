@@ -125,7 +125,7 @@ return {
           inside_next = "in",
         },
         custom_textobjects = {
-          o = ai.gen_spec.treesitter { -- code block
+          k = ai.gen_spec.treesitter { -- code block
             a = { "@block.outer", "@conditional.outer", "@loop.outer" },
             i = { "@block.inner", "@conditional.inner", "@loop.inner" },
           },
@@ -139,6 +139,18 @@ return {
           },
           u = ai.gen_spec.function_call(), -- u for "Usage"
           U = ai.gen_spec.function_call { name_pattern = "[%w_]" }, -- without dot in function name
+          a = ai.gen_spec.treesitter { -- key
+            a = { "@key.outer", "@parameter.outer" },
+            i = { "@key.inner", "@parameter.inner" },
+          },
+          ["?"] = ai.gen_spec.treesitter { -- question mark
+            a = { "@conditional.outer", "@loop.outer" },
+            i = { "@conditional.inner", "@loop.inner" },
+          },
+          ["C"] = ai.gen_spec.treesitter { -- exclamation mark
+            a = { "@call.outer" },
+            i = { "@call.inner" },
+          },
         },
       }
     end,

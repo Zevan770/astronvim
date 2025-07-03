@@ -74,6 +74,25 @@ return {
                 ["<leader>lpc"] = "@class.outer",
               },
             },
+            select = {
+              enable = false,
+            },
+            move = {
+              enable = false,
+            },
+            swap = {
+              enable = true,
+              swap_next = {
+                [">K"] = { query = "@block.outer", desc = "Swap next block" },
+                [">F"] = { query = "@function.outer", desc = "Swap next function" },
+                [">A"] = { query = "@parameter.inner", desc = "Swap next argument" },
+              },
+              swap_previous = {
+                ["<K"] = { query = "@block.outer", desc = "Swap previous block" },
+                ["<F"] = { query = "@function.outer", desc = "Swap previous function" },
+                ["<A"] = { query = "@parameter.inner", desc = "Swap previous argument" },
+              },
+            },
           },
           incremental_selection = {
             enable = true,
@@ -102,11 +121,27 @@ return {
     event = "User AstroFile",
   },
   {
+    "kana/vim-textobj-datetime",
+    keys = function()
+      local keys = { "ada", "add", "adf", "adt", "adz", "ida", "idd", "idf", "idt", "idz" }
+      local res = {}
+      for _, key in ipairs(keys) do
+        table.insert(res, { mode = { "o", "x" }, key })
+      end
+      return res
+    end,
+  },
+  {
     "kana/vim-textobj-user",
+    event = "User AstroFile",
+  },
+  {
+    "jceb/vim-textobj-uri",
     event = "User AstroFile",
   },
   {
     "tommcdo/vim-ninja-feet",
     event = "User AstroFile",
+    dev = true,
   },
 }
