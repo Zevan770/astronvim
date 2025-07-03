@@ -31,7 +31,7 @@ require("lazy").setup({
   },
   ui = { backdrop = 100 },
   dev = {
-    path = vim.fn.stdpath "config" .. "/lua/local_plugins",
+    path = vim.fn.stdpath "config" .. "/local_plugins",
     ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
     patterns = {}, -- For example {"folke"}
     fallback = true, -- Fallback to git when local plugin doesn't exist
