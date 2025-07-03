@@ -88,4 +88,25 @@ return {
       )
     end,
   },
+  {
+    "preservim/vim-textobj-sentence",
+    init = function()
+      vim.cmd [[
+      augroup textobj_sentence
+        autocmd!
+        autocmd FileType markdown call textobj#sentence#init()
+        autocmd FileType textile call textobj#sentence#init()
+      augroup END
+      ]]
+    end,
+    event = "User AstroFile",
+  },
+  {
+    "kana/vim-textobj-user",
+    event = "User AstroFile",
+  },
+  {
+    "tommcdo/vim-ninja-feet",
+    event = "User AstroFile",
+  },
 }
