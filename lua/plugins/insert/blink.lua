@@ -41,11 +41,11 @@ return {
               get_trigger_characters = require("utils.blink").get_trigger_characters,
             },
           },
-          buffer = {
-            override = {
-              get_trigger_characters = require("utils.blink").get_trigger_characters,
-            },
-          },
+          -- buffer = {
+          --   override = {
+          --     get_trigger_characters = require("utils.blink").get_trigger_characters,
+          --   },
+          -- },
         },
       },
       signature = {
