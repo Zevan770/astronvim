@@ -8,24 +8,15 @@ return {
     opts = {
       image = {
         enabled = not not vim.env.KITTY_PID,
-        -- enabled = true,
         doc = {
-          -- Personally I set this to false, I don't want to render all the
-          -- images in the file, only when I hover over them
-          -- render the image inline in the buffer
-          -- if your env doesn't support unicode placeholders, this will be disabled
-          -- takes precedence over `opts.float` on supported terminals
-          inline = my_utils.neovim_mode == "kitty" and true or false,
+          enabled = not not vim.env.KITTY_PID,
+          inline = true,
           -- only_render_image_at_cursor = my_utils.neovim_mode == "skitty" and false or true,
           -- render the image in a floating window
           -- only used if `opts.inline` is disabled
           float = true,
-          -- Sets the size of the image
-          -- max_width = 60,
-          -- max_width = my_utils.neovim_mode == "skitty" and 20 or 60,
-          -- max_height = my_utils.neovim_mode == "skitty" and 10 or 30,
-          max_width = my_utils.neovim_mode == "kitty" and 5 or 60,
-          max_height = my_utils.neovim_mode == "kitty" and 2.5 or 30,
+          -- max_width = my_utils.neovim_mode == "kitty" and 5 or 60,
+          -- max_height = my_utils.neovim_mode == "kitty" and 2.5 or 30,
           -- max_height = 30,
         },
       },
