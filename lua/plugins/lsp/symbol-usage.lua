@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 ---@type LazySpec
 return {
   "Wansmer/symbol-usage.nvim",
@@ -36,13 +37,19 @@ return {
 
       return res
     end
-
+    local SymbolKind = vim.lsp.protocol.SymbolKind
+    ---@module "symbol-usage"
     ---@type UserOpts
     return {
       text_format = text_format,
       ---@type 'above'|'end_of_line'|'textwidth'|'signcolumn' `above` by default
       vt_position = "end_of_line",
       vt_priority = nil, ---@type integer Virtual text priority (see `nvim_buf_set_extmark`)
+      filetypes = {
+        markdown = {
+          kinds = { SymbolKind.Variable },
+        },
+      },
     }
   end,
 }

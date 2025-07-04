@@ -125,7 +125,6 @@ return {
       },
     },
     keys = {
-      { "r", function() require("flash").remote() end, desc = "Remote Flash", mode = { "o" } },
       {
         "R",
         function() require("flash").treesitter_search { remote_op = { restore = true } } end,
@@ -243,6 +242,17 @@ return {
       { "folke/flash.nvim" },
     },
     keys = {
+      {
+        "r",
+        function()
+          local opts = {}
+          local Config = require "flash.config"
+          opts = Config.get({ mode = "remote" }, opts)
+          return require("flash-zh").jump(opts)
+        end,
+        desc = "Remote Flash",
+        mode = { "o" },
+      },
       {
         "s",
         mode = { "n", "x", "o" },
