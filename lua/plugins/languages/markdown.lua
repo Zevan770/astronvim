@@ -25,7 +25,7 @@ return {
     ---@type render.md.UserConfig
     opts = {
       preset = "obsidian",
-      completions = { blink = { enabled = my_utils.blink_enabled } },
+      completions = { lsp = { enabled = true } },
       injections = {
         -- Out of the box language injections for known filetypes that allow markdown to be interpreted
         -- in specified locations, see :h treesitter-language-injections.
@@ -60,11 +60,11 @@ return {
       local presets = require "markview.presets"
 
       ---@type markdown.headings
-      local headings = vim.deepcopy(presets.headings.slanted)
+      local headings = vim.deepcopy(presets.headings.arrowed)
       headings.org_indent = true
 
-      require("utils.lsp_hover").setup {}
-      ---@type mkv.config
+      ---@module "markview"
+      ---@type markview.config
       return {
         preview = {
           map_gx = false,
@@ -94,33 +94,33 @@ return {
         ---@diagnostic disable
         markdown = {
           headings = headings,
-          list_items = {
-            shift_width = function(buffer, item)
-              --- Reduces the `indent` by 1 level.
-              ---
-              ---         indent                      1
-              --- ------------------------- = 1 ÷ --------- = new_indent
-              --- indent * (1 / new_indent)       new_indent
-              ---
-              local parent_indnet = math.max(1, item.indent - vim.bo[buffer].shiftwidth)
-
-              return item.indent * (1 / (parent_indnet * 2))
-            end,
-            marker_minus = {
-              add_padding = function(_, item) return item.indent > 1 end,
-            },
-          },
-          code_blocks = {
-            label_direction = "left",
-            style = "simple",
-            -- style = "block",
-          },
+          -- list_items = {
+          --   shift_width = function(buffer, item)
+          --     --- Reduces the `indent` by 1 level.
+          --     ---
+          --     ---         indent                      1
+          --     --- ------------------------- = 1 ÷ --------- = new_indent
+          --     --- indent * (1 / new_indent)       new_indent
+          --     ---
+          --     local parent_indnet = math.max(1, item.indent - vim.bo[buffer].shiftwidth)
+          --
+          --     return item.indent * (1 / (parent_indnet * 2))
+          --   end,
+          --   marker_minus = {
+          --     add_padding = function(_, item) return item.indent > 1 end,
+          --   },
+          -- },
+          -- code_blocks = {
+          --   label_direction = "left",
+          --   style = "simple",
+          --   -- style = "block",
+          -- },
         },
         yaml = {
           enable = false,
         },
         experimental = {
-          linewise_ignore_org_indent = true,
+          -- linewise_ignore_org_indent = true,
           check_rtp = false,
         },
         ---@diagnostic enable
@@ -128,6 +128,7 @@ return {
     end,
     config = function(_, opts)
       require("markview").setup(opts)
+      require("utils.lsp_hover").setup {}
       require("markview.extras.editor").setup()
       -- require("markview.extras.headings").setup()
       require("markview.extras.checkboxes").setup()

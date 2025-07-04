@@ -118,6 +118,24 @@ return {
                 require("markview").render(buf, { enable = true, hybrid_mode = false })
                 vim.bo[buf].ft = "blink-cmp-documentation"
               end, 25)
+            elseif package.loaded["render-markdown"] then
+              local win = data.window:get_win()
+
+              if win then
+                vim.bo[buf].ft = "markdown"
+                require("render-markdown.core.ui").update(buf, win, "BlinkDraw", true)
+                vim.bo[buf].ft = "blink-cmp-documentation"
+              end
+
+              vim.defer_fn(function()
+                win = data.window:get_win()
+
+                if win then vim.wo[win].signcolumn = "no" end
+
+                vim.bo[buf].ft = "markdown"
+                require("render-markdown.core.ui").update(buf, win, "BlinkDraw", true)
+                vim.bo[buf].ft = "blink-cmp-documentation"
+              end, 25)
             end
           end,
         },
