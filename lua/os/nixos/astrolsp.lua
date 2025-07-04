@@ -34,8 +34,8 @@ return {
         "volar",
         "vtsls",
         -- "nil_ls",
-        -- "markdown_oxide",
-        "zk",
+        "markdown_oxide",
+        -- "zk",
         "ruff",
       },
       ---@diagnostic disable: missing-fields
@@ -58,20 +58,20 @@ return {
             },
           },
         },
-        markdown_oxide = {
-          capabilities = {
-            workspace = {
-              didChangeWatchedFiles = {
-                dynamicRegistration = true,
-              },
-            },
-            textDocument = {
-              semanticTokens = {
-                enabled = false,
-              },
-            },
-          },
-        },
+        -- markdown_oxide = {
+        --   capabilities = {
+        --     workspace = {
+        --       didChangeWatchedFiles = {
+        --         dynamicRegistration = true,
+        --       },
+        --     },
+        --     textDocument = {
+        --       semanticTokens = {
+        --         enabled = false,
+        --       },
+        --     },
+        --   },
+        -- },
       },
     },
   },
