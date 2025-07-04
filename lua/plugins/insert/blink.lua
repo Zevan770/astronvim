@@ -130,11 +130,13 @@ return {
               vim.defer_fn(function()
                 win = data.window:get_win()
 
-                if win then vim.wo[win].signcolumn = "no" end
+                if win then
+                  vim.wo[win].signcolumn = "no"
 
-                vim.bo[buf].ft = "markdown"
-                require("render-markdown.core.ui").update(buf, win, "BlinkDraw", true)
-                vim.bo[buf].ft = "blink-cmp-documentation"
+                  vim.bo[buf].ft = "markdown"
+                  require("render-markdown.core.ui").update(buf, win, "BlinkDraw", true)
+                  vim.bo[buf].ft = "blink-cmp-documentation"
+                end
               end, 25)
             end
           end,
