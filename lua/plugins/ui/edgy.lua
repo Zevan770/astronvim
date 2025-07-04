@@ -1,6 +1,14 @@
 ---@type LazySpec
 return {
   {
+    "jyscao/ventana.nvim",
+    keys = {
+      { mode = "n", "<C-w><C-t>", "<Cmd>VentanaTranspose<CR>" },
+      { mode = "n", "<C-w><C-f>", "<Cmd>VentanaShift<CR>" },
+      { mode = "n", "<C-w>f", "<Cmd>VentanaShiftMaintainLinear<CR>" },
+    },
+  },
+  {
     "mrjones2014/smart-splits.nvim",
     lazy = false,
     -- opts = function(_, opts)
@@ -221,15 +229,5 @@ return {
         end,
       },
     },
-  },
-  -- prevent neo-tree from opening files in edgy windows
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.open_files_do_not_replace_types = opts.open_files_do_not_replace_types
-        or { "terminal", "Trouble", "qf", "Outline", "trouble" }
-      table.insert(opts.open_files_do_not_replace_types, "edgy")
-    end,
   },
 }
