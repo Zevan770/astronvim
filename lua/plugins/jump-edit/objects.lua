@@ -97,7 +97,7 @@ return {
           incremental_selection = {
             enable = true,
             keymaps = {
-              -- init_selection = "g<space>",
+              init_selection = "<a-o>",
               node_incremental = "<a-o>",
               scope_incremental = "is",
               node_decremental = "<a-i>",
@@ -106,6 +106,9 @@ return {
         }
       )
     end,
+  },
+  {
+    "kana/vim-textobj-user",
   },
   {
     "preservim/vim-textobj-sentence",
@@ -118,7 +121,6 @@ return {
       augroup END
       ]]
     end,
-    event = "User AstroFile",
   },
   {
     "kana/vim-textobj-datetime",
@@ -131,14 +133,10 @@ return {
       return res
     end,
   },
-  {
-    "kana/vim-textobj-user",
-    event = "User AstroFile",
-  },
-  {
-    "jceb/vim-textobj-uri",
-    event = "User AstroFile",
-  },
+  -- {
+  --   "jceb/vim-textobj-uri",
+  --   event = "User AstroFile",
+  -- },
   {
     "tommcdo/vim-ninja-feet",
     event = "User AstroFile",
