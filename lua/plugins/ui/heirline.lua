@@ -31,18 +31,18 @@ return {
       "Zeioth/heirline-components.nvim",
     },
     opts = function(_, opts)
-      local status = require "astroui.status"
+      local astroui = require "astroui.status"
       local components = require "heirline-components.all"
 
       opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
-      table.insert(opts.statusline, 10, components.component.compiler_state())
-      table.insert(
-        opts.statusline,
-        6,
-        status.component.breadcrumbs {
-          icon = { hl = true },
-        }
-      )
+      -- table.insert(opts.statusline, 10, components.component.compiler_state())
+      -- table.insert(
+      --   opts.statusline,
+      --   6,
+      --   status.component.breadcrumbs {
+      --     icon = { hl = true },
+      --   }
+      -- )
       table.insert(
         opts.statusline,
         3,
@@ -53,10 +53,34 @@ return {
       )
       -- table.insert(opts.statusline, 6, components.component.breadcrumbs())
       -- table.insert(opts.statusline, 6, bar.navic())
-      opts.winbar = nil
+      -- opts.winbar = nil
     end,
   },
 
+  {
+    "AstroNvim/astroui",
+    ---@type AstroUIOpts
+    opts = {
+      status = {
+        icon_highlights = {
+          breadcrumbs = true,
+        },
+        separators = {
+          tab = { "", "" },
+        },
+      },
+    },
+  },
+
+  {
+    "b0o/incline.nvim",
+    event = "VeryLazy",
+    enabled = false,
+    config = true,
+    keys = {
+      { "<leader>I", '<Cmd>lua require"incline".toggle()<Cr>', desc = "Incline: Toggle" },
+    },
+  },
   -- navic
   {
     "SmiteshP/nvim-navic",
