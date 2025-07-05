@@ -1,30 +1,6 @@
 -- if true then return {} end
 ---@type LazySpec
 return {
-  -- {
-  --   "rebelot/heirline.nvim",
-  --   dependencies = "AstroNvim/astroui",
-  --   opts = function(self, opts)
-  --     local status = require "astroui.status"
-  --     opts.statusline = { -- statusline
-  --       hl = { fg = "fg", bg = "bg" },
-  --       status.component.mode(),
-  --       status.component.git_branch(),
-  --       status.component.file_info(),
-  --       status.provider.file_encoding(),
-  --       status.component.git_diff(),
-  --       status.component.diagnostics(),
-  --       status.component.fill(),
-  --       status.component.cmd_info(),
-  --       status.component.fill(),
-  --       status.component.lsp(),
-  --       status.component.virtual_env(),
-  --       status.component.treesitter(),
-  --       status.component.nav(),
-  --       status.component.mode { surround = { separator = "right" } },
-  --     }
-  --   end,
-  -- },
   {
     "rebelot/heirline.nvim",
     dependencies = {
@@ -39,7 +15,7 @@ return {
       -- table.insert(
       --   opts.statusline,
       --   6,
-      --   status.component.breadcrumbs {
+      --   astroui.component.breadcrumbs {
       --     icon = { hl = true },
       --   }
       -- )
