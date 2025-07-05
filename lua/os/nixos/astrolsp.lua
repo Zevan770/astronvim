@@ -29,7 +29,7 @@ return {
         "lua_ls",
         -- "marksman",
         -- "sqls",
-        -- "taplo",
+        "taplo",
         -- "vimls",
         "volar",
         "vtsls",
