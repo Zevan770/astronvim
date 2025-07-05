@@ -1,7 +1,6 @@
 ---@type LazySpec
 return {
   "echasnovski/mini.bracketed",
-  event = "User AstroFile",
   -- stylua: ignore
   opts = {
     conflict   = { suffix = "x", options = {} },
@@ -18,5 +17,9 @@ return {
     diagnostic = { suffix = "",  options = {} },
     comment    = { suffix = "c", options = {} },
     window     = { suffix = "",  options = {} },
+  },
+  keys = {
+    "[",
+    "]",
   },
 }

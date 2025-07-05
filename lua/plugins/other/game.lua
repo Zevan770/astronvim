@@ -23,4 +23,8 @@ return {
     "ThePrimeagen/vim-be-good",
     cmd = "VimBeGood",
   },
+  {
+    "vuciv/golf",
+    cmd = "Golf",
+  },
 }
