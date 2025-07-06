@@ -1,9 +1,9 @@
-if true then return {} end
+-- if true then return {} end
 ---@type LazySpec
 return {
   {
     "Davidyz/VectorCode",
-    version = "*", -- optional, depending on whether you're on nightly or release
+    version = "0.7.4", -- optional, depending on whether you're on nightly or release
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = "VectorCode", -- if you're lazy-loading VectorCode
     opts = function()
@@ -30,7 +30,7 @@ return {
         timeout_ms = 5000,
         on_setup = {
           update = false, -- set to true to enable update when `setup` is called.
-          lsp = true,
+          -- lsp = true,
         },
         sync_log_env_var = false,
       }
@@ -66,7 +66,7 @@ return {
                   max_num = { chunk = -1, document = -1 },
                   default_num = { chunk = 50, document = 10 },
                   include_stderr = false,
-                  use_lsp = true,
+                  -- use_lsp = true,
                   no_duplicate = true,
                   chunk_mode = false,
                   ---@type VectorCode.CodeCompanion.SummariseOpts
