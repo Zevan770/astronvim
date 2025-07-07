@@ -74,6 +74,7 @@ nmap     <C-s>      :w<cr>
 nmap     <C-a>      ggVG
 noremap    zv      <C-v>
 nmap     zw         <c-w>
+"nmap     <space>w         <c-w>
 nmap    zg         za
 " nmap <enter> za
 nnoremap <A-left> <c-o>
@@ -84,6 +85,13 @@ map <X2Mouse> <C-I>
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ; ;<c-g>u
+
+" works good
+xmap qq Q
+noremap @ q
+noremap q @
+noremap Q @@
+nnoremap qq Q
 
 "noremap ; :
 " noremap : ;
