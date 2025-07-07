@@ -5,8 +5,8 @@ return {
   opts = {
     -- change colorscheme
     -- colorscheme = "astrodark",
-    colorscheme = "rose-pine",
-    -- colorscheme = "nightfox",
+    -- colorscheme = "rose-pine",
+    colorscheme = "tokyonight-night",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = {

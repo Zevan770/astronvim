@@ -9,7 +9,8 @@ return {
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.colorscheme.vim-moonfly-colors" },
-
+  { import = "astrocommunity.colorscheme.vscode-nvim" },
+  -- { import = "astrocommunity.recipes.vscode-icons" },
   {
     "EdenEast/nightfox.nvim",
     lazy = true,
