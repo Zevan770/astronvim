@@ -7,33 +7,40 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = "VectorCode", -- if you're lazy-loading VectorCode
     opts = function()
+      ---@diagnostic disable: missing-fields
       ---@module "vectorcode"
       ---@type VectorCode.Opts
       return {
-        cli_cmds = {
-          vectorcode = "vectorcode",
-        },
-        ---@type VectorCode.RegisterOpts
         async_opts = {
-          debounce = 10,
+          debounce = -1,
           events = { "BufWritePost", "InsertEnter", "BufReadPost" },
+          timeout_ms = 10000,
           exclude_this = true,
-          n_query = 1,
-          notify = true,
-          query_cb = require("vectorcode.utils").make_surrounding_lines_cb(-1),
+          n_query = 30,
+          query_cb = require("vectorcode.utils").make_surrounding_lines_cb(40),
           run_on_register = false,
         },
         async_backend = "lsp", -- or "lsp"
         exclude_this = true,
-        n_query = 1,
+        n_query = 10,
         notify = true,
-        timeout_ms = 5000,
+        timeout_ms = 10000,
         on_setup = {
           update = false, -- set to true to enable update when `setup` is called.
           -- lsp = true,
         },
         sync_log_env_var = false,
       }
+      ---@diagnostic enable: missing-fields
+    end,
+    config = function(_, opts)
+      vim.lsp.config("vectorcode_server", {
+        cmd_env = {
+          HTTP_PROXY = os.getenv "HTTP_PROXY",
+          HTTPS_PROXY = os.getenv "HTTPS_PROXY",
+        },
+      })
+      require("vectorcode").setup(opts)
     end,
     specs = {
       "olimorris/codecompanion.nvim",
