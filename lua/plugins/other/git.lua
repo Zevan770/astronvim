@@ -32,7 +32,7 @@ return {
     ---@type NeogitConfig
     opts = {
       -- kind = "floating",
-      graph_style = "kitty",
+      graph_style = "unicode",
       disable_commit_confirmation = true,
       disable_signs = false,
     },
