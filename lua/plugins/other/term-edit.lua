@@ -2,9 +2,9 @@
 return {
   {
     "chomosuke/term-edit.nvim",
-    enabled = false,
+    -- enabled = false,
     event = "TermOpen",
-    opts = { prompt_end = "╰─ " },
+    opts = { prompt_end = "❯ " },
     version = "1.*",
   },
 
@@ -18,6 +18,7 @@ return {
         ["^>>> "] = {}, -- python PS1
         ["^... "] = {}, -- python PS2
         ["╰─ "] = {},
+        ["❯ "] = {},
         -- ["some_other_prompt"] = {
         --   keybinds = {
         --     clear_current_line = "keys to clear the line",
@@ -25,6 +26,7 @@ return {
         --     forward_char = "keys to move forward one character",
         --   },
         -- },
+        wait_for_keys_delay = 50,
       },
     },
   },

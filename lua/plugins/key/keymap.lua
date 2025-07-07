@@ -125,6 +125,25 @@ return {
         expr = true,
         desc = "Escape and Clear hlsearch",
       }
+
+      local esc_timer
+      maps.t["<esc>"] = {
+        function()
+          ---@diagnostic disable-next-line: inject-field
+          esc_timer = esc_timer or vim.uv.new_timer()
+          if esc_timer:is_active() then
+            esc_timer:stop()
+            -- vim.api.nvim_feedkeys(vim.keycode "a", "n", false) -- add this line for `--vim`
+            vim.cmd "stopinsert"
+          else
+            esc_timer:start(200, 0, function() end)
+            return "<esc>"
+          end
+        end,
+        expr = true,
+        desc = "Double escape to normal mode",
+      }
+
       -- maps.n["n"] = "nzz"
       -- maps.v["n"] = "nzz"
       -- maps.n["N"] = "Nzz"
