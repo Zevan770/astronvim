@@ -15,7 +15,7 @@ return {
     buffer     = { suffix = "",  options = {} },
     undo       = { suffix = "u",  options = {} },
     diagnostic = { suffix = "",  options = {} },
-    comment    = { suffix = "c", options = {} },
+    comment    = { suffix = "/", options = {} },
     window     = { suffix = "",  options = {} },
   },
   keys = {

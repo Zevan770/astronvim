@@ -197,7 +197,6 @@ return {
           }
 
           maps.n["<Leader>."] = { function() Snacks.scratch() end, desc = "new Scratch buffer" }
-          maps.n["<Leader>gm"] = { function() Snacks.picker.git_status {} end, desc = "git Modified files" }
 
           maps.n["<Leader>fk"][1] = function()
             Snacks.picker.keymaps {

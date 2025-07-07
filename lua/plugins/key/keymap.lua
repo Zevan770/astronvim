@@ -177,6 +177,8 @@ return {
       maps.c["<A-c>"] = { require("utils.search").toggle_case_sensitive, desc = "Match Case" }
       maps.c["<A-v>"] = { require("utils.search").toggle_very_magic, desc = "Toggle Very Magic" }
 
+      maps.n["dy"] = "do"
+
       -- maps.n["zr"] = false
       -- maps.n["zm"] = false
     end,
