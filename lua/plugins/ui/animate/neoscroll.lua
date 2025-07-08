@@ -6,11 +6,11 @@ return {
     -- enabled = false,
     --see ~/.local/share/nvim/lazy/neoscroll.nvim/lua/neoscroll/config.lua
     opts = {
-      hide_cursor = true, -- Hide cursor while scrolling
+      hide_cursor = false, -- Hide cursor while scrolling
       stop_eof = true, -- Stop at <EOF> when scrolling downwards
       respect_scrolloff = true, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
       cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-      easing = "linear", -- Default easing function
+      easing = "cubic", -- Default easing function
       pre_hook = function(info)
         if info == "cursorline" then vim.wo.cursorline = false end
         -- if vim.o.startofline then vim.cmd "normal! ^" end
@@ -35,7 +35,7 @@ return {
       local function create_scroll_mapping(key, func)
         return {
           key,
-          function() func { duration = 50, info = "center" } end,
+          function() func { duration = 10 } end,
           mode = { "n", "v", "x" },
         }
       end
