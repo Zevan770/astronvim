@@ -2,12 +2,13 @@
 return {
   {
     "linrongbin16/gentags.nvim",
-    enabled = false,
+    -- enabled = false,
+    dev = true,
     ---@module "gentags"
     ---@type gentags.Options
     opts = {
       -- binary name
-      tool = "ctags",
+      tool = "ptags",
 
       -- ctags options
       ctags = {
@@ -68,6 +69,7 @@ return {
         "--exclude=*.pptx",
       },
 
+      ptags = {},
       -- workspace detection
       workspace = { ".git", ".svn", ".hg" },
 

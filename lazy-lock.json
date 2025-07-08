@@ -57,6 +57,7 @@
   "focus.nvim": { "branch": "master", "commit": "5500e1a9e926eec5a361d910679282fd723c0a96" },
   "foldtext.nvim": { "branch": "main", "commit": "f11adecff5fa1e77ce82f196a1573c54fabfb258" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
+  "gentags.nvim": { "branch": "main", "commit": "fd89ccd9f2736e448e607ac0a5b48117ffb4df4b" },
   "git-conflict.nvim": { "branch": "main", "commit": "4bbfdd92d547d2862a75b4e80afaf30e73f7bbb4" },
   "github-nvim-theme": { "branch": "main", "commit": "c106c9472154d6b2c74b74565616b877ae8ed31d" },
   "gitlinker.nvim": { "branch": "master", "commit": "23982c86f50a9c3f4bc531d41b7a4a68ddd12355" },
