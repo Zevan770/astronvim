@@ -86,12 +86,12 @@ inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ; ;<c-g>u
 
-" works good
-xmap qq Q
-noremap @ q
-noremap q @
-noremap Q @@
-nnoremap qq Q
+"" works good
+"xmap qq Q
+"noremap @ q
+"noremap q @
+"noremap Q @@
+"nnoremap qq Q
 
 "noremap ; :
 " noremap : ;

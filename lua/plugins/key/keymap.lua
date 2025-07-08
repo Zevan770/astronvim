@@ -179,6 +179,10 @@ return {
 
       maps.n["dy"] = "do"
 
+      maps.n["q"] = { function() require("utils.macros").play() end, desc = "play last played macro" }
+      maps.x["q"] = maps.n["q"]
+      maps.n["@"] = { function() require("utils.macros").q() end, desc = "quick macro" }
+      maps.x["@"] = maps.n["@"]
       -- maps.n["zr"] = false
       -- maps.n["zm"] = false
     end,
