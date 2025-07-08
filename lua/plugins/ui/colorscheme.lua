@@ -12,6 +12,10 @@ return {
   { import = "astrocommunity.colorscheme.vscode-nvim" },
   -- { import = "astrocommunity.recipes.vscode-icons" },
   {
+    "marko-cerovac/material.nvim",
+    lazy = true,
+  },
+  {
     "EdenEast/nightfox.nvim",
     lazy = true,
     opts = {
