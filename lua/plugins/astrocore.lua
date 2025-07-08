@@ -78,16 +78,16 @@ return {
         auto_hlsearch = false,
       },
       autocmds = {
-        help_window_right = {
-          {
-            event = "BufWinEnter",
-            pattern = { "*.txt" },
-            callback = function()
-              if vim.o.filetype == "help" then vim.cmd.wincmd "L" end
-            end,
-            desc = "Help page at right",
-          },
-        },
+        -- help_window_right = {
+        --   {
+        --     event = "BufWinEnter",
+        --     pattern = { "*.txt" },
+        --     callback = function()
+        --       if vim.o.filetype == "help" then vim.cmd.wincmd "L" end
+        --     end,
+        --     desc = "Help page at right",
+        --   },
+        -- },
       },
       filetypes = {
         extension = {
