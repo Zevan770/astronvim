@@ -454,4 +454,15 @@ return {
       },
     },
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      {
+        "Verf/telescope-everything.nvim",
+        enabled = my_utils.is_windows,
+        lazy = true,
+        config = function() require("telescope").load_extension "everything" end,
+      },
+    },
+  },
 }
