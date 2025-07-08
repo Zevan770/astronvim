@@ -11,8 +11,7 @@ M.q = function()
     return
   end
   local reg = vim.v.register
-  -- 只允许 a-zA-Z 作为宏寄存器
-  if not reg or not reg:match "^[a-zA-Z]$" then reg = M.config.default_register end
+  if not reg or not reg:match "^[0-9a-zA-Z:/?]$" then reg = M.config.default_register end
   vim.api.nvim_feedkeys("q" .. reg, "n", false)
 end
 
@@ -22,8 +21,7 @@ end
 --- what we do: default to play last played macro, else play v:register
 M.play = function()
   local reg = vim.v.register
-  -- 只允许 a-zA-Z 作为宏寄存器
-  if not reg or not reg:match "^[a-zA-Z]$" then reg = "@" end
+  if not reg or not reg:match "^[0-9a-zA-Z:/?]$" then reg = "@" end
   vim.api.nvim_feedkeys("@" .. reg, "n", false)
 end
 
