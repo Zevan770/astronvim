@@ -239,11 +239,13 @@ return {
         history = {
           enabled = true,
           -- ~/.local/share/nvim/lazy/codecompanion-history.nvim/doc/codecompanion-history.txt:126
+          ---@module "codecompanion._extensions.history"
+          ---@type CodeCompanion.History.Opts
           opts = {
             -- Keymap to open history from chat buffer (default: gh)
             keymap = ",h",
             -- Keymap to save the current chat manually (when auto_save is disabled)
-            save_chat_keymap = ",s",
+            save_chat_keymap = ",w",
             -- Save all chats by default (disable to save only manually using 'sc')
             auto_save = true,
             -- Number of days after which chats are automatically deleted (0 to disable)
@@ -260,6 +262,29 @@ return {
             dir_to_save = vim.fn.stdpath "data" .. "/codecompanion-history",
             ---Enable detailed logging for history extension
             enable_logging = false,
+
+            --#region summary
+            summary = {
+              create_summary_keymap = ",sc",
+              browse_summaries_keymap = ",sb",
+              preview_summary_keymap = ",sp",
+
+              generation_opts = {
+                -- Use specific adapter for summaries (optional)
+                adapter = nil, -- defaults to current chat adapter
+                -- Use specific model for summaries (optional)
+                model = nil, -- defaults to current chat model
+                -- Context size for summarization (default: 90000)
+                context_size = 90000,
+                -- Include slash command content (default: true)
+                include_references = true,
+                -- Include tool outputs (default: true)
+                include_tool_outputs = true,
+                -- Custom system prompt (optional)
+                system_prompt = nil,
+              },
+            },
+            --#endregion
           },
         },
       },
