@@ -25,7 +25,6 @@ return {
     specs = {
       -- { "nvim-telescope/telescope.nvim", optional = true, enabled = false },
       -- { "nvim-telescope/telescope-fzf-native.nvim", optional = true, enabled = false },
-      { "stevearc/dressing.nvim", optional = true, opts = { select = { backend = { "fzf_lua" } } } },
       {
         "AstroNvim/astrolsp",
         optional = true,
@@ -95,6 +94,16 @@ return {
         end,
       },
     },
-    opts = { { "default-title", "fzf-native" } },
+    opts = {
+      { "hide", "ivy" },
+      winopts = {
+        fullscreen = true,
+        preview = {
+          layout = "vertical",
+          vertical = "up:70%",
+          border = "none",
+        },
+      },
+    },
   },
 }

@@ -203,6 +203,9 @@ return {
               plugs = true,
             }
           end
+          maps.n["<Leader>fq"] = {
+            function() Snacks.picker.qflist { layout = { preset = "ivy_split" } } end,
+          }
 
           maps.n["<Leader>ha"] = maps.n["<Leader>fa"]
           maps.n["<Leader>hh"] = maps.n["<Leader>fh"]
