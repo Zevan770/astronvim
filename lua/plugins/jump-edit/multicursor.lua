@@ -1,7 +1,7 @@
 return {
   {
     "smoka7/multicursors.nvim",
-    event = "VeryLazy",
+    event = "User AstroFile",
     enabled = false,
     dependencies = { "nvimtools/hydra.nvim" },
     config = true,
@@ -146,7 +146,7 @@ return {
   },
   {
     "zaucy/mcos.nvim",
-    event = "VeryLazy",
+    event = "User AstroFile",
     dependencies = {
       "jake-stewart/multicursor.nvim",
     },
