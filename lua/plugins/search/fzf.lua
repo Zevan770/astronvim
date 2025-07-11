@@ -5,19 +5,24 @@ return {
     "calebfroese/fzf-lua-zoxide",
     dependencies = { "ibhagwan/fzf-lua" },
     config = function() require("fzf-lua-zoxide").setup() end,
-    opts = function()
-      vim.keymap.set("n", "<leader>Fz", function()
-        require("fzf-lua-zoxide").open {
-          ---@field preview? string The command to run in the preview window
-          preview = "less -R {}",
-          ---@field callback? fun(selected: string) Callback to run on select
-          callback = function(selected)
-            -- For example, you could open the directory in netrw after selecting one
-            -- vim.cmd("e " .. selected)
-          end,
-        }
-      end, { desc = "Fzf Dirs" })
-    end,
+    keys = {
+      {
+        "<leader>Fz",
+        function()
+          require("fzf-lua-zoxide").open {
+            ---@field preview? string The command to run in the preview window
+            preview = "less -R {}",
+            ---@field callback? fun(selected: string) Callback to run on select
+            callback = function(selected)
+              -- For example, you could open the directory in netrw after selecting one
+              -- vim.cmd("e " .. selected)
+            end,
+          }
+        end,
+        mode = "n",
+        desc = "Fzf Dirs",
+      },
+    },
   },
   {
     "ibhagwan/fzf-lua",
