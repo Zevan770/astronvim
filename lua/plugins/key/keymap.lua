@@ -195,7 +195,9 @@ return {
       -- lsp
       maps.n["gR"] = { function() vim.lsp.buf.references() end, desc = "LSP references" }
 
-      maps.n["gk"] = { function() vim.lsp.buf.hover() end, desc = "Lsp Hover" }
+      if not require("astrocore").is_available "hover.nvim" then
+        maps.n["gk"] = { function() vim.lsp.buf.hover() end, desc = "Lsp Hover" }
+      end
 
       if my_utils.markdown_render == "markview" then
         maps.n["gk"] = {
