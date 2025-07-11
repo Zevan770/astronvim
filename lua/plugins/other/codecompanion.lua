@@ -90,6 +90,7 @@ return {
         chat = {
           adapter = "copilot",
           tools = {
+            opts = { default_tools = { "vectorcode_toolbox", "read_file" } },
             groups = {
               ["all_in_one"] = {
                 description = "Everything but the kitchen sink (we're working on that)",
