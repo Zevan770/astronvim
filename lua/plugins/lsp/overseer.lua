@@ -82,4 +82,34 @@ return {
       opts.consumers.overseer = require "neotest.consumers.overseer"
     end,
   },
+
+  {
+    "andythigpen/nvim-coverage",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      commands = true,
+      auto_reload = true,
+      signs = { covered = { hl = "LineNr" }, uncovered = { hl = "Exception" } },
+    },
+    config = function(_, opts)
+      local cov = require "coverage"
+      cov.setup(opts)
+      cov.load(true)
+    end,
+    keys = {
+      {
+        "]C",
+        function() require("coverage").jump_next "uncovered" end,
+        desc = "Next uncovered snippet.",
+        noremap = true,
+      },
+      {
+        "[C",
+        function() require("coverage").jump_prev "uncovered" end,
+        desc = "Previous uncovered snippet.",
+        noremap = true,
+      },
+    },
+    cmd = { "Coverage" },
+  },
 }
