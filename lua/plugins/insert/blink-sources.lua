@@ -52,7 +52,7 @@ return {
               ignore_paths = {},
               additional_paths = {},
               toggles = {
-                on_off = "<Leader>uG",
+                on_off = "<Leader>ubg",
               },
               future_features = {
                 -- Workaround for
@@ -109,7 +109,7 @@ return {
     opts = {
       sources = {
         -- Add 'dictionary' to the list
-        default = { "dictionary" },
+        -- default = { "dictionary" },
         providers = {
           dictionary = {
             module = "blink-cmp-dictionary",
@@ -123,6 +123,9 @@ return {
             opts = {
               dictionary_files = {
                 vim.fn.expand "~/.config/english-words.txt",
+              },
+              toggles = {
+                on_off = "<Leader>uBd",
               },
               -- options for blink-cmp-dictionary
             },
