@@ -14,9 +14,10 @@ return {
         async_opts = {
           debounce = -1,
           events = { "BufWritePost", "InsertEnter", "BufReadPost" },
-          timeout_ms = 10000,
+          -- timeout_ms = 10000,
           exclude_this = true,
           n_query = 30,
+          single_job = true,
           query_cb = require("vectorcode.utils").make_surrounding_lines_cb(40),
           run_on_register = false,
         },
@@ -24,11 +25,11 @@ return {
         exclude_this = true,
         n_query = 10,
         notify = true,
-        timeout_ms = 10000,
-        on_setup = {
-          update = false, -- set to true to enable update when `setup` is called.
-          -- lsp = true,
-        },
+        -- timeout_ms = 10000,
+        -- on_setup = {
+        --   update = false, -- set to true to enable update when `setup` is called.
+        --   -- lsp = true,
+        -- },
         sync_log_env_var = false,
       }
       ---@diagnostic enable: missing-fields
