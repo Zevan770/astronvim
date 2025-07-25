@@ -8,7 +8,7 @@ return {
   {
     "folke/lazydev.nvim",
     dependencies = {
-      "https://github.com/nekowinston/wezterm-types",
+      { "gonstoll/wezterm-types", lazy = true },
     },
     ---@module "lazydev"
     ---@type lazydev.Config
