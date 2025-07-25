@@ -2,7 +2,7 @@
 return {
   {
     "linrongbin16/gentags.nvim",
-    -- enabled = false,
+    enabled = false,
     dev = true,
     ---@module "gentags"
     ---@type gentags.Options
