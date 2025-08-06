@@ -1,7 +1,8 @@
 return {
   {
     "Saghen/blink.cmp",
-    build = "cargo build --release",
+    version = "1.*",
+    build = my_utils.is_windows and "" or "cargo build --release",
     enabled = my_utils.blink_enabled,
     ---@module 'blink.cmp'
     ---@param opts blink.cmp.Config
