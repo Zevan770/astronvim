@@ -9,7 +9,6 @@ return {
         require "hover.providers.man"
         require "hover.providers.dap"
         require "hover.providers.diagnostic"
-        require "hover.providers.highlight"
         require "hover.providers.fold_preview"
         require "hover.providers.jira"
       end,
