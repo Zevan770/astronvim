@@ -30,5 +30,8 @@ return {
       Eye = "",
     },
     lazygit = false,
+    folding = {
+      enabled = true,
+    },
   },
 }

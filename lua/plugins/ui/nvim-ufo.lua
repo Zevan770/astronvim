@@ -1,3 +1,4 @@
+if true then return {} end
 ---@type LazySpec
 return {
   --{{{
@@ -92,12 +93,11 @@ return {
         end
 
         --
-        return (filetype == "" or buftype == "nofile") and "indent" -- only use indent until a file is opened
-          or function(bufnr)
-            return mergeProviders { "marker", "lsp" }(bufnr)
-              :catch(function(err) return handleFallbackException(bufnr, err, "treesitter") end)
-              :catch(function(err) return handleFallbackException(bufnr, err, "indent") end)
-          end
+        return function(bufnr)
+          return mergeProviders { "marker", "lsp" }(bufnr)
+            :catch(function(err) return handleFallbackException(bufnr, err, "treesitter") end)
+            :catch(function(err) return handleFallbackException(bufnr, err, "indent") end)
+        end
       end
       opts.close_fold_kinds_for_ft = {
         default = { "comment", "marker" },
