@@ -39,29 +39,28 @@ return {
             ---@type blink-ripgrep.Options
             opts = {
               prefix_min_len = 3,
-              context_size = 5,
-              max_filesize = "1M",
-              -- Examples:
-              -- - ".git" (default)
-              -- - { ".git", "package.json", ".root" }
-              project_root_marker = ".git",
-              project_root_fallback = true,
-              search_casing = "--ignore-case",
-              additional_rg_options = {},
               fallback_to_regex_highlighting = true,
-              ignore_paths = {},
-              additional_paths = {},
+              project_root_marker = ".git",
               toggles = {
                 on_off = "<Leader>ubg",
+              },
+              backend = {
+                context_size = 5,
+                use = "ripgrep",
+                ripgrep = {
+                  max_filesize = "1M",
+                  project_root_fallback = true,
+                  search_casing = "--ignore-case",
+                  additional_rg_options = {},
+                  ignore_paths = {},
+                  additional_paths = {},
+                },
               },
               future_features = {
                 -- Workaround for
                 -- https://github.com/mikavilpas/blink-ripgrep.nvim/issues/185 . This
                 -- is a temporary fix and will be removed in the future.
                 issue185_workaround = false,
-                backend = {
-                  use = "ripgrep",
-                },
               },
             },
           },
