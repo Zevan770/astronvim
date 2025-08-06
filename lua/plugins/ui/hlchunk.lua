@@ -4,7 +4,8 @@ return {
     "shellRaining/hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = function()
-      local palette = require "catppuccin.palettes.mocha"
+      local palette = vim.o.background == "light" and require "catppuccin.palettes.latte"
+        or require "catppuccin.palettes.mocha"
       local excluded_ft = {
         ["neo-tree"] = true,
         snacks_dashboard = true,
