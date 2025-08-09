@@ -39,8 +39,9 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
+    enabled = false,
     opts = {
-      debug_mode = true,
+      debug_mode = false,
       current_line_blame = true,
       current_line_blame_opts = {
         virt_text = true,
