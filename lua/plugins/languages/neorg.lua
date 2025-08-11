@@ -5,7 +5,6 @@ return {
   {
     "nvim-neorg/neorg",
     ft = "norg",
-    keys = ",nn",
     version = "*",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",

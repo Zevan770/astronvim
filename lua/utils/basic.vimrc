@@ -32,10 +32,16 @@ noremap  K          5gk
 " vunmap K
 noremap  j          gj
 noremap  k          gk
-vnoremap >          >gv
-vnoremap <          <gv
+xnoremap >          >gv
+xnoremap <          <gv
 " highlight last inserted text
 nnoremap gV         `[v`]
+noremap       m     <c-d>
+xnoremap      m     <c-d>
+noremap       ,     <c-u>
+xnoremap      ,     <c-u>
+noremap      M m
+xnoremap     M m
 
 
 " "clipboard
@@ -43,19 +49,19 @@ nnoremap gV         `[v`]
 " nnoremap y          "+y
 " nnoremap Y          "+y$
 " nnoremap y          "+y
-" vnoremap Y          "+Y
-" vnoremap d          "+d
+" xnoremap Y          "+Y
+" xnoremap d          "+d
 set clipboard=unnamedplus
 " nnoremap x "_x
-vnoremap x "_x
+xnoremap x "_x
 " nnoremap X "_X
 nnoremap c "_c
-vnoremap c "_c
+xnoremap c "_c
 nnoremap C "_C
 
-vnoremap P pgvy
-vnoremap Y "Iy
-vnoremap D "Id
+xnoremap P pgvy
+xnoremap Y "Iy
+xnoremap D "Id
 
 nnoremap gp         o<esc>]p
 nnoremap gP         O<esc>[p

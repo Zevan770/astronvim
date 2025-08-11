@@ -1,5 +1,6 @@
 return {
   "chentoast/marks.nvim",
+  enabled = false,
   event = "User AstroFile",
   opts = {
     -- force_write_shada = true,

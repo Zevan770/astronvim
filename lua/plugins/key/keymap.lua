@@ -9,7 +9,7 @@ return {
       -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
       local maps = assert(opts.mappings)
       local astro = require "astrocore"
-      vim.keymap.set("i", "<Tab>", "<Tab>")
+      -- vim.keymap.set("i", "<Tab>", "<Tab>")
       --- App
       maps.n["<Leader>a"] = { desc = "Appalication" }
       -- maps.n["<Leader>al"] = {
@@ -21,6 +21,8 @@ return {
 
       -- buffers
       maps.n["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
+      maps.n["H"] = maps.n["[b"]
+      maps.n["L"] = maps.n["]b"]
       maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
       maps.n["<Leader>bo"] =
         { function() require("astrocore.buffer").close_all(true) end, desc = "Close all buffers except current" }

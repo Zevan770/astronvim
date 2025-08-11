@@ -42,13 +42,20 @@ return {
         },
         auto_close = false,
         win = {
+          list = {
+            keys = {
+              ["o"] = { { "pick_win", "jump" } },
+            },
+          },
           input = {
             keys = {
               -- every action will always first change the cwd of the current tabpage to the project
-              ["<c-l>"] = { { "pick_win", "jump" } },
+              ["o"] = { { "pick_win", "jump" } },
               ["<a-c>"] = { "layout" },
               ["<c-p>"] = { "history_back", mode = { "n", "i" } },
               ["<c-n>"] = { "history_forward", mode = { "n", "i" } },
+              ["m"] = "list_scroll_down",
+              [","] = "list_scroll_up",
               ["<c-y>"] = {
                 "yank_path",
                 mode = { "n", "i" },
