@@ -38,14 +38,14 @@ return {
             local maps = opts.mappings
             maps.n["<Leader>FlD"] =
               { function() require("fzf-lua").diagnostics_document() end, desc = "Search diagnostics" }
-            -- if maps.n.gd then maps.n.gd[1] = function() require("fzf-lua").lsp_definitions() end end
-            if maps.n.gI then maps.n.gI[1] = function() require("fzf-lua").lsp_implementations() end end
+            -- if maps.n["gd"] then maps.n["gd"][1] = function() require("fzf-lua").lsp_definitions() end end
+            if maps.n["gI"] then maps.n["gI"][1] = function() require("fzf-lua").lsp_implementations() end end
             if maps.n["<Leader>FlR"] then
               maps.n["<Leader>FlR"][1] = function() require("fzf-lua").lsp_references() end
             end
-            if maps.n.gy then maps.n.gy[1] = function() require("fzf-lua").lsp_typedefs() end end
-            if maps.n["<Leader>FlG"] then
-              maps.n["<Leader>FlG"][1] = function() require("fzf-lua").lsp_workspace_symbols() end
+            if maps.n["gy"] then maps.n["gy"][1] = function() require("fzf-lua").lsp_typedefs() end end
+            if maps.n["<Leader>Flg"] then
+              maps.n["<Leader>Flg"][1] = function() require("fzf-lua").lsp_workspace_symbols() end
             end
           end
         end,
