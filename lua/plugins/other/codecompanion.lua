@@ -110,29 +110,146 @@ return {
             },
           },
           keymaps = {
+            options = {
+              modes = {
+                n = "?",
+              },
+              callback = "keymaps.options",
+              description = "Options",
+              hide = true,
+            },
+            completion = {
+              modes = {
+                i = "<C-_>",
+              },
+              index = 1,
+              callback = "keymaps.completion",
+              description = "Completion Menu",
+            },
             send = {
+              modes = {
+                n = { "<CR>", "<C-s>" },
+                i = "<C-s>",
+              },
+              index = 2,
               callback = function(chat)
                 vim.cmd "stopinsert"
                 chat:submit()
               end,
-              -- index = 1,
               description = "Send",
+            },
+            regenerate = {
+              modes = {
+                n = "<localleader>r",
+              },
+              index = 3,
+              callback = "keymaps.regenerate",
+              description = "Regenerate the last response",
             },
             close = {
               modes = {
                 n = "q",
               },
-              -- index = 3,
+              index = 4,
               callback = "keymaps.close",
               description = "Close Chat",
             },
             stop = {
               modes = {
-                n = "<C-c>",
+                n = "<c-c>",
               },
-              -- index = 4,
+              index = 5,
               callback = "keymaps.stop",
               description = "Stop Request",
+            },
+            clear = {
+              modes = {
+                n = "<localleader>x",
+              },
+              index = 6,
+              callback = "keymaps.clear",
+              description = "Clear Chat",
+            },
+            codeblock = {
+              modes = {
+                n = "<localleader>c",
+              },
+              index = 7,
+              callback = "keymaps.codeblock",
+              description = "Insert Codeblock",
+            },
+            yank_code = {
+              modes = {
+                n = "<localleader>y",
+              },
+              index = 8,
+              callback = "keymaps.yank_code",
+              description = "Yank Code",
+            },
+            pin = {
+              modes = {
+                n = "<localleader>p",
+              },
+              index = 9,
+              callback = "keymaps.pin_context",
+              description = "Pin context",
+            },
+            watch = {
+              modes = {
+                n = "<localleader>w",
+              },
+              index = 10,
+              callback = "keymaps.toggle_watch",
+              description = "Watch Buffer",
+            },
+            change_adapter = {
+              modes = {
+                n = "<localleader>a",
+              },
+              index = 15,
+              callback = "keymaps.change_adapter",
+              description = "Change adapter",
+            },
+            fold_code = {
+              modes = {
+                n = "<localleader>f",
+              },
+              index = 15,
+              callback = "keymaps.fold_code",
+              description = "Fold code",
+            },
+            debug = {
+              modes = {
+                n = "<localleader>d",
+              },
+              index = 16,
+              callback = "keymaps.debug",
+              description = "View debug info",
+            },
+            system_prompt = {
+              modes = {
+                n = "<localleader>s",
+              },
+              index = 17,
+              callback = "keymaps.toggle_system_prompt",
+              description = "Toggle the system prompt",
+            },
+            auto_tool_mode = {
+              modes = {
+                n = "<localleader>ta",
+              },
+              index = 18,
+              callback = "keymaps.auto_tool_mode",
+              description = "Toggle automatic tool mode",
+            },
+            goto_file_under_cursor = {
+              modes = { n = "<localleader>R" },
+              index = 19,
+              callback = "keymaps.goto_file_under_cursor",
+              description = "Open the file under cursor in a new tab.",
+            },
+            copilot_stats = {
+              modes = { n = "<localleader>S" },
             },
           },
           slash_commands = {
@@ -249,9 +366,9 @@ return {
           ---@type CodeCompanion.History.Opts
           opts = {
             -- Keymap to open history from chat buffer (default: gh)
-            keymap = ",h",
+            keymap = "<localleader>h",
             -- Keymap to save the current chat manually (when auto_save is disabled)
-            save_chat_keymap = ",w",
+            save_chat_keymap = "<localleader>w",
             -- Save all chats by default (disable to save only manually using 'sc')
             auto_save = true,
             -- Number of days after which chats are automatically deleted (0 to disable)
@@ -271,9 +388,9 @@ return {
 
             --#region summary
             summary = {
-              create_summary_keymap = ",sc",
-              browse_summaries_keymap = ",sb",
-              preview_summary_keymap = ",sp",
+              create_summary_keymap = "<localleader>sc",
+              browse_summaries_keymap = "<localleader>sb",
+              preview_summary_keymap = "<localleader>sp",
 
               generation_opts = {
                 -- Use specific adapter for summaries (optional)

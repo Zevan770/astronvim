@@ -24,7 +24,7 @@ return {
         tabb = "T",
         tabc = "<C-t>",
         tabdrop = "",
-        ptogglemode = ",m",
+        ptogglemode = "<localleader>m",
         ptoggleitem = "zp",
         ptoggleauto = "<a-p>",
         pscrollup = "<C-b>",
