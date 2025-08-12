@@ -91,7 +91,10 @@ return {
           adapter = "copilot",
           tools = {
             opts = {
-              default_tools = { "vectorcode_toolbox", "read_file" },
+              default_tools = {
+                -- "vectorcode_toolbox",
+                "read_file",
+              },
               folds = {
                 enabled = false,
               },
