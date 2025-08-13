@@ -6,11 +6,19 @@ return {
       { "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" } },
       { "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" } },
     },
+    opts = {
+
+      skipInsignificantPunctuation = true,
+      consistentOperatorPending = true, -- see the README for details
+      subwordMovement = true,
+      customPatterns = {}, -- see the README for details
+    },
     dependencies = {
       -- "https://github.com/starwing/luautf8",
       {
         "vhyrro/luarocks.nvim",
         priority = 1000,
+        opts_extend = { "rocks" },
         opts = {
           rocks = { "luautf8" },
         },
