@@ -39,7 +39,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    enabled = false,
+    -- enabled = false,
     opts = {
       debug_mode = false,
       current_line_blame = true,
