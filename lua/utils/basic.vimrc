@@ -36,10 +36,10 @@ xnoremap >          >gv
 xnoremap <          <gv
 " highlight last inserted text
 nnoremap gV         `[v`]
-noremap       m     <c-d>
-xnoremap      m     <c-d>
-noremap       ,     <c-u>
-xnoremap      ,     <c-u>
+noremap       m     <C-d>
+xnoremap      m     <C-d>
+noremap       ,     <C-u>
+xnoremap      ,     <C-u>
 noremap      M m
 xnoremap     M m
 
@@ -101,3 +101,4 @@ inoremap ; ;<c-g>u
 
 "noremap ; :
 " noremap : ;
+" vim:tw=78:ts=8:noet:ft=vim:norl:
