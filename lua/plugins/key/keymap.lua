@@ -98,6 +98,9 @@ return {
       maps.n["<Leader>hr"] = { "<Cmd>AstroReload<cr><Cmd>AstroReload<CR>" }
       maps.n["<Leader>qr"] = { "<Cmd>restart<cr>" }
 
+      maps.n["<Leader>uB"] = maps.n["<Leader>ub"]
+      maps.n["<Leader>ub"] = false
+
       local mini_path = vim.fn.stdpath "config" .. "/lua/utils/basic.vimrc"
       pcall(vim.cmd.source, mini_path)
 
