@@ -128,7 +128,7 @@ return {
       maps.n["<Space>"] = vspacecode_with_restore_im
       maps.x["<Space>"] = vspacecode_with_restore_im
 
-      maps.n[","] = function()
+      maps.n[";"] = function()
         vscode.call "vspacecode.space"
         vscode.call("whichkey.triggerKey", {
           args = {
@@ -137,9 +137,7 @@ return {
         })
         require("im_select").restore_default_im()
       end
-      maps.x[","] = maps.n[","]
-      maps.x["m]"] = function() vscode.action "bookmarks.expandSelectionToNext" end
-      maps.x["m["] = function() vscode.action "bookmarks.expandSelectionToPrevious" end
+      maps.x[";"] = maps.n[";"]
 
       -- maps.x["3s"] = function() vscode.action "metaGo.selectAfter" end
       -- maps.x["2s"] = function() vscode.action "metaGo.selectSmart" end
@@ -206,15 +204,17 @@ return {
       maps.n["gsdr"] = function() vscode.action "regionfolder.deleteCurrentRegion" end
 
       maps.n["'"] = "`"
-      maps.n["ma"] = function() vscode.action "bookmarks.toggleLabeled" end
+      maps.n["Ma"] = function() vscode.action "bookmarks.toggleLabeled" end
       maps.n["dma"] = function() vscode.action "bookmarks.clear" end
       maps.n["dmA"] = function() vscode.action "bookmarks.clearFromAllFiles" end
-      maps.n["ml"] = function() vscode.action "bookmarks.list" end
-      maps.n["mL"] = function() vscode.action "bookmarks.listFromAllFiles" end
-      maps.n["m"] = { "<Cmd>lua require('vscode').action('bookmarks.toggle')<CR>m" }
+      maps.n["Ml"] = function() vscode.action "bookmarks.list" end
+      maps.n["ML"] = function() vscode.action "bookmarks.listFromAllFiles" end
+      maps.n["M"] = { "<Cmd>lua require('vscode').action('bookmarks.toggle')<CR>m" }
       maps.n["]'"] = function() vscode.action "bookmarks.jumpToNext" end
       maps.n["['"] = function() vscode.action "bookmarks.jumpToPrevious" end
-      -- maps.n["m"] = function() vscode.action "bookmarks.toggle" end
+      maps.x["]'"] = function() vscode.action "bookmarks.expandSelectionToNext" end
+      maps.x["['"] = function() vscode.action "bookmarks.expandSelectionToPrevious" end
+      -- maps.n["M"] = function() vscode.action "bookmarks.toggle" end
       maps.n["gc;"] = "gcc"
       maps.n["u"] = function() vscode.action "undo" end
       maps.n["<C-r>"] = function() vscode.action "redo" end
