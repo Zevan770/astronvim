@@ -17,7 +17,6 @@ return {
         {
           formatters_by_ft = {
             markdown = function(_) return { "prettier", "injected" } end,
-            yaml = { "prettier" },
             nix = { "alejandra" },
             vue = { "prettier" },
           },
