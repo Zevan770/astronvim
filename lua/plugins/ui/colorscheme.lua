@@ -132,6 +132,17 @@ return {
   { "rose-pine/neovim", name = "rose-pine", lazy = true },
   { "UtkarshVerma/molokai.nvim", lazy = true },
   { "loctvl842/monokai-pro.nvim", lazy = true },
+  {
+    "vague2k/vague.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other plugins
+    config = function()
+      -- NOTE: you do not need to call setup if you don't want to.
+      require("vague").setup {
+        -- optional configuration here
+      }
+    end,
+  },
   -- {
   --   "afonsofrancof/OSC11.nvim",
   --   opts = {
