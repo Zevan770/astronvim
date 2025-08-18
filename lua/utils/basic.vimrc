@@ -88,9 +88,9 @@ nnoremap <A-right> <c-i>
 
 map <X1Mouse> <C-O>
 map <X2Mouse> <C-I>
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ; ;<c-g>u
+"inoremap , ,<c-g>u
+"inoremap . .<c-g>u
+"inoremap ; ;<c-g>u
 
 "" works good
 "xmap qq Q
