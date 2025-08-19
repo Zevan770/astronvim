@@ -37,7 +37,7 @@ return {
       },
     },
     keys = {
-      "<Leader>ai",
+      "<Leader>aa",
     },
     ---@module "avante"
     ---@type avante.Config
@@ -88,19 +88,6 @@ return {
           insert = { "<C-c>" },
         },
         -- NOTE: The following will be safely set by avante.nvim
-        ask = "<leader>aia",
-        new_ask = "<leader>ain",
-        edit = "<leader>aie",
-        refresh = "<leader>air",
-        focus = "<leader>aif",
-        stop = "<leader>aiS",
-        toggle = {
-          default = "<leader>aitt",
-          debug = "<leader>aitd",
-          hint = "<leader>aith",
-          suggestion = "<leader>aits",
-          repomap = "<leader>aitR",
-        },
         sidebar = {
           apply_all = "A",
           apply_cursor = "a",
@@ -113,12 +100,6 @@ return {
           close = { "q" },
           close_from_input = nil, -- e.g., { normal = "<Esc>", insert = "<C-d>" }
         },
-        files = {
-          add_current = "<leader>aic", -- Add current buffer to selected files
-          add_all_buffers = "<leader>aiB", -- Add all buffer files to selected files
-        },
-        select_model = "<leader>aim", -- Select model command
-        select_history = "<leader>aih", -- Select history command
       },
       hints = {
         enabled = false,

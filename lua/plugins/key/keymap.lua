@@ -11,13 +11,9 @@ return {
       local astro = require "astrocore"
       -- vim.keymap.set("i", "<Tab>", "<Tab>")
       --- App
-      maps.n["<Leader>a"] = { desc = "Appalication" }
-      -- maps.n["<Leader>al"] = {
-      --   function() require("mason.ui").open() end,
-      --   desc = "Mason Installer",
-      -- }
-      maps.n["<Leader>ax"] = { function() require("lazy").home() end, desc = "Plugins" }
-      -- maps.n["<Leader>ae"] = { "<Leader>e", remap = true, desc = "explorer" }
+      maps.n["<Leader>o"] = { desc = "Open Appalication" }
+      maps.n["<Leader>ox"] = { function() require("lazy").home() end, desc = "Plugins" }
+      -- maps.n["<Leader>oe"] = { "<Leader>e", remap = true, desc = "explorer" }
 
       -- buffers
       maps.n["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
