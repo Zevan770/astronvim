@@ -21,6 +21,7 @@ require("lazy").setup({
   { import = "plugins.search" },
   { import = "plugins.ui" },
   { import = "plugins.other" },
+  { import = "plugins.other.codecompanion" },
   { import = "disable" },
   { import = "os" },
 } --[[@as LazySpec]], {
