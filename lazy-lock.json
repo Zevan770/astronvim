@@ -28,6 +28,8 @@
   "clangd_extensions.nvim": { "branch": "main", "commit": "b67cc417d9020fb4b83d46662351b4d16894905e" },
   "cmake-tools.nvim": { "branch": "master", "commit": "447fe7629bb5d5baca6f6099f3568484d149aa51" },
   "cmp-dap": { "branch": "master", "commit": "ea92773e84c0ad3288c3bc5e452ac91559669087" },
+  "codecompanion-agent-rules": { "branch": "main", "commit": "f3935899ac3ba9ed1d4cd2312e386015dec312d5" },
+  "codecompanion-dap.nvim": { "branch": "main", "commit": "102528f8e35f1e734f8006f8a5ce58fb6662849b" },
   "codecompanion-gitcommit.nvim": { "branch": "main", "commit": "e237b9901d64074fa84f74c1b20892303e3e1830" },
   "codecompanion-history.nvim": { "branch": "main", "commit": "336987afe9aca1fca30c20ca27dc91e1f7690c77" },
   "codecompanion.nvim": { "branch": "main", "commit": "6bc36af3898d6ad3e813f0d19c7e32972731ef37" },
