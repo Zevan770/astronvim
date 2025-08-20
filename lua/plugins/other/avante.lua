@@ -33,7 +33,7 @@ return {
       {
         "AstroNvim/astrocore",
         ---@param opts AstroCoreOpts
-        opts = function(_, opts) opts.mappings.n["<Leader>ai"] = { desc = " Avante" } end,
+        opts = function(_, opts) opts.mappings.n["<Leader>a"] = { desc = " Avante" } end,
       },
     },
     keys = {
@@ -135,7 +135,7 @@ return {
       providers = {
         copilot = {
           endpoint = "https://api.githubcopilot.com",
-          model = "gpt-4.1",
+          model = "gpt-5-mini",
           proxy = nil, -- [protocol://]host[:port] Use this proxy
           allow_insecure = false, -- Allow insecure server connections
           timeout = 30000, -- Timeout in milliseconds
@@ -147,10 +147,6 @@ return {
         ["copilot-claude-3.5"] = {
           __inherited_from = "copilot",
           model = "claude-3.5-sonnet",
-        },
-        ["copilot-gpt4.1"] = {
-          __inherited_from = "copilot",
-          model = "gpt-4.1",
         },
       },
     },
