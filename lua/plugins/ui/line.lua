@@ -3,8 +3,9 @@ return {
 
   {
     "nvim-zh/colorful-winsep.nvim",
-    -- enabled = false,
-    config = function(_, opts) require("colorful-winsep").setup() end,
+    enabled = false,
+    -- ~/.local/share/nvim/lazy/colorful-winsep.nvim/lua/colorful-winsep/config.lua
+    dev = true,
     opts = {
       -- highlight for Window separator
       hi = {
@@ -22,6 +23,7 @@ return {
       --   or { "─", "│", "╭", "╮", "╰", "╯" },
       -- Smooth moving switch
       smooth = false,
+      animate = { enabled = false },
       border = "bold",
       zindex = 100,
       anchor = {
