@@ -12,6 +12,7 @@
   "astrolsp": { "branch": "main", "commit": "23ee7404b160d6d181aeb96442c2af00b5cf849d" },
   "astrotheme": { "branch": "main", "commit": "0a3fb361f1e3d6a0cbb42e93f3d01fb5203b6752" },
   "astroui": { "branch": "main", "commit": "4943abbd42674b43249313afe83b91065a40e4be" },
+  "auto-save.nvim": { "branch": "main", "commit": "37c82fd548e3f5ffc2d9d020a65dac1044584f44" },
   "avante.nvim": { "branch": "main", "commit": "212797a2f27d15ef5f0e8b3727a2c0a245ea5f8d" },
   "better-escape.nvim": { "branch": "master", "commit": "19a38aab94961016430905ebec30d272a01e9742" },
   "blink-cmp-avante": { "branch": "master", "commit": "4f494c6e124acbe31a8f5d58effa0c14aa38a6d5" },
