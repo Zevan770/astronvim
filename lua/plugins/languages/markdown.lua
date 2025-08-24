@@ -8,6 +8,7 @@ local markdown_ft = {
   "codecompanion",
   "blink-cmp-documentation",
   "blink-cmp-signature",
+  "opencode_output",
 }
 local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, {})
 local markview_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "html", "yaml" })
