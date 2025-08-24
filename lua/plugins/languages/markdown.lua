@@ -10,7 +10,7 @@ local markdown_ft = {
   "blink-cmp-signature",
   "opencode_output",
 }
-local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, {})
+local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "gitcommit" })
 local markview_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "html", "yaml" })
 ---@type LazySpec
 return {
