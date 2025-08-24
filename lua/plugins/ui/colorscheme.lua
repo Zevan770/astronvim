@@ -68,6 +68,10 @@ return {
         shade = "dark",
         percentage = 0.35, -- percentage of the shade to apply to the inactive window
       },
+      float = {
+        solid = false,
+        transparent = true,
+      },
       styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
         comments = { "italic" }, -- Change the style of comments
         conditionals = { "italic" },
@@ -104,10 +108,10 @@ return {
         fidget = true,
         overseer = true,
         octo = true,
-        snacks = {
-          enabled = true,
-          indent_scope_color = "pink", -- catppuccin color (eg. `lavender`) Default: text
-        },
+        -- snacks = {
+        --   enabled = true,
+        --   indent_scope_color = "pink",
+        -- },
         markview = true,
         render_markdown = true,
         which_key = true,
