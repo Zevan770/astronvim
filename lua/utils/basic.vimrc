@@ -76,6 +76,7 @@ nmap    <C-S-q>   :q!<CR>
 
 nmap     <C-x>      :x<CR>
 nmap     <C-s>      :w<cr>
+nmap     <C-c>      :close<CR>
 
 nmap     <C-a>      ggVG
 noremap    zv      <C-v>
