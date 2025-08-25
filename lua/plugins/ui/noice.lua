@@ -21,9 +21,9 @@ return {
             -- progress = {
             --   enabled = false,
             -- },
-            -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
             hover = { enabled = false },
             signature = { enabled = false },
+            -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
             override = {
               ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
               ["vim.lsp.util.stylize_markdown"] = false,
@@ -51,17 +51,6 @@ return {
       { "<leader>onf", function() require("noice").cmd "pick" end, desc = "Noice Picker" },
     },
     specs = {
-      {
-        "nvim-treesitter/nvim-treesitter",
-        opts = function(_, opts)
-          if opts.ensure_installed ~= "all" then
-            opts.ensure_installed = require("astrocore").list_insert_unique(
-              opts.ensure_installed,
-              { "bash", "markdown", "markdown_inline", "regex", "vim" }
-            )
-          end
-        end,
-      },
       {
         "AstroNvim/astrolsp",
         optional = true,

@@ -3,7 +3,7 @@ return {
   {
     "j-hui/fidget.nvim",
     event = "UIEnter",
-    enabled = false,
+    -- enabled = false,
     opts = {
       -- Options related to LSP progress subsystem
       progress = {
@@ -30,7 +30,7 @@ return {
       -- Options related to notification subsystem
       notification = {
         window = {
-          winblend = 0,
+          winblend = 10,
         },
         poll_rate = 10, -- How frequently to update and render notifications
         -- filter = vim.log.levels.INFO, -- Minimum notifications level
@@ -71,6 +71,16 @@ return {
       --     notifier = { enabled = false },
       --   },
       -- },
+    },
+  },
+  {
+    "folke/noice.nvim",
+    opts = {
+      lsp = {
+        progress = {
+          enabled = false,
+        },
+      },
     },
   },
 }
