@@ -56,7 +56,11 @@ return {
 
   {
     "sudo-tee/opencode.nvim",
+    enabled = false,
+    ---@module "opencode"
+    ---@type opencode.Opts
     opts = {},
+    config = function(_, opts) require("opencode").setup(opts) end,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

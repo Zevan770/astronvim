@@ -156,7 +156,7 @@
   "oil.nvim": { "branch": "master", "commit": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc" },
   "one-small-step-for-vimkind": { "branch": "main", "commit": "91b4e0fb0d640def73812aceb22dafb99261dd67" },
   "onedarkpro.nvim": { "branch": "main", "commit": "ddbcb80d1403a789b3c656064c3ec448a50caa41" },
-  "opencode.nvim": { "branch": "main", "commit": "e4bc3f05d71f12b6296125802512a08a69126d54" },
+  "opencode.nvim": { "branch": "main", "commit": "c4fa5778d1cc837138e6d7f47f4f0d1ee9127126" },
   "overseer.nvim": { "branch": "master", "commit": "fe7b2f9ba263e150ab36474dfc810217b8cf7400" },
   "package-info.nvim": { "branch": "master", "commit": "5cb3483ec886ca23e2c57e5d4a63c958d9a98179" },
   "pantran.nvim": { "branch": "main", "commit": "b87c3ae48cba4659587fb75abd847e5b7a7c9ca0" },
