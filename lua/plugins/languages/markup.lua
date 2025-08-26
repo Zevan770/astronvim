@@ -28,20 +28,4 @@ return {
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
   },
-
-  {
-    "AstroNvim/astrocore",
-    ---@type AstroCoreOpts
-    opts = {
-      autocmds = {
-        my_ft_json = {
-          {
-            event = "Filetype",
-            pattern = "json",
-            callback = function() vim.o.shiftwidth = 4 end,
-          },
-        },
-      },
-    },
-  },
 }

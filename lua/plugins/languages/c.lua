@@ -42,20 +42,4 @@ return {
     --   })
     -- end,
   },
-
-  {
-    "AstroNvim/astrocore",
-    ---@type AstroCoreOpts
-    opts = {
-      autocmds = {
-        my_ft_c_cpp = {
-          {
-            event = "Filetype",
-            pattern = "c",
-            callback = function() vim.opt.tabstop = 4 end,
-          },
-        },
-      },
-    },
-  },
 }
