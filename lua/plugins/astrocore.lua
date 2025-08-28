@@ -78,6 +78,7 @@ return {
         auto_hlsearch = false,
       },
       autocmds = {
+        highlightyank = false,
         -- help_window_right = {
         --   {
         --     event = "BufWinEnter",
