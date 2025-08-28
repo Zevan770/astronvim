@@ -19,7 +19,7 @@ return {
   opts = {
     ui = { enable = false },
     -- use_advanced_uri = true,
-    finder = "telescope.nvim",
+    finder = "snacks.picker",
     -- dir = notedir,
     workspaces = {
       {
@@ -46,6 +46,7 @@ return {
     completion = {
       -- Set to false to disable completion.
       nvim_cmp = false,
+      create_new = true,
       blink = my_utils.blink_enabled,
       min_chars = 2,
     },
@@ -57,24 +58,7 @@ return {
 
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
     -- URL it will be ignored but you can customize this behavior here.
-    follow_url_func = vim.ui.open or function(url) require("astrocore").system_open(url) end,
-    mappings = {
-      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-      ["gf"] = {
-        action = function() return require("obsidian").util.gf_passthrough() end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Toggle check-boxes.
-      ["<leader>ch"] = {
-        action = function() return require("obsidian").util.toggle_checkbox() end,
-        opts = { buffer = true },
-      },
-      -- Smart action depending on context, either follow link or toggle checkbox.
-      ["<cr>"] = {
-        action = function() return require("obsidian").util.smart_action() end,
-        opts = { buffer = true, expr = true },
-      },
-    },
+    follow_url_func = vim.ui.open,
 
     picker = {
       -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'mini.pick' or 'snacks.pick'.
@@ -116,6 +100,42 @@ return {
         path = client:vault_relative_path(path) or path
         return string.format("![%s](%s)", path.name, path)
       end,
+    },
+  },
+  specs = {
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        autocmds = {
+          obsidian_keys = {
+            {
+              event = "User",
+              pattern = "ObsidianNoteEnter",
+              callback = function(ctx)
+                -- Directly set keymaps using Lua API instead of using a mappings table
+                vim.keymap.set("n", "gD", "<Cmd>ObsidianOpen<CR>", {
+                  buffer = ctx.buf,
+                  desc = "Obsidian: follow vault link",
+                })
+
+                vim.keymap.set(
+                  "n",
+                  "<localleader>tx",
+                  function() require("obsidian.api").toggle_checkbox() end,
+                  { buffer = ctx.buf, desc = "Obsidian: Toggle checkbox" }
+                )
+
+                vim.keymap.set(
+                  "n",
+                  "<localleader>o",
+                  function() return require("obsidian.api").smart_action() end,
+                  { buffer = ctx.buf, expr = true, desc = "Obsidian: Smart action" }
+                )
+              end,
+            },
+          },
+        },
+      },
     },
   },
 }
