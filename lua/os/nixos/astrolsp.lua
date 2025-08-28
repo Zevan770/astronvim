@@ -34,7 +34,7 @@ return {
         "volar",
         "vtsls",
         -- "nil_ls",
-        "markdown_oxide",
+        -- "markdown_oxide",
         -- "zk",
         "ruff",
       },
