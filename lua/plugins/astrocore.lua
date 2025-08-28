@@ -95,13 +95,7 @@ return {
           ahk2 = "autohotkey",
           ahk1 = "autohotkey",
           log = "log",
-          -- see zsh as bash
-          -- zsh = "bash",
-          -- zshrc = "bash",
-          -- zshenv = "bash",
-          -- zprofile = "bash",
-          -- zlogin = "bash",
-          -- zlogout = "bash",
+          kbd = "lisp",
         },
         filename = {
           -- [".zshrc"] = "bash",
