@@ -3,9 +3,9 @@ return {
 
   {
     "nvim-zh/colorful-winsep.nvim",
-    enabled = false,
+    -- enabled = false,
     -- ~/.local/share/nvim/lazy/colorful-winsep.nvim/lua/colorful-winsep/config.lua
-    dev = true,
+    -- dev = true,
     opts = {
       -- highlight for Window separator
       hi = {
