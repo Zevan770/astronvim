@@ -33,6 +33,10 @@ return {
     opts = {
       -- kind = "floating",
       graph_style = "unicode",
+      integrations = {
+        telescope = false,
+        fzf_lua = false,
+      },
       disable_commit_confirmation = true,
       disable_signs = false,
     },
