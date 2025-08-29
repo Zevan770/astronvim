@@ -26,7 +26,7 @@ return {
           row = -3,
           col = 0,
         },
-        enabled = false,
+        enabled = true,
       },
       notifier = {
         enabled = true,
