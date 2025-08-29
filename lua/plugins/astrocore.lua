@@ -47,6 +47,7 @@ return {
           -- inccommand = "split",
           list = true,
           listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:  " }, ","),
+          spelllang = "en,cjk",
           fillchars = table.concat(
             -- Special UI symbols
             {
