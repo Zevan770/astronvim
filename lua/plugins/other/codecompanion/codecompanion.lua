@@ -6,6 +6,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/mcphub.nvim",
+      "franco-ruggeri/codecompanion-spinner.nvim",
     },
     cmd = {
       "CodeCompanion",
@@ -76,7 +77,6 @@ return {
     config = function(_, opts)
       require("codecompanion").setup(opts)
       require("utils.codecompanion.signcolumn").setup()
-      require("utils.codecompanion.spinner"):setup()
     end,
     -- see /home/hw770/.local/share/nvim/lazy/codecompanion.nvim/lua/codecompanion/config.lua:10
     opts = {
@@ -219,6 +219,7 @@ return {
             make_slash_commands = true, -- make /slash_commands from MCP server prompts
           },
         },
+        spinner = {},
         history = {
           enabled = true,
           -- ~/.local/share/nvim/lazy/codecompanion-history.nvim/doc/codecompanion-history.txt:126
