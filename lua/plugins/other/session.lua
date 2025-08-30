@@ -5,6 +5,7 @@ return {
   -- You can restore sessions when returning through the dashboard.
   {
     "folke/persistence.nvim",
+    enabled = false,
     event = "VeryLazy",
     opts = {},
     -- stylua: ignore
@@ -30,47 +31,16 @@ return {
 
   {
     "stevearc/resession.nvim",
-    enabled = false,
+    -- enabled = false,
+    dependencies = { "scottmckendry/pick-resession.nvim" },
     specs = {
       {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = opts.mappings
-          maps.n["<Leader>p"] = maps.n["<Leader>S"]
-          maps.n["<Leader>S"] = false
-          maps.n["<Leader>pl"] = {
-            function() require("resession").load "Last Session" end,
-            desc = "Load last session",
-          }
-          maps.n["<Leader>ps"] = {
-            function() require("resession").save() end,
-            desc = "Save this session",
-          }
-          maps.n["<Leader>pS"] = {
-            function() require("resession").save(vim.fn.getcwd(), { dir = "dirsession" }) end,
-            desc = "Save this dirsession",
-          }
-          maps.n["<Leader>pt"] = {
-            function() require("resession").save_tab() end,
-            desc = "Save this tab's session",
-          }
-          maps.n["<Leader>pd"] = {
-            function() require("resession").delete() end,
-            desc = "Delete a session",
-          }
-          maps.n["<Leader>pD"] = {
-            function() require("resession").delete(nil, { dir = "dirsession" }) end,
-            desc = "Delete a dirsession",
-          }
-          maps.n["<Leader>po"] = { function() require("resession").load() end, desc = "Load a session" }
-          maps.n["<Leader>pp"] = {
-            function() require("resession").load(nil, { dir = "dirsession" }) end,
-            desc = "Load a dirsession",
-          }
-          maps.n["<Leader>pc"] = {
-            function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
-            desc = "Load current dirsession",
-          }
+          my_utils.replace_group("n", maps, "<Leader>S", "<Leader>q")
+          maps.n["<Leader>qf"] = function() require("pick-resession").pick { dir = "dirsession" } end
+          maps.n["<Leader>qF"] = function() require("pick-resession").pick {} end
         end,
       },
     },
