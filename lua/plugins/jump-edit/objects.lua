@@ -82,10 +82,10 @@ return {
               enable = true,
               border = "none",
               floating_preview_opts = {},
-              peek_definition_code = {
-                ["<leader>lpf"] = "@function.outer",
-                ["<leader>lpc"] = "@class.outer",
-              },
+              -- peek_definition_code = {
+              --   ["<leader>lpf"] = "@function.outer",
+              --   ["<leader>lpc"] = "@class.outer",
+              -- },
             },
             select = {
               enable = false,
