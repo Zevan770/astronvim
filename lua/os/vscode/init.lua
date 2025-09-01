@@ -198,10 +198,10 @@ return {
       maps.o["ir"] = maps.x["ir"]
       maps.x["ar"] = function() vscode.action "regionfolder.selectCurrentRegion" end
       maps.o["ar"] = maps.x["ar"]
-      maps.x["gsar"] = function()
+      maps.x["Sr"] = function()
         vscode.with_insert(function() vscode.action "regionfolder.wrapWithRegion" end)
       end
-      maps.n["gsdr"] = function() vscode.action "regionfolder.deleteCurrentRegion" end
+      maps.n["dor"] = function() vscode.action "regionfolder.deleteCurrentRegion" end
 
       maps.n["'"] = "`"
       maps.n["Ma"] = function() vscode.action "bookmarks.toggleLabeled" end
