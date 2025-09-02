@@ -618,3 +618,5 @@ function M.set_mappings(map_table, base)
 ---@see |mapset()|
 function keymap.set(mode, lhs, rhs, opts) end
 ```
+
+![Nothing stops this train](../assets/2025-09-02-23-52-42.png)
