@@ -4,7 +4,7 @@ return {
     "yetone/avante.nvim",
     build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
       or "make",
-    -- event = "User AstroFile", -- load on file open because Avante manages it's own bindings
+    event = "User AstroFile", -- load on file open because Avante manages it's own bindings
     specs = {
       { "stevearc/dressing.nvim", optional = true },
       "nvim-lua/plenary.nvim",
@@ -36,12 +36,11 @@ return {
         opts = function(_, opts) opts.mappings.n["<Leader>a"] = { desc = " Avante" } end,
       },
     },
-    keys = {
-      "<Leader>aa",
-    },
     ---@module "avante"
     ---@type avante.Config
     opts = {
+      debug = not not os.getenv "avante_debug",
+      instructions_file = "AGENT.md",
       behaviour = {
         auto_suggestions = false,
         auto_set_highlight_group = true,
@@ -50,13 +49,24 @@ return {
         support_paste_from_clipboard = false,
         enable_cursor_planning_mode = true, -- enable cursor planning mode!
       },
-      rag_service = {
-        enabled = false, -- Enables the RAG service
-        host_mount = os.getenv "HOME", -- Host mount path for the rag service
-        provider = "openai", -- The provider to use for RAG service (e.g. openai or ollama)
-        llm_model = "deepseek-chat", -- The LLM model to use for RAG service
-        embed_model = "text-embedding-v3", -- The embedding model to use for RAG service
-        endpoint = "http://localhost:3000", -- The API endpoint for RAG service
+      rag_service = { -- RAG Service configuration
+        -- enabled = my_utils.is_nixos, -- Enables the RAG service
+        -- enabled = my_utils.is_nixos and not os.getenv "avante_no_rag", -- Enables the RAG service
+        enabled = false,
+        host_mount = os.getenv "HOME", -- Host mount path for the rag service (Docker will mount this path)
+        runner = "docker", -- Runner for the RAG service (can use docker or nix)
+        llm = { -- Language Model (LLM) configuration for RAG service
+          provider = "openai", -- LLM provider
+          endpoint = "http://host.docker.internal:4141",
+          model = "gpt-4o", -- LLM model name
+          extra = nil, -- Additional configuration options for LLM
+        },
+        embed = { -- Embedding model configuration for RAG service
+          provider = "openai", -- Embedding provider
+          endpoint = "http://host.docker.internal:4141",
+          model = "text-embedding-3-small", -- Embedding model name
+          extra = nil, -- Additional configuration options for the embedding model
+        },
       },
       mappings = {
         ---@type AvanteConflictMappings
@@ -101,9 +111,14 @@ return {
           close_from_input = nil, -- e.g., { normal = "<Esc>", insert = "<C-d>" }
         },
       },
-      hints = {
-        enabled = false,
+      selection = {
+        enabled = true,
+        hint_display = "none",
       },
+      selector = {
+        provider = "snacks",
+      },
+      input = { provider = "snacks" },
       windows = {
         -- position = "smart",
         wrap = true, -- similar to vim.o.wrap
@@ -114,15 +129,6 @@ return {
           align = "center", -- left, center, right for title
           rounded = true,
         },
-        input = {
-          provider = "snacks",
-          -- prefix = "> ",
-          -- height = 8, -- Height of the input window in vertical layout
-        },
-        edit = {
-          border = { " ", " ", " ", " ", " ", " ", " ", " " },
-          start_insert = true, -- Start insert mode when opening the edit window
-        },
         ask = {
           floating = true, -- Open the 'AvanteAsk' prompt in a floating window
           border = "rounded",
@@ -131,7 +137,7 @@ return {
         },
       },
 
-      provider = "copilot",
+      provider = "copilot_api",
       providers = {
         copilot = {
           endpoint = "https://api.githubcopilot.com",
@@ -144,9 +150,11 @@ return {
             -- max_tokens = 20480,
           },
         },
-        ["copilot-claude-3.5"] = {
-          __inherited_from = "copilot",
-          model = "claude-3.5-sonnet",
+        copilot_api = {
+          __inherited_from = "openai",
+          api_key = "",
+          endpoint = "http://localhost:4141/v1",
+          model = "gpt-4.1",
         },
       },
     },
