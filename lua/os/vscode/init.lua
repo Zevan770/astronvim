@@ -262,7 +262,7 @@ return {
     end,
   },
   -- disable colorscheme setting
-  { "AstroNvim/astroui", opts = { colorscheme = false } },
+  -- { "AstroNvim/astroui", opts = { colorscheme = false } },
   -- disable treesitter highlighting
   { "nvim-treesitter/nvim-treesitter", opts = { highlight = { enable = false } } },
 }

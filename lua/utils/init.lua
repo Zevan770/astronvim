@@ -8,7 +8,7 @@ M.is_vscode = vim.g.vscode
 M.is_firenvim = vim.g.started_by_firenvim
 M.is_server = false
 M.blink_enabled = true
-M.my_animate = "snacks"
+M.my_animate = "neoscroll"
 -- M.autopair = "blink"
 ---@type "render"|"markview"
 M.markdown_render = "render"
