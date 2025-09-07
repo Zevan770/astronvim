@@ -182,6 +182,7 @@ return {
             end,
             desc = "Find Zoxide",
           }
+          maps.n["<M-z>"] = maps.n["<Leader>fz"]
           maps.n["<Leader>f'"] = { function() Snacks.picker.marks { layout = "ivy_split" } end, desc = "Find marks" }
           maps.n['<Leader>f"'] = { function() Snacks.picker.registers() end, desc = "Find register" }
           maps.n["<Leader>f;"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }

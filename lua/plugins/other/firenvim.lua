@@ -24,6 +24,13 @@ return {
       require("lazy").load { plugins = "firenvim", wait = true }
       vim.fn["firenvim#install"](0)
     end,
+    keys = {
+      { "<M-S-j>", function() vim.opt.lines = vim.opt.lines + 3 end, desc = "Increase lines" },
+      { "<M-S-k>", function() vim.opt.lines = vim.opt.lines - 3 end, desc = "Decrease lines" },
+      { "<M-S-h>", function() vim.opt.columns = vim.opt.columns - 10 end, desc = "Decrease columns" },
+      { "<M-S-l>", function() vim.opt.columns = vim.opt.columns + 10 end, desc = "Increase columns" },
+      { "<Esc>", mode = { "n" }, function() vim.cmd "q" end, desc = "Quit Firenvim" },
+    },
     -- module = false,
     -- config = function() end,
   },
