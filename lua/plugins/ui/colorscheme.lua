@@ -10,6 +10,11 @@ return {
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.colorscheme.vim-moonfly-colors" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
+  -- {
+  --   "stevedylandev/ansi-nvim",
+  --   enabled = false,
+  --   config = function() vim.opt.termguicolors = false end,
+  -- },
   {
     "RRethy/base16-nvim",
     enabled = false,
