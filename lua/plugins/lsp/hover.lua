@@ -15,7 +15,7 @@ return {
       preview_opts = {
         border = "rounded",
       },
-      preview_window = false,
+      preview_window = true,
       title = true,
       mouse_providers = {
         "LSP",
@@ -26,23 +26,28 @@ return {
       {
         "gk",
         function() require("hover").hover() end,
-        desc = "Trigger hover.",
+        desc = "Trigger hover",
         mode = "n",
         noremap = true,
       },
       {
         "[h",
         function() require("hover").hover_switch "previous" end,
-        desc = "Previous hover provider.",
+        desc = "Previous hover provider",
         mode = "n",
         noremap = true,
       },
       {
         "]h",
         function() require("hover").hover_switch "next" end,
-        desc = "Next hover provider.",
+        desc = "Next hover provider",
         mode = "n",
         noremap = true,
+      },
+      {
+        "<MouseMove>",
+        function() require("hover").hover_mouse() end,
+        desc = "Hover mouse",
       },
     },
   },
