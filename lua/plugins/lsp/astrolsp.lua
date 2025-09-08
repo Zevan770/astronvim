@@ -18,9 +18,10 @@ return {
       signature_help = true,
     },
     -- servers = {
-    --   -- "pyright"
-    --   -- "lldb",
-    --   "bashls",
+    -- "pyright"
+    -- "lldb",
+    -- "bashls",
+    -- "autocorrect",
     -- },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
