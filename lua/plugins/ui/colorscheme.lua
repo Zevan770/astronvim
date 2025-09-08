@@ -1,11 +1,11 @@
 ---@type LazySpec
 return {
   -- color
+  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.color.transparent-nvim" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.colorscheme.github-nvim-theme" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.kanagawa-nvim" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.colorscheme.vim-moonfly-colors" },
@@ -141,17 +141,17 @@ return {
   { "rose-pine/neovim", name = "rose-pine", lazy = true },
   { "UtkarshVerma/molokai.nvim", lazy = true },
   { "loctvl842/monokai-pro.nvim", lazy = true },
-  {
-    "vague2k/vague.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other plugins
-    config = function()
-      -- NOTE: you do not need to call setup if you don't want to.
-      require("vague").setup {
-        -- optional configuration here
-      }
-    end,
-  },
+  -- {
+  --   "vague2k/vague.nvim",
+  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --   priority = 1000, -- make sure to load this before all the other plugins
+  --   config = function()
+  --     -- NOTE: you do not need to call setup if you don't want to.
+  --     require("vague").setup {
+  --       -- optional configuration here
+  --     }
+  --   end,
+  -- },
   -- {
   --   "afonsofrancof/OSC11.nvim",
   --   opts = {
