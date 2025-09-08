@@ -152,15 +152,6 @@ return {
   --     }
   --   end,
   -- },
-  -- {
-  --   "afonsofrancof/OSC11.nvim",
-  --   opts = {
-  --     -- Function to call when switching to dark theme
-  --     on_dark = function() vim.opt.background = "dark" end,
-  --     -- Function to call when switching to light theme
-  --     on_light = function() vim.opt.background = "light" end,
-  --   },
-  -- },
 
   -- { "savq/melange-nvim", lazy = true },
 }
