@@ -12,7 +12,6 @@ require("lazy").setup({
     },
   },
   { import = "community" },
-  { import = "plugins" },
   { import = "plugins.languages" },
   { import = "plugins.lsp" },
   { import = "plugins.insert" },
