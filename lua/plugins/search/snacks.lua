@@ -23,7 +23,7 @@ return {
       input = {
         win = {
           relative = "cursor",
-          row = -3,
+          row = 3,
           col = 0,
         },
         enabled = true,
