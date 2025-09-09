@@ -1,4 +1,3 @@
--- if true then return {} end
 ---@type LazySpec
 return {
   {
@@ -18,7 +17,7 @@ return {
           exclude_this = true,
           n_query = 30,
           single_job = true,
-          query_cb = require("vectorcode.utils").make_surrounding_lines_cb(40),
+          -- query_cb = require("vectorcode.utils").make_surrounding_lines_cb(40),
           run_on_register = false,
         },
         async_backend = "lsp", -- or "lsp"
@@ -63,13 +62,9 @@ return {
                 extras = {},
                 collapse = false, -- whether the individual tools should be shown in the chat
               },
-              ---@type VectorCode.CodeCompanion.ToolOpts
               tool_opts = {
-                ---@type VectorCode.CodeCompanion.LsToolOpts
                 -- ls = {},
-                ---@type VectorCode.CodeCompanion.VectoriseToolOpts
                 vectorise = {},
-                ---@type VectorCode.CodeCompanion.QueryToolOpts
                 query = {
                   max_num = { chunk = -1, document = -1 },
                   default_num = { chunk = 50, document = 10 },
@@ -77,9 +72,7 @@ return {
                   -- use_lsp = true,
                   no_duplicate = true,
                   chunk_mode = false,
-                  ---@type VectorCode.CodeCompanion.SummariseOpts
                   summarise = {
-                    ---@type boolean|(fun(chat: CodeCompanion.Chat, results: VectorCode.QueryResult[]):boolean)|nil
                     enabled = false,
                     adapter = nil,
                     query_augmented = true,
