@@ -222,7 +222,7 @@ return {
             function() require("edgy.editor").toggle() end,
             desc = "Toggle Sidebars",
           }
-          maps.n["<Leader>oo"] = {
+          maps.n["<Leader>vo"] = {
             function() require("edgy.editor").select() end,
             desc = "Pick Sidebar",
           }

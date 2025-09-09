@@ -8,13 +8,13 @@ return {
     keys = {
       -- 👇 in this section, choose your own keymappings!
       {
-        "<leader>oe",
+        "<leader>ve",
         function() require("yazi").yazi() end,
         desc = "Reveal cur file in yazi",
       },
       {
         -- Open in the current working directory
-        "<leader>oy",
+        "<leader>vy",
         function() require("yazi").yazi(nil, vim.fn.getcwd()) end,
         desc = "Open yazi pwd",
       },
@@ -179,7 +179,7 @@ return {
                 end,
                 desc = "Explorer",
               },
-              ["<Leader>oo"] = {
+              ["<Leader>vo"] = {
                 function()
                   if not require("mini.files").close() then
                     require("mini.files").open(vim.api.nvim_buf_get_name(0), false)

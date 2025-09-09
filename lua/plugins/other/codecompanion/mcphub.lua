@@ -28,7 +28,7 @@ return {
   },
   keys = {
     {
-      "<leader>om",
+      "<leader>vm",
       "<Cmd>MCPHub<CR>",
       desc = "MCPHub",
       mode = { "n", "v" },

@@ -44,11 +44,11 @@ return {
       )
     end,
     keys = {
-      { "<leader>onl", function() require("noice").cmd "last" end, desc = "Noice Last Message" },
-      { "<leader>onh", function() require("noice").cmd "history" end, desc = "Noice History" },
-      { "<leader>ona", function() require("noice").cmd "all" end, desc = "Noice All" },
-      { "<leader>ond", function() require("noice").cmd "dismiss" end, desc = "Dismiss All" },
-      { "<leader>onf", function() require("noice").cmd "pick" end, desc = "Noice Picker" },
+      { "<leader>vnl", function() require("noice").cmd "last" end, desc = "Noice Last Message" },
+      { "<leader>vnh", function() require("noice").cmd "history" end, desc = "Noice History" },
+      { "<leader>vna", function() require("noice").cmd "all" end, desc = "Noice All" },
+      { "<leader>vnd", function() require("noice").cmd "dismiss" end, desc = "Dismiss All" },
+      { "<leader>vnf", function() require("noice").cmd "pick" end, desc = "Noice Picker" },
     },
     specs = {
       {
