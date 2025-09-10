@@ -24,6 +24,7 @@ end
 return {
   {
     "FluxxField/bionic-reading.nvim",
+    event = "User AstroFile",
     opts = function()
       local opts = {
         -- determines if the file types below will be
