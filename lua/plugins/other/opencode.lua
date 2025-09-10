@@ -9,11 +9,10 @@ return {
     },
     config = function()
       vim.g.opencode_opts = {
+        port = "4004",
+        auto_reload = true,
         -- Your configuration, if any — see `lua/opencode/config.lua`
       }
-
-      -- Required for `opts.auto_reload`
-      vim.opt.autoread = true
 
       -- Recommended keymaps
       vim.keymap.set("n", "<leader>ot", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
