@@ -252,7 +252,7 @@ return {
           maps.x["<A-/>"] = maps.n["<A-/>"]
           maps.i["<A-/>"] = maps.n["<A-/>"]
 
-          maps.n["<Leader>vp"] = { function() Snacks.profiler.scratch() end, desc = "Profiler" }
+          maps.n["<Leader>op"] = { function() Snacks.profiler.scratch() end, desc = "Profiler" }
           require("snacks").toggle.zoom():map("<leader>wm"):map("<a-m>", { mode = { "n", "x", "i", "t" } })
 
           maps.n["<Leader>lg"] = {

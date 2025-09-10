@@ -328,7 +328,7 @@ return {
       branch = "main",
       cmd = { "LazyDoToggle", "LazyDoPin", "LazyDoToggleStorage" },
       keys = { -- recommended keymap for easy toggle LazyDo in normal and insert modes (arbitrary)
-        { "<leader>vt", "<CMD>LazyDoToggle<CR>", mode = { "n" } },
+        { "<leader>ot", "<CMD>LazyDoToggle<CR>", mode = { "n" } },
       },
       opts = {
         -- your config here
