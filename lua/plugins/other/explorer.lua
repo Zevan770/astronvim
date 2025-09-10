@@ -179,7 +179,7 @@ return {
                 end,
                 desc = "Explorer",
               },
-              ["<Leader>oo"] = {
+              ["<Leader>ob"] = {
                 function()
                   if not require("mini.files").close() then
                     require("mini.files").open(vim.api.nvim_buf_get_name(0), false)
