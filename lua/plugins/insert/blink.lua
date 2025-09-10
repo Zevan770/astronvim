@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   {
     "Saghen/blink.cmp",
@@ -33,10 +34,6 @@ return {
     opts = {
       sources = {
         providers = {
-          cmdline = {
-            -- fix wsl stuck on cmdline completion
-            enabled = function() return vim.fn.getcmdtype() ~= ":" or not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!" end,
-          },
           lsp = {
             override = {
               get_trigger_characters = require("utils.blink").get_trigger_characters,
