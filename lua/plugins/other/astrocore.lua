@@ -81,16 +81,17 @@ return {
       },
       autocmds = {
         highlightyank = false,
-        -- help_window_right = {
-        --   {
-        --     event = "BufWinEnter",
-        --     pattern = { "*.txt" },
-        --     callback = function()
-        --       if vim.o.filetype == "help" then vim.cmd.wincmd "L" end
-        --     end,
-        --     desc = "Help page at right",
-        --   },
-        -- },
+        auto_check_bg = {
+          {
+            event = { "FocusGained", "FocusLost" },
+            pattern = "*",
+            callback = function()
+              -- will query the terminal for background color
+              -- Note that we have `:autocmds nvim.tty TermResonse` in _defualt.lua
+              vim.api.nvim_ui_send "\027]11;?\007"
+            end,
+          },
+        },
       },
       filetypes = {
         extension = {
