@@ -81,14 +81,14 @@ return {
       },
       autocmds = {
         highlightyank = false,
-        auto_check_bg = {
+        auto_check_bg = vim.fn.has "nvim-0.12" == 1 and {
           {
             event = { "FocusGained", "FocusLost" },
             pattern = "*",
             callback = function()
               -- will query the terminal for background color
               -- Note that we have `:autocmds nvim.tty TermResonse` in _defualt.lua
-              vim.api.nvim_ui_send "\027]11;?\007"
+              vim.schedule(function() vim.api.nvim_ui_send "\027]11;?\007" end)
             end,
           },
         },
