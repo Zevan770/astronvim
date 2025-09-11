@@ -137,12 +137,10 @@ return {
         },
       },
 
-      provider = "copilot_api",
+      provider = "copilot",
       providers = {
         copilot = {
-          endpoint = "https://api.githubcopilot.com",
-          model = "gpt-5-mini",
-          proxy = nil, -- [protocol://]host[:port] Use this proxy
+          model = "gpt-4.1",
           allow_insecure = false, -- Allow insecure server connections
           timeout = 30000, -- Timeout in milliseconds
           extra_request_body = {
