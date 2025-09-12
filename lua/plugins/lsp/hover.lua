@@ -25,28 +25,28 @@ return {
     keys = {
       {
         "gk",
-        function() require("hover").hover() end,
+        function() require("hover").open() end,
         desc = "Trigger hover",
         mode = "n",
         noremap = true,
       },
       {
         "[h",
-        function() require("hover").hover_switch "previous" end,
+        function() require("hover").switch("previous") end,
         desc = "Previous hover provider",
         mode = "n",
         noremap = true,
       },
       {
         "]h",
-        function() require("hover").hover_switch "next" end,
+        function() require("hover").switch("next") end,
         desc = "Next hover provider",
         mode = "n",
         noremap = true,
       },
       {
         "<MouseMove>",
-        function() require("hover").hover_mouse() end,
+        function() require("hover").mouse() end,
         desc = "Hover mouse",
       },
     },
