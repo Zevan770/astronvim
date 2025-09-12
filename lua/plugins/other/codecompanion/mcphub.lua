@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
   },
-  enabled = true,
   -- event = "User AstroFile",
   cmd = "MCPHub",
   build = "pnpm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
@@ -38,9 +37,7 @@ return {
     {
       "yetone/avante.nvim",
       optional = true,
-      dependencies = {
-        "mcphub.nvim",
-      },
+      dependencies = { "mcphub.nvim" },
       opts = {
         system_prompt = function()
           local hub = require("mcphub").get_hub_instance()
@@ -52,6 +49,23 @@ return {
             require("mcphub.extensions.avante").mcp_tool(),
           }
         end,
+      },
+    },
+    {
+      "olimorris/codecompanion.nvim",
+      dependencies = { "mcphub.nvim" },
+      opts = {
+        extensions = {
+          mcphub = {
+            enabled = true,
+            callback = "mcphub.extensions.codecompanion",
+            opts = {
+              show_result_in_chat = true, -- Show the mcp tool result in the chat buffer
+              make_vars = true, -- make chat #variables from MCP server resources
+              make_slash_commands = true, -- make /slash_commands from MCP server prompts
+            },
+          },
+        },
       },
     },
   },
