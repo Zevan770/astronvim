@@ -193,16 +193,16 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "gpt-5-mini",
+                default = "gpt-4.1",
               },
             },
           })
         end,
-        claude35 = function()
+        claude37 = function()
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "claude-3.5-sonnet",
+                default = "claude-3.7-sonnet",
               },
             },
           })
