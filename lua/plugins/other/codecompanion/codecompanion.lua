@@ -103,34 +103,23 @@ return {
               ["all_in_one"] = {
                 description = "Everything but the kitchen sink (we're working on that)",
                 system_prompt = "You are an agent, please keep going until the user's query is completely resolved, before ending your turn and yielding back to the user. Only terminate your turn when you are sure that the problem is solved. If you are not sure about file content or codebase structure pertaining to the user's request, use your tools to read files and gather the relevant information: do NOT guess or make up an answer. You MUST plan extensively before each function call, and reflect extensively on the outcomes of the previous function calls. DO NOT do this entire process by making function calls only, as this can impair your ability to solve the problem and think insightfully.",
-                tools = {
-                  "cmd_runner",
-                  "editor",
-                  "files",
-                  "mcp",
-                },
+                tools = { "cmd_runner", "editor", "files", "mcp" },
               },
             },
           },
           slash_commands = {
             ["buffer"] = {
-              callback = "strategies.chat.slash_commands.buffer",
-              description = "Insert open buffers",
               opts = {
                 contains_code = true,
                 provider = "snacks",
               },
             },
             ["fetch"] = {
-              callback = "strategies.chat.slash_commands.fetch",
-              description = "Insert URL contents",
               opts = {
                 adapter = "jina",
               },
             },
             ["file"] = {
-              callback = "strategies.chat.slash_commands.file",
-              description = "Insert a file",
               opts = {
                 contains_code = true,
                 max_lines = 1000,
@@ -138,31 +127,23 @@ return {
               },
             },
             ["help"] = {
-              callback = "strategies.chat.slash_commands.help",
-              description = "Insert content from help tags",
               opts = {
                 contains_code = false,
                 provider = "snacks",
               },
             },
             ["now"] = {
-              callback = "strategies.chat.slash_commands.now",
-              description = "Insert the current date and time",
               opts = {
                 contains_code = false,
               },
             },
             ["symbols"] = {
-              callback = "strategies.chat.slash_commands.symbols",
-              description = "Insert symbols for a selected file",
               opts = {
                 contains_code = true,
                 provider = "snacks",
               },
             },
             ["terminal"] = {
-              callback = "strategies.chat.slash_commands.terminal",
-              description = "Insert terminal output",
               opts = {
                 contains_code = false,
               },
