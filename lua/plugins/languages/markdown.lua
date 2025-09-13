@@ -29,6 +29,7 @@ return {
     ---@type render.md.UserConfig
     opts = {
       preset = "obsidian",
+      nested = false,
       completions = { lsp = { enabled = true } },
       injections = {
         -- Out of the box language injections for known filetypes that allow markdown to be interpreted
