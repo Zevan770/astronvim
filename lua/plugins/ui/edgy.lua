@@ -1,14 +1,6 @@
 ---@type LazySpec
 return {
   {
-    "jyscao/ventana.nvim",
-    keys = {
-      { mode = "n", "<C-w><C-t>", "<Cmd>VentanaTranspose<CR>" },
-      { mode = "n", "<C-w><C-f>", "<Cmd>VentanaShift<CR>" },
-      { mode = "n", "<C-w>f", "<Cmd>VentanaShiftMaintainLinear<CR>" },
-    },
-  },
-  {
     "mrjones2014/smart-splits.nvim",
     lazy = false,
     -- opts = function(_, opts)
