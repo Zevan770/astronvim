@@ -31,6 +31,9 @@ return {
       maps.n["<Leader>bl"] = false
       maps.n["<Leader>br"] = false
 
+      maps.n["|"] = false
+      maps.n["\\"] = false
+
       -- Session/Project
       maps.n["<Leader>p"] = { desc = require("astroui").get_icon("Session", 1, true) .. "Project/Plugin" }
       maps.n["<Leader>pa"] = { function() require("astrocore").update_packages() end, desc = "Update Lazy and Mason" }
