@@ -1,6 +1,7 @@
-if true then return {} end
+-- if true then return {} end
 return {
   "echasnovski/mini.clue",
+  lazy = false,
   specs = {
     { "folke/which-key.nvim", optional = true, enabled = false },
   },
