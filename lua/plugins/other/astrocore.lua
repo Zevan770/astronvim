@@ -117,6 +117,13 @@ return {
           ["messages%..*"] = "log",
         },
       },
+      sessions = {
+        ignore = {
+          dirs = {},
+          filetypes = { "gitcommit", "gitrebase" },
+          buftypes = {},
+        },
+      },
     } --[[@as AstroCoreOpts]])
   end,
 }

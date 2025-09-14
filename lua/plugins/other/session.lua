@@ -39,6 +39,15 @@ return {
         opts = function(_, opts)
           local maps = opts.mappings
           my_utils.replace_group("n", maps, "<Leader>S", "<Leader>q")
+          maps.n["<Leader>qs"] = function()
+            vim.ui.input({ prompt = "Session name" }, function(selected)
+              if selected then
+                require("resession").save(selected)
+              else
+                require("resession").save()
+              end
+            end)
+          end
           maps.n["<Leader>qf"] = function() require("pick-resession").pick { dir = "dirsession" } end
           maps.n["<Leader>qF"] = function() require("pick-resession").pick {} end
         end,
