@@ -3,7 +3,7 @@ return {
 
   {
     "nvim-zh/colorful-winsep.nvim",
-    -- enabled = false,
+    enabled = not my_utils.is_windows,
     -- ~/.local/share/nvim/lazy/colorful-winsep.nvim/lua/colorful-winsep/config.lua
     -- dev = true,
     opts = {
