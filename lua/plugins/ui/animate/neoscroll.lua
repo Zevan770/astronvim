@@ -13,9 +13,9 @@ return {
       easing = "cubic", -- Default easing function
       pre_hook = function(info)
         if info == "cursorline" then vim.wo.cursorline = false end
-        -- if vim.o.startofline then vim.cmd "normal! ^" end
       end,
       post_hook = function(info)
+        if vim.o.startofline then vim.cmd "normal! ^" end
         if info == "cursorline" then
           vim.wo.cursorline = true
         elseif info == "center" then
