@@ -15,6 +15,4 @@ local Config = require "lazy.core.config"
 -- replace the default `cond`
 Config.options.defaults.cond = function(plugin) return not disabled[plugin.name] end
 
-return {
-  { import = "os.module.disable-mason-auto-install" },
-}
+return {}
