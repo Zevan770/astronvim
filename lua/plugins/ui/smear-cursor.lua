@@ -2,7 +2,7 @@ return {
   {
     "sphamba/smear-cursor.nvim",
     event = "VeryLazy",
-    cond = not my_utils.is_neovide and not my_utils.is_firenvim and not vim.env.KITTY_PID and not my_utils.is_vscode,
+    cond = not my_utils.is_neovide and not my_utils.is_firenvim and not vim.env.KITTY_PID and not my_utils.is_vscode and not my_utils.is_android,
     -- enabled = false,
     -- see ~/.local/share/nvim/lazy/smear-cursor.nvim/lua/smear_cursor/config.lua
     opts = {

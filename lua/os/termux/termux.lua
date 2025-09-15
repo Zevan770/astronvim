@@ -7,7 +7,6 @@ vim.tbl_map(function(plugin) disabled[plugin] = true end, {
   -- "mcphub.nvim",
   "avante.nvim",
   "im-select.nvim",
-  "smear-cursor.nvim",
   "neoscroll.nvim",
 })
 
