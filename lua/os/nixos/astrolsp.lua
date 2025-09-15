@@ -11,6 +11,7 @@ return {
       PATH = "append",
     },
   },
+  { import = "os.module.disable-mason-auto-install" },
   {
     "AstroNvim/astrolsp",
     ---@type AstroLSPOpts

@@ -1,4 +1,6 @@
-local M = {}
+local M = {
+  { import = "os.module.disable-mason-auto-install" },
+}
 local disabled = {
   "obsidian.nvim",
   "codecompanion.nvim",
