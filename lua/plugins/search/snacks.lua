@@ -253,7 +253,7 @@ return {
           maps.i["<A-/>"] = maps.n["<A-/>"]
 
           maps.n["<Leader>op"] = { function() Snacks.profiler.scratch() end, desc = "Profiler" }
-          require("snacks").toggle.zoom():map("<leader>wm"):map("<a-m>", { mode = { "n", "x", "i", "t" } })
+          require("snacks").toggle.zoom():map("<C-w>z"):map("<a-m>", { mode = { "n", "x", "i", "t" } })
 
           maps.n["<Leader>lg"] = {
             function() require("snacks").picker.lsp_workspace_symbols() end,
@@ -265,7 +265,7 @@ return {
               ---@type snacks.picker.Config
               local snacks_opts = {
                 layout = {
-                  preset = "vertical",
+                  preset = "dropdown",
                   preview = "main",
                 },
               }
