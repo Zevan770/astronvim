@@ -15,6 +15,16 @@ return {
   --   enabled = false,
   --   config = function() vim.opt.termguicolors = false end,
   -- },
+
+  -- {
+  --   "nvim-mini/mini.base16",
+  --   version = "*",
+  --   opts = {
+  --     palatte = nil,
+  --     use_cterm = true,
+  --     plugins = { default = true },
+  --   },
+  -- },
   {
     "RRethy/base16-nvim",
     enabled = false,
