@@ -88,8 +88,8 @@ nnoremap <A-left> <c-o>
 nnoremap <A-right> <c-i>
 onoremap <space> iw
 
-map <X1Mouse> <C-O>
-map <X2Mouse> <C-I>
+"map <X1Mouse> <C-O>
+"map <X2Mouse> <C-I>
 "inoremap , ,<c-g>u
 "inoremap . .<c-g>u
 "inoremap ; ;<c-g>u
