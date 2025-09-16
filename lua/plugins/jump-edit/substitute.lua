@@ -2,14 +2,14 @@ return {
   "gbprod/substitute.nvim",
   event = { "User AstroFile" },
   keys = {
-    { "gsr", function() require("substitute").operator() end, mode = { "n" }, { noremap = true } },
-    { "gsrr", function() require("substitute").line() end, mode = { "n" }, { noremap = true } },
-    { "gsr", function() require("substitute").visual() end, mode = { "x" }, { noremap = true } },
+    -- { "gsr", function() require("substitute").operator() end, mode = { "n" }, { noremap = true } },
+    -- { "gsrr", function() require("substitute").line() end, mode = { "n" }, { noremap = true } },
+    -- { "gsr", function() require("substitute").visual() end, mode = { "x" }, { noremap = true } },
     { "gss", function() require("substitute.range").operator() end, mode = { "n" }, { noremap = true } },
     { "gss", function() require("substitute.range").visual() end, mode = { "x" }, { noremap = true } },
-    { "gsx", function() require("substitute.exchange").operator() end, mode = { "n" }, { noremap = true } },
-    { "gsxx", function() require("substitute.exchange").line() end, mode = { "n" }, { noremap = true } },
-    { "gsx", function() require("substitute.exchange").visual() end, mode = { "x" }, { noremap = true } },
+    -- { "gsx", function() require("substitute.exchange").operator() end, mode = { "n" }, { noremap = true } },
+    -- { "gsxx", function() require("substitute.exchange").line() end, mode = { "n" }, { noremap = true } },
+    -- { "gsx", function() require("substitute.exchange").visual() end, mode = { "x" }, { noremap = true } },
   },
   opts = {
     on_substitute = nil,
@@ -31,10 +31,10 @@ return {
       auto_apply = false,
       cursor_position = "end",
     },
-    exchange = {
-      motion = false,
-      use_esc_to_cancel = true,
-      preserve_cursor_position = false,
-    },
+    -- exchange = {
+    --   motion = false,
+    --   use_esc_to_cancel = true,
+    --   preserve_cursor_position = false,
+    -- },
   },
 }
