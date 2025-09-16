@@ -87,10 +87,10 @@ return {
       set({ "n", "x" }, "<leader><down>", function() mc.lineSkipCursor(1) end)
 
       -- Add or skip adding a new cursor by matching word/selection
-      set({ "n", "x" }, "gmn", function() mc.matchAddCursor(1) end)
-      set({ "n", "x" }, "gmq", function() mc.matchSkipCursor(1) end)
+      set({ "n", "x" }, "<c-n>", function() mc.matchAddCursor(1) end)
+      -- set({ "n", "x" }, "gmq", function() mc.matchSkipCursor(1) end)
       set({ "n", "x" }, "gmN", function() mc.matchAddCursor(-1) end)
-      set({ "n", "x" }, "gmQ", function() mc.matchSkipCursor(-1) end)
+      -- set({ "n", "x" }, "gmQ", function() mc.matchSkipCursor(-1) end)
 
       -- Pressing `<leader>miwap` will create a cursor in every match of the
       -- string captured by `iw` inside range `ap`.
@@ -106,9 +106,10 @@ return {
       -- Disable and enable cursors.
       set({ "n", "x" }, "<leader>m", mc.toggleCursor)
       -- match new cursors within visual selections by regex.
-      set("x", "M", mc.matchCursors)
+      -- set("x", "M", mc.matchCursors)
       set("x", "I", mc.insertVisual)
       set("x", "A", mc.appendVisual)
+      set("x", "gz", mc.splitCursors)
 
       -- Mappings defined in a keymap layer only apply when there are
       -- multiple cursors. This lets you have overlapping mappings.
@@ -130,7 +131,7 @@ return {
         end)
         layerSet("n", "m", function() mc.toggleCursor() end)
 
-        layerSet("n", "gma", mc.alignCursors, { nowait = true })
+        layerSet("n", "ga", mc.alignCursors, { nowait = true })
       end)
 
       -- Customize how cursors look.
