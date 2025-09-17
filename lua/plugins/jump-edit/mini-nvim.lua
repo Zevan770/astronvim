@@ -89,8 +89,8 @@ return {
     lazy = true,
     event = "VeryLazy",
     keys = {
-      { "do%", "<plug>(matchup-ds%)", noremap = true },
-      { "co%", "<plug>(matchup-cs%)", remap = true },
+      { "doo", "<plug>(matchup-ds%)", noremap = true },
+      { "coo", "<plug>(matchup-cs%)", remap = true },
     },
     specs = {
       {

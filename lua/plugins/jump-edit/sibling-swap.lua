@@ -1,8 +1,8 @@
+if true then return {} end
 ---@type LazySpec
 return {
   {
     "Wansmer/sibling-swap.nvim",
-    enabled = false,
     opts = {
       allowed_separators = {
         ",",
