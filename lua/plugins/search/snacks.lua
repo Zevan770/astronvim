@@ -189,7 +189,6 @@ return {
           maps.n["<Leader>f/"] = { function() Snacks.picker.search_history() end, desc = "Find Search history" }
 
           maps.n["<Leader>f<Space>"] = { function() Snacks.picker() end, desc = "pick ?" }
-          maps.n["<Leader><Space>"] = maps.n["<Leader>fs"]
 
           maps.n["<Leader>fe"] = { function() Snacks.picker.explorer() end, desc = "Snacks treE" }
           maps.c["<C-t>"] = {
