@@ -30,6 +30,7 @@ return {
       -- table.insert(opts.statusline, 6, components.component.breadcrumbs())
       -- table.insert(opts.statusline, 6, bar.navic())
       -- opts.winbar = nil
+      opts.tabline = nil
     end,
   },
 
@@ -40,9 +41,6 @@ return {
       status = {
         icon_highlights = {
           breadcrumbs = true,
-        },
-        separators = {
-          tab = { "", "" },
         },
       },
     },
