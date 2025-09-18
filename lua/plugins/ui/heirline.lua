@@ -1,6 +1,7 @@
 -- if true then return {} end
 ---@type LazySpec
 return {
+  { import = "astrocommunity.recipes.vscode-icons" },
   {
     "rebelot/heirline.nvim",
     dependencies = {
