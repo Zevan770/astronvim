@@ -101,6 +101,18 @@ return {
         ["gx"] = "actions.open_external",
         ["g."] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
+        ["gd"] = {
+          desc = "Toggle file detail view",
+          callback = function()
+            vim.b.oil_detail = not vim.b.oil_detail
+            local detail = vim.b.oil_detail
+            if detail then
+              require("oil").set_columns { "icon", "permissions", "size", "mtime" }
+            else
+              require("oil").set_columns { "icon" }
+            end
+          end,
+        },
       },
       -- Configuration for the floating window in oil.open_float
       float = {
