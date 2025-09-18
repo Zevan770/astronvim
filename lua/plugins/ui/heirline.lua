@@ -30,14 +30,15 @@ return {
       -- table.insert(opts.statusline, 6, components.component.breadcrumbs())
       -- table.insert(opts.statusline, 6, bar.navic())
       -- opts.winbar = nil
-      opts.tabline = nil
+      -- opts.tabline = nil
     end,
   },
 
-  { -- nicer-looking tabs with close icons
-    "nanozuki/tabby.nvim",
-    config = function() require("tabby.tabline").use_preset "tab_with_top_win" end,
-  },
+  -- { -- nicer-looking tabs with close icons
+  --   "nanozuki/tabby.nvim",
+  --   dependencies = { "echasnovski/mini.icons" },
+  --   config = function() require("tabby.tabline").use_preset "tab_with_top_win" end,
+  -- },
 
   {
     "AstroNvim/astroui",
