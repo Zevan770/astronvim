@@ -34,6 +34,11 @@ return {
     end,
   },
 
+  { -- nicer-looking tabs with close icons
+    "nanozuki/tabby.nvim",
+    config = function() require("tabby.tabline").use_preset "tab_with_top_win" end,
+  },
+
   {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
