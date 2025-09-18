@@ -26,7 +26,7 @@ return {
         -- Skip blank lines and headings in Visual mode (except for `quote()`)
         enable_blankhead_skip = true,
         -- Insert an indented quote for new lines within quoted text
-        enable_inner_indent = false,
+        -- enable_inner_indent = false,
         -- Toggle only unmarked lines first
         enable_unmarked_only = true,
         -- Automatically continue lists on new lines
@@ -56,7 +56,6 @@ return {
             -- Settings mappings
             map("n", "<localleader>uu", toggle.switch_unmarked_only,    { desc = "Toggle unmarked-only mode",    buffer = buffer })
             map("n", "<localleader>ub", toggle.switch_blankhead_skip,   { desc = "Toggle blankhead-skip mode",   buffer = buffer })
-            map("n", "<localleader>ui", toggle.switch_inner_indent,     { desc = "Toggle inner-indent mode",     buffer = buffer })
             map("n", "<localleader>us", toggle.switch_auto_samestate,   { desc = "Toggle auto-samestate mode",   buffer = buffer })
             map("n", "<localleader>ul", toggle.switch_cycle_list_table, { desc = "Toggle cycle-list-table mode", buffer = buffer })
             map("n", "<localleader>ux", toggle.switch_cycle_box_table,  { desc = "Toggle cycle-box-table mode",  buffer = buffer })
