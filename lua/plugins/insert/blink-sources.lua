@@ -91,7 +91,7 @@ return {
               copilot = {
                 name = "copilot",
                 module = "blink-copilot",
-                score_offset = 100,
+                -- score_offset = 100,
                 async = true,
                 override = {
                   get_trigger_characters = require("utils.blink").get_trigger_characters,
