@@ -5,13 +5,10 @@ return {
     return require("lazy.util").merge(opts, {
       -- Configure core features of AstroNvim
       features = {
-        large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+        large_buf = { notify = true, size = 1.5 * 1024 * 1024, lines = 100000, line_length = 1000 },
         autopairs = true, -- enable autopairs at start
         cmp = true, -- enable completion at start
-        -- diagnostics = {
-        --   virtual_text = false,
-        --   virtual_lines = true,
-        -- },
+        diagnostics = true,
         highlighturl = false, -- highlight URLs at start
         notifications = true, -- enable notifications at start
       },
