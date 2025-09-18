@@ -51,6 +51,7 @@
   "flash-zh.nvim": { "branch": "main", "commit": "3a1ac81b5de47c568b640e5a096cf63b00847496" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
   "flatten.nvim": { "branch": "main", "commit": "72527798e75b5e34757491947c2cb853ce21dc0e" },
+  "flirt.nvim": { "branch": "main", "commit": "7726d8cbe8b3179c23cb14214b150e235ed846ed" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "fzf-lua": { "branch": "main", "commit": "ad5e33a6f4ecd1ac9d1d5a81d1a72353ca24da5d" },
   "fzf-lua-zoxide": { "branch": "main", "commit": "680de283222de77a2c75abd11c9747a7daa884d0" },
