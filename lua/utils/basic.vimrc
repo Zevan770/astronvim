@@ -44,6 +44,11 @@ noremap      M m
 xnoremap     M m
 
 
+inoremap {; {<CR>};<Esc>O
+inoremap {, {<CR>},<Esc>O
+inoremap [; [<CR>];<Esc>O
+inoremap [, [<CR>],<Esc>O
+
 " "clipboard
 " nnoremap yy         "+yy
 " nnoremap y          "+y
