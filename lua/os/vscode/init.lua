@@ -28,6 +28,7 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "iswap.nvim",
   "flit.nvim",
   "leap.nvim",
+  "mini.operators",
   "mini.ai",
   "mini.comment",
   "mini.move",
