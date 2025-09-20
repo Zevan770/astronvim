@@ -313,7 +313,7 @@ return {
         { key = "l", action = "<Leader>ql", icon = get_icon("Refresh", 0, true), desc = "Last session  " },
         { key = ".", action = "<Leader>q.", icon = "", desc = "load cwd(./) session" },
         { key = "q", action = "<Leader>Q", icon = get_icon("TabClose", 0, true), desc = "Quit vim  " },
-        { key = "a", action = "<Leader>fa", icon = get_icon("Package", 0, true), desc = "Astronvim configuration" },
+        { key = "a", action = "<Leader>ha", icon = get_icon("Package", 0, true), desc = "Astronvim configuration" },
       }
 
       return require("astrocore").extend_tbl(opts, {
