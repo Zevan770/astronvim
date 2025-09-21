@@ -15,23 +15,28 @@ end
 return {
   cmd = { "autohotkey_lsp", "--stdio" },
   filetypes = { "autohotkey" },
-  root_markers = { "package.json", ".git" },
+  -- root_markers = { "package.json", ".git" },
   flags = { debounce_text_changes = 500 },
   --capabilities = capabilities,
   --on_attach = custom_attach,
+  -- reuse_client = true,
+  single_file_support = false,
   init_options = {
     locale = "zh-cn",
-    InterpreterPath = get_autohotkey_path() or "E:\\PortableApps\\autohotkey_h\\AutoHotkey64.exe",
+    fullySemanticToken = "true",
+    InterpreterPath = "E:/PortableApps/autohotkey_h/AutoHotkey64.exe",
+    WorkingDirs = {
+      vim.fs.root(0, { "package.json", ".git" }),
+    },
     AutoLibInclude = "All",
     CommentTags = "^;;\\s*(?<tag>.+)",
     CompleteFunctionParens = true,
     SymbolFoldinFromOpenBrace = false,
-    single_file_support = true,
     Diagnostics = {
       ClassStaticMemberCheck = true,
       ParamsCheck = true,
     },
-    ActionWhenV1IsDetected = "Continue",
+    ActionWhenV1IsDetected = "SwithToV1",
     FormatOptions = {
       array_style = "expand",
       break_chained_methods = false,
@@ -47,6 +52,13 @@ return {
       space_in_other = true,
       space_in_paren = false,
       wrap_line_length = 0,
+    },
+    Files = {
+      ScanMaxDepth = 4,
+    },
+    CompletionCommitCharacters = {
+      ["Class"] = ".(",
+      ["Function"] = "(",
     },
   },
 }
