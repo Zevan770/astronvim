@@ -1,9 +1,10 @@
 ---@type LazySpec
 return {
-
   {
     "lewis6991/hover.nvim",
-    lazy = false,
+    event = {
+      "LspAttach",
+    },
     config = function()
       require("hover").config {
         providers = {
@@ -17,7 +18,7 @@ return {
           "hover.providers.gh_user",
           "hover.providers.jira",
           "hover.providers.fold_preview",
-          "hover.providers.highlight",
+          -- "hover.providers.highlight",
         },
         preview_opts = { border = "single" },
         -- Whether the contents of a currently open hover window should be moved
