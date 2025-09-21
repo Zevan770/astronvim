@@ -32,7 +32,56 @@ return {
   --#region:
   --========================================
   --#endregion
+  {
+    "kevinhwang91/nvim-ufo",
+    event = { "User AstroFile", "InsertEnter" },
+    enabled = vim.fn.has "nvim-0.11" ~= 1,
+    specs = {
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          maps.n["zR"] = { function() require("ufo").openAllFolds() end, desc = "Open all folds" }
+          maps.n["zM"] = { function() require("ufo").closeAllFolds() end, desc = "Close all folds" }
+          maps.n["zr"] = { function() require("ufo").openFoldsExceptKinds() end, desc = "Fold less" }
+          maps.n["zm"] = { function() require("ufo").closeFoldsWith() end, desc = "Fold more" }
+          maps.n["zp"] = { function() require("ufo").peekFoldedLinesUnderCursor() end, desc = "Peek fold" }
 
+          local opt = opts.options.opt
+          opt.foldcolumn = "1"
+          opt.foldexpr = "0"
+          opt.foldenable = true
+          opt.foldlevel = 99
+          opt.foldlevelstart = 99
+
+          opts.autocmds.persistent_astroui_foldexpr = nil
+        end,
+      },
+      {
+        "AstroNvim/astrolsp",
+        optional = true,
+        opts = function(_, opts)
+          local astrocore = require "astrocore"
+          if astrocore.is_available "nvim-ufo" then
+            opts.capabilities = astrocore.extend_tbl(opts.capabilities, {
+              textDocument = { foldingRange = { dynamicRegistration = false, lineFoldingOnly = true } },
+            })
+          end
+        end,
+      },
+    },
+    dependencies = { { "kevinhwang91/promise-async", lazy = true } },
+    opts = {
+      preview = {
+        mappings = {
+          scrollB = "<C-B>",
+          scrollF = "<C-F>",
+          scrollU = "<C-U>",
+          scrollD = "<C-D>",
+        },
+      },
+    },
+  },
   {
     "kevinhwang91/nvim-ufo",
     version = false,
