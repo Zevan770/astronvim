@@ -22,4 +22,12 @@ return {
       })
     end,
   },
+  {
+    "AstroNvim/astrolsp",
+    opts = {
+      servers = {
+        "autohotkey_lsp",
+      },
+    },
+  },
 }
