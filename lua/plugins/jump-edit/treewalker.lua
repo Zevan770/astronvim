@@ -69,7 +69,7 @@ return {
       { "<M-b>", "<Plug>(treeclimber-select-backward)", mode = { "n", "x", "o" } },
       { "<M-e>", "<Plug>(treeclimber-select-forward-end)", mode = { "n", "x", "o" } },
       -- Commands
-      { "<leader>k", "<Plug>(treeclimber-show-control-flow)", mode = "n" },
+      { "<leader>xo", "<Plug>(treeclimber-show-control-flow)", mode = "n" },
     },
     cmd = { "TCDiffThis", "TCShowControlFlow", "TCHighlightExternalDefinitions" },
   },

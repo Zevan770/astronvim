@@ -17,8 +17,8 @@ return {
 
       -- buffers
       maps.n["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" }
-      maps.n["H"] = maps.n["[b"]
-      maps.n["L"] = maps.n["]b"]
+      -- maps.n["H"] = maps.n["[b"]
+      -- maps.n["L"] = maps.n["]b"]
       maps.n["<Leader>bq"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force close buffer" }
       maps.n["<Leader>bo"] =
         { function() require("astrocore.buffer").close_all(true) end, desc = "Close all buffers except current" }
