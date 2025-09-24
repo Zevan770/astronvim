@@ -94,6 +94,7 @@ return {
           foo = "fooscript",
           ahk2 = "autohotkey",
           ahk1 = "autohotkey",
+          ah2 = "autohotkey",
           log = "log",
           kbd = "lisp",
         },
