@@ -103,6 +103,8 @@ return {
           ["Foofile"] = "fooscript",
           ["%.vindrc"] = "vim",
           ["messages"] = "log",
+          ["tmux.conf"] = "sh",
+          [".tmux.conf"] = "sh",
         },
         pattern = {
           ["~/%.config/foo/.*"] = "fooscript",
