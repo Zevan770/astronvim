@@ -15,29 +15,29 @@ return {
       }
 
       -- Recommended keymaps
-      vim.keymap.set("n", "<lead>oot", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
-      vim.keymap.set("n", "<lead>ooA", function() require("opencode").ask() end, { desc = "Ask opencode" })
+      vim.keymap.set("n", "<leader>oot", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
+      vim.keymap.set("n", "<leader>ooA", function() require("opencode").ask() end, { desc = "Ask opencode" })
       vim.keymap.set(
         "n",
-        "<lead>ooa",
+        "<leader>ooa",
         function() require("opencode").ask "@cursor: " end,
         { desc = "Ask opencode about this" }
       )
       vim.keymap.set(
         "v",
-        "<lead>ooa",
+        "<leader>ooa",
         function() require("opencode").ask "@selection: " end,
         { desc = "Ask opencode about selection" }
       )
       vim.keymap.set(
         "n",
-        "<lead>oon",
+        "<leader>oon",
         function() require("opencode").command "session_new" end,
         { desc = "New opencode session" }
       )
       vim.keymap.set(
         "n",
-        "<lead>ooy",
+        "<leader>ooy",
         function() require("opencode").command "messages_copy" end,
         { desc = "Copy last opencode response" }
       )
@@ -55,7 +55,7 @@ return {
       )
       vim.keymap.set(
         { "n", "v" },
-        "<lead>oos",
+        "<leader>oos",
         function() require("opencode").select() end,
         { desc = "Select opencode prompt" }
       )
@@ -63,7 +63,7 @@ return {
       -- Example: keymap for custom prompt
       vim.keymap.set(
         "n",
-        "<lead>ooe",
+        "<leader>ooe",
         function() require("opencode").prompt "Explain @cursor and its context" end,
         { desc = "Explain this code" }
       )
