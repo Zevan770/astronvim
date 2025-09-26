@@ -42,6 +42,7 @@ return {
           wildmode = "list:longest,full",
           colorcolumn = { 80, 100 },
           -- inccommand = "split",
+          winborder = "rounded",
           list = true,
           listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:  " }, ","),
           spelllang = "en,cjk",
