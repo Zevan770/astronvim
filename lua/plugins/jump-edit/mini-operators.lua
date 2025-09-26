@@ -5,7 +5,7 @@ return {
       -- Evaluate text and replace with output
       -- stylua: ignore start
       evaluate = { prefix = "g=", func = nil },
-      exchange = { prefix = "gx", reindent_linewise = true },
+      exchange = { prefix = "gsx", reindent_linewise = true },
       multiply = { prefix = "", func = nil },
       replace  = { prefix = "gsr", reindent_linewise = true },
       sort     = { prefix = "gst", func = nil },
