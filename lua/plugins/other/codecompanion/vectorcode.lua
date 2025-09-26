@@ -2,7 +2,7 @@
 return {
   {
     "Davidyz/VectorCode",
-    version = "0.7.7", -- optional, depending on whether you're on nightly or release
+    version = "0.7.15", -- optional, depending on whether you're on nightly or release
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = "VectorCode", -- if you're lazy-loading VectorCode
     lazy = true,
