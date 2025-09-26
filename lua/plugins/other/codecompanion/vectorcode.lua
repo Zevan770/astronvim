@@ -23,7 +23,6 @@ return {
         },
         async_backend = "lsp", -- or "lsp"
         exclude_this = true,
-        n_query = 10,
         notify = true,
         -- timeout_ms = 10000,
         -- on_setup = {
@@ -71,12 +70,10 @@ return {
                     max_num = { chunk = -1, document = -1 },
                     default_num = { chunk = 50, document = 10 },
                     include_stderr = false,
-                    -- use_lsp = true,
                     no_duplicate = true,
                     chunk_mode = false,
                     summarise = {
-                      enabled = false,
-                      adapter = nil,
+                      enabled = true,
                       query_augmented = true,
                     },
                   },
