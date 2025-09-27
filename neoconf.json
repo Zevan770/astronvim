@@ -1,8 +1,0 @@
-{
-  "lspconfig": {
-    "bashls": {
-      "bashIde.backgroundAnalysisMaxFiles": 20,
-      "bashIde.globPattern": "**/*@(.sh|.inc|.bash|.command|.zsh|.zshrc)"
-    }
-  }
-}
