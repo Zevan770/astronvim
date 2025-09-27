@@ -14,7 +14,6 @@ return {
         },
       },
     },
-    specs = { "akinsho/toggleterm.nvim" },
     opts = function(_, opts)
       ---@type Terminal?
       local saved_terminal
@@ -39,7 +38,8 @@ return {
             -- return vim.tbl_contains(argv, "-d")
           end,
           pre_open = function()
-            local term = require "toggleterm.terminal"
+            local ok, term = pcall(require, "toggleterm.terminal")
+            if not ok then return end
             local termid = term.get_focused_id()
             saved_terminal = term.get(termid)
           end,
