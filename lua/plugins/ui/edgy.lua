@@ -8,85 +8,43 @@ return {
       opts.move_cursor = true
       return opts
     end,
-    keys = {
-      {
-        "<A-h>",
-        function() require("smart-splits").move_cursor_left() end,
-        desc = "Move to left split",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-j>",
-        function() require("smart-splits").move_cursor_down() end,
-        desc = "Move to below split",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-k>",
-        function() require("smart-splits").move_cursor_up() end,
-        desc = "Move to above split",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-l>",
-        function() require("smart-splits").move_cursor_right() end,
-        desc = "Move to right split",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-S-k>",
-        function() require("smart-splits").resize_up() end,
-        desc = "Resize split up",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-S-j>",
-        function() require("smart-splits").resize_down() end,
-        desc = "Resize split down",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-S-h>",
-        function() require("smart-splits").resize_left() end,
-        desc = "Resize split left",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-S-l>",
-        function() require("smart-splits").resize_right() end,
-        desc = "Resize split right",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-C-k>",
-        function() require("smart-splits").swap_buf_up() end,
-        desc = "Resize split right",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-C-j>",
-        function() require("smart-splits").swap_buf_down() end,
-        desc = "Resize split right",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-C-h>",
-        function() require("smart-splits").swap_buf_left() end,
-        desc = "Resize split right",
-        mode = { "n", "i", "t" },
-      },
-      {
-        "<A-C-l>",
-        function() require("smart-splits").swap_buf_right() end,
-        desc = "Resize split right",
-        mode = { "n", "i", "t" },
-      },
-      -- {
-      --   "<c-t>",
-      --   function() require("smart-splits").move_cursor_previous() end,
-      --   desc = "Move to previous split",
-      -- },
-    },
+    keys = function()
+      local directions = {
+        h = "left",
+        j = "down",
+        k = "up",
+        l = "right",
+      }
+      local keys = {}
+      -- Move cursor
+      for key, dir in pairs(directions) do
+        table.insert(keys, {
+          string.format("<A-%s>", key),
+          function() require("smart-splits")["move_cursor_" .. dir]() end,
+          desc = string.format("Move to %s split", dir),
+          mode = { "n", "i", "t" },
+        })
+      end
+      -- Resize split
+      for key, dir in pairs(directions) do
+        table.insert(keys, {
+          string.format("<A-S-%s>", key),
+          function() require("smart-splits")["resize_" .. dir]() end,
+          desc = string.format("Resize split %s", dir),
+          mode = { "n", "i", "t" },
+        })
+      end
+      -- Swap buffer (use move_mouse param)
+      for key, dir in pairs(directions) do
+        table.insert(keys, {
+          string.format("<A-C-%s>", key),
+          function() require("smart-splits")["swap_buf_" .. dir] { move_mouse = true } end,
+          desc = string.format("Swap buffer %s", dir),
+          mode = { "n", "i", "t" },
+        })
+      end
+      return keys
+    end,
   },
   {
     "folke/edgy.nvim",
