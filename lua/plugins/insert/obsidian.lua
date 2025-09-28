@@ -15,7 +15,7 @@ return {
     "nvim-lua/plenary.nvim",
   },
   ---@module "obsidian"
-  ---@type obsidian.config.ClientOpts
+  ---@type obsidian.config
   opts = {
     ui = { enable = false },
     -- use_advanced_uri = true,
@@ -26,21 +26,21 @@ return {
         name = "notes",
         path = notedir,
       },
-      {
-        name = "no-vault",
-        path = function()
-          -- alternatively use the CWD:
-          return assert(vim.fn.getcwd())
-        end,
-        overrides = {
-          notes_subdir = vim.NIL, -- have to use 'vim.NIL' instead of 'nil'
-          new_notes_location = "notes_subdir",
-          templates = {
-            folder = vim.NIL,
-          },
-          disable_frontmatter = true,
-        },
-      },
+      -- {
+      --   name = "no-vault",
+      --   path = function()
+      --     -- alternatively use the CWD:
+      --     return assert(vim.fn.getcwd())
+      --   end,
+      --   overrides = {
+      --     -- notes_subdir = vim.NIL, -- have to use 'vim.NIL' instead of 'nil'
+      --     new_notes_location = "notes_subdir",
+      --     templates = {
+      --       -- folder = vim.NIL,
+      --     },
+      --     disable_frontmatter = true,
+      --   },
+      -- },
     },
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {

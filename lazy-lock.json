@@ -163,7 +163,7 @@
   "nvim-various-textobjs": { "branch": "main", "commit": "237763835b65bdc64f0e19a31c040321813e4333" },
   "nvim-vtsls": { "branch": "main", "commit": "0b5f73c9e50ce95842ea07bb3f05c7d66d87d14a" },
   "nvim-window-picker": { "branch": "main", "commit": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec" },
-  "obsidian.nvim": { "branch": "main", "commit": "c801f3d414b8a92f59a460cd2fe35824609dc91c" },
+  "obsidian.nvim": { "branch": "main", "commit": "51effad0002724d400f02de063a9030d98dd759d" },
   "octo.nvim": { "branch": "master", "commit": "2a758bd6f121c63cd0d0a749ffda89993f869101" },
   "oil.nvim": { "branch": "master", "commit": "07f80ad645895af849a597d1cac897059d89b686" },
   "one-small-step-for-vimkind": { "branch": "main", "commit": "91b4e0fb0d640def73812aceb22dafb99261dd67" },

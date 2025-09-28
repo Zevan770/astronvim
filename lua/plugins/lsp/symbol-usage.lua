@@ -37,7 +37,6 @@ return {
 
       return res
     end
-    local SymbolKind = vim.lsp.protocol.SymbolKind
     ---@module "symbol-usage"
     ---@type UserOpts
     return {
@@ -45,10 +44,11 @@ return {
       ---@type 'above'|'end_of_line'|'textwidth'|'signcolumn' `above` by default
       vt_position = "end_of_line",
       vt_priority = nil, ---@type integer Virtual text priority (see `nvim_buf_set_extmark`)
+      disable = { lsp = { "obsidian-ls" }, filetypes = { "markdown" } },
       filetypes = {
-        markdown = {
-          kinds = { SymbolKind.Variable },
-        },
+        -- markdown = {
+        --   kinds = { SymbolKind.Variable },
+        -- },
       },
     }
   end,
