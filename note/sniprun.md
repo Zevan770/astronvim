@@ -1,7 +1,7 @@
 ## tested lang
 
 ```lua
-vim.notify("hello")
+vim.notify "hello"
 ```
 
 ```python
@@ -9,7 +9,8 @@ print("hello")
 ```
 
 ```js
-console.log("hello")
+console.log("hello");
+console.log("fucking impossible");
 ```
 
 ```bash
@@ -17,7 +18,7 @@ echo "hello"
 ```
 
 ```typescript
-console.log("hello")
+console.log("hello");
 ```
 
 ```vim
@@ -27,8 +28,8 @@ echo "hello"
 ```c
 #include <stdio.h>
 int main() {
-    printf("hello\n");
-    return 0;
+  printf("hello\n");
+  return 0;
 }
 ```
 
@@ -49,4 +50,9 @@ echo "hello"
 ```
 
 ```norg
+
+```
+
+```python
+print("hello, otter")
 ```
