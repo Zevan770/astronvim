@@ -70,4 +70,10 @@ require("lazy").setup({
       },
     },
   },
+
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = not my_utils.is_windows,
+    notify = true, -- get a notification when changes are found
+  },
 } --[[@as LazyConfig]])
