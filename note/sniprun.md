@@ -11,6 +11,7 @@ print("hello")
 ```js
 console.log("hello");
 console.log("fucking impossible");
+console.log("fucking impossible");
 ```
 
 ```bash
@@ -29,6 +30,7 @@ echo "hello"
 #include <stdio.h>
 int main() {
   printf("hello\n");
+  printf("fucking impossible\n");
   return 0;
 }
 ```
