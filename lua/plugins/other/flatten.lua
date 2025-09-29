@@ -78,7 +78,7 @@ return {
             end)
           end,
         },
-        integrations = { wezterm = true },
+        integrations = { wezterm = false },
         nest_if_no_args = true,
       }
     end,
