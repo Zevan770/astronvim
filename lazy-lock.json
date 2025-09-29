@@ -5,7 +5,7 @@
   "LazyDo": { "branch": "main", "commit": "5b36c04fac4c4f3257cf66d0c1a34a88a78850aa" },
   "LuaSnip": { "branch": "master", "commit": "b3104910bb5ebf40492aadffae18f2528fa757d9" },
   "NrrwRgn": { "branch": "master", "commit": "e027db9d94f94947153cd7b5ac9abd04371ab2b0" },
-  "VectorCode": { "branch": "main", "commit": "3f30dcb2e441c80075be24aa3d50223de2647274" },
+  "VectorCode": { "branch": "main", "commit": "4232d9cf9762f4cf4fedcceedf351a0b358a0f31" },
   "YankAssassin.nvim": { "branch": "main", "commit": "4074b307bec6bb8c92b59fb3544e3dc3e43fcf6d" },
   "aerial.nvim": { "branch": "master", "commit": "c7cbbad40c2065fccfd1f1863bb2c08180c0533d" },
   "any-jump.vim": { "branch": "master", "commit": "f95674d9a4251ac02f452d5f1861e4422f4652c7" },
