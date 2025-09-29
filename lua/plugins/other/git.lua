@@ -50,9 +50,9 @@ return {
       current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = "right_align", -- 'eol' | 'overlay' | 'right_align'
-        delay = 50,
+        delay = 100,
         ignore_whitespace = true,
-        virt_text_priority = 100,
+        virt_text_priority = 20,
         use_focus = true,
       },
     },
