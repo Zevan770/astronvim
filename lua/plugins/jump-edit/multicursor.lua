@@ -88,15 +88,15 @@ return {
 
       -- Add or skip adding a new cursor by matching word/selection
       set({ "n", "x" }, "<c-n>", function() mc.matchAddCursor(1) end)
-      -- set({ "n", "x" }, "gmq", function() mc.matchSkipCursor(1) end)
-      set({ "n", "x" }, "gmN", function() mc.matchAddCursor(-1) end)
-      -- set({ "n", "x" }, "gmQ", function() mc.matchSkipCursor(-1) end)
+      -- set({ "n", "x" }, "<leader>mq", function() mc.matchSkipCursor(1) end)
+      set({ "n", "x" }, "<leader>mN", function() mc.matchAddCursor(-1) end)
+      -- set({ "n", "x" }, "<leader>mQ", function() mc.matchSkipCursor(-1) end)
 
       -- Pressing `<leader>miwap` will create a cursor in every match of the
       -- string captured by `iw` inside range `ap`.
       -- This action is highly customizable, see `:h multicursor-operator`.
-      set({ "n", "x" }, "gmm", mc.operator)
-      set({ "x" }, "gmv", mc.visualToCursors)
+      set({ "n", "x" }, "<leader>mm", mc.operator)
+      set({ "x" }, "<leader>mv", mc.visualToCursors)
 
       -- Add and remove cursors with control + left click.
       set("n", "<c-leftmouse>", mc.handleMouse)
@@ -104,7 +104,7 @@ return {
       set("n", "<c-leftrelease>", mc.handleMouseRelease)
 
       -- Disable and enable cursors.
-      set({ "n", "x" }, "<leader>m", mc.toggleCursor)
+      set({ "n", "x" }, "<leader>m<leader>", mc.toggleCursor)
       -- match new cursors within visual selections by regex.
       -- set("x", "M", mc.matchCursors)
       set("x", "I", mc.insertVisual)
@@ -157,8 +157,8 @@ return {
 
       -- mcos doesn't setup any keymaps
       -- here are some recommended ones
-      vim.keymap.set({ "n", "v" }, "gms", mcos.opkeymapfunc, { expr = true })
-      vim.keymap.set({ "n" }, "gmss", mcos.bufkeymapfunc)
+      vim.keymap.set({ "n", "v" }, "<leader>ms", mcos.opkeymapfunc, { expr = true })
+      vim.keymap.set({ "n" }, "<leader>mss", mcos.bufkeymapfunc)
     end,
   },
 }
