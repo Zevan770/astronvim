@@ -11,6 +11,8 @@ return {
       local astro = require "astrocore"
       -- vim.keymap.set("i", "<Tab>", "<Tab>")
       --- App
+
+      maps.n["zS"] = "<Cmd>Inspect<CR>"
       maps.n["<Leader>o"] = { desc = "Open Appalication" }
       maps.n["<Leader>ox"] = { function() require("lazy").home() end, desc = "Plugins" }
       -- maps.n["<Leader>oe"] = { "<Leader>e", remap = true, desc = "explorer" }
