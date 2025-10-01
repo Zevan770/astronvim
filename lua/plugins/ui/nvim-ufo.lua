@@ -35,7 +35,7 @@ return {
   {
     "kevinhwang91/nvim-ufo",
     event = { "User AstroFile", "InsertEnter" },
-    enabled = vim.fn.has "nvim-0.11" ~= 1,
+    enabled = true,
     specs = {
       {
         "AstroNvim/astrocore",
@@ -53,6 +53,7 @@ return {
           opt.foldenable = true
           opt.foldlevel = 99
           opt.foldlevelstart = 99
+          opt.foldmethod = "manual"
 
           opts.autocmds.persistent_astroui_foldexpr = nil
         end,

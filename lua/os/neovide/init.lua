@@ -2,7 +2,7 @@ if not vim.g.neovide then return {} end
 
 local M = {}
 local disabled = {
-  "neoscroll.nvim",
+  -- "neoscroll.nvim",
 }
 
 -- mix disabled with "enabled = false"
