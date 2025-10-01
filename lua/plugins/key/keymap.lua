@@ -163,21 +163,11 @@ return {
       -- maps.n["N"] = "Nzz"
       -- maps.v["N"] = "Nzz"
 
-      -- local lazygit = {
-      --   callback = function()
-      --     local worktree = astro.file_worktree()
-      --     local default_config = vim.env.HOME .. "/.config/lazygit/config.yml"
-      --     local extra_user_config = vim.fn.stdpath "config" .. "/lua/plugins/other/lazygit.yml"
-      --     local worktree_flags = worktree and ("--work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir)
-      --       or ""
-      --     local flags = ("-ucf=%s,%s %s"):format(default_config, extra_user_config, worktree_flags)
-      --     -- vim.notify("lazygit " .. flags)
-      --     astro.toggle_term_cmd { cmd = "lazygit " .. flags, direction = "float" }
-      --   end,
-      --   desc = "ToggleTerm lazygit",
-      -- }
-      -- maps.n["<Leader>gg"] = { lazygit.callback, desc = lazygit.desc }
-      -- maps.n["<Leader>tl"] = { lazygit.callback, desc = lazygit.desc }
+      if my_utils.is_windows then
+        maps.n["<Leader>gg"] = { function() astro.toggle_term_cmd { cmd = "gitui", direction = "float" } end }
+        maps.n["<Leader>tl"] = maps.n["<Leader>gg"]
+      end
+
       maps.i["<C-Space>"] = "<c-x><c-o>"
 
       maps.n["gcp"] = { [["xyygcc"xp]], desc = "comment and duplicate line", remap = true }
