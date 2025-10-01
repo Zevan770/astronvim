@@ -3,7 +3,6 @@
 local M = {}
 M.executable_cache = {
   btm = 0,
-  cc = 1,
   chafa = 1,
   cmake = 1,
   curl = 1,
@@ -21,7 +20,7 @@ M.executable_cache = {
   python = 1,
   rg = 1,
   ["tree-sitter"] = 1,
-  ["wezterm.exe"] = 1
+  ["wezterm.exe"] = 1,
 }
 function M.executable(cmd)
   -- cache it
