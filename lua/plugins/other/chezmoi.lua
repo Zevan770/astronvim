@@ -32,23 +32,23 @@ return {
         on_watch = true,
       },
     },
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        ---@type AstroCoreOpts
-        opts = {
-          autocmds = {
-            chezmoi = {
-              {
-                event = { "BufRead", "BufNewFile" },
-                pattern = { os.getenv "HOME" .. "/.local/share/chezmoi/*" },
-                callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
-              },
-            },
-          },
-        },
-      },
-    },
+    -- dependencies = {
+    --   {
+    --     "AstroNvim/astrocore",
+    --     ---@type AstroCoreOpts
+    --     opts = {
+    --       autocmds = {
+    --         chezmoi = {
+    --           {
+    --             event = { "BufRead", "BufNewFile" },
+    --             pattern = { os.getenv "HOME" .. "/.local/share/chezmoi/*" },
+    --             callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
+    --           },
+    --         },
+    --       },
+    --     },
+    --   },
+    -- },
     specs = {
       -- {
       --   "nvim-telescope/telescope.nvim",
