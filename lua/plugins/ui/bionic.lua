@@ -20,6 +20,7 @@ H.ft_builder = function()
   end
   return res
 end
+
 ---@type LazySpec
 return {
   {
@@ -47,7 +48,7 @@ return {
         treesitter = true,
         -- Flag used to control if highlighting is applied as
         -- you type
-        update_in_insert_mode = true,
+        update_in_insert_mode = false,
       }
       return opts
     end,
