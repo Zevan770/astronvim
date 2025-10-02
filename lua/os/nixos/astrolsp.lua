@@ -39,8 +39,6 @@ return {
         -- "zk",
         "ruff",
       },
-      ---@diagnostic disable: missing-fields
-      config = {},
     },
   },
 }
