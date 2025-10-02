@@ -24,7 +24,12 @@ return {
     ---@module "sidekick"
     ---@type sidekick.Config
     opts = {
-      -- add any options here
+      cli = {
+        mux = {
+          backend = "tmux",
+          enabled = true,
+        },
+      },
     },
     keys = {
       {
@@ -62,8 +67,20 @@ return {
         desc = "Sidekick Claude Toggle",
       },
       {
+        "<leader>oas",
+        function() require("sidekick.cli").send { selection = true } end,
+        mode = { "v" },
+        desc = "Sidekick Send Visual Selection",
+      },
+      {
+        "<c-.>",
+        function() require("sidekick.cli").focus() end,
+        mode = { "n", "x", "i", "t" },
+        desc = "Sidekick Switch Focus",
+      },
+      {
         "<leader>oap",
-        function() require("sidekick.cli").select_prompt() end,
+        function() require("sidekick.cli").prompt() end,
         desc = "Sidekick Ask Prompt",
         mode = { "n", "v" },
       },
