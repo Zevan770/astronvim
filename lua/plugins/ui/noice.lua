@@ -44,6 +44,7 @@ return {
       )
     end,
     keys = {
+      { "<c-q>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
       { "<leader>onl", function() require("noice").cmd "last" end, desc = "Noice Last Message" },
       { "<leader>onh", function() require("noice").cmd "history" end, desc = "Noice History" },
       { "<leader>ona", function() require("noice").cmd "all" end, desc = "Noice All" },
