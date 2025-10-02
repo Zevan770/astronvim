@@ -73,7 +73,7 @@ return {
         desc = "Sidekick Send Visual Selection",
       },
       {
-        "<c-.>",
+        "<A-o>",
         function() require("sidekick.cli").focus() end,
         mode = { "n", "x", "i", "t" },
         desc = "Sidekick Switch Focus",
