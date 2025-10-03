@@ -278,7 +278,7 @@ return {
             end,
             desc = "Search symbols",
           }
-          maps.n["<A-c>"] = maps.n["<Leader>ls"]
+          maps.n["<A-o>"] = maps.n["<Leader>ls"]
         end,
       },
     },
