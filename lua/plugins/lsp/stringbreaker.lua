@@ -1,22 +1,30 @@
 return {
   "duqcyxwd/stringbreaker.nvim",
-  config = function()
-    require("string-breaker").setup {
-      preview = {
-        max_length = 1000, -- Maximum preview content length
-        use_float = true, -- Use floating window for preview
-        width = 100, -- Floating window width
-        height = 4, -- Floating window height
-      },
-    }
-
+  opts = {
+    preview = {
+      max_length = 1000, -- Maximum preview content length
+      use_float = true, -- Use floating window for preview
+      width = 100, -- Floating window width
+      height = 4, -- Floating window height
+    },
+  },
+  keys = {
+    {
+      "<space>ibe",
+      function() require("string-breaker").break_string() end,
+      mode = { "n", "v" },
+      desc = "Break string for editing",
+    },
+    {
+      "<space>ibp",
+      function() require("string-breaker").preview() end,
+      mode = { "n", "v" },
+      desc = "Preview string content",
+    },
+  },
+  config = function(_, opts)
+    require("string-breaker").setup(opts)
     local stringBreaker = require "string-breaker"
-
-    --- keybindings example
-    vim.keymap.set({ "n", "v" }, "<space>ibe", stringBreaker.break_string, { desc = "Break string for editing" })
-    vim.keymap.set({ "n", "v" }, "<space>ibp", stringBreaker.preview, { desc = "Preview string content" })
-    vim.keymap.set("n", "<space>ibc", stringBreaker.cancel, { desc = "Cancel string editing" })
-
     -- Auto-keybindings in string editor buffers
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "stringBreaker",
