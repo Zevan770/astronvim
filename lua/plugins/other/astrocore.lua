@@ -26,6 +26,7 @@ return {
           completeopt = require("astrocore").list_insert_unique(opts.options.opt.completeopt, { "fuzzy", "preview" }),
           confirm = true,
           diffopt = vim.opt.diffopt + "vertical", -- sets vim.opt.diffopt
+          exrc = true,
           foldmarker = "#region,#endregion",
           guicursor = vim.opt.guicursor, -- sets vim.opt.guicursor
           jumpoptions = "view",
