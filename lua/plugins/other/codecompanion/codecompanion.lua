@@ -190,6 +190,11 @@ return {
         end,
       },
 
+      memory = {
+        opts = {
+          enabled = true,
+        },
+      },
       extensions = {
         spinner = {},
       },
