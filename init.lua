@@ -1,3 +1,4 @@
+vim.loader.enable()
 ---@diagnostic disable: duplicate-set-field
 --#region  HACK: vim api
 vim.deprecate = function() end
