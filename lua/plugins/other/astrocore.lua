@@ -21,46 +21,42 @@ return {
       -- vim options can be configured here
       options = {
         opt = { -- vim.opt.<key>
-          relativenumber = true, -- sets vim.opt.relativenumber
-          number = true, -- sets vim.opt.number
-          spell = false, -- sets vim.opt.spell
-          signcolumn = "yes", -- sets vim.opt.signcolumn to auto
-          wrap = false, -- sets vim.opt.wrap
-          guicursor = vim.opt.guicursor, -- sets vim.opt.guicursor
-          diffopt = vim.opt.diffopt + "vertical", -- sets vim.opt.diffopt
-          mousemoveevent = true,
-          startofline = true,
-          foldmarker = "#region,#endregion",
-          jumpoptions = "view",
-          winblend = 10,
-          pumblend = 10,
-          pumheight = 10,
-          confirm = true,
-          sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize",
-          completeopt = require("astrocore").list_insert_unique(opts.options.opt.completeopt, { "fuzzy", "preview" }),
-          wildoptions = "fuzzy,pum,tagfile",
-          wildmode = "list:longest,full",
-          colorcolumn = { 80, 100 },
           -- inccommand = "split",
-          winborder = "rounded",
+          colorcolumn = { 80, 100 },
+          completeopt = require("astrocore").list_insert_unique(opts.options.opt.completeopt, { "fuzzy", "preview" }),
+          confirm = true,
+          diffopt = vim.opt.diffopt + "vertical", -- sets vim.opt.diffopt
+          foldmarker = "#region,#endregion",
+          guicursor = vim.opt.guicursor, -- sets vim.opt.guicursor
+          jumpoptions = "view",
           list = true,
           listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:  " }, ","),
+          mousemoveevent = true,
+          number = true, -- sets vim.opt.number
+          pumblend = 10,
+          pumheight = 10,
+          relativenumber = true, -- sets vim.opt.relativenumber
+          sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize",
+          signcolumn = "yes", -- sets vim.opt.signcolumn to auto
+          spell = false, -- sets vim.opt.spell
           spelllang = "en,cjk",
-          fillchars = table.concat(
-            -- Special UI symbols
-            {
-              "eob: ",
-              "fold:╌",
-              "horiz:═",
-              "horizdown:╦",
-              "horizup:╩",
-              "vert:║",
-              "verthoriz:╬",
-              "vertleft:╣",
-              "vertright:╠",
-            },
-            ","
-          ),
+          startofline = true,
+          wildmode = "list:longest,full",
+          wildoptions = "fuzzy,pum,tagfile",
+          winblend = 10,
+          winborder = "rounded",
+          wrap = false, -- sets vim.opt.wrap
+          fillchars = {
+            eob = " ",
+            fold = "╌",
+            horiz = "═",
+            horizdown = "╦",
+            horizup = "╩",
+            vert = "║",
+            verthoriz = "╬",
+            vertleft = "╣",
+            vertright = "╠",
+          },
         },
         g = { -- vim.g.<key>
           -- configure global vim variables (vim.g)
