@@ -85,6 +85,9 @@ return {
         chat = {
           show_settings = false,
         },
+        action_palette = {
+          provider = "snacks",
+        },
       },
       strategies = {
         chat = {
@@ -200,5 +203,4 @@ return {
       },
     },
   },
-
 }
