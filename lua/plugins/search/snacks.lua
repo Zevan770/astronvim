@@ -219,6 +219,7 @@ return {
           maps.n["<F1>"] = maps.n["<Leader>fh"]
           maps.n["<Leader>fh"] = { function() Snacks.picker.highlights() end, desc = "Find Highlights" }
           maps.n["<Leader>fi"] = { function() Snacks.picker.icons() end, desc = "Find icons" }
+          maps.i["<C-x>i"] = { function() Snacks.picker.icons() end, desc = "Find icons" }
           maps.n["<Leader>fa"] = { function() Snacks.picker.autocmds() end, desc = "Find autocmds" }
 
           maps.n["<A-/>"] = {
