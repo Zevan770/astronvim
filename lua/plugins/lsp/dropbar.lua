@@ -1,9 +1,8 @@
--- if true then return {} end
+if true then return {} end
 ---@type LazySpec
 return {
   "Bekaboo/dropbar.nvim",
   event = "UIEnter",
-  enabled = false,
   opts = function(_, opts)
     local utils = require "dropbar.utils"
     local sources = require "dropbar.sources"
