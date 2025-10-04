@@ -26,6 +26,10 @@ return {
   --   },
   -- },
   {
+    "tinted-theming/tinted-vim",
+    lazy = true,
+  },
+  {
     "RRethy/base16-nvim",
     enabled = false,
     config = function()
