@@ -37,11 +37,14 @@ return {
           pumblend = 10,
           pumheight = 10,
           relativenumber = true, -- sets vim.opt.relativenumber
-          sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize",
+          sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" },
           signcolumn = "yes", -- sets vim.opt.signcolumn to auto
           spell = false, -- sets vim.opt.spell
           spelllang = "en,cjk",
           startofline = true,
+          splitkeep = "screen",
+          sidescrolloff = 8,
+          smoothscroll = true,
           wildmode = "list:longest,full",
           wildoptions = "fuzzy,pum,tagfile",
           winblend = 10,
