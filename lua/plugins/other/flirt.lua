@@ -1,8 +1,8 @@
+if true then return {} end
 return {
   {
     "tamton-aquib/flirt.nvim",
     event = "VeryLazy",
-    enabled = false,
     opts = {
       override_open = true,
       default_move_mappings = true,

@@ -1,8 +1,8 @@
+if true then return {} end
 ---@type LazySpec
 return {
   {
     "linrongbin16/gentags.nvim",
-    enabled = false,
     dev = true,
     ---@module "gentags"
     ---@type gentags.Options

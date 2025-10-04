@@ -1,4 +1,4 @@
--- if true then return {} end
+if true then return {} end
 ---@type LazySpec
 return {
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
@@ -6,7 +6,6 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
     version = "^3",
-    cond = false,
     cmd = {
       "CopilotChat",
       "CopilotChatOpen",

@@ -1,3 +1,4 @@
+if true then return {} end
 ---@type LazySpec
 return {
   {
@@ -6,7 +7,6 @@ return {
   },
   {
     "Exafunction/codeium.nvim",
-    enabled = false,
     opts = {
       enable_cmp_source = true,
       virtual_text = {

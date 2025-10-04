@@ -34,7 +34,6 @@ local M = {
   -- utility/tools/games
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.pack.full-dadbod" },
-  { import = "astrocommunity.game.leetcode-nvim" },
   { import = "astrocommunity.docker.lazydocker" },
   -- { import = "astrocommunity.note-taking.venn-nvim" },
 
