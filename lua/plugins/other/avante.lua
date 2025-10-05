@@ -1,10 +1,10 @@
+-- if true then return {} end
 ---@type LazySpec
 return {
   {
     "yetone/avante.nvim",
     build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
       or "make",
-    event = "User AstroFile", -- load on file open because Avante manages it's own bindings
     specs = {
       { "stevearc/dressing.nvim", optional = true },
       "nvim-lua/plenary.nvim",
@@ -30,10 +30,17 @@ return {
           },
         },
       },
+    },
+    keys = {
       {
-        "AstroNvim/astrocore",
-        ---@param opts AstroCoreOpts
-        opts = function(_, opts) opts.mappings.n["<Leader>a"] = { desc = " Avante" } end,
+        "<leader>a",
+        function()
+          -- HACK: Super hacky way to lazy-load avante.nvim only when key pressed
+          vim.keymap.del({ "n", "v" }, "<leader>a")
+          pcall(require("which-key").show, "<leader>a")
+        end,
+        desc = " Avante",
+        mode = { "n", "v" },
       },
     },
     ---@module "avante"
@@ -49,25 +56,25 @@ return {
         support_paste_from_clipboard = false,
         enable_cursor_planning_mode = true, -- enable cursor planning mode!
       },
-      rag_service = { -- RAG Service configuration
-        -- enabled = my_utils.is_nixos, -- Enables the RAG service
-        -- enabled = my_utils.is_nixos and not os.getenv "avante_no_rag", -- Enables the RAG service
-        enabled = false,
-        host_mount = os.getenv "HOME", -- Host mount path for the rag service (Docker will mount this path)
-        runner = "docker", -- Runner for the RAG service (can use docker or nix)
-        llm = { -- Language Model (LLM) configuration for RAG service
-          provider = "openai", -- LLM provider
-          endpoint = "http://host.docker.internal:4141",
-          model = "gpt-4o", -- LLM model name
-          extra = nil, -- Additional configuration options for LLM
-        },
-        embed = { -- Embedding model configuration for RAG service
-          provider = "openai", -- Embedding provider
-          endpoint = "http://host.docker.internal:4141",
-          model = "text-embedding-3-small", -- Embedding model name
-          extra = nil, -- Additional configuration options for the embedding model
-        },
-      },
+      -- rag_service = { -- RAG Service configuration
+      --   -- enabled = my_utils.is_nixos, -- Enables the RAG service
+      --   -- enabled = my_utils.is_nixos and not os.getenv "avante_no_rag", -- Enables the RAG service
+      --   enabled = false,
+      --   host_mount = os.getenv "HOME", -- Host mount path for the rag service (Docker will mount this path)
+      --   runner = "docker", -- Runner for the RAG service (can use docker or nix)
+      --   llm = { -- Language Model (LLM) configuration for RAG service
+      --     provider = "openai", -- LLM provider
+      --     endpoint = "http://host.docker.internal:4141",
+      --     model = "gpt-4o", -- LLM model name
+      --     extra = nil, -- Additional configuration options for LLM
+      --   },
+      --   embed = { -- Embedding model configuration for RAG service
+      --     provider = "openai", -- Embedding provider
+      --     endpoint = "http://host.docker.internal:4141",
+      --     model = "text-embedding-3-small", -- Embedding model name
+      --     extra = nil, -- Additional configuration options for the embedding model
+      --   },
+      -- },
       mappings = {
         ---@type AvanteConflictMappings
         diff = {
@@ -137,17 +144,17 @@ return {
         },
       },
 
-      provider = "copilot",
+      provider = "copilot_api",
       providers = {
-        copilot = {
-          model = "gpt-4.1",
-          allow_insecure = false, -- Allow insecure server connections
-          timeout = 30000, -- Timeout in milliseconds
-          extra_request_body = {
-            -- temperature = 0,
-            -- max_tokens = 20480,
-          },
-        },
+        -- copilot = {
+        --   model = "gpt-4.1",
+        --   allow_insecure = false, -- Allow insecure server connections
+        --   timeout = 30000, -- Timeout in milliseconds
+        --   extra_request_body = {
+        --     -- temperature = 0,
+        --     -- max_tokens = 20480,
+        --   },
+        -- },
         copilot_api = {
           __inherited_from = "openai",
           api_key = "",
