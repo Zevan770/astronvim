@@ -226,7 +226,7 @@ return {
             function()
               Snacks.picker.keymaps {
                 global = false,
-                modes = { vim.api.nvim_get_mode().mode },
+                -- modes = { vim.api.nvim_get_mode().mode },
                 layout = {
                   preset = "dropdown",
                   preview = false,

@@ -122,9 +122,10 @@ return {
         enabled = true,
         hint_display = "none",
       },
-      selector = {
-        provider = "snacks",
-      },
+      -- selector = {
+      --   provider = "snacks",
+      --   provider_opts = {},
+      -- },
       input = { provider = "snacks" },
       windows = {
         -- position = "smart",
