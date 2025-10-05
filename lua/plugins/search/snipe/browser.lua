@@ -126,7 +126,7 @@ function M.open()
       icon = mini_icons.get("directory", item.name)
     end
     icon = icon or ""
-    return icon .. item.name
+    return icon .. " " .. item.name
   end)
 end
 
