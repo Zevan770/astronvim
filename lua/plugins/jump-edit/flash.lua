@@ -49,7 +49,7 @@ return {
 
       modes = {
         char = {
-          enabled = true,
+          enabled = false,
           -- dynamic configuration for ftFT motions
           config = function(o)
             -- autohide flash when in operator-pending mode

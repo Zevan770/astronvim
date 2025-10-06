@@ -128,12 +128,12 @@ return {
             end,
             desc = title,
           }
-          maps.n["<Leader>sp"] = maps.n["<Leader>fw"]
-          maps.n["<Leader>/"] = maps.n["<Leader>fw"]
-          maps.n["<Leader>sP"] = maps.n["<Leader>fc"]
-          maps.n["<C-p>"] = maps.n["<Leader>ff"]
-          maps.n["<Leader>pf"] = maps.n["<Leader>ff"]
-          maps.n["<Leader>fb"] = {
+          maps.n["<Leader>sp"] = maps.n["fw"]
+          maps.n["<Leader>/"] = maps.n["fw"]
+          maps.n["<Leader>sP"] = maps.n["fc"]
+          maps.n["<C-p>"] = maps.n["ff"]
+          maps.n["<Leader>pf"] = maps.n["ff"]
+          maps.n["fb"] = {
             function()
               Snacks.picker.buffers {
                 layout = {
@@ -142,20 +142,20 @@ return {
                 },
               }
             end,
-            desc = maps.n["<Leader>fb"].desc,
+            desc = maps.n["fb"].desc,
           }
-          maps.n["<A-b>"] = maps.n["<Leader>fb"]
-          -- maps.n["<A-x>"] = maps.n["<Leader>fC"]
+          maps.n["<A-b>"] = maps.n["fb"]
+          -- maps.n["<A-x>"] = maps.n["fC"]
 
-          maps.n["<Leader>fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
-          maps.n["<Leader>fr"] = { function() Snacks.picker.recent() end, desc = "Find Recents" }
-          maps.n["<Leader>fj"] = {
+          maps.n["fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
+          maps.n["fr"] = { function() Snacks.picker.recent() end, desc = "Find Recents" }
+          maps.n["fj"] = {
             function() Snacks.picker.jumps { layout = { preset = "vertical", preview = "main" } } end,
             desc = "Find Jumps",
           }
-          maps.n["<Leader>fu"] = { function() Snacks.picker.undo() end, desc = "Find Undo history" }
-          maps.n["<Leader>fx"] = { function() Snacks.picker.lazy() end, desc = "Find lazy eXtension specs" }
-          maps.n["<Leader>fz"] = {
+          maps.n["fu"] = { function() Snacks.picker.undo() end, desc = "Find Undo history" }
+          maps.n["fx"] = { function() Snacks.picker.lazy() end, desc = "Find lazy eXtension specs" }
+          maps.n["fz"] = {
             function()
               Snacks.picker.zoxide {
                 win = {
@@ -182,15 +182,15 @@ return {
             end,
             desc = "Find Zoxide",
           }
-          maps.n["<M-z>"] = maps.n["<Leader>fz"]
-          maps.n["<Leader>f'"] = { function() Snacks.picker.marks { layout = "ivy_split" } end, desc = "Find marks" }
-          maps.n['<Leader>f"'] = { function() Snacks.picker.registers() end, desc = "Find register" }
-          maps.n["<Leader>f;"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }
-          maps.n["<Leader>f/"] = { function() Snacks.picker.search_history() end, desc = "Find Search history" }
+          maps.n["<M-z>"] = maps.n["fz"]
+          maps.n["f'"] = { function() Snacks.picker.marks { layout = "ivy_split" } end, desc = "Find marks" }
+          maps.n['f"'] = { function() Snacks.picker.registers() end, desc = "Find register" }
+          maps.n["f;"] = { function() Snacks.picker.command_history() end, desc = "Find Command history" }
+          maps.n["f/"] = { function() Snacks.picker.search_history() end, desc = "Find Search history" }
 
-          maps.n["<Leader>f<Space>"] = { function() Snacks.picker() end, desc = "pick ?" }
+          maps.n["f<Space>"] = { function() Snacks.picker() end, desc = "pick ?" }
 
-          maps.n["<Leader>fe"] = { function() Snacks.picker.explorer() end, desc = "Snacks treE" }
+          maps.n["fe"] = { function() Snacks.picker.explorer() end, desc = "Snacks treE" }
           maps.c["<C-t>"] = {
             function()
               vim.api.nvim_feedkeys(vim.keycode "<Esc>", "n", true)
@@ -205,22 +205,22 @@ return {
 
           maps.n["<Leader>."] = { function() Snacks.scratch() end, desc = "new Scratch buffer" }
 
-          maps.n["<Leader>fk"][1] = function()
+          maps.n["fk"][1] = function()
             Snacks.picker.keymaps {
               plugs = true,
             }
           end
-          maps.n["<Leader>fq"] = {
+          maps.n["fq"] = {
             function() Snacks.picker.qflist { layout = { preset = "ivy_split" } } end,
           }
 
-          maps.n["<Leader>ha"] = maps.n["<Leader>fa"]
-          maps.n["<Leader>hh"] = maps.n["<Leader>fh"]
-          maps.n["<F1>"] = maps.n["<Leader>fh"]
-          maps.n["<Leader>fh"] = { function() Snacks.picker.highlights() end, desc = "Find Highlights" }
-          maps.n["<Leader>fi"] = { function() Snacks.picker.icons() end, desc = "Find icons" }
+          maps.n["<Leader>ha"] = maps.n["fa"]
+          maps.n["<Leader>hh"] = maps.n["fh"]
+          maps.n["<F1>"] = maps.n["fh"]
+          maps.n["fh"] = { function() Snacks.picker.highlights() end, desc = "Find Highlights" }
+          maps.n["fi"] = { function() Snacks.picker.icons() end, desc = "Find icons" }
           maps.i["<C-x>i"] = { function() Snacks.picker.icons() end, desc = "Find icons" }
-          maps.n["<Leader>fa"] = { function() Snacks.picker.autocmds() end, desc = "Find autocmds" }
+          maps.n["fa"] = { function() Snacks.picker.autocmds() end, desc = "Find autocmds" }
 
           maps.n["<A-/>"] = {
             function()
@@ -307,10 +307,10 @@ return {
 
       opts.dashboard.preset.keys = {
         { key = "n", action = "<Leader>n", icon = get_icon("FileNew", 0, true), desc = "New File  " },
-        { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
-        { key = "r", action = "<Leader>fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
+        { key = "f", action = "ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
+        { key = "r", action = "fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
         { key = "s", action = "<Leader>sp", icon = get_icon("WordFile", 0, true), desc = "Search/grep project  " },
-        { key = "'", action = "<Leader>f'", icon = get_icon("Bookmarks", 0, true), desc = "Bookmarks  " },
+        { key = "'", action = "f'", icon = get_icon("Bookmarks", 0, true), desc = "Bookmarks  " },
         { key = "l", action = "<Leader>ql", icon = get_icon("Refresh", 0, true), desc = "Last session  " },
         { key = ".", action = "<Leader>q.", icon = "", desc = "load cwd(./) session" },
         { key = "q", action = "<Leader>Q", icon = get_icon("TabClose", 0, true), desc = "Quit vim  " },
