@@ -24,11 +24,11 @@ return {
             injected = { options = { ignore_errors = true } },
           },
           default_format_opts = { lsp_format = "fallback" },
-          format_on_save = function(bufnr)
-            if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then
-              require("utils.format").format_git_hunks(bufnr)
-            end
-          end,
+          -- format_on_save = function(bufnr)
+          --   if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then
+          --     require("utils.format").format_git_hunks(bufnr)
+          --   end
+          -- end,
         }
       )
     end,
