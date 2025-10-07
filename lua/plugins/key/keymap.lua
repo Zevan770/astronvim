@@ -189,7 +189,7 @@ return {
       maps.x["@"] = maps.n["@"]
       -- maps.n["zr"] = false
       -- maps.n["zm"] = false
-      my_utils.replace_group("n", maps, "<Leader>f", "f")
+      my_utils.key.replace_group("n", maps, "<Leader>f", "f")
     end,
   },
   {

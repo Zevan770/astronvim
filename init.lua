@@ -29,6 +29,6 @@ end
 
 -- vim.lsp.set_log_level("debug")
 
-require "utils"
+require("utils").setup()
 require "lazy_setup"
 require "polish"
