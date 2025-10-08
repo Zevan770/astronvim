@@ -25,9 +25,7 @@ return {
   {
     "AstroNvim/astrolsp",
     opts = {
-      servers = {
-        "autohotkey_lsp",
-      },
+      servers = {},
     },
   },
 }
