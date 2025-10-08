@@ -13,6 +13,7 @@ return {
         },
         mux = {
           backend = "tmux",
+          create = "split",
           enabled = true,
         },
       },
@@ -34,7 +35,6 @@ return {
           -- fall back to normal tab
           return "<tab>"
         end,
-        mode = { "n" },
         expr = true,
         desc = "Goto/Apply Next Edit Suggestion",
       },
@@ -61,10 +61,16 @@ return {
         desc = "Sidekick Qwen Toggle",
       },
       {
-        "<leader>oas",
-        function() require("sidekick.cli").send { selection = true } end,
-        mode = { "v" },
-        desc = "Sidekick Send Visual Selection",
+        "<leader>oat",
+        function() require("sidekick.cli").send { msg = "{this}" } end,
+        mode = { "x", "n" },
+        desc = "Send This",
+      },
+      {
+        "<leader>oav",
+        function() require("sidekick.cli").send { msg = "{selection}" } end,
+        mode = { "x" },
+        desc = "Send Visual Selection",
       },
       {
         "<A-c>",
