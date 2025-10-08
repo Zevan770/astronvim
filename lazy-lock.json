@@ -185,7 +185,7 @@
   "rustaceanvim": { "branch": "master", "commit": "12504405821c05874d2d1f6b5ec919f9808e2c99" },
   "schemastore.nvim": { "branch": "main", "commit": "8e17e50b519ba360bcfd5dfb5843ccac9be500ba" },
   "select-undo.nvim": { "branch": "main", "commit": "d5aa1f0dbef93b7ed4219ef8c7bfae9691264ef7" },
-  "sidekick.nvim": { "branch": "main", "commit": "0ab6a23b779e208c3733c48a380bf35e3ec1d49d" },
+  "sidekick.nvim": { "branch": "main", "commit": "aa216b5a020de35197d592983822511a2d1d0215" },
   "smart-splits.nvim": { "branch": "master", "commit": "2413efb2ca7782511d00f292d7f86422a687e577" },
   "smear-cursor.nvim": { "branch": "main", "commit": "abfa5835920b1d76c0e24e1465a618ad914be90a" },
   "snacks.nvim": { "branch": "main", "commit": "bfe8c26dbd83f7c4fbc222787552e29b4eccfcc0" },
