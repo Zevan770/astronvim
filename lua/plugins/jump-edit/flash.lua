@@ -49,31 +49,9 @@ return {
 
       modes = {
         char = {
-          enabled = false,
-          -- dynamic configuration for ftFT motions
-          config = function(o)
-            -- autohide flash when in operator-pending mode
-            o.autohide = o.autohide or (vim.fn.mode(true):find "no" and vim.v.operator == "y")
-
-            -- disable jump labels when not enabled, when using a count,
-            -- or when recording/executing registers
-            o.jump_labels = o.jump_labels
-              and vim.v.count == 0
-              and vim.fn.reg_executing() == ""
-              and vim.fn.reg_recording() == ""
-
-            -- Show jump labels only in operator-pending mode
-            -- opts.jump_labels = vim.v.count == 0 and vim.fn.mode(true):find "o"
-          end,
-          -- hide after jump when not using jump labels
-          autohide = true,
-          -- show jump labels
-          jump_labels = true,
+          enabled = true,
           -- set to `false` to use the current line only
-          multi_line = false,
-          -- When using jump labels, don't use these keys
-          -- This allows using those keys directly after the motion
-          label = { exclude = "hjkliarydc" },
+          multi_line = true,
           -- by default all keymaps are enabled, but you can disable some of them,
           -- by removing them from the list.
           -- If you rather use another key, you can map them
@@ -91,13 +69,8 @@ return {
               [motion:upper()] = "prev",
             }
           end,
-          search = { wrap = false },
-          highlight = { backdrop = false },
           jump = {
             register = false,
-            -- when using jump labels, set to 'true' to automatically jump
-            -- or execute a motion when there is only one match
-            autojump = true,
           },
         },
         treesitter_search = {
@@ -140,18 +113,18 @@ return {
       -- },
       { "gb", function() H.flash_remote_lsp "g" end },
       { ".", mode = { "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      {
-        "gs[",
-        "<Cmd>lua require('flash').treesitter({jump={pos='start'}})<CR>",
-        mode = { "n", "o", "x" },
-        desc = "Outter Start Of Treesitter Node",
-      },
-      {
-        "gs]",
-        "<Cmd>lua require('flash').treesitter({jump={pos='end'}})<CR>",
-        mode = { "n", "o", "x" },
-        desc = "Outter end Of Treesitter Node",
-      },
+      -- {
+      --   "gs[",
+      --   "<Cmd>lua require('flash').treesitter({jump={pos='start'}})<CR>",
+      --   mode = { "n", "o", "x" },
+      --   desc = "Outter Start Of Treesitter Node",
+      -- },
+      -- {
+      --   "gs]",
+      --   "<Cmd>lua require('flash').treesitter({jump={pos='end'}})<CR>",
+      --   mode = { "n", "o", "x" },
+      --   desc = "Outter end Of Treesitter Node",
+      -- },
       {
         "<leader>jl",
         mode = { "n", "v", "o" },
@@ -257,16 +230,16 @@ return {
         "s",
         mode = { "n", "x", "o" },
         function()
-          if vim.v.hlsearch == 1 then
-            require("flash-zh").jump {
-              chinese_only = false,
-              pattern = vim.fn.getreg "/",
-            }
-          else
-            require("flash-zh").jump {
-              chinese_only = false,
-            }
-          end
+          -- if vim.v.hlsearch == 1 then
+          --   require("flash-zh").jump {
+          --     chinese_only = false,
+          --     pattern = vim.fn.getreg "/",
+          --   }
+          -- else
+          require("flash-zh").jump {
+            chinese_only = false,
+          }
+          -- end
         end,
         desc = "Flash between Chinese",
       },
