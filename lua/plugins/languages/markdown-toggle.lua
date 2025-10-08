@@ -1,3 +1,4 @@
+if true then return {} end
 return {
   {
     "roodolv/markdown-toggle.nvim",
@@ -37,57 +38,42 @@ return {
         enable_dot_repeat = true,
       }
     end,
-  },
-  {
-    "AstroNvim/astrocore",
-    optional = true,
-    opts = function(_, opts)
-      opts.autocmds = opts.autocmds or {}
-      opts.autocmds.markdown_toggle_maps = {
-        {
-          event = "FileType",
-          pattern = "markdown",
-          callback = function(args)
-            local toggle = require "markdown-toggle"
-            local map = vim.keymap.set
-            local buffer = args.buf
+    keys = function()
+      local toggle = require "markdown-toggle"
+      return {
+        -- stylua: ignore start
+        -- Settings mappings
+        {mode = "n", "<localleader>uu", toggle.switch_unmarked_only,     desc = "Toggle unmarked-only mode",    ft = "markdown" },
+        {mode = "n", "<localleader>ub", toggle.switch_blankhead_skip,    desc = "Toggle blankhead-skip mode",   ft = "markdown" },
+        {mode = "n", "<localleader>us", toggle.switch_auto_samestate,    desc = "Toggle auto-samestate mode",   ft = "markdown" },
+        {mode = "n", "<localleader>ul", toggle.switch_cycle_list_table,  desc = "Toggle cycle-list-table mode", ft = "markdown" },
+        {mode = "n", "<localleader>ux", toggle.switch_cycle_box_table,   desc = "Toggle cycle-box-table mode",  ft = "markdown" },
+        {mode = "n", "<localleader>uc", toggle.switch_list_before_box,   desc = "Toggle list-before-box mode",  ft = "markdown" },
 
-            -- stylua: ignore start
-            -- Settings mappings
-            map("n", "<localleader>uu", toggle.switch_unmarked_only,    { desc = "Toggle unmarked-only mode",    buffer = buffer })
-            map("n", "<localleader>ub", toggle.switch_blankhead_skip,   { desc = "Toggle blankhead-skip mode",   buffer = buffer })
-            map("n", "<localleader>us", toggle.switch_auto_samestate,   { desc = "Toggle auto-samestate mode",   buffer = buffer })
-            map("n", "<localleader>ul", toggle.switch_cycle_list_table, { desc = "Toggle cycle-list-table mode", buffer = buffer })
-            map("n", "<localleader>ux", toggle.switch_cycle_box_table,  { desc = "Toggle cycle-box-table mode",  buffer = buffer })
-            map("n", "<localleader>uc", toggle.switch_list_before_box,  { desc = "Toggle list-before-box mode",  buffer = buffer })
+        -- Normal mode with dot-repeat
+        {mode = "n", "<localleader>q",  toggle.quote_dot,                desc = "Toggle quote",                 ft = "markdown",expr = true },
+        {mode = "n", "<localleader>l",  toggle.list_dot,                 desc = "Toggle list",                  ft = "markdown",expr = true },
+        {mode = "n", "<localleader>s",  toggle.list_cycle_dot,           desc = "Toggle list cycle",            ft = "markdown",expr = true },
+        {mode = "n", "<localleader>n",  toggle.olist_dot,                desc = "Toggle ordered list",          ft = "markdown",expr = true },
+        {mode = "n", "<localleader>x",  toggle.checkbox_dot,             desc = "Toggle checkbox",              ft = "markdown",expr = true },
+        {mode = "n", "<localleader>c",  toggle.checkbox_cycle_dot,       desc = "Toggle checkbox cycle",        ft = "markdown",expr = true },
+        {mode = "n", "<localleader>h",  toggle.heading_dot,              desc = "Toggle heading",               ft = "markdown",expr = true },
 
-            -- Normal mode with dot-repeat
-            map("n", "<localleader>q",  toggle.quote_dot,               { desc = "Toggle quote",                 buffer = buffer, expr = true })
-            map("n", "<localleader>l",  toggle.list_dot,                { desc = "Toggle list",                  buffer = buffer, expr = true })
-            map("n", "<localleader>s",  toggle.list_cycle_dot,          { desc = "Toggle list cycle",            buffer = buffer, expr = true })
-            map("n", "<localleader>n",  toggle.olist_dot,               { desc = "Toggle ordered list",          buffer = buffer, expr = true })
-            map("n", "<localleader>x",  toggle.checkbox_dot,            { desc = "Toggle checkbox",              buffer = buffer, expr = true })
-            map("n", "<localleader>c",  toggle.checkbox_cycle_dot,      { desc = "Toggle checkbox cycle",        buffer = buffer, expr = true })
-            map("n", "<localleader>h",  toggle.heading_dot,             { desc = "Toggle heading",               buffer = buffer, expr = true })
+        -- Visual mode without dot-repeat
+        {mode = "x", "<localleader>q",  toggle.quote,                    desc = "Toggle quote",                 ft = "markdown" },
+        {mode = "x", "<localleader>l",  toggle.list,                     desc = "Toggle list",                  ft = "markdown" },
+        {mode = "x", "<localleader>s",  toggle.list_cycle,               desc = "Toggle list cycle",            ft = "markdown" },
+        {mode = "x", "<localleader>n",  toggle.olist,                    desc = "Toggle ordered list",          ft = "markdown" },
+        {mode = "x", "<localleader>x",  toggle.checkbox,                 desc = "Toggle checkbox",              ft = "markdown" },
+        {mode = "x", "<localleader>c",  toggle.checkbox_cycle,           desc = "Toggle checkbox cycle",        ft = "markdown" },
+        {mode = "x", "<localleader>h",  toggle.heading,                  desc = "Toggle heading",               ft = "markdown" },
 
-            -- Visual mode without dot-repeat
-            map("x", "<localleader>q",  toggle.quote,                   { desc = "Toggle quote",                 buffer = buffer })
-            map("x", "<localleader>l",  toggle.list,                    { desc = "Toggle list",                  buffer = buffer })
-            map("x", "<localleader>s",  toggle.list_cycle,              { desc = "Toggle list cycle",            buffer = buffer })
-            map("x", "<localleader>n",  toggle.olist,                   { desc = "Toggle ordered list",          buffer = buffer })
-            map("x", "<localleader>x",  toggle.checkbox,                { desc = "Toggle checkbox",              buffer = buffer })
-            map("x", "<localleader>c",  toggle.checkbox_cycle,          { desc = "Toggle checkbox cycle",        buffer = buffer })
-            map("x", "<localleader>h",  toggle.heading,                 { desc = "Toggle heading",               buffer = buffer })
-
-            -- Auto-list mappings
-            map("n", "O",               toggle.autolist_up,             { desc = "Add list item above",          buffer = buffer })
-            map("n", "o",               toggle.autolist_down,           { desc = "Add list item below",          buffer = buffer })
-            map("i", "<CR>",            toggle.autolist_cr,             { desc = "Continue list item",           buffer = buffer })
-            -- stylua: ignore end
-          end,
-        },
+        -- Auto-list mappings
+        {mode = "n", "O",               toggle.autolist_up,              desc = "Add list item above",          ft = "markdown" },
+        {mode = "n", "o",               toggle.autolist_down,            desc = "Add list item below",          ft = "markdown" },
+        {mode = "i", "<CR>",            toggle.autolist_cr,              desc = "Continue list item",           ft = "markdown" },
+        -- stylua: ignore end
       }
-      return opts
     end,
   },
 }
