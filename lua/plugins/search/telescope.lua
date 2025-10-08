@@ -453,6 +453,7 @@ return {
     dependencies = {
       {
         "mrcjkb/telescope-manix",
+        enabled = my_utils.is_nixos,
         lazy = true,
         config = function() require("telescope").load_extension "manix" end,
       },
