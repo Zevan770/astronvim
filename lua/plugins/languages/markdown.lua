@@ -1,19 +1,8 @@
-local markdown_ft = {
-  "markdown",
-  "Avante",
-  "quarto",
-  "rmd",
-  "html",
-  "copilot-chat",
-  "codecompanion",
-  "blink-cmp-documentation",
-  "blink-cmp-signature",
-  "opencode_output",
-}
+-- vim.lsp.enable "autocorrect"
+
+local markdown_ft = require("utils.filetype").markdown_like
 local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "gitcommit" })
 local markview_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "html", "yaml" })
-
--- vim.lsp.enable "autocorrect"
 
 ---@type LazySpec
 return {
