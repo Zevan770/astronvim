@@ -44,6 +44,7 @@ return {
                 ---Enable detailed logging for history extension
                 enable_logging = false,
 
+                title_generation_opts = { adapter = "copilot" },
                 --#region summary
                 summary = {
                   create_summary_keymap = "<localleader>sc",

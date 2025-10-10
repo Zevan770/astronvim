@@ -91,7 +91,6 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "copilot",
           tools = {
             opts = {
               default_tools = {
@@ -165,32 +164,6 @@ return {
             user = " User",
           },
         },
-        inline = {
-          adapter = "copilot",
-        },
-        agent = {
-          adapter = "copilot",
-        },
-      },
-      adapters = {
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "gpt-4.1",
-              },
-            },
-          })
-        end,
-        claude37 = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "claude-3.7-sonnet",
-              },
-            },
-          })
-        end,
       },
 
       memory = {
