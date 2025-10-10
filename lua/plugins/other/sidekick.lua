@@ -14,7 +14,7 @@ return {
         mux = {
           backend = "tmux",
           create = "split",
-          enabled = true,
+          enabled = my_utils.is_nixos,
         },
       },
     },
