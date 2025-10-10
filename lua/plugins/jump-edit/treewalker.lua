@@ -58,8 +58,8 @@ return {
       { "<C-h>", "<Plug>(treeclimber-select-parent)", mode = { "n", "x", "o" } },
       { "<C-l>", "<Plug>(treeclimber-select-shrink)", mode = { "n", "x", "o" } },
       -- Growth selection
-      { "<m-o>", "<Plug>(treeclimber-select-grow-backward)", mode = { "n", "x", "o" } },
-      { "<m-i>", "<Plug>(treeclimber-select-grow-forward)", mode = { "n", "x", "o" } },
+      { "<C-S-k>", "<Plug>(treeclimber-select-grow-backward)", mode = { "n", "x", "o" } },
+      { "<C-S-j>", "<Plug>(treeclimber-select-grow-forward)", mode = { "n", "x", "o" } },
       -- Sibling navigation
       { "<M-[>", "<Plug>(treeclimber-select-siblings-backward)", mode = { "n", "x", "o" } },
       { "<M-]>", "<Plug>(treeclimber-select-siblings-forward)", mode = { "n", "x", "o" } },

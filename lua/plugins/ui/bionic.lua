@@ -2,12 +2,9 @@ local H = {}
 
 H.ft_builder = function()
   local res = {}
-  local plain_text_fts =
-    { "log", "help", "text", "markdown", "Avante", "md", "txt", "norg", "json", "toml", "yaml", "csv" }
-  for _, ft in ipairs(plain_text_fts) do
-    res[ft] = "any"
-  end
-
+  local plain_text_fts = { "log", "help", "text", "norg", "json", "toml", "yaml", "csv" }
+  plain_text_fts = require("astrocore").extend_tbl(plain_text_fts, require("utils.filetype").markdown_like)
+  vim.tbl_map(function(ft) res[ft] = "any" end, plain_text_fts)
 
   -- stylua: ignore
   local comment_fts = {
@@ -53,5 +50,8 @@ return {
       return opts
     end,
     config = function(_, opts) require("bionic-reading").setup(opts) end,
+    keys = {
+      { "<leader>uo", "<Cmd>BRToggle<CR>" },
+    },
   },
 }
