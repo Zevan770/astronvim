@@ -145,7 +145,7 @@ return {
         },
       },
 
-      provider = "copilot_api",
+      provider = "claude-code",
       providers = {
         -- copilot = {
         --   model = "gpt-4.1",
@@ -161,6 +161,24 @@ return {
           api_key = "",
           endpoint = "http://localhost:4141/v1",
           model = "gpt-4.1",
+        },
+      },
+      acp_providers = {
+        ["gemini-cli"] = {
+          command = "gemini",
+          args = { "--experimental-acp" },
+          env = {
+            NODE_NO_WARNINGS = "1",
+            GEMINI_API_KEY = os.getenv "GEMINI_API_KEY",
+          },
+        },
+        ["claude-code"] = {
+          command = "npx",
+          args = { "@zed-industries/claude-code-acp" },
+          env = {
+            NODE_NO_WARNINGS = "1",
+            ANTHROPIC_API_KEY = os.getenv "ANTHROPIC_API_KEY",
+          },
         },
       },
     },
