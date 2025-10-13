@@ -6,7 +6,7 @@ vim.tbl_map(function(plugin) disabled[plugin] = true end, {
   -- "blink-copilot",
   "mcphub.nvim",
   "VectorCode",
-  -- "avante.nvim",
+  "avante.nvim",
   "im-select.nvim",
   "neoscroll.nvim",
 })
