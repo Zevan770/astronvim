@@ -4,8 +4,9 @@ vim.tbl_map(function(plugin) disabled[plugin] = true end, {
   -- "codecompanion.nvim",
   -- "copilot.lua",
   -- "blink-copilot",
-  -- "mcphub.nvim",
-  "avante.nvim",
+  "mcphub.nvim",
+  "VectorCode",
+  -- "avante.nvim",
   "im-select.nvim",
   "neoscroll.nvim",
 })
