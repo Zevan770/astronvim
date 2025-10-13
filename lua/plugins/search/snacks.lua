@@ -409,11 +409,19 @@ return {
   -- },
   --
 
-  -- {
-  --   "2kabhishek/nerdy.nvim",
-  --   dependencies = {
-  --     "folke/snacks.nvim",
-  --   },
-  --   cmd = "Nerdy",
-  -- },
+  {
+    "2kabhishek/nerdy.nvim",
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+    opts = {
+      max_recents = 30, -- Configure recent icons limit
+      add_default_keybindings = false, -- Add default keybindings
+      copy_to_clipboard = false, -- Copy glyph to clipboard instead of inserting
+    },
+    keys = {
+      { "<leader>in", "<Cmd>Nerdy list<CR>" },
+      { "<leader>iN", "<Cmd>Nerdy recents<CR>" },
+    },
+  },
 }
