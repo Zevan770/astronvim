@@ -47,7 +47,7 @@ return {
               },
               backend = {
                 context_size = 5,
-                use = "ripgrep",
+                use = "gitgrep-or-ripgrep",
                 ripgrep = {
                   max_filesize = "1M",
                   project_root_fallback = true,
