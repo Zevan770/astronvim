@@ -25,6 +25,14 @@ return {
       {
         name = "notes",
         path = notedir,
+        overrides = {
+          frontmatter = {
+            enabled = function(fname)
+              if not vim.b[0].autoformat or not vim.g.autoformat then return false end
+              return true
+            end,
+          },
+        },
       },
       -- {
       --   name = "no-vault",
