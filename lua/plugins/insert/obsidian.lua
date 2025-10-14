@@ -50,6 +50,9 @@ return {
       blink = my_utils.blink_enabled,
       min_chars = 2,
     },
+    daily_notes = {
+      folder = "00diary",
+    },
     templates = {
       subdir = "templates",
       date_format = "%Y-%m-%d-%a",
