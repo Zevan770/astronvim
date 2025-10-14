@@ -47,13 +47,13 @@ return {
                 title_generation_opts = { adapter = "copilot" },
                 --#region summary
                 summary = {
-                  create_summary_keymap = "<localleader>sc",
-                  browse_summaries_keymap = "<localleader>sb",
-                  preview_summary_keymap = "<localleader>sp",
+                  create_summary_keymap = "<localleader>mc",
+                  browse_summaries_keymap = "<localleader>mb",
+                  preview_summary_keymap = "<localleader>mp",
 
                   generation_opts = {
                     -- Use specific adapter for summaries (optional)
-                    adapter = nil, -- defaults to current chat adapter
+                    adapter = "copilot", -- defaults to current chat adapter
                     -- Use specific model for summaries (optional)
                     model = nil, -- defaults to current chat model
                     -- Context size for summarization (default: 90000)
