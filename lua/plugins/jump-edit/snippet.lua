@@ -21,6 +21,7 @@ return {
   },
   {
     "TwIStOy/luasnip-snippets",
+    enabled = false,
     dependencies = { "L3MON4D3/LuaSnip" },
     event = { "InsertEnter" },
     config = function()
