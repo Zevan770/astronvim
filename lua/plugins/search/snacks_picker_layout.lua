@@ -29,7 +29,8 @@ local user_layouts = {
     },
   },
   sidebar = { --[[Override]]
-    auto_hide = { "preview" },
+    -- auto_hide = { "preview" },
+    preview = "main",
     layout = {
       backdrop = false,
       width = 40,
@@ -46,7 +47,7 @@ local user_layouts = {
         title_pos = "center",
       },
       { win = "list", border = "none" },
-      { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+      { win = "preview", width = 0, title = "{preview}" },
     },
   },
 }

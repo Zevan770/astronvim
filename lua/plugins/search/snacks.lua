@@ -254,8 +254,10 @@ return {
               ---@type snacks.picker.Config
               local snacks_opts = {
                 layout = {
-                  preset = "dropdown",
-                  preview = "main",
+                  preset = "sidebar",
+                  layout = {
+                    position = "right",
+                  },
                 },
               }
               local aerial_avail, aerial = pcall(require, "aerial")
