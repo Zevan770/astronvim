@@ -2,6 +2,7 @@
 return {
   {
     "RRethy/nvim-treesitter-textsubjects",
+    enabled = false, -- TODO:disable util it supports nvim-treesitter main branch
     config = function(self, opts)
       require("nvim-treesitter-textsubjects").configure {
         prev_selection = "?",

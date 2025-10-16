@@ -50,17 +50,18 @@ return {
           winblend = 10,
           winborder = "rounded",
           wrap = false, -- sets vim.opt.wrap
-          fillchars = {
-            eob = " ",
-            fold = "╌",
-            horiz = "═",
-            horizdown = "╦",
-            horizup = "╩",
-            vert = "║",
-            verthoriz = "╬",
-            vertleft = "╣",
-            vertright = "╠",
-          },
+          fillchars = "",
+          -- fillchars = {
+          --   eob = " ",
+          --   fold = "╌",
+          --   horiz = "═",
+          --   horizdown = "╦",
+          --   horizup = "╩",
+          --   vert = "║",
+          --   verthoriz = "╬",
+          --   vertleft = "╣",
+          --   vertright = "╠",
+          -- },
         },
         g = { -- vim.g.<key>
           -- configure global vim variables (vim.g)

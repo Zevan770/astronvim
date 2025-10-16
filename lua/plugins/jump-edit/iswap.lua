@@ -2,6 +2,7 @@ return {
   {
     "mizlan/iswap.nvim",
     event = "User AstroFile",
+    enabled = false, -- TODO:disable util it supports nvim-treesitter main branch
     opts = {
       -- The keys that will be used as a selection, in order
       -- ('asdfghjklqwertyuiopzxcvbnm' by default)
