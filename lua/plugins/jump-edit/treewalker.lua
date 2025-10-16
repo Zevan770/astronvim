@@ -37,10 +37,10 @@ return {
           local maps = assert(opts.mappings)
           -- 在normal和visual模式添加映射
           for _, mode in ipairs { "n", "v" } do
-            maps[mode]["<Leader>tk"] = { "<cmd>Treewalker Up<cr>", desc = "Treewalker Up" }
-            maps[mode]["<Leader>tj"] = { "<cmd>Treewalker Down<cr>", desc = "Treewalker Down" }
-            maps[mode]["<Leader>th"] = { "<cmd>Treewalker Left<cr>", desc = "Treewalker Left" }
-            maps[mode]["<Leader>tl"] = { "<cmd>Treewalker Right<cr>", desc = "Treewalker Right" }
+            maps[mode]["<C-k>"] = { "<cmd>Treewalker Up<cr>", desc = "Treewalker Up" }
+            maps[mode]["<C-j>"] = { "<cmd>Treewalker Down<cr>", desc = "Treewalker Down" }
+            maps[mode]["<C-h>"] = { "<cmd>Treewalker Left<cr>", desc = "Treewalker Left" }
+            maps[mode]["<C-l>"] = { "<cmd>Treewalker Right<cr>", desc = "Treewalker Right" }
           end
         end,
       },
@@ -49,7 +49,8 @@ return {
 
   {
     "dkendal/nvim-treeclimber",
-    enabled = my_utils.is_nixos,
+    enabled = false,
+    -- enabled = my_utils.is_nixos,
     config = function() require("nvim-treeclimber").setup {} end,
     keys = {
       -- Core navigation
