@@ -23,7 +23,9 @@ return {
           init_options = {
             locale = "zh-cn",
             fullySemanticToken = "true",
-            InterpreterPath = "autohotkey64.exe",
+            Autohotkey2 = {
+              InterpreterPath = "autohotkey64.exe",
+            },
             WorkingDirs = {
               vim.fs.root(0, { "package.json", ".git" }),
             },
