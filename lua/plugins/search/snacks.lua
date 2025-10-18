@@ -108,6 +108,16 @@ return {
             end,
             desc = "grep" .. title,
           }
+          maps.n["<Leader>hs"] = {
+            function()
+              Snacks.picker.grep {
+                dirs = vim.api.nvim_list_runtime_paths(),
+                title = title,
+                glob = { "*.lua", "*.vim", "*.txt" },
+              }
+            end,
+            desc = "super grep neovim runtime files",
+          }
           maps.n["<Leader>hd"] = {
             function()
               Snacks.picker.files {

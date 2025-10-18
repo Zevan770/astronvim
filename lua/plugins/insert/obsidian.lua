@@ -18,7 +18,7 @@ return {
   ---@type obsidian.config
   opts = {
     ui = { enable = false },
-    -- use_advanced_uri = true,
+    footer = { enabled = false },
     finder = "snacks.picker",
     -- dir = notedir,
     workspaces = {
@@ -67,9 +67,6 @@ return {
       time_format = "%H:%M",
     },
 
-    -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
-    -- URL it will be ignored but you can customize this behavior here.
-    follow_url_func = vim.ui.open,
     open = {
       use_advanced_uri = true,
     },
@@ -95,7 +92,7 @@ return {
       -- The default folder to place images in via `:ObsidianPasteImg`.
       -- If this is a relative path it will be interpreted as relative to the vault root.
       -- You can always override this per image by passing a full path to the command instead of just a filename.
-      img_folder = "assets/imgs", -- This is the default
+      img_folder = "attachments", -- This is the default
 
       -- Optional, customize the default name or prefix when pasting images via `:ObsidianPasteImg`.
       ---@return string
@@ -115,6 +112,7 @@ return {
         return string.format("![%s](%s)", path.name, path)
       end,
     },
+    legacy_commands = false,
   },
   specs = {
     {

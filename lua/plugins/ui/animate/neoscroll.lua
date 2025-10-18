@@ -7,7 +7,7 @@ return {
     --see ~/.local/share/nvim/lazy/neoscroll.nvim/lua/neoscroll/config.lua
     opts = {
       hide_cursor = false, -- Hide cursor while scrolling
-      stop_eof = true, -- Stop at <EOF> when scrolling downwards
+      stop_eof = false, -- Stop at <EOF> when scrolling downwards
       respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
       cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
       easing = "cubic", -- Default easing function

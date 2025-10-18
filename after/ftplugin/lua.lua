@@ -6,3 +6,7 @@ vim.b.minisurround_config = {
     },
   },
 }
+
+vim.cmd [[
+iabbr <buffer> fn function
+]]
