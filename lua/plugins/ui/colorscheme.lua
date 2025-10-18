@@ -1,5 +1,19 @@
 ---@type LazySpec
 return {
+  {
+    "AstroNvim/astroui",
+    ---@type AstroUIOpts
+    opts = {
+      -- change colorscheme
+      colorscheme = "catppuccin",
+      -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
+      highlights = {
+        init = {
+          SnacksPickerMatch = { link = "Search" },
+        },
+      },
+    },
+  },
   -- color
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.color.transparent-nvim" },
@@ -134,6 +148,25 @@ return {
         markview = true,
         render_markdown = true,
         which_key = true,
+      },
+    },
+    dependencies = {
+      {
+        "AstroNvim/astroui",
+        ---@type AstroUIOpts
+        opts = function(_, opts)
+          local colors = require("catppuccin.palettes").get_palette()
+          local custom_highlights = {
+            RenderMarkdownInlineHighlight = {
+              bg = colors.yellow,
+            },
+          }
+          opts.highlights = opts.highlights or {}
+          vim.tbl_map(
+            function(cs) opts.highlights["catppuccin-" .. cs] = custom_highlights end,
+            vim.tbl_keys(require("catppuccin").flavours)
+          )
+        end,
       },
     },
   },
