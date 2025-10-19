@@ -1,5 +1,7 @@
--- vim.bo.tabstop = 4
--- vim.bo.shiftwidth = 4
+vim.bo.tabstop = 4
+vim.bo.shiftwidth = 4
+vim.bo.softtabstop = 4
+
 vim.wo.wrap = true
 
 local spec_pair = require("mini.ai").gen_spec.pair
@@ -18,3 +20,5 @@ vim.b.minisurround_config = {
     },
   },
 }
+
+vim.b.undo_ftplugin = (vim.b.undo_ftplugin or "") .. "\n setl tabstop< shiftwidth< softtabstop<"

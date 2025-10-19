@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- if true then return {} end
 local markdown_ft = require("utils.filetype").markdown_like
 return {
@@ -41,7 +42,7 @@ return {
     end,
     keys = function()
       local toggle = require "markdown-toggle"
-      ---@type LazyKeysSpec
+      ---@type LazyKeys
       return {
         -- stylua: ignore start
         -- Settings mappings
