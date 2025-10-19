@@ -145,7 +145,7 @@ return {
         },
       },
 
-      provider = "claude-code",
+      provider = my_utils.is_nixos and "qwen-code" or "copilot_api",
       providers = {
         -- copilot = {
         --   model = "gpt-4.1",
@@ -172,12 +172,24 @@ return {
             GEMINI_API_KEY = os.getenv "GEMINI_API_KEY",
           },
         },
+        ["qwen-code"] = {
+          command = "qwen",
+          args = { "--experimental-acp" },
+          env = {
+            NODE_NO_WARNINGS = "1",
+            OPENAI_API_KEY = os.getenv "OPENAI_API_KEY",
+            OPENAI_BASE_URL = os.getenv "OPENAI_BASE_URL",
+            OPENAI_MODEL = os.getenv "OPENAI_MODEL",
+          },
+        },
         ["claude-code"] = {
           command = "npx",
           args = { "@zed-industries/claude-code-acp" },
           env = {
             NODE_NO_WARNINGS = "1",
-            ANTHROPIC_API_KEY = os.getenv "ANTHROPIC_API_KEY",
+            OPENAI_API_KEY = os.getenv "OPENAI_API_KEY",
+            OPENAI_BASE_URL = os.getenv "OPENAI_BASE_URL",
+            OPENAI_MODEL = os.getenv "OPENAI_MODEL",
           },
         },
       },
