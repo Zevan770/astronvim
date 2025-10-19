@@ -5,7 +5,7 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = "claude_code",
+          adapter = my_utils.is_nixos and "qwen_code" or "copilot",
         },
       },
       inline = {
@@ -17,6 +17,25 @@ return {
       adapters = {
         acp = {
           claude_code = function() return require("codecompanion.adapters").extend("claude_code", {}) end,
+          qwen_code = function()
+            return require("codecompanion.adapters").extend("gemini_cli", {
+              commands = {
+                default = {
+                  "qwen",
+                  "--experimental-acp",
+                },
+                yolo = {
+                  "qwen",
+                  "--yolo",
+                  "--experimental-acp",
+                },
+              },
+              defaults = {
+                auth_method = "openai",
+                timeout = 60000, -- 20 seconds
+              },
+            })
+          end,
         },
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
