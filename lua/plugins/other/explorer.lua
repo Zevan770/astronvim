@@ -271,4 +271,37 @@ return {
       -- { "<D-l>", function() require("genghis").showInSystemExplorer() end, desc = "󰀶 Reveal in Finder" },
     },
   },
+
+  {
+    "A7Lavinraj/fyler.nvim",
+    dependencies = {
+      "nvim-mini/mini.icons",
+      {
+        "nvim-telescope/telescope.nvim",
+        optional = true,
+        dependencies = {
+          {
+            "A7Lavinraj/fyler.nvim",
+            opts = function() require("telescope").load_extension "fyler_zoxide" end,
+          },
+        },
+      },
+    },
+    branch = "stable",
+    opts = {
+      -- Key mappings
+      mappings = {
+        ["q"] = "CloseView",
+        ["<CR>"] = "Select",
+        ["<C-t>"] = "SelectTab",
+        ["|"] = "SelectVSplit",
+        ["-"] = "SelectSplit",
+        ["^"] = "GotoParent",
+        ["="] = "GotoCwd",
+        ["<C-\\>"] = "GotoNode",
+        ["zM"] = "CollapseAll",
+        ["<BS>"] = "CollapseNode",
+      },
+    },
+  },
 }
