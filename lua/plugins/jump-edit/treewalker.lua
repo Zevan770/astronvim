@@ -37,10 +37,10 @@ return {
           local maps = assert(opts.mappings)
           -- 在normal和visual模式添加映射
           for _, mode in ipairs { "n", "v" } do
-            maps[mode]["<C-k>"] = { "<cmd>Treewalker Up<cr>", desc = "Treewalker Up" }
-            maps[mode]["<C-j>"] = { "<cmd>Treewalker Down<cr>", desc = "Treewalker Down" }
-            maps[mode]["<C-h>"] = { "<cmd>Treewalker Left<cr>", desc = "Treewalker Left" }
-            maps[mode]["<C-l>"] = { "<cmd>Treewalker Right<cr>", desc = "Treewalker Right" }
+            maps[mode]["<C-K>"] = { "<cmd>Treewalker Up<cr>", desc = "Treewalker Up" }
+            maps[mode]["<C-J>"] = { "<cmd>Treewalker Down<cr>", desc = "Treewalker Down" }
+            maps[mode]["<C-H>"] = { "<cmd>Treewalker Left<cr>", desc = "Treewalker Left" }
+            maps[mode]["<C-L>"] = { "<cmd>Treewalker Right<cr>", desc = "Treewalker Right" }
           end
         end,
       },

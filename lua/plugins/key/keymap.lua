@@ -52,10 +52,6 @@ return {
       maps.t["<C-J>"] = false
       maps.t["<C-K>"] = false
       maps.t["<C-L>"] = false
-      maps.n["<C-H>"] = false
-      maps.n["<C-J>"] = false
-      maps.n["<C-K>"] = false
-      maps.n["<C-L>"] = false
       maps.n["<C-Up>"] = false
       maps.n["<C-Down>"] = false
       maps.n["<C-Left>"] = false
