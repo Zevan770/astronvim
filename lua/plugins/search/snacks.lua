@@ -98,7 +98,7 @@ return {
           }
           maps.n["<Leader>h"] = { desc = require("astroui").get_icon("Help", 1, true) .. "Help" }
           maps.v["<Leader>h"] = maps.n["<Leader>h"]
-          maps.n["<Leader>hD"] = {
+          maps.n["<Leader>hg"] = {
             function()
               Snacks.picker.grep {
                 dirs = astro_dirs,
@@ -121,7 +121,7 @@ return {
           maps.n["<Leader>hd"] = {
             function()
               Snacks.picker.files {
-                dirs = astro_dirs,
+                dirs = vim.api.nvim_list_runtime_paths(),
                 title = title,
               }
             end,
