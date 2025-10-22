@@ -402,20 +402,6 @@ return {
   },
 
   {
-    {
-      "Dan7h3x/LazyDo",
-      branch = "main",
-      cmd = { "LazyDoToggle", "LazyDoPin", "LazyDoToggleStorage" },
-      keys = { -- recommended keymap for easy toggle LazyDo in normal and insert modes (arbitrary)
-        { "<leader>ot", "<CMD>LazyDoToggle<CR>", mode = { "n" } },
-      },
-      opts = {
-        -- your config here
-      },
-    },
-  },
-
-  {
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
