@@ -1,3 +1,4 @@
+if true then return {} end
 if vim.fn.has "win32" == 1 then return {} end
 
 ---@type LazySpec
