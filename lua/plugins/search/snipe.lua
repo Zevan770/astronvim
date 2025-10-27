@@ -2,7 +2,7 @@ return {
   {
     -- "linkarzu/snipe.nvim",
     "leath-dub/snipe.nvim",
-    -- enabled = false,
+    enabled = false,
     keys = {
       {
         "<leader><space>",
