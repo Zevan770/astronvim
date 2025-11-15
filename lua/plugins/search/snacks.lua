@@ -87,6 +87,8 @@ return {
         opts = function(_, opts)
           local maps = opts.mappings
 
+          my_utils.key.replace_group("n", maps, "<Leader>f", "f")
+
           local title = "AstroNvim stuffs"
           local astro_dirs = {
             vim.fn.stdpath "data" .. "/lazy/AstroNvim",
@@ -132,6 +134,7 @@ return {
           maps.n["<Leader>sP"] = maps.n["fc"]
           maps.n["<C-p>"] = maps.n["ff"]
           maps.n["<Leader>pf"] = maps.n["ff"]
+
           maps.n["fb"] = {
             function()
               Snacks.picker.buffers {
@@ -141,7 +144,7 @@ return {
                 },
               }
             end,
-            desc = maps.n["fb"].desc,
+            desc = "Find buffers",
           }
           maps.n["<A-b>"] = maps.n["fb"]
           -- maps.n["<A-x>"] = maps.n["fC"]
@@ -228,7 +231,7 @@ return {
                 -- modes = { vim.api.nvim_get_mode().mode },
                 layout = {
                   preset = "dropdown",
-                  preview = false,
+                  preview = nil,
                 },
                 ---@type fun(item:snacks.picker.finder.Item, ctx:snacks.picker.finder.ctx):(boolean|snacks.picker.finder.Item|nil)
                 transform = function(item, ctx)
