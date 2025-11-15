@@ -3,6 +3,8 @@
         "undefined-doc-name"
     ],
     "diagnostics.globals": [
-        "toggle_buffer_diagnostics_breakpoint"
+        "toggle_buffer_diagnostics_breakpoint",
+        "vim",
+        "Snacks"
     ]
 }
