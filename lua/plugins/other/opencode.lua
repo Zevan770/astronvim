@@ -2,15 +2,20 @@
 return {
   {
     "NickvanDyke/opencode.nvim",
-    name = "opencode-native",
     dependencies = {
       -- Recommended for better prompt input, and required to use opencode.nvim's embedded terminal. Otherwise optional.
       { "folke/snacks.nvim", opts = { input = { enabled = true } } },
     },
     config = function()
       vim.g.opencode_opts = {
-        port = "4004",
+        port = "4008",
         auto_reload = true,
+        provider = {
+          enabled = "tmux", -- Default if inside a `tmux` session.
+          tmux = {
+            options = "-h", -- Options to pass to `tmux split-window`.
+          },
+        },
         -- Your configuration, if any — see `lua/opencode/config.lua`
       }
 
@@ -73,6 +78,7 @@ return {
   {
     "sudo-tee/opencode.nvim",
     enabled = false,
+    name = "opencode-nvim-ui",
     ---@module "opencode"
     ---@type opencode.Opts
     opts = {},
