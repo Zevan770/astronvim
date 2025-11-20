@@ -79,6 +79,9 @@ return {
           relative = "editor",
           col = -1,
         },
+        notification = {
+          wo = { wrap = true }, -- Wrap notifications
+        },
       },
     },
     dependencies = {
