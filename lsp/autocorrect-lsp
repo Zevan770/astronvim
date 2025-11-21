@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# 启动 autocorrect server,跳过第一行输出
+autocorrect server | tail -n +2
