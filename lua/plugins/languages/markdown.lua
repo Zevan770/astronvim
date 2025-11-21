@@ -1,4 +1,4 @@
--- vim.lsp.enable "autocorrect"
+vim.lsp.enable "autocorrect"
 
 local markdown_ft = require("utils.filetype").markdown_like
 local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "gitcommit" })
