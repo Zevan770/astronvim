@@ -9,6 +9,6 @@ return {
     "rst",
     "latex",
   },
-  root_markers = { ".git", ".autocorrectrc", "autocorrect.toml" },
+  -- root_markers = { ".git", ".autocorrectrc", "autocorrect.toml" },
   single_file_support = true,
 }
