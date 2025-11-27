@@ -159,6 +159,7 @@ return {
           local custom_highlights = {
             RenderMarkdownInlineHighlight = {
               bg = colors.yellow,
+              fg = colors.mantle,
             },
           }
           opts.highlights = opts.highlights or {}
