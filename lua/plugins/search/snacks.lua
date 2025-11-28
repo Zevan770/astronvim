@@ -28,6 +28,9 @@ return {
         },
         enabled = true,
       },
+      indent = {
+        chunk = { enabled = true },
+      },
       notifier = {
         enabled = true,
         top_down = false, -- place notifications from top to bottom
@@ -68,7 +71,7 @@ return {
         },
         previewers = {
           git = { builtin = false },
-          diff = { builtin = false },
+          diff = { style = "fancy" },
         },
         layout = {
           preset = function() return vim.o.columns >= 120 and "default" or "ivy_split" end,

@@ -174,11 +174,27 @@ return {
       ---@diagnostic disable-next-line: duplicate-doc-field
       ---@field [string] snacks.picker.Config|{}
       sources = extend({
-        -- ! Define sources here
+        files = {
+          hidden = true,
+        },
+        grep = {
+          hidden = true,
+        },
+        select = {
+          kinds = {
+            sidekick_cli = {
+              layout = { preset = "vscode" },
+            },
+            sidekick_prompt = {
+              layout = { preset = "vscode" },
+            },
+          },
+        },
         explorer = {
+          hidden = true,
           layout = {
             preset = "sidebar",
-            preview = "main",
+            preview = { main = true, enabled = false },
           },
         },
       } --[[@as snacks.picker.sources.Config]], function(sources)
