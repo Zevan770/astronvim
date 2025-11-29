@@ -99,6 +99,7 @@ return {
           ah2 = "autohotkey",
           log = "log",
           kbd = "lisp",
+          pest = "pest",
         },
         filename = {
           -- [".zshrc"] = "bash",
