@@ -1,4 +1,6 @@
-if my_utils.is_windows then vim.lsp.enable "autocorrect" end
+-- TODO: disable this until https://github.com/huacnlee/autocorrect/pull/291 is merged or
+-- I make my own flake of it work successfully.
+-- if my_utils.is_windows then vim.lsp.enable "autocorrect" end
 
 local markdown_ft = require("utils.filetype").markdown_like
 local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "gitcommit" })
