@@ -1,11 +1,13 @@
 return {
+  { import = "astrocommunity.pack.json" },
+
   {
-    "AstroNvim/astrocommunity",
-    { import = "astrocommunity.pack.json" },
-    { import = "astrocommunity.pack.yaml" },
-    { import = "astrocommunity.programming-language-support.nvim-jqx" },
-    -- { import = "astrocommunity.programming-language-support.csv-vim" },
+    "b0o/schemastore.nvim",
+    event = "User AstroFile",
   },
+  { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.programming-language-support.nvim-jqx" },
+  -- { import = "astrocommunity.programming-language-support.csv-vim" },
   {
     "hat0uma/csvview.nvim",
     ---@module "csvview"
