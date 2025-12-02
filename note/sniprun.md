@@ -1,6 +1,6 @@
 ## tested lang
 
-```lua
+```{lua}
 vim.notify "hello"
 ```
 
