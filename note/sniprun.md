@@ -29,9 +29,9 @@ echo "hello"
 ```c
 #include <stdio.h>
 int main() {
-  printf("hello\n");
-  printf("fucking impossible\n");
-  return 0;
+    printf("hello\n");
+    printf("fucking impossible\n");
+    return 0;
 }
 ```
 
