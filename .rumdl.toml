@@ -3,9 +3,9 @@
 disable = ["MD013", "MD041", "MD042"]
 
 [MD022]
-lines-above = 1         # Blank lines required above headings (default: 1)
-lines-below = 0         # Blank lines required below headings (default: 1)
-allowed-at-start = true # Allow headings at document start without blank line above (default: true)
+lines-above = [-1, 1, 1, 0, 0, 0]
+lines-below = [1, 0, 0, 0, 0, 0]
+allowed-at-start = true           # Allow headings at document start without blank line above (default: true)
 
 [MD031]
 list_items = false
