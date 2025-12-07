@@ -22,3 +22,5 @@ vim.b.minisurround_config = {
 }
 
 vim.b.undo_ftplugin = (vim.b.undo_ftplugin or "") .. "\n setl tabstop< shiftwidth< softtabstop<"
+
+vim.lsp.enable "rumdl"
