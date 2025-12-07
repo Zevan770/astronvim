@@ -5,7 +5,8 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = my_utils.is_nixos and "claude_code" or "copilot",
+          -- adapter = my_utils.is_nixos and "claude_code" or "copilot",
+          adapter = "claude_code",
         },
       },
       inline = {
