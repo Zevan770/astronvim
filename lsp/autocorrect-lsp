@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-
-# 启动 autocorrect server,跳过第一行输出
-tee /tmp/autocorrect-lsp-input.log | autocorrect server | tail -n +2 | tee /tmp/autocorrect-lsp.log
