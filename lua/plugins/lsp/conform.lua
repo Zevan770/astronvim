@@ -16,7 +16,7 @@ return {
         ---@type conform.setupOpts
         {
           formatters_by_ft = {
-            markdown = function(_) return { "prettier", "injected" } end,
+            markdown = function(_) return { "prettier", "mdsf" } end,
             nix = { "alejandra" },
             vue = { "prettier" },
           },
