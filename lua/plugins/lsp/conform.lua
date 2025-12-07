@@ -40,5 +40,13 @@ return {
         desc = "Format Injected Langs",
       },
     },
+    config = function(self, opts)
+      require("conform").setup(opts)
+      -- HACK: we don't need this workaround for conform.nvim issue
+      vim.api.nvim_del_autocmd(vim.api.nvim_get_autocmds({
+        group = "Conform",
+        event = "VimLeavePre",
+      })[1].id)
+    end,
   },
 }
