@@ -6,7 +6,7 @@
 -- })
 --
 -- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = "*kimi*", -- 这里的模式应匹配kimi相关的网址
+--   pattern = "*kimi*", -- 这里的模式应匹配 kimi 相关的网址
 --   command = "quit", -- 匹配时执行退出命令
 -- })
 

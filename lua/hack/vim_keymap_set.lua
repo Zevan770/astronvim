@@ -44,9 +44,9 @@ local original_vim_keymap_set = vim.keymap.set
 vim.keymap.set = function(mode, lhs, rhs, opts)
   -- if `lhs` is like "[h" or "]h", bracketed,
   -- then change it into something like "<leader>h[]"
-  -- 检查lhs是否是字符串
+  -- 检查 lhs 是否是字符串
   if type(lhs) == "string" then
-    -- 使用pattern匹配"[x"或"]x"格式，其中x是任意字符
+    -- 使用 pattern 匹配"[x"或"]x"格式，其中x是任意字符
     local bracket, key = lhs:match "^([%[%]])(.+)$"
 
     if bracket and key and #key > 0 then

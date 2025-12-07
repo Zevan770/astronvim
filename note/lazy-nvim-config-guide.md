@@ -1,13 +1,13 @@
 ## `LazySpec`
 
 这是相关文档和示例。
-注意最重要的是插件配置部分，opts和config的关系
+注意最重要的是插件配置部分，opts 和 config 的关系
 
 2025-07-03
 abc123abc
 
 - 如果一个插件有多个 `Spec`, 每一个 `Spec` 的 `opts` 会合并最终传给`config`
-  合并方式根据opts的具体形式，有三种：
+  合并方式根据 opts 的具体形式，有三种：
 
   ```lua
   ---will be merged
@@ -43,7 +43,7 @@ abc123abc
   ```
 
 - 而 `config = true` 等价于 `config = function(_, opts) require("this-plug").setup(opts)`, 多个`config`只会相互替代。
-  因此常用`opts`进行配置, 除非有特殊需求，比如需要在setup之前或之后做一些事情
+  因此常用`opts`进行配置，除非有特殊需求，比如需要在 setup 之前或之后做一些事情
 
 ```help
 ==============================================================================
@@ -339,7 +339,7 @@ EXAMPLES                                 *lazy.nvim-🔌-plugin-spec-examples*
 
 ### LazySpec.keys
 
-lazy.nvim 自带的功能，keys： Lazy-load on key mapping，可以实际定义键功能，也可以只描述键名 (通常用于这些键已经被插件映射，只需lazyvim检测lazy-load)
+lazy.nvim 自带的功能，keys：Lazy-load on key mapping，可以实际定义键功能，也可以只描述键名 (通常用于这些键已经被插件映射，只需 lazyvim 检测 lazy-load)
 
 ```lua
 ---@field keys? string|string[]|LazyKeysSpec[]|fun(self:LazyPlugin, keys:string[]):((string|LazyKeys)[])
@@ -362,9 +362,9 @@ lazy.nvim 自带的功能，keys： Lazy-load on key mapping，可以实际定�
 
 ### `AstroCoreOpts.mappings`
 
-需要将`astrocore`放进插件的`dependencies`里面, 然后修改 `astrocore` 的opts.mappings字段.
-AstroNvim使用Astrocore进行键映射的目的是让AstroNvim定义的所有映射，在astrocore插件的opts被解析完成前，所有映射都只是保存在一个表里，而不是真正的进行映射。
-这样，用户就可以对mappings字段增删改，随意操作。也就是说做到了让其定义的所有映射都是可选的
+需要将`astrocore`放进插件的`dependencies`里面，然后修改 `astrocore` 的 opts.mappings 字段。
+AstroNvim 使用 Astrocore 进行键映射的目的是让 AstroNvim 定义的所有映射，在 astrocore 插件的 opts 被解析完成前，所有映射都只是保存在一个表里，而不是真正的进行映射。
+这样，用户就可以对 mappings 字段增删改，随意操作。也就是说做到了让其定义的所有映射都是可选的
 
 types:
 
@@ -432,19 +432,19 @@ types:
 ```lua
 
 --- Table based API for setting keybindings
---- 有rhs则vim.keymap.set, 没有rhs则自动添加到which-key
+--- 有 rhs 则 vim.keymap.set, 没有 rhs 则自动添加到 which-key
 ---@param map_table AstroCoreMappings A nested table where the first key is the vim mode, the second key is the key to map, and the value is the function to set the mapping to
 ---@param base? vim.keymap.set.Opts A base set of options to set on every keybinding
 function M.set_mappings(map_table, base)
 ```
 
-上述 `AstroCoreMappings` 在底层使用这个函数。 手动调用`set_mappings`通常用于在插件自定义的类似`on_attach`, `hook`, 的字段中，或是 autocmd 中进行映射，以实现条件映射。
+上述 `AstroCoreMappings` 在底层使用这个函数。手动调用`set_mappings`通常用于在插件自定义的类似`on_attach`, `hook`, 的字段中，或是 autocmd 中进行映射，以实现条件映射。
 
 > [!example]
 > hello
 > world
 
-### 插件opts中自定义的键映射字段
+### 插件 opts 中自定义的键映射字段
 
 只给例子，因为插件自定义的映射方式往往不遵循 `vim.api.keyset.opts`
 
@@ -452,7 +452,7 @@ function M.set_mappings(map_table, base)
 
 ##### 1. 方便用户配置：
 
-将功能作为key, 而按键作为值，用户只需配置按键即可，例如
+将功能作为 key, 而按键作为值，用户只需配置按键即可，例如
 
 ```lua
 {
@@ -476,7 +476,7 @@ function M.set_mappings(map_table, base)
 
 ##### 2. 条件映射
 
-插件所映射的键只在特定场景生效，直接在opts中映射是全局映射，不能满足需求。
+插件所映射的键只在特定场景生效，直接在 opts 中映射是全局映射，不能满足需求。
 例如只在 sidebar 中生效的键就这么配置
 
 ```lua
@@ -505,7 +505,7 @@ function M.set_mappings(map_table, base)
 
 #### 复杂例子
 
-这是融合了以上三种的例子，插件本身提供了映射，又用 `LazySpec.keys` 获取这些映射实现懒加载并添加描述， 最后用 `astrocore` 向 `which-key.nvim` 注册映射
+这是融合了以上三种的例子，插件本身提供了映射，又用 `LazySpec.keys` 获取这些映射实现懒加载并添加描述，最后用 `astrocore` 向 `which-key.nvim` 注册映射
 
 ```lua
   {

@@ -35,7 +35,7 @@ return {
         ---@param opts AstroCoreOpts
         opts = function(_, opts)
           local maps = assert(opts.mappings)
-          -- 在normal和visual模式添加映射
+          -- 在 normal 和 visual 模式添加映射
           for _, mode in ipairs { "n", "v" } do
             maps[mode]["<C-K>"] = { "<cmd>Treewalker Up<cr>", desc = "Treewalker Up" }
             maps[mode]["<C-J>"] = { "<cmd>Treewalker Down<cr>", desc = "Treewalker Down" }
