@@ -5,7 +5,7 @@ I found implementations in [kitty](https://github.com/kovidgoyal/kitty/commit/dd
 
 React
 
-[](https://github.com/fdncred)
+[Link text](https://github.com/fdncred)
 
 ```lua
 --- Guess value of 'background' based on terminal color.

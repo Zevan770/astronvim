@@ -6,7 +6,7 @@
 2025-07-03
 abc123abc
 
-- 如果一个插件有多个 `Spec `, 每一个 `Spec` 的 `opts` 会合并最终传给`config`
+- 如果一个插件有多个 `Spec`, 每一个 `Spec` 的 `opts` 会合并最终传给`config`
   合并方式根据opts的具体形式，有三种：
 
   ```lua

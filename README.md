@@ -4,19 +4,18 @@
 
 ## 🛠️ Installation
 
-
-#### Clone the repository
+### Clone the repository
 
 ```bash
 git clone https://github.com/hw770/astronvim ~/.config/astronvim
 ```
 
-#### Start Neovim
+### Start Neovim
 
 ```bash
 NVIM_APPNAME=astronvim nvim
 ```
 
-### Learning
+## Learning
 
 See [[lazy-nvim-config-guide.md]] for more info
