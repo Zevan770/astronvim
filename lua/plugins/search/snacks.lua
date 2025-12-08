@@ -57,6 +57,10 @@ return {
               ["<a-c>"] = { "layout" },
               ["<c-p>"] = { "history_back", mode = { "n", "i" } },
               ["<c-n>"] = { "history_forward", mode = { "n", "i" } },
+              ["<c-t>"] = { "tab", mode = { "n", "i" } },
+              -- trouble integration included in astrocommunity
+              -- ~/.local/share/nvim/lazy/astrocommunity/lua/astrocommunity/diagnostics/trouble-nvim/init.lua
+              ["<a-t>"] = { "trouble_open", mode = { "n", "i" } },
               ["m"] = "list_scroll_down",
               [","] = "list_scroll_up",
               ["<c-y>"] = {
@@ -339,28 +343,6 @@ return {
     end,
   },
 
-  -- trouble integration
-  {
-    "folke/snacks.nvim",
-    opts = function(_, opts)
-      if require("astrocore").is_available "trouble.nvim" then
-        return vim.tbl_deep_extend("force", opts or {}, {
-          picker = {
-            actions = {
-              trouble_open = function(...) return require("trouble.sources.snacks").actions.trouble_open.action(...) end,
-            },
-            win = {
-              input = {
-                keys = {
-                  ["<a-t>"] = { "trouble_open", mode = { "n", "i" } },
-                },
-              },
-            },
-          },
-        })
-      end
-    end,
-  },
   -- {
   --   "folke/snacks.nvim",
   --   ---@type snacks.Config

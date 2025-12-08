@@ -93,13 +93,14 @@ return {
       -- tabs
       maps.n["<Leader><tab>o"] = { "<cmd>tabonly<cr>", desc = "Close Other Tabs" }
       maps.n["<Leader><tab><tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" }
-      maps.n["<Leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" }
+      maps.n["<Leader><tab>n"] = { "<cmd>tabnext<cr>", desc = "Next Tab" }
       maps.n["<Leader><tab>d"] = { "<cmd>tabclose<cr>", desc = "Close Tab" }
-      maps.n["<Leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" }
-      -- for i = 0, 6 do
-      --   maps.n["<Leader><tab>" .. i] = { "<cmd>tabnext " .. i .. "<cr>" }
-      -- end
-      maps.n["g<Tab>"] = "gt"
+      maps.n["<Leader><tab>p"] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" }
+      for i = 1, 9 do
+        maps.n["<Leader>" .. i] = { "<cmd>tabnext " .. i .. "<cr>" }
+      end
+      maps.n["<Tab>"] = "gt"
+      maps.n["<S-Tab>"] = "gT"
       maps.n["<Leader>hr"] = { "<Cmd>AstroReload<cr><Cmd>AstroReload<CR>" }
       maps.n["<Leader>qr"] = { "<Cmd>restart<cr>" }
 
