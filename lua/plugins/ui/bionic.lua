@@ -1,3 +1,4 @@
+if true then return {} end
 local H = {}
 
 H.ft_builder = function()
