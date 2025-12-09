@@ -160,11 +160,6 @@ return {
       -- maps.n["N"] = "Nzz"
       -- maps.v["N"] = "Nzz"
 
-      if my_utils.is_windows then
-        maps.n["<Leader>gg"] = { function() astro.toggle_term_cmd { cmd = "gitui", direction = "float" } end }
-        maps.n["<Leader>tl"] = maps.n["<Leader>gg"]
-      end
-
       maps.i["<C-Space>"] = "<c-x><c-o>"
 
       maps.n["gcp"] = { [["xyygcc"xp]], desc = "comment and duplicate line", remap = true }
