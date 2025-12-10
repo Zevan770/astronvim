@@ -2,7 +2,7 @@
 return {
   {
     "lewis6991/hover.nvim",
-    enabled = false,
+    -- enabled = false,
     event = {
       "LspAttach",
     },
