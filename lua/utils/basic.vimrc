@@ -29,6 +29,14 @@ noremap      gl          g$
 "noremap  <c-k>      <c-u>
 noremap  J          5gj
 noremap  K          5gk
+noremap H 3zh
+noremap L 3zl
+
+noremap  zh    zm
+noremap  zl    zr
+noremap zgh    zM
+noremap zgl    zR
+
 " vunmap K
 noremap  j          gj
 noremap  k          gk
@@ -63,6 +71,7 @@ xnoremap x "_x
 nnoremap c "_c
 xnoremap c "_c
 nnoremap C "_C
+nnoremap Y y$
 
 xnoremap P pgvy
 xnoremap Y "Iy

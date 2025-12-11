@@ -158,24 +158,6 @@ return {
           end,
           desc = "Enter fold persist mode",
         }
-        maps.n["zh"] = {
-          function()
-            vim.cmd "normal! 3zh"
-            require("which-key").show {
-              keys = "z",
-              -- loop = true,
-            }
-          end,
-        }
-        maps.n["zl"] = {
-          function()
-            vim.cmd "normal! 3zl"
-            require("which-key").show {
-              keys = "z",
-              -- loop = true,
-            }
-          end,
-        }
 
         maps.n["<C-_>"] = {
           function() require("which-key").show { global = false } end,
