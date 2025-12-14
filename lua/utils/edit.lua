@@ -5,11 +5,21 @@ local M = {}
 ---      else tabnew and tcd dir and edit file
 M.edit_or_tabnew = function(dir, file)
   dir = vim.fs.normalize(dir)
-  M.tabnewat(dir)
-  vim.cmd.edit(file)
+  file = vim.fs.normalize(file)
+  M.make_sure_tab(dir)
+  M.edit_or_focus_buffer(file)
 end
 
-M.tabnewat = function(dir)
+M.edit_or_focus_buffer = function(file)
+  local bufnr = vim.fn.bufnr(file, true)
+  if bufnr ~= -1 then
+    vim.api.nvim_set_current_buf(bufnr)
+  else
+    vim.cmd.edit(file)
+  end
+end
+
+M.make_sure_tab = function(dir)
   local tabpages = vim.api.nvim_list_tabpages()
   for _, tabpage in ipairs(tabpages) do
     local cwd = vim.fn.getcwd(-1, tabpage)
