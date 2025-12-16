@@ -96,7 +96,6 @@ nmap     <C-a>      ggVG
 noremap    zv      <C-v>
 nmap     zw         <c-w>
 "nmap     <space>w         <c-w>
-nmap    zg         za
 " nmap <enter> za
 nnoremap <A-left> <c-o>
 nnoremap <A-right> <c-i>

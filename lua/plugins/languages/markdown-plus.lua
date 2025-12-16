@@ -1,4 +1,3 @@
-if true then return {} end
 ---@type LazySpec
 return {
   {
@@ -41,7 +40,7 @@ return {
           confirm_destructive = true, -- default: true  confirm before transpose/sort operations
           keymaps = { -- Table-specific keymaps (prefix based)
             enabled = true, -- default: true  provide table keymaps
-            prefix = "<leader>t", -- default: "<leader>t"  prefix for table ops
+            prefix = "<localleader>t", -- default: "<leader>t"  prefix for table ops
             insert_mode_navigation = true, -- default: true  Alt+hjkl cell navigation
           },
         },
@@ -54,7 +53,7 @@ return {
 
         -- Global keymap configuration
         keymaps = {
-          enabled = true, -- default: true  set false to disable ALL default maps (use <Plug>)
+          enabled = true,
         },
 
         -- Filetypes configuration

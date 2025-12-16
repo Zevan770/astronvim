@@ -1,7 +1,6 @@
--- if true then return {} end
----@diagnostic disable: missing-fields
--- if true then return {} end
+if true then return {} end
 local markdown_ft = require("utils.filetype").markdown_like
+---@diagnostic disable: missing-fields
 return {
   {
     "roodolv/markdown-toggle.nvim",
