@@ -4,10 +4,10 @@ return {
     "olimorris/codecompanion.nvim",
     opts = function(_, opts)
       return require("astrocore").extend_tbl(opts, {
-        strategies = {
+        interactions = {
           chat = {
             keymaps = (function()
-              local keymaps = vim.deepcopy(require("codecompanion.config").config.strategies.chat.keymaps)
+              local keymaps = vim.deepcopy(require("codecompanion.config").config.interactions.chat.keymaps)
               -- Iterate over all keymaps, normalize the keys under `modes`, and replace keys that start with 'g'
               -- Use `pairs` instead of `ipairs` to support `keymaps` being a map (not necessarily an array)
               for _, keymap in pairs(keymaps) do

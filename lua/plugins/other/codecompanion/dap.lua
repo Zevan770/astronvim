@@ -1,3 +1,5 @@
+if true then return {} end
+-- FIXME: enable when fixed
 ---@type LazySpec
 return {
   {

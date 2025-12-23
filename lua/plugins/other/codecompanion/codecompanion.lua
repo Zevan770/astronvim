@@ -81,7 +81,7 @@ return {
     -- see /home/hw770/.local/share/nvim/lazy/codecompanion.nvim/lua/codecompanion/config.lua:10
     opts = {
       -- FIXME: remove this line when update CC to 18.*
-      ignore_warnings = true,
+      -- ignore_warnings = true,
       opts = { language = "Chinese" },
       display = {
         chat = {
@@ -91,7 +91,7 @@ return {
           provider = "snacks",
         },
       },
-      strategies = {
+      interactions = {
         chat = {
           tools = {
             opts = {
@@ -168,7 +168,7 @@ return {
         },
       },
 
-      memory = {
+      rules = {
         opts = {
           enabled = true,
         },
