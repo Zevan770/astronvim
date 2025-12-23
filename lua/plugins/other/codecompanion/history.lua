@@ -9,7 +9,7 @@ return {
         desc = "Code Companion - History",
       },
     },
-    specs = {
+    dependencies = {
       {
         "olimorris/codecompanion.nvim",
         dependencies = {
