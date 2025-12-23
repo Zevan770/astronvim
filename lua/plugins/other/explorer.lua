@@ -282,7 +282,7 @@ return {
         dependencies = {
           {
             "A7Lavinraj/fyler.nvim",
-            opts = function() require("telescope").load_extension "fyler_zoxide" end,
+            opts = function() require("telescope").load_extension "fyler" end,
           },
         },
       },
