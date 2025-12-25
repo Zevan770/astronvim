@@ -288,6 +288,12 @@ return {
       },
     },
     branch = "stable",
+    keys = {
+      {
+        "<leader>E",
+        "<Cmd>Fyler kind=split_left_most<CR>",
+      },
+    },
     opts = {
       -- Key mappings
       mappings = {

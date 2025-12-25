@@ -38,7 +38,7 @@ return {
     cond = not not vim.g.started_by_firenvim or not not vim.env.bootstrap_firenvim,
     -- module = false,
     build = function()
-      require("lazy").load { plugins = "firenvim", wait = true }
+      require("lazy").load { plugins = { "firenvim" }, wait = true }
       vim.fn["firenvim#install"](0)
     end,
     keys = {
