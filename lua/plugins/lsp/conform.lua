@@ -19,6 +19,7 @@ return {
             markdown = function(_) return { "mdsf", lsp_format = "first" } end,
             nix = { "alejandra" },
             vue = { "prettier" },
+            tex = { "tex-fmt" },
           },
           formatters = {
             injected = { options = { ignore_errors = true } },
