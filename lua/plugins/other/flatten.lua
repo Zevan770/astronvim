@@ -21,7 +21,46 @@ return {
       ---@type Flatten.PartialConfig
       return {
         window = {
-          open = "alternate",
+          -- open = "alternate",
+          open = function(args)
+            local bufnr, winnr
+
+            local focus = args.files[1]
+            -- If there's an stdin buf, focus that
+            if args.stdin_buf then focus = args.stdin_buf end
+
+            bufnr = focus.bufnr
+            winnr = vim.fn.win_getid(vim.fn.winnr "#")
+
+            vim.api.nvim_win_set_buf(winnr, bufnr)
+            if not vim.tbl_contains(vim.api.nvim_list_bufs(), bufnr) then
+              -- 说明被vim-fetch关闭了, 则尝试获取对应的原始文件
+
+              -- ~/.local/share/nvim/lazy/vim-fetch/autoload/fetch.vim:125
+              vim.cmd [[
+              function! CheckFlatten(bufname) abort " ({{{
+                " check for a matching spec, return if none matches
+                for [l:key, l:spec] in items(fetch#specs())
+                  if index(g:fetch_disabled_specs, l:key) != -1
+                    unlet! l:spec
+                    continue
+                  endif
+                  if matchend(a:bufname, l:spec.pattern) is len(a:bufname)
+                    break
+                  endif
+                  unlet! l:spec
+                endfor
+                if exists('l:spec') isnot 1 | return 0 | endif
+                let [l:file, l:jump] = l:spec.parse(a:bufname)
+                return bufadd(l:file)
+              endfunction " }}}
+              ]]
+              bufnr = vim.fn.CheckFlatten(focus.fname)
+              vim.api.nvim_win_set_buf(winnr, bufnr)
+            end
+            vim.api.nvim_set_current_win(winnr)
+            return bufnr, winnr
+          end,
         },
         hooks = {
           should_block = function(argv)
@@ -88,10 +127,9 @@ return {
   --   lazy = false,
   --   priority = 10000,
   -- },
-  -- {
-  --   "wsdjeg/vim-fetch",
-  --   enabled = not my_utils.is_windows,
-  --   lazy = false,
-  --   priority = 10001,
-  -- },
+  {
+    "wsdjeg/vim-fetch",
+    lazy = false,
+    priority = 9999,
+  },
 }
