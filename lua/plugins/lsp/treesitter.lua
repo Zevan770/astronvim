@@ -12,6 +12,13 @@ vim.api.nvim_create_autocmd("User", {
       maintainers = { "@huacnlee" },
       tier = 2,
     }
+    require("nvim-treesitter.parsers").mail = {
+      install_info = {
+        url = "https://github.com/stevenxxiu/tree-sitter-mail",
+        branch = "master",
+        queries = "queries",
+      },
+    }
   end,
 })
 ---@type LazySpec
