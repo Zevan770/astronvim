@@ -49,7 +49,7 @@ return {
 
       modes = {
         char = {
-          enabled = true,
+          enabled = false,
           -- set to `false` to use the current line only
           multi_line = true,
           -- by default all keymaps are enabled, but you can disable some of them,
