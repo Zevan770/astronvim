@@ -2,6 +2,7 @@ return {
 
   {
     "olimorris/codecompanion.nvim",
+    dev = true,
     opts = {
       interactions = {
         chat = {
@@ -17,7 +18,13 @@ return {
       },
       adapters = {
         acp = {
-          claude_code = function() return require("codecompanion.adapters").extend("claude_code", {}) end,
+          claude_code = function()
+            return require("codecompanion.adapters").extend("claude_code", {
+              defaults = {
+                timeout = 30000,
+              },
+            })
+          end,
           qwen_code = function()
             return require("codecompanion.adapters").extend("gemini_cli", {
               commands = {
