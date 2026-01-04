@@ -8,5 +8,5 @@ vim.b.minisurround_config = {
 }
 
 vim.cmd [[
-iabbr <buffer> fn function
+iabbr <buffer> fnn function
 ]]
