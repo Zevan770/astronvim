@@ -1,5 +1,6 @@
 -- if true then return {} end
 ---@type LazySpec
+local environ = vim.fn.environ()
 return {
   {
     "yetone/avante.nvim",
@@ -145,7 +146,7 @@ return {
         },
       },
 
-      provider = my_utils.is_nixos and "qwen-code" or "copilot_api",
+      provider = "claude-code",
       providers = {
         -- copilot = {
         --   model = "gpt-4.1",
@@ -165,32 +166,17 @@ return {
       },
       acp_providers = {
         ["gemini-cli"] = {
-          command = "gemini",
-          args = { "--experimental-acp" },
-          env = {
-            NODE_NO_WARNINGS = "1",
-            GEMINI_API_KEY = os.getenv "GEMINI_API_KEY",
-          },
+          --- 😡 just let the sub-process inherit the env vars
+          env = environ,
         },
         ["qwen-code"] = {
+          __inherited_from = "gemini-cli",
           command = "qwen",
           args = { "--experimental-acp" },
-          env = {
-            NODE_NO_WARNINGS = "1",
-            OPENAI_API_KEY = os.getenv "OPENAI_API_KEY",
-            OPENAI_BASE_URL = os.getenv "OPENAI_BASE_URL",
-            OPENAI_MODEL = os.getenv "OPENAI_MODEL",
-          },
+          env = environ,
         },
         ["claude-code"] = {
-          command = "npx",
-          args = { "@zed-industries/claude-code-acp" },
-          env = {
-            NODE_NO_WARNINGS = "1",
-            OPENAI_API_KEY = os.getenv "OPENAI_API_KEY",
-            OPENAI_BASE_URL = os.getenv "OPENAI_BASE_URL",
-            OPENAI_MODEL = os.getenv "OPENAI_MODEL",
-          },
+          env = environ,
         },
       },
     },
