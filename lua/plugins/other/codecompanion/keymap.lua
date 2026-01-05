@@ -29,6 +29,7 @@ return {
                   for i, key in ipairs(keys) do
                     if type(key) == "string" and key:sub(1, 1) == "g" then keys[i] = "<localleader>" .. key:sub(2) end
                   end
+                  if #keys == 1 then keys = keys[1] end
 
                   new_modes[mode] = keys
                 end
