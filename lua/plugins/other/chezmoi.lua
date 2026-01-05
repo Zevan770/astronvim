@@ -11,6 +11,7 @@ return {
           options = {
             g = {
               ["chezmoi#use_tmp_buffer"] = 1,
+              ["chezmoi#use_external"] = 1,
               -- ["chezmoi#source_dir_path"] = chezmoiRoot
             },
           },
