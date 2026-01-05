@@ -5,7 +5,7 @@ return {
   opts = function(_, opts)
     opts = require("astrocore").extend_tbl(opts, {
       -- ~/.local/share/nvim/lazy/aerial.nvim/lua/aerial/config.lua
-      backends = { "markdown", "treesitter", "lsp", "asciidoc", "man" },
+      backends = { "markdown", "lsp", "treesitter", "asciidoc", "man" },
       filter_kind = {
         "Array",
         "Boolean",
