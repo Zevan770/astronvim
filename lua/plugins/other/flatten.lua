@@ -8,7 +8,6 @@ return {
     dependencies = {
       {
         "willothy/wezterm.nvim",
-        dev = true,
         opts = {
           executable = "wezterm.exe",
         },
@@ -70,7 +69,7 @@ return {
             -- In this case, we would block if we find the `-b` flag
             -- This allows you to use `nvim -b file1` instead of
             -- `nvim --cmd 'let g:flatten_wait=1' file1`
-            return vim.tbl_contains(argv, "-b")
+            return not vim.tbl_contains(argv, "-b")
 
             -- Alternatively, we can block if we find the diff-mode option
             -- return vim.tbl_contains(argv, "-d")
