@@ -1,4 +1,4 @@
-if my_utils.is_windows then return {} end
+local chezmoiRoot = vim.fs.normalize "~/.local/share/chezmoi"
 ---@type LazySpec
 return {
   {
@@ -11,7 +11,7 @@ return {
           options = {
             g = {
               ["chezmoi#use_tmp_buffer"] = 1,
-              ["chezmoi#source_dir_path"] = os.getenv "HOME" .. "/.local/share/chezmoi",
+              -- ["chezmoi#source_dir_path"] = chezmoiRoot
             },
           },
         },
@@ -20,10 +20,10 @@ return {
   },
   {
     "xvzc/chezmoi.nvim",
-    enabled = vim.fn.has "win32" ~= 1,
+    event = { "BufRead", "BufNewFile" },
     opts = {
       edit = {
-        watch = false,
+        watch = true,
         force = false,
       },
       notification = {
@@ -32,23 +32,38 @@ return {
         on_watch = true,
       },
     },
-    -- dependencies = {
-    --   {
-    --     "AstroNvim/astrocore",
-    --     ---@type AstroCoreOpts
-    --     opts = {
-    --       autocmds = {
-    --         chezmoi = {
-    --           {
-    --             event = { "BufRead", "BufNewFile" },
-    --             pattern = { os.getenv "HOME" .. "/.local/share/chezmoi/*" },
-    --             callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
-    --           },
-    --         },
-    --       },
-    --     },
-    --   },
-    -- },
+    keys = {
+      {
+        "<leader>hc",
+        function()
+          require("chezmoi.pick").snacks(nil, {
+            "--path-style",
+            "absolute",
+            "--exclude",
+            "externals",
+            "--exclude",
+            "dirs",
+          })
+        end,
+      },
+    },
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        ---@type AstroCoreOpts
+        opts = {
+          autocmds = {
+            chezmoi = {
+              {
+                event = { "BufRead", "BufNewFile" },
+                pattern = { chezmoiRoot .. "/*" },
+                callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
+              },
+            },
+          },
+        },
+      },
+    },
     specs = {
       -- {
       --   "nvim-telescope/telescope.nvim",
@@ -108,58 +123,6 @@ return {
       --     },
       --   },
       -- },
-      {
-        "folke/snacks.nvim",
-        optional = true,
-        dependencies = {
-          "xvzc/chezmoi.nvim",
-          {
-            "AstroNvim/astrocore",
-            opts = {
-              mappings = {
-                n = {
-                  ["<Leader>hc"] = {
-                    function()
-                      local results = require("chezmoi.commands").list {
-                        args = {
-                          "--path-style",
-                          "absolute",
-                          -- "--include",
-                          -- "files",
-                          "--exclude",
-                          "externals",
-                        },
-                      }
-                      local items = {}
-
-                      for _, czFile in ipairs(results) do
-                        table.insert(items, {
-                          text = czFile,
-                          file = czFile,
-                        })
-                      end
-
-                      ---@type snacks.picker.Config
-                      local opts = {
-                        items = items,
-                        confirm = function(picker, item)
-                          picker:close()
-                          require("chezmoi.commands").edit {
-                            targets = { item.text },
-                            args = { "--watch" },
-                          }
-                        end,
-                      }
-                      Snacks.picker.pick(opts)
-                    end,
-                    desc = "Find chezmoi config",
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
     },
   },
   {
