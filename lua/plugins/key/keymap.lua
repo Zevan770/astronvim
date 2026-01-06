@@ -97,8 +97,8 @@ return {
       for i = 1, 9 do
         maps.n["<Leader>" .. i] = { "<cmd>tabnext " .. i .. "<cr>" }
       end
-      maps.n["<Tab>"] = "gt"
-      maps.n["<S-Tab>"] = "gT"
+      -- maps.n["<Tab>"] = "gt"
+      -- maps.n["<S-Tab>"] = "gT"
       maps.n["<Leader>hr"] = { "<Cmd>AstroReload<cr><Cmd>AstroReload<CR>" }
       maps.n["<Leader>qr"] = { "<Cmd>restart<cr>" }
 

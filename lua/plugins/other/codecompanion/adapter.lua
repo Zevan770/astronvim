@@ -7,7 +7,7 @@ return {
       interactions = {
         chat = {
           -- adapter = my_utils.is_nixos and "claude_code" or "qwen_code",
-          adapter = "claude_code",
+          adapter = "qwen_code",
         },
       },
       inline = {
