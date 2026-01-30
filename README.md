@@ -6,13 +6,13 @@
 
 ### Clone the repository
 
-```bash
-git clone https://github.com/hw770/astronvim ~/.config/astronvim
+```shell {#clone}
+git clone https://github.com/zevan770/astronvim ~/.config/astronvim
 ```
 
 ### Start Neovim
 
-```bash
+```shell {#start}
 NVIM_APPNAME=astronvim nvim
 ```
 
