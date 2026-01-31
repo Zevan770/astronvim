@@ -118,7 +118,7 @@ return {
           ahk1 = "autohotkey",
           ah2 = "autohotkey",
           log = "log",
-          kbd = "lisp",
+          kbd = "kanata",
           pest = "pest",
         },
         filename = {
