@@ -2,15 +2,11 @@
 
 ---@type vim.lsp.ClientConfig
 return {
-  cmd = {
-    "node",
-    "e:\\scoop\\apps\\vscode-insiders\\1.104.0-1755255381433\\data\\extensions\\rszyma.vscode-kanata-0.15.0\\out\\server.js",
-    "--stdio",
-  },
+  cmd = { "node", "E:\\dev\\vscode-kanata\\out\\server.js", "--stdio" },
   filetypes = {
     "kanata",
   },
-  root_markers = { ".git", "kanata.kbd" },
+  root_markers = { "kanata.kbd", ".git" },
   single_file_support = true,
   init_options = {
     includesAndWorkspaces = "workspace",
