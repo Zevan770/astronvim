@@ -16,16 +16,33 @@ return {
     end,
   },
   {
-    "rachartier/tiny-glimmer.nvim",
+    "nemanjamalesija/smart-paste.nvim",
     event = "VeryLazy",
-    priority = 10, -- Needs to be a really low priority, to catch others plugins keybindings.
+    config = true,
+  },
+  {
+    "rachartier/tiny-glimmer.nvim",
+    lazy = true,
+    -- priority = 10, -- Needs to be a really low priority, to catch others plugins keybindings.
     opts = {
       support = {
         substitute = {
           enabled = true,
         },
       },
-      -- your configuration
+      overwrite = {
+        -- Undo operation animation
+        undo = {
+          enabled = true,
+          undo_mapping = "u",
+        },
+
+        -- Redo operation animation
+        redo = {
+          enabled = true,
+          redo_mapping = "U",
+        },
+      },
     },
   },
 }
