@@ -25,7 +25,9 @@ return {
   {
     "AstroNvim/astrolsp",
     opts = {
-      servers = {},
+      servers = {
+        "dts_lsp",
+      },
     },
   },
 }
