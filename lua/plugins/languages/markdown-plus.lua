@@ -10,7 +10,7 @@ return {
 
         -- Feature toggles (all default: true)
         features = {
-          list_management = true, -- default: true (list auto-continue / indent / renumber / checkboxes)
+          list_management = false, -- default: true (list auto-continue / indent / renumber / checkboxes)
           text_formatting = true, -- default: true (bold/italic/strike/code + clear)
           headers_toc = true, -- default: true (headers nav + TOC generation & window)
           links = true, -- default: true (insert/edit/convert/reference links)
