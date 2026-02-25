@@ -4,7 +4,7 @@ return {
   -- stylua: ignore
   opts = {
     conflict   = { suffix = "x", options = {} },
-    file       = { suffix = "f", options = {} },
+    file       = { suffix = "", options = {} },
     indent     = { suffix = "i", options = {} },
     jump       = { suffix = "j", options = {} },
     location   = { suffix = "l", options = {} },
