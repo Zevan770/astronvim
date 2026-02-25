@@ -1,6 +1,7 @@
 return {
   {
     "mrjones2014/codesettings.nvim",
+    enabled = false,
     -- these are the default settings just set `opts = {}` to use defaults
     opts = {
       ---Look for these config files
@@ -10,7 +11,9 @@ return {
       ---Set filetype to jsonc when opening a file specified by `config_file_paths`,
       ---make sure you have the jsonc tree-sitter parser installed for highlighting
       jsonc_filetype = true,
+      lua_ls_integration = false,
     },
-    event = "VeryLazy",
+    ft = { "json", "jsonc", "lua" },
+    -- event = "VeryLazy",
   },
 }

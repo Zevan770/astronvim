@@ -37,7 +37,7 @@
   "codecompanion-gitcommit.nvim": { "branch": "main", "commit": "7ee9f279b1c98c91efb13b3be53c3fe7d0a667ac" },
   "codecompanion-history.nvim": { "branch": "main", "commit": "8c6ca9f998aeef89f3543343070f8562bf911fb4" },
   "codecompanion-spinner.nvim": { "branch": "main", "commit": "bfb31ca124bd1a2e032faea09844c8609154bdb5" },
-  "codesettings.nvim": { "branch": "master", "commit": "ba0500b802384718f3c5574f5439a11a4882d7aa" },
+  "codesettings.nvim": { "branch": "master", "commit": "2a6bc089d6bfe2db1d9ad5a31c5102847581d99d" },
   "coerce.nvim": { "branch": "main", "commit": "b7927c42bd7f3adaae5f5dcf86a89140d5d80430" },
   "colorful-winsep.nvim": { "branch": "main", "commit": "e555611c8f39918e30d033a97ea1a5af457ce75e" },
   "compiler-explorer.nvim": { "branch": "master", "commit": "3f1d95509b66803c79b4ef3ab1e51e5bc53f4ca2" },
