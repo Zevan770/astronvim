@@ -99,9 +99,9 @@ return {
                 -- "vectorcode_toolbox",
                 "read_file",
               },
-              folds = {
-                enabled = false,
-              },
+              -- folds = {
+              --   enabled = false,
+              -- },
             },
             groups = {
               ["all_in_one"] = {
