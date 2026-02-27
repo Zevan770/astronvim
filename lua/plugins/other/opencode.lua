@@ -5,19 +5,27 @@ return {
     dependencies = {
       -- Recommended for better prompt input, and required to use opencode.nvim's embedded terminal. Otherwise optional.
       { "folke/snacks.nvim", opts = { input = { enabled = true } } },
+      {
+        "e-cal/opencode-tmux.nvim",
+        opts = {
+          cmd = "opencode --port",
+          options = "-h",
+          focus = true,
+          auto_close = false,
+          allow_passthrough = false,
+          find_sibling = true,
+        },
+      },
     },
     config = function()
-      vim.g.opencode_opts = {
-        port = "4008",
-        auto_reload = true,
-        provider = {
-          enabled = "tmux", -- Default if inside a `tmux` session.
-          tmux = {
-            options = "-h", -- Options to pass to `tmux split-window`.
-          },
-        },
-        -- Your configuration, if any — see `lua/opencode/config.lua`
-      }
+      ---@type opencode.Opts
+      -- vim.g.opencode_opts = require("astrocore").extend_tbl(vim.g.opencode_opts, {
+      --   auto_reload = true,
+      --   server = {
+      --     -- port = 4007,
+      --   },
+      --   -- Your configuration, if any — see `lua/opencode/config.lua`
+      -- })
 
       -- Recommended keymaps
       vim.keymap.set("n", "<leader>oot", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
