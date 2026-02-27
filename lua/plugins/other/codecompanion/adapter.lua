@@ -3,11 +3,12 @@ return {
   {
     "olimorris/codecompanion.nvim",
     dev = true,
+    -- see /home/hw770/.local/share/nvim/lazy/codecompanion.nvim/lua/codecompanion/config.lua:10
     opts = {
       interactions = {
         chat = {
           -- adapter = my_utils.is_nixos and "claude_code" or "qwen_code",
-          adapter = "qwen_code",
+          adapter = "opencode",
         },
       },
       inline = {
@@ -18,6 +19,13 @@ return {
       },
       adapters = {
         acp = {
+          opencode = function()
+            return require("codecompanion.adapters").extend("opencode", {
+              defaults = {
+                timeout = 30000,
+              },
+            })
+          end,
           claude_code = function()
             return require("codecompanion.adapters").extend("claude_code", {
               defaults = {
