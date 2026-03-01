@@ -72,9 +72,9 @@ return {
         show_server_name = true,
       },
       lightbulb = {
-        enable = false,
-        sign = true,
-        virtual_text = false,
+        enable = true,
+        sign = false,
+        virtual_text = true,
       },
       ui = {
         code_action = get_icon "DiagnosticHint",
