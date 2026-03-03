@@ -4,7 +4,7 @@ return {
     "lewis6991/hover.nvim",
     -- enabled = false,
     event = {
-      "LspAttach",
+      "VeryLazy",
     },
     config = function()
       require("hover").config {
