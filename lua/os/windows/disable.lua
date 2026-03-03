@@ -1,6 +1,6 @@
 local M = {}
 local disabled = {
-  "opencode.nvim",
+  -- "opencode.nvim",
 }
 
 -- mix disabled with "enabled = false"

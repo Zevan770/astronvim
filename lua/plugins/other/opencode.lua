@@ -7,6 +7,7 @@ return {
       { "folke/snacks.nvim", opts = { input = { enabled = true } } },
       {
         "e-cal/opencode-tmux.nvim",
+        enabled = false,
         opts = {
           cmd = "opencode --port",
           options = "-h",
