@@ -1,9 +1,9 @@
 return {
   {
-    "ravitemer/mcphub.nvim",
-    -- disable util this pr is merged
-    -- https://github.com/ravitemer/mcphub.nvim/pull/276
-    enabled = false,
+    -- use this fork until the pr is merged
+    -- https://github.com/ravitemer/mcphub.nvim/pull/279
+    "bahaaza/mcphub.nvim",
+    -- "ravitemer/mcphub.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
     },
