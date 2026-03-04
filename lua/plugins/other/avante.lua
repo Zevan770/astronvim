@@ -146,7 +146,7 @@ return {
         },
       },
 
-      provider = "claude-code",
+      provider = "opencode",
       providers = {
         -- copilot = {
         --   model = "gpt-4.1",
@@ -176,6 +176,9 @@ return {
           env = environ,
         },
         ["claude-code"] = {
+          env = environ,
+        },
+        opencode = {
           env = environ,
         },
       },
