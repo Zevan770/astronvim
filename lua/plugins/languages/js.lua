@@ -18,4 +18,10 @@ return {
     ---@type TailwindTools.Option
     opts = {}, -- your configuration
   },
+  {
+    "ruicsh/tailwindcss-dial.nvim",
+    ft = function() return vim.tbl_get(require("astrocore").plugin_opts "astrolsp", "config", "vtsls", "filetypes") end,
+    dependencies = { "monaqa/dial.nvim" },
+    opts = {},
+  },
 }
