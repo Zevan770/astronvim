@@ -2,7 +2,6 @@
 ---@type LazySpec
 return {
   { import = "astrocommunity.git.neogit" },
-  { import = "astrocommunity.git.diffview-nvim" },
   -- { import = "astrocommunity.git.fugit2-nvim" },
   -- {
   --   "SuperBo/fugit2.nvim",
@@ -37,7 +36,11 @@ return {
       integrations = {
         telescope = false,
         fzf_lua = false,
+        snacks = true,
+        codediff = true,
+        diffview = false,
       },
+      diff_viewer = "codediff",
       disable_commit_confirmation = true,
       disable_signs = false,
     },
@@ -59,33 +62,43 @@ return {
     },
   },
   {
-    "akinsho/git-conflict.nvim",
-    event = "BufReadPre",
-    version = "*",
-    config = true,
-    opts = {
-      default_mappings = {
-        ours = "o",
-        theirs = "t",
-        none = "0",
-        both = "b",
-        next = "n",
-        prev = "p",
-      },
-
-      disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
-      list_opener = "copen", -- command or function to open the conflicts list
-      highlights = { -- They must have background color, otherwise the default color will be used
-        incoming = "DiffAdd",
-        current = "DiffText",
-      },
-    },
-  },
-  {
     "AstroNvim/astrocore",
     opts = function(_, opts)
       local maps = opts.mappings
       maps.n["<Leader>gn"] = { "<Cmd>Neogit<CR>", desc = "Open Neogit Tab Page" }
     end,
   },
+  {
+    "barrettruth/diffs.nvim",
+    -- enabled = false,
+    init = function()
+      vim.g.diffs = {
+        integrations = {
+          fugitive = false,
+          neogit = true,
+          gitsigns = true,
+        },
+        conflict = {
+          enabled = true,
+          show_actions = true,
+          keymaps = {
+            ours = "dpo",
+            theirs = "dpt",
+            both = "dpb",
+            none = "dpn",
+            next = "]c",
+            prev = "[c",
+          },
+        },
+        intra = {
+          algorithm = "codediff",
+        },
+      }
+    end,
+  },
+  {
+    "esmuellert/codediff.nvim",
+    opts = {},
+  },
+  -- { import = "astrocommunity.git.diffview-nvim" },
 }
