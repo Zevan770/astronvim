@@ -9,7 +9,7 @@ return {
     },
     -- event = "User AstroFile",
     cmd = "MCPHub",
-    build = "pnpm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+    build = "bun install -g mcp-hub@latest", -- Installs required mcp-hub npm module
     ---@module "mcphub"
     ---@type MCPHub.Config
     opts = {
@@ -40,7 +40,7 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
-    dependencies = { "ravitemer/mcphub.nvim" },
+    dependencies = { "mcphub.nvim" },
     optional = true,
     opts = {
       extensions = {
@@ -60,7 +60,7 @@ return {
     "yetone/avante.nvim",
     optional = true,
     dependencies = {
-      "ravitemer/mcphub.nvim",
+      "mcphub.nvim",
     },
     opts = {
       system_prompt = function()
