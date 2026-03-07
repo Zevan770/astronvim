@@ -146,6 +146,12 @@ return {
           buftypes = {},
         },
       },
+      treesitter = {
+        highlight = function(lang, bufnr)
+          if lang == "latex" then return false end
+          return true
+        end,
+      },
     } --[[@as AstroCoreOpts]])
   end,
 }
