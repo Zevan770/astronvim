@@ -2,13 +2,16 @@
 -- init with some executable that are asserted to be available
 local M = {}
 M.executable_cache = {
+  ["luarocks"] = 1,
   btm = 0,
   chafa = 1,
   cmake = 1,
   curl = 1,
+  cygpath = 1,
   fd = 1,
   file = 1,
   gdu = 0,
+  ["gdu_windows_amd64.exe"] = 0,
   git = 1,
   ["im-select.exe"] = 1,
   lazygit = 1,
@@ -17,9 +20,11 @@ M.executable_cache = {
   ["mcp-hub"] = 1,
   node = 1,
   prettier = 1,
+  ["pwsh.exe"] = 1,
   python = 1,
   rg = 1,
   ["tree-sitter"] = 1,
+  wezterm = 1,
   ["wezterm.exe"] = 1,
 }
 function M.executable(cmd)
