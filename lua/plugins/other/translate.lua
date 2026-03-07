@@ -64,7 +64,7 @@ return {
         hover = {
           enabled = true,
           delay = 500,
-          auto = true,
+          auto = false,
         },
 
         immersive = {
