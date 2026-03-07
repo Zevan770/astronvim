@@ -9,7 +9,7 @@
   "YankAssassin.nvim": { "branch": "main", "commit": "4074b307bec6bb8c92b59fb3544e3dc3e43fcf6d" },
   "aerial.nvim": { "branch": "master", "commit": "645d108a5242ec7b378cbe643eb6d04d4223f034" },
   "any-jump.vim": { "branch": "master", "commit": "f95674d9a4251ac02f452d5f1861e4422f4652c7" },
-  "astrocommunity": { "branch": "main", "commit": "cc37684904d34b1b9f5098df9fe46e899b11e08c" },
+  "astrocommunity": { "branch": "v6", "commit": "9412fb940d2f289ba5ecbe26f13906f512e06e28" },
   "astrocore": { "branch": "v3", "commit": "07b6017b55d8cd3003b269bf07d87007513ec591" },
   "astrolsp": { "branch": "v4", "commit": "66b1ed538d78f0dddee50fcf0b4023aabbad2c4f" },
   "astrotheme": { "branch": "main", "commit": "4ed9d1110e62b8965cd35ba9419237057bb41550" },
