@@ -2,6 +2,8 @@
 return {
   {
     "Saghen/blink.cmp",
+    lazy = true,
+    event = { "InsertEnter" },
     version = "1.*",
     build = my_utils.is_windows and "" or "cargo build --release",
     enabled = my_utils.blink_enabled,
