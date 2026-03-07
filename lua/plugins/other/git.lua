@@ -98,6 +98,7 @@ return {
   },
   {
     "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
     opts = {},
   },
   -- { import = "astrocommunity.git.diffview-nvim" },

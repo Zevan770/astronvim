@@ -52,6 +52,7 @@ return {
   },
   {
     "noir4y/comment-translate.nvim",
+    event = "User AstroFile",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",

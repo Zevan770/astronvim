@@ -1,6 +1,7 @@
 return {
   {
     "atiladefreitas/dooing",
+    cmd = { "Dooing" },
     config = function() require("dooing").setup {} end,
   },
 
