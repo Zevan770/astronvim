@@ -4,6 +4,7 @@ return {
   { import = "astrocommunity.pack.go" },
   {
     "ray-x/go.nvim",
+    ft = "go",
     dependencies = { -- optional packages
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
