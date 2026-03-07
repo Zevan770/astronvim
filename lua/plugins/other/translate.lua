@@ -50,4 +50,52 @@ return {
       },
     },
   },
+  {
+    "noir4y/comment-translate.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("comment-translate").setup {
+        target_language = "zh-CN",
+        translate_service = "google", -- 'google' or 'llm'
+
+        hover = {
+          enabled = true,
+          delay = 500,
+          auto = true,
+        },
+
+        immersive = {
+          enabled = false,
+        },
+
+        cache = {
+          enabled = true,
+          max_entries = 1000,
+        },
+
+        targets = {
+          comment = true,
+          string = true,
+        },
+
+        llm = {
+          provider = "ollama", -- 'openai' | 'anthropic' | 'gemini' | 'ollama'
+          model = "translategemma:4b",
+          api_key = nil, -- not required for ollama
+          timeout = 20,
+          endpoint = "http://localhost:11434/api/chat", -- optional
+        },
+
+        keymaps = {
+          hover = "<leader>th",
+          hover_manual = "<leader>tc",
+          replace = "<leader>tr",
+          toggle = "<leader>tt",
+        },
+      }
+    end,
+  },
 }

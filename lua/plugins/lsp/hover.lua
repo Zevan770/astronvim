@@ -13,7 +13,7 @@ return {
           "hover.providers.lsp",
           "hover.providers.dap",
           "hover.providers.man",
-          "hover.providers.dictionary",
+          -- "hover.providers.dictionary",
           -- Optional, disabled by default:
           "hover.providers.gh",
           "hover.providers.gh_user",
