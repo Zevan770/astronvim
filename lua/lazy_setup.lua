@@ -70,6 +70,7 @@ require("lazy").setup({
       },
     },
   },
+  concurrency = jit.os:find "Windows" and (vim.uv.available_parallelism()) or nil,
 
   change_detection = {
     -- automatically check for config file changes and reload the ui
