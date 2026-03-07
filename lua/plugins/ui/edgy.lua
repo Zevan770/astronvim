@@ -2,9 +2,8 @@
 return {
   {
     "mrjones2014/smart-splits.nvim",
-    lazy = false,
+    event = "VeryLazy",
     opts = function(_, opts)
-      -- TODO: 不能用，似乎必须调用时传
       opts.move_cursor = true
       return opts
     end,
