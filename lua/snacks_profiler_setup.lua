@@ -3,7 +3,7 @@ _G.bt = function(...) require("snacks.debug").backtrace() end
 _G.p = function(...) require("snacks.debug").profile(...) end
 vim._print = function(_, ...) dd(...) end
 
-if vim.env.PROF then
+if vim.env.PERF then
   -- example for lazy.nvim
   -- change this to the correct path for your plugin manager
   local snacks = vim.fn.stdpath "data" .. "/lazy/snacks.nvim"
@@ -12,7 +12,7 @@ if vim.env.PROF then
   require("snacks.profiler").startup {
     startup = {
       -- event = "VimEnter", -- stop profiler on this event. Defaults to `VimEnter`
-      event = vim.env.PROF,
+      event = vim.env.PERF,
       -- event = "VeryLazy",
     },
   }
