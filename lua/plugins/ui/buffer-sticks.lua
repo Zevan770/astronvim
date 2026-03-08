@@ -26,12 +26,9 @@ return {
       --   desc = "Buffer picker",
       -- },
     },
-    config = function()
-      local sticks = require "buffer-sticks"
-      sticks.setup {
-        filter = { buftypes = { "terminal" } },
-      }
-      sticks.show()
-    end,
+    opts = {
+      filter = { buftypes = { "terminal" } },
+      position = "center",
+    },
   },
 }
