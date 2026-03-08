@@ -1,3 +1,4 @@
+if true then return {} end
 ---@diagnostic disable: missing-fields
 if vim.fn.has "unix" == 1 then return {} end
 return {

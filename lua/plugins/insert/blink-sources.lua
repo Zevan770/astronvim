@@ -71,7 +71,7 @@ return {
         ["<a-g>"] = {
           function()
             -- invoke manually, requires blink >v0.8.0
-            require("blink-cmp").show { providers = { "ripgrep" } }
+            require("blink.cmp").show { providers = { "ripgrep" } }
           end,
         },
       },

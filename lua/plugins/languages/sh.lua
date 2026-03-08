@@ -1,4 +1,4 @@
-if vim.fn.has "win" then return {} end
+if my_utils.is_windows then return {} end
 
 return {
   { import = "astrocommunity.pack.bash" },

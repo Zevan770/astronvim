@@ -79,7 +79,7 @@ return {
         ["<a-a>"] = {
           function()
             -- invoke manually, requires blink >v0.8.0
-            require("blink-cmp").show { providers = { "lsp" } }
+            require("blink.cmp").show { providers = { "lsp" } }
           end,
         },
       },

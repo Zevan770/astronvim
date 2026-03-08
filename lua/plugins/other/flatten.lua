@@ -129,5 +129,8 @@ return {
     "wsdjeg/vim-fetch",
     lazy = false,
     priority = 9999,
+    dependencies = {
+      "willothy/flatten.nvim",
+    },
   },
 }
