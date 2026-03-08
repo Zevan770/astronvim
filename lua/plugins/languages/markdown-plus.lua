@@ -3,6 +3,10 @@ return {
   {
     "yousefhadder/markdown-plus.nvim",
     ft = require("utils.filetype").markdown_like,
+    keys = {
+      { "]k", "<Plug>(MarkdownPlusCodeBlcokNext)", ft = require("utils.filetype").markdown_like },
+      { "[k", "<Plug>(MarkdownPlusCodeBlockPrev)", ft = require("utils.filetype").markdown_like },
+    },
     config = function()
       require("markdown-plus").setup {
         -- Global enable/disable
