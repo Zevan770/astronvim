@@ -49,5 +49,14 @@ return {
   { import = "astrocommunity.quickfix.quicker-nvim" },
   {
     "romainl/vim-qf",
+    ft = "qf",
   },
+  -- {
+  --   "wassimk/qf-formatter.nvim",
+  --   -- ft = "qf",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     filename_width = 32, -- max filename column width (default: 32)
+  --   },
+  -- },
 }
