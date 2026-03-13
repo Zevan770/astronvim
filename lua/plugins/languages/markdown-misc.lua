@@ -4,8 +4,6 @@
 vim.lsp.enable "rumdl"
 
 local markdown_ft = require("utils.filetype").markdown_like
-local render_md_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "gitcommit" })
-local markview_on_ft = require("astrocore").list_insert_unique(markdown_ft, { "html", "yaml" })
 
 ---@type LazySpec
 return {
