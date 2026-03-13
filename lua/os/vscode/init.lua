@@ -42,7 +42,6 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "substitute.nvim",
   "nvim-spider",
   "sibling-swap.nvim",
-  "quicker.nvim",
   "ts-comments.nvim",
   "treewalker.nvim",
   "vim-easy-align",
