@@ -4,6 +4,7 @@ if vim.fn.has "win32" == 1 then return {} end
 return {
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.pack.mdx" },
   -- tailwind-tools.lua
   {
     "luckasRanarison/tailwind-tools.nvim",

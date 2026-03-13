@@ -4,6 +4,7 @@ M.markdown_like = {
   "markdown",
   "md",
   "mdx",
+  "markdown.mdx",
   "rmd",
   "quarto",
   "pandoc",
