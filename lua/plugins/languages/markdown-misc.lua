@@ -1,7 +1,22 @@
 -- TODO: disable this until https://github.com/huacnlee/autocorrect/pull/291 is merged or
 -- I make my own flake of it work successfully.
--- if my_utils.is_windows then vim.lsp.enable "autocorrect" end
+if my_utils.is_windows then vim.lsp.enable "autocorrect" end
 vim.lsp.enable "rumdl"
+
+-- Use the function call form to MERGE (not replace) the config
+vim.lsp.config("markdown_oxide", {
+  -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+  -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  },
+})
+
+vim.lsp.enable "markdown_oxide"
 
 local markdown_ft = require("utils.filetype").markdown_like
 
