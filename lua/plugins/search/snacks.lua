@@ -307,6 +307,7 @@ return {
           maps.n["<Leader>."] = { function() Snacks.scratch() end, desc = "new Scratch buffer" }
           maps.n["f."] = { function() Snacks.scratch.select() end, desc = "Scratch select buffer" }
 
+          maps.n["fk"] = maps.n["fk"] or {}
           maps.n["fk"][1] = function()
             Snacks.picker.keymaps {
               plugs = true,
