@@ -12,6 +12,10 @@ return {
     event = "InsertEnter",
     opts = {
       suggestion = { enabled = false },
+      server = {
+        type = "binary",
+        custom_server_filepath = "copilot-language-server",
+      },
       panel = { enabled = false },
       filetypes = {
         markdown = true,
