@@ -1,8 +1,8 @@
 vim.loader.enable()
 ---@diagnostic disable: duplicate-set-field
 --#region  HACK: vim api
+_G.re = require
 vim.deprecate = function() end
-vim.fn.executable0 = vim.fn.executable
 require("hack.vim_fn_executable").setup()
 -- vim.fn.executable = function() return 1 end
 

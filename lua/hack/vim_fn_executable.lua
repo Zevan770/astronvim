@@ -33,6 +33,9 @@ function M.executable(cmd)
   return M.executable_cache[cmd]
 end
 
-function M.setup() vim.fn.executable = M.executable end
+function M.setup()
+  vim.fn.executable0 = vim.fn.executable
+  vim.fn.executable = M.executable
+end
 
 return M
