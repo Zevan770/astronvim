@@ -100,7 +100,7 @@ return {
       -- maps.n["<Tab>"] = "gt"
       -- maps.n["<S-Tab>"] = "gT"
       maps.n["<Leader>hr"] = { "<Cmd>AstroReload<cr><Cmd>AstroReload<CR>" }
-      maps.n["<Leader>qr"] = { "<Cmd>restart<cr>" }
+      maps.n["<Leader>qr"] = { [[<Cmd>restart lua require("resession").load "Last Session"<cr>]] }
 
       maps.n["<Leader>uB"] = maps.n["<Leader>ub"]
       maps.n["<Leader>ub"] = false
