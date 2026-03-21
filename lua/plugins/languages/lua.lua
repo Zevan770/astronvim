@@ -18,6 +18,7 @@ return {
         -- Only load luvit types when the `vim.uv` word is found
         -- { path = "luvit-meta/library", words = { "vim%.uv" } },
         { path = "snacks.nvim", words = { "Snacks" } },
+        { path = "nvim-lspconfig", words = { "lspconfig" } },
         -- Needs `justinsgithub/wezterm-types` to be installed
         { path = "wezterm-types", mods = { "wezterm" } },
         { path = "neotest", mods = { "neotest" } },
