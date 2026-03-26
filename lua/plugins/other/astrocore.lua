@@ -28,7 +28,7 @@ return {
           diffopt = vim.opt.diffopt + "vertical", -- sets vim.opt.diffopt
           exrc = true,
           foldmarker = "#region,#endregion",
-          guicursor = vim.opt.guicursor, -- sets vim.opt.guicursor
+          -- guicursor = vim.opt.guicursor, -- sets vim.opt.guicursor
           jumpoptions = "view",
           list = true,
           listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:  " }, ","),
