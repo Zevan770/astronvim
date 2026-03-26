@@ -24,7 +24,24 @@ return {
           formatters = {
             injected = { options = { ignore_errors = true } },
           },
-          default_format_opts = { lsp_format = "fallback" },
+          --- NOTE: the opts overriding priority: format_on_save > formaters_by_ft > default_format_opts
+          --- so return {} to preserve markdown.lsp_format option. (AstroCommunity use lsp_format = "fallback")
+          format_on_save = function(bufnr)
+            if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then
+              return {
+                timeout_ms = 500,
+              }
+            end
+          end,
+          -- format_after_save = function(bufnr)
+          --   if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then
+          --     return {
+          --       timeout_ms = 500,
+          --       lsp_format = "fallback",
+          --     }
+          --   end
+          -- end,
+          -- default_format_opts = { lsp_format = "fallback" },
           -- format_on_save = function(bufnr)
           --   if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then
           --     require("utils.format").format_git_hunks(bufnr)
