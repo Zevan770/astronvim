@@ -1,1 +1,1 @@
-vim.cmd [[set syntax=OFF]]
+-- vim.cmd [[set syntax=OFF]]

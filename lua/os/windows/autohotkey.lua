@@ -14,30 +14,34 @@ return {
         autohotkey_lsp = {
           cmd = { "autohotkey_lsp", "--stdio" },
           filetypes = { "autohotkey" },
-          -- root_markers = { "package.json", ".git" },
+          root_markers = { "package.json", ".git" },
           flags = { debounce_text_changes = 500 },
           --capabilities = capabilities,
           --on_attach = custom_attach,
           -- reuse_client = true,
-          single_file_support = false,
+          -- single_file_support = false,
           init_options = {
-            locale = "zh-cn",
-            fullySemanticToken = "true",
-            Autohotkey2 = {
-              InterpreterPath = "autohotkey64.exe",
-            },
-            WorkingDirs = {
-              vim.fs.root(0, { "package.json", ".git" }),
-            },
+            -- locale = "zh-cn",
+            fullySemanticToken = true,
+            -- InterpreterPath = "autohotkey64.exe",
+            -- WorkingDirs = {
+            --   vim.fs.root(0, { "package.json", ".git" }),
+            -- },
             AutoLibInclude = "All",
             CommentTags = "^;;\\s*(?<tag>.+)",
             CompleteFunctionParens = true,
             SymbolFoldinFromOpenBrace = false,
+            ExplicitContextOnly = false,
             Diagnostics = {
-              ClassStaticMemberCheck = true,
-              ParamsCheck = true,
+              ClassNonDynamicMemberCheck = true,
+              InvokeCheck = {
+                ByrefParam = true,
+                ParamCount = true,
+                ReturnUnset = true,
+                ReturnVoid = true,
+              },
             },
-            ActionWhenV1IsDetected = "SwithToV1",
+            -- ActionWhenV1IsDetected = "Warn",
             FormatOptions = {
               array_style = "expand",
               break_chained_methods = false,
@@ -54,9 +58,9 @@ return {
               space_in_paren = false,
               wrap_line_length = 0,
             },
-            Files = {
-              ScanMaxDepth = 4,
-            },
+            -- Files = {
+            --   MaxDepth = 4,
+            -- },
             CompletionCommitCharacters = {
               ["Class"] = ".(",
               ["Function"] = "(",
