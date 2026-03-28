@@ -1,7 +1,8 @@
 ---@type LazySpec
 return {
   {
-    "mrjones2014/smart-splits.nvim",
+    "Zevan770/smart-splits.nvim",
+    -- "mrjones2014/smart-splits.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
       opts.move_cursor = true
