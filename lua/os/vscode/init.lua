@@ -2,8 +2,8 @@ if not vim.g.vscode then return {} end -- don't do anything in non-vscode instan
 
 vim.api.nvim_create_autocmd("UIEnter", {
   callback = function()
-    vim.opt.relativenumber = true
-    vim.opt.cmdheight = 2
+    vim.o.relativenumber = true
+    vim.o.cmdheight = 2
   end,
 })
 local enabled = {}

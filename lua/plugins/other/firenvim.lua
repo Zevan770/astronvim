@@ -19,12 +19,12 @@ local prev_size = {
 -- exchange current and previous size
 function H.toggle_max()
   local current_size = {
-    lines = vim.opt.lines:get(),
-    columns = vim.opt.columns:get(),
+    lines = vim.o.lines,
+    columns = vim.o.columns,
   }
 
-  vim.opt.lines = prev_size.lines
-  vim.opt.columns = prev_size.columns
+  vim.o.lines = prev_size.lines
+  vim.o.columns = prev_size.columns
   prev_size = current_size
 end
 ---@type LazySpec

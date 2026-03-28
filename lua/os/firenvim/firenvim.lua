@@ -18,8 +18,8 @@ Config.options.defaults.cond = function(plugin) return not disabled[plugin.name]
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    vim.opt.showtabline = 0
-    vim.opt.laststatus = 0
+    vim.o.showtabline = 0
+    vim.o.laststatus = 0
   end,
 })
 vim.g.firenvim_config = {
