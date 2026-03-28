@@ -16,13 +16,14 @@ return {
           filetypes = { "autohotkey" },
           root_markers = { "package.json", ".git" },
           flags = { debounce_text_changes = 500 },
+          capabilities = { offsetEncoding = "utf-8" },
           --capabilities = capabilities,
           --on_attach = custom_attach,
           -- reuse_client = true,
           -- single_file_support = false,
           init_options = {
             -- locale = "zh-cn",
-            fullySemanticToken = true,
+            -- fullySemanticToken = true,
             -- InterpreterPath = "autohotkey64.exe",
             -- WorkingDirs = {
             --   vim.fs.root(0, { "package.json", ".git" }),
