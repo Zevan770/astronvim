@@ -18,7 +18,7 @@ return {
         github = true, -- open github issues
         brewfile = true, -- open Homebrew formulaes and casks
         package_json = true, -- open dependencies from package.json
-        search = true, -- search the web/selection on the web if nothing else is found
+        search = false, -- search the web/selection on the web if nothing else is found
         go = true, -- open pkg.go.dev from an import statement (uses treesitter)
         jira = { -- custom handler to open Jira tickets (these have higher precedence than builtin handlers)
           name = "jira", -- set name of handler
