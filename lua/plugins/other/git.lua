@@ -82,12 +82,12 @@ return {
           enabled = true,
           show_actions = true,
           keymaps = {
-            ours = "dpo",
-            theirs = "dpt",
-            both = "dpb",
-            none = "dpn",
-            next = "]c",
-            prev = "[c",
+            ours = "1",
+            theirs = "2",
+            both = "3",
+            none = "4",
+            next = ")",
+            prev = "(",
           },
         },
         intra = {

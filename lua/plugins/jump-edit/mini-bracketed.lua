@@ -3,7 +3,7 @@ return {
   "echasnovski/mini.bracketed",
   -- stylua: ignore
   opts = {
-    conflict   = { suffix = "x", options = {} },
+    conflict   = { suffix = "c", options = {} },
     file       = { suffix = "", options = {} },
     indent     = { suffix = "i", options = {} },
     jump       = { suffix = "j", options = {} },
