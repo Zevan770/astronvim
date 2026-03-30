@@ -121,8 +121,10 @@ return {
       return {
         n_lines = 500,
         mappings = {
-          around_next = "an",
-          inside_next = "in",
+          around_last = "ah",
+          inside_last = "ih",
+          around_next = "al",
+          inside_next = "il",
         },
         custom_textobjects = {
           o = ai.gen_spec.treesitter { -- code block
