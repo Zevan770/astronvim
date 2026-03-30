@@ -1,7 +1,5 @@
 {
-    "diagnostics.disable": [
-        "undefined-doc-name"
-    ],
+    "diagnostics.disable": [],
     "diagnostics.globals": [
         "toggle_buffer_diagnostics_breakpoint",
         "vim",
