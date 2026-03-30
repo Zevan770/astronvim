@@ -23,6 +23,7 @@ require("lazy").setup({
   { import = "plugins.other.codecompanion" },
   { import = "disable" },
   { import = "os" },
+  { import = "plugins.disable-mason-auto-install" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = {

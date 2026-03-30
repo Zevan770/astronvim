@@ -32,7 +32,6 @@ local M = {
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
 
   -- utility/tools/games
-  { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.docker.lazydocker" },
   -- { import = "astrocommunity.note-taking.venn-nvim" },

@@ -13,6 +13,13 @@ vim.lsp.config("lua_ls", {
 return {
   { import = "astrocommunity.pack.lua" },
   {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = vim.tbl_filter(function(v) return v ~= "lua-language-server" end, opts.ensure_installed)
+    end,
+  },
+  {
     "folke/lazydev.nvim",
     dependencies = {
       { "gonstoll/wezterm-types", lazy = true },
