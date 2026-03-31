@@ -125,6 +125,7 @@ return {
   },
   {
     "preservim/vim-textobj-sentence",
+    enabled = false,
     init = function()
       vim.cmd [[
       augroup textobj_sentence
