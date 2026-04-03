@@ -17,7 +17,6 @@ return {
         {
           formatters_by_ft = {
             markdown = function(_) return { "mdsf", lsp_format = "first" } end,
-            nix = { "alejandra" },
             vue = { "prettier" },
             tex = { "tex-fmt" },
           },
