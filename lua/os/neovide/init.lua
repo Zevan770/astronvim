@@ -1,5 +1,7 @@
 if not vim.g.neovide then return {} end
 
+vim.o.guifont = "MapleBright"
+
 local M = {}
 local disabled = {
   -- "neoscroll.nvim",
