@@ -200,3 +200,13 @@
   (#set! injection.language "lua_patterns")
   (#eq? @_filetypeadd_identifier "vim.filetype.add")
   (#eq? @_pattern_key "pattern"))
+
+
+; bash highlighting in lua vim.system and vim.fn.system
+(function_call
+  name: ((dot_index_expression) @_mm
+    (#any-of? @_mm "vim.fn.system" "vim.system"))
+  arguments: (arguments
+    ( string content:
+      (string_content) @injection.content
+      (#set! injection.language "bash"))))
