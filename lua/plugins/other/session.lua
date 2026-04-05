@@ -5,16 +5,17 @@ return {
   -- You can restore sessions when returning through the dashboard.
   {
     "folke/persistence.nvim",
-    enabled = false,
+    -- enabled = false,
     event = "VeryLazy",
     opts = {},
     -- stylua: ignore
     keys = {
-      { "<leader>qc", function() require("persistence").load() end, desc = "Restore Session" },
+      { "<leader>q.", function() require("persistence").load() end, desc = "Restore Session" },
       { "<leader>qf", function() require("persistence").select() end,desc = "Find Session" },
       { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
       { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
       { "<leader>qs", function() require("persistence").save() end, desc = "Save Current Session" },
+      { "<leader>qr",  [[<Cmd>restart lua require("persistence").load({ last = true })<cr>]] }
     },
 
     specs = {
@@ -31,7 +32,7 @@ return {
 
   {
     "stevearc/resession.nvim",
-    -- enabled = false,
+    enabled = false,
     dependencies = { "scottmckendry/pick-resession.nvim" },
     specs = {
       {
@@ -50,6 +51,7 @@ return {
           end
           maps.n["<Leader>qf"] = function() require("pick-resession").pick { dir = "dirsession" } end
           maps.n["<Leader>qF"] = function() require("pick-resession").pick {} end
+          maps.n["<Leader>qr"] = { [[<Cmd>restart lua require("resession").load "Last Session"<cr>]] }
         end,
       },
     },
