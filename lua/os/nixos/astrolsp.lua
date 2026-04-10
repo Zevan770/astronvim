@@ -12,8 +12,8 @@ return {
     ---@type AstroLSPOpts
     opts = {
       servers = {
-        -- "basedpyright",
-        "ty",
+        "basedpyright",
+        -- "ty",
         "bashls",
         -- "efm",
         -- "pyright",
