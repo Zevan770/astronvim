@@ -7,7 +7,7 @@ return {
     cmd = "SnipRun",
     opts = {
 
-      selected_interpreters = { "Rust_original" }, --# use those instead of the default for the current filetype
+      selected_interpreters = { "Rust_original", "Python3_jupyter" }, --# use those instead of the default for the current filetype
       repl_enable = {}, --# enable REPL-like behavior for the given interpreters
       repl_disable = {}, --# disable REPL-like behavior for the given interpreters
 
@@ -35,7 +35,7 @@ return {
         -- "TempFloatingWindow",      --# display results in a floating window
         -- "LongTempFloatingWindow",  --# same as above, but only long results. To use with VirtualText[Ok/Err]
         -- "Terminal",                --# display results in a vertical split
-        -- "TerminalWithCode",        --# display results and code history in a vertical split
+        "TerminalWithCode", --# display results and code history in a vertical split
         -- "NvimNotify",              --# display with the nvim-notify plugin
         -- "Api"                      --# return output to a programming interface
       },
