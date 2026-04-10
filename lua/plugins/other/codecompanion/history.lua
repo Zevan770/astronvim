@@ -12,9 +12,6 @@ return {
     dependencies = {
       {
         "olimorris/codecompanion.nvim",
-        dependencies = {
-          "Davidyz/VectorCode",
-        },
         opts = {
           extensions = {
             history = {
