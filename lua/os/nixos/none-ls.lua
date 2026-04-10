@@ -24,12 +24,12 @@ return {
       diagnostics.selene,
 
       -- Common Code Actions
-      -- code_actions.gitsigns,
       -- common refactoring actions based off the Refactoring book by Martin Fowler
       -- code_actions.refactoring,
       -- code_actions.proselint, -- English prose linter
 
       -- nix
+      code_actions.gitsigns,
       diagnostics.statix, -- Lints and suggestions for Nix.
       code_actions.statix, -- Lints and suggestions for Nix.
       diagnostics.deadnix, -- Scan Nix files for dead code.

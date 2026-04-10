@@ -62,17 +62,18 @@ return {
       end,
     },
   },
-  --@param opt
   opts = function(_, opts)
     local astroui = require "astroui"
     local get_icon = function(icon) return astroui.get_icon(icon, 0, true) end
+    ---@module "lspsaga"
+    ---@type LspsagaConfig
     return {
       code_action = {
-        extend_gitsigns = require("astrocore").is_available "gitsigns.nvim",
+        extend_gitsigns = false, -- we have null-ls for this
         show_server_name = true,
       },
       lightbulb = {
-        enable = true,
+        enable = false,
         sign = false,
         virtual_text = true,
       },
