@@ -8,7 +8,7 @@ M.is_nixos = not not os.getenv "NIX_PATH"
 M.is_neovide = vim.g.neovide
 M.is_vscode = vim.g.vscode
 M.is_firenvim = vim.g.started_by_firenvim
-M.is_server = false
+M.is_server = vim.env.SSH_CONNECTION ~= nil
 M.blink_enabled = true
 M.my_animate = "neoscroll"
 -- M.autopair = "blink"
