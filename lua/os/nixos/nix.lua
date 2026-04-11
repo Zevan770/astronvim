@@ -6,8 +6,8 @@ return {
     ---@param opts AstroLSPOpts
     opts = function(self, opts)
       opts.servers = opts.servers or {}
-      opts.servers = vim.tbl_filter(function(server) return server ~= "nixd" end, opts.servers)
-      require("astrocore").list_insert_unique(opts.servers, { "tix" })
+      -- opts.servers = vim.tbl_filter(function(server) return server ~= "nixd" end, opts.servers)
+      -- require("astrocore").list_insert_unique(opts.servers, { "tix" })
       return require("lazy.util").merge(opts, {
         config = {
           nixd = {
