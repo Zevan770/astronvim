@@ -25,6 +25,7 @@ return {
         -- "lemminx",
         -- "lua_ls",
         "emmylua_ls",
+        "stylua",
         -- "marksman",
         -- "sqls",
         "taplo",

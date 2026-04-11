@@ -19,11 +19,12 @@ return {
             markdown = function(_) return { "mdsf", lsp_format = "first" } end,
             vue = { "prettier" },
             tex = { "tex-fmt" },
+            lua = { lsp_format = "first" },
           },
           formatters = {
             injected = { options = { ignore_errors = true } },
           },
-          --- NOTE: the opts overriding priority: format_on_save > formaters_by_ft > default_format_opts
+          --- NOTE: the format_opts overriding priority: format_on_save > formaters_by_ft > default_format_opts
           --- so return {} to preserve markdown.lsp_format option. (AstroCommunity use lsp_format = "fallback")
           format_on_save = function(bufnr)
             if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then

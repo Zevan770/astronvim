@@ -22,7 +22,7 @@ return {
   {
     "folke/lazydev.nvim",
     dependencies = {
-      { "gonstoll/wezterm-types", lazy = true },
+      { "DrKJeff16/wezterm-types", lazy = true },
     },
     ---@module "lazydev"
     ---@type lazydev.Config
