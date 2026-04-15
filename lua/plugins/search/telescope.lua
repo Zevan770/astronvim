@@ -259,8 +259,6 @@ return {
           },
           mappings = {
             i = {
-              ["<C-J>"] = actions.move_selection_next,
-              ["<C-K>"] = actions.move_selection_previous,
               ["<C-o>"] = open_selected,
               ["<M-CR>"] = open_all,
               ["<M-n>"] = function()
