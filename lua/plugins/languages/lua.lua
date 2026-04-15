@@ -15,7 +15,10 @@ return {
     opts = {
       config = {
         lua_ls = {
-          reuse_client = function(client, config) return true end,
+          reuse_client = function(client, config) return client.name == config.name end,
+        },
+        emmylua_ls = {
+          reuse_client = function(client, config) return client.name == config.name end,
         },
       },
     },
@@ -32,11 +35,11 @@ return {
         -- It can also be a table with trigger words / mods
         -- Only load luvit types when the `vim.uv` word is found
         -- { path = "luvit-meta/library", words = { "vim%.uv" } },
-        { path = "snacks.nvim",   words = { "Snacks" } },
+        { path = "snacks.nvim", words = { "Snacks" } },
         { path = "nvim-lspconfig" },
         -- Needs `justinsgithub/wezterm-types` to be installed
         { path = "wezterm-types", mods = { "wezterm" } },
-        { path = "neotest",       mods = { "neotest" } },
+        { path = "neotest", mods = { "neotest" } },
         -- "lazy.nvim",
       },
     },
