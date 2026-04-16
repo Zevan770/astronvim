@@ -8,6 +8,7 @@ return {
     dependencies = {
       {
         "willothy/wezterm.nvim",
+        enabled = not my_utils.is_server,
         opts = {
           executable = "wezterm.exe",
         },

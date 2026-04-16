@@ -3,7 +3,11 @@ vim.loader.enable()
 --#region  HACK: vim api
 _G.re = require
 vim.deprecate = function() end
-require("hack.vim_fn_executable").setup()
+
+require("utils").setup()
+if not my_utils.is_server then
+  require("hack.vim_fn_executable").setup()
+end
 -- vim.fn.executable = function() return 1 end
 
 -- require "hack_vim_keymap_set"
@@ -28,7 +32,5 @@ if not pcall(require, "lazy") then
 end
 
 -- vim.lsp.set_log_level("debug")
-
-require("utils").setup()
 require "lazy_setup"
 require "polish"
