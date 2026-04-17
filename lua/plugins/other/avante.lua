@@ -169,12 +169,6 @@ return {
           --- 😡 just let the sub-process inherit the env vars
           env = environ,
         },
-        ["qwen-code"] = {
-          __inherited_from = "gemini-cli",
-          command = "qwen",
-          args = { "--experimental-acp" },
-          env = environ,
-        },
         ["claude-code"] = {
           env = environ,
         },
