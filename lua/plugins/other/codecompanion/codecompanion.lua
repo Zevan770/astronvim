@@ -33,12 +33,18 @@ return {
           local maps = assert(opts.mappings)
           maps.n["<Leader>c"] = { desc = " Copilot Chat" }
           maps.v["<Leader>c"] = maps.n["<Leader>c"]
+          vim.cmd [[
+          cabbrev cc CodeCompanion
+          cabbrev cca CodeCompanionActions
+          cabbrev ccc CodeCompanionChat
+          cabbrev ccm CodeCompanionCmd
+          ]]
         end,
       },
     },
     keys = {
       -- stylua: ignore start
-      { "<leader>cp", "<cmd>CodeCompanionActions<cr>", desc = "Code Companion - Prompt Actions" },
+      { "<leader>cp", "<cmd>CodeCompanionActions<cr>",         desc = "Code Companion - Prompt Actions" },
       {
         "<leader>ca",
         function()
@@ -49,21 +55,21 @@ return {
         mode = { "n", "v" },
       },
       -- Some common usages with visual mode
-      { "<leader>ce", "<cmd>CodeCompanion /explain<cr>", desc = "Code Companion - Explain code", mode = "v" },
-      { "<leader>cf", "<cmd>CodeCompanion /fix<cr>", desc = "Code Companion - Fix code", mode = "v" },
-      { "<leader>cl", "<cmd>CodeCompanion /lsp<cr>", desc = "Code Companion - Explain LSP diagnostic", mode = { "n", "v" } },
-      { "<leader>ct", "<cmd>CodeCompanion /tests<cr>", desc = "Code Companion - Generate unit test", mode = "v" },
-      { "<leader>cm", "<cmd>CodeCompanion /commit<cr>", desc = "Code Companion - Git commit message" },
+      { "<leader>ce", "<cmd>CodeCompanion /explain<cr>",       desc = "Code Companion - Explain code",               mode = "v" },
+      { "<leader>cf", "<cmd>CodeCompanion /fix<cr>",           desc = "Code Companion - Fix code",                   mode = "v" },
+      { "<leader>cl", "<cmd>CodeCompanion /lsp<cr>",           desc = "Code Companion - Explain LSP diagnostic",     mode = { "n", "v" } },
+      { "<leader>ct", "<cmd>CodeCompanion /tests<cr>",         desc = "Code Companion - Generate unit test",         mode = "v" },
+      { "<leader>cm", "<cmd>CodeCompanion /commit<cr>",        desc = "Code Companion - Git commit message" },
       -- Custom prompts
       { "<leader>cM", "<cmd>CodeCompanion /staged-commit<cr>", desc = "Code Companion - Git commit message (staged)" },
-      { "<leader>cd", "<cmd>CodeCompanion /inline-doc<cr>", desc = "Code Companion - Inline document code", mode = "v" },
-      { "<leader>cD", "<cmd>CodeCompanion /doc<cr>", desc = "Code Companion - Document code", mode = "v" },
-      { "<leader>cr", "<cmd>CodeCompanion /refactor<cr>", desc = "Code Companion - Refactor code", mode = "v" },
-      { "<leader>cR", "<cmd>CodeCompanion /review<cr>", desc = "Code Companion - Review code", mode = "v" },
-      { "<leader>cn", "<cmd>CodeCompanion /naming<cr>", desc = "Code Companion - Better naming", mode = "v" },
-      { "<leader>ci", ":CodeCompanion<CR>", desc = "Run CodeCompanion", mode = { "n", "v" }, remap = true, silent = true},
-      { "<leader>co", "<cmd>CodeCompanionChat<CR>", desc = "Open chat", mode = { "n", "v" } },
-      { "<leader>c;", ":CodeCompanionCmd ", desc = "Run command" },
+      { "<leader>cd", "<cmd>CodeCompanion /inline-doc<cr>",    desc = "Code Companion - Inline document code",       mode = "v" },
+      { "<leader>cD", "<cmd>CodeCompanion /doc<cr>",           desc = "Code Companion - Document code",              mode = "v" },
+      { "<leader>cr", "<cmd>CodeCompanion /refactor<cr>",      desc = "Code Companion - Refactor code",              mode = "v" },
+      { "<leader>cR", "<cmd>CodeCompanion /review<cr>",        desc = "Code Companion - Review code",                mode = "v" },
+      { "<leader>cn", "<cmd>CodeCompanion /naming<cr>",        desc = "Code Companion - Better naming",              mode = "v" },
+      { "<leader>ci", ":CodeCompanion<CR>",                    desc = "Run CodeCompanion",                           mode = { "n", "v" }, remap = true, silent = true },
+      { "<leader>co", "<cmd>CodeCompanionChat<CR>",            desc = "Open chat",                                   mode = { "n", "v" } },
+      { "<leader>c;", ":CodeCompanionCmd ",                    desc = "Run command" },
       -- Quick chat
       {
         "<leader>cq",
