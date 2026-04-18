@@ -1,3 +1,4 @@
+if true then return {} end
 return {
 
   {
@@ -29,12 +30,16 @@ return {
         -- from mistakes.
         hostname = nil,
       }
-    -- There are no default key maps, this is an example
-    -- stylua: ignore start
-    vim.keymap.set('n', '<leader>Bb',function() file_history.backup() end, { silent = true, desc = 'named backup for file' })
-    vim.keymap.set('n', '<leader>Bh', function() file_history.history() end, { silent = true, desc = 'local history of file' })
-    vim.keymap.set('n', '<leader>Bf', function() file_history.files() end, { silent = true, desc = 'local history files in repo' })
-    vim.keymap.set('n', '<leader>Bq', function() file_history.query() end, { silent = true, desc = 'local history query' })
+      -- There are no default key maps, this is an example
+      -- stylua: ignore start
+      vim.keymap.set('n', '<leader>Bb', function() file_history.backup() end,
+        { silent = true, desc = 'named backup for file' })
+      vim.keymap.set('n', '<leader>Bh', function() file_history.history() end,
+        { silent = true, desc = 'local history of file' })
+      vim.keymap.set('n', '<leader>Bf', function() file_history.files() end,
+        { silent = true, desc = 'local history files in repo' })
+      vim.keymap.set('n', '<leader>Bq', function() file_history.query() end,
+        { silent = true, desc = 'local history query' })
       -- stylua: ignore end
     end,
   },
