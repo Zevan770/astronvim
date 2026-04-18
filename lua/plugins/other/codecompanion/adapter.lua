@@ -33,25 +33,6 @@ return {
               },
             })
           end,
-          qwen_code = function()
-            return require("codecompanion.adapters").extend("gemini_cli", {
-              commands = {
-                default = {
-                  "qwen",
-                  "--experimental-acp",
-                },
-                yolo = {
-                  "qwen",
-                  "--yolo",
-                  "--experimental-acp",
-                },
-              },
-              defaults = {
-                auth_method = "openai",
-                timeout = 60000, -- 20 seconds
-              },
-            })
-          end,
         },
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
