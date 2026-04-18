@@ -51,6 +51,6 @@ return {
 
       vim.o.mousemoveevent = true
     end,
-    init = function() require "hover.providers.lsp" end,
+    -- init = function() require "hover.providers.lsp" end,
   },
 }

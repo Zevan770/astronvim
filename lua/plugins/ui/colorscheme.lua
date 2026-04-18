@@ -55,7 +55,6 @@ return {
     end,
     -- lazy = true,
   },
-  -- { import = "astrocommunity.recipes.vscode-icons" },
   {
     "marko-cerovac/material.nvim",
     lazy = true,
