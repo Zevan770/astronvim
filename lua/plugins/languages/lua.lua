@@ -19,6 +19,11 @@ return {
         },
         emmylua_ls = {
           reuse_client = function(client, config) return client.name == config.name end,
+          on_attach = function(client)
+            -- Disable formatting, since we have stylua lsp
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
         },
       },
     },
