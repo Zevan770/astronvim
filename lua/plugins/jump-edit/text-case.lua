@@ -30,12 +30,12 @@ return {
     dependencies = {
       "gregorias/coop.nvim",
     },
-    tag = "v4.1.0",
+    -- tag = "v4.1.0",
     opts = {
       default_mode_keymap_prefixes = {
-        normal_mode = "cx",
-        motion_mode = "cxx",
-        visual_mode = "X",
+        normal_mode = "yo<space>",
+        motion_mode = "yo",
+        visual_mode = "O",
       },
       -- Set any field to false to disable that mode.
       default_mode_mask = {
@@ -45,7 +45,9 @@ return {
       },
     },
     keys = {
-      { "cx" },
+      "yo",
+      "yoo",
+      "O",
     },
   },
 }
