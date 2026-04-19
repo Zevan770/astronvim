@@ -1,4 +1,4 @@
-if true then return {} end
+-- if true then return {} end
 require("vim._core.ui2").enable {
   enable = true,
   msg = {
@@ -48,5 +48,18 @@ return {
     "folke/noice.nvim",
     optinal = true,
     enabled = false,
+  },
+  {
+    "rachartier/tiny-cmdline.nvim",
+    init = function()
+      vim.o.cmdheight = 0
+      vim.g.tiny_cmdline = {
+        width = { value = "70%" },
+        position = {
+          y = "0%",
+        },
+        on_reposition = require("tiny-cmdline").adapters.blink,
+      }
+    end,
   },
 }
