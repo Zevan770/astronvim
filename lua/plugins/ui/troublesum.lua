@@ -1,3 +1,4 @@
+if true then return {} end
 return {
   "ivanjermakov/troublesum.nvim",
   event = "LSPAttach",
@@ -6,9 +7,9 @@ return {
     return {
       severity_format = {
         get_icon "DiagnosticError",
-        get_icon "DiagnosticHint",
-        get_icon "DiagnosticWarn",
         get_icon "DiagnosticInfo",
+        get_icon "DiagnosticWarn",
+        get_icon "DiagnosticHint",
       },
     }
   end,
