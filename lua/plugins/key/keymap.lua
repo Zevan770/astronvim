@@ -46,6 +46,10 @@ return {
       end
 
       -- maps.n["<Leader>t"] = { function() return "<Cmd>ToggleTerm<CR>" end, expr = true }
+      maps.n["<C-H>"] = false
+      maps.n["<C-J>"] = false
+      maps.n["<C-K>"] = false
+      maps.n["<C-L>"] = false
       maps.t["<C-H>"] = false
       maps.t["<C-J>"] = false
       maps.t["<C-K>"] = false

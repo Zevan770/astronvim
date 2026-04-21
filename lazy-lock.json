@@ -229,6 +229,7 @@
   "trim.nvim": { "branch": "master", "commit": "765360a6f6ac732f4c78c5c694f4b892a55b53ec" },
   "trouble.nvim": { "branch": "main", "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a" },
   "tsc.nvim": { "branch": "main", "commit": "e083bcf1e54bc3af7df92b33235efb334e8c782c" },
+  "tshjkl.nvim": { "branch": "main", "commit": "ca01e7ff27d15a997588d1088e37559cd4b19687" },
   "tssorter.nvim": { "branch": "main", "commit": "74fa4102cb3272dcc8fd5696fd3240358f19c090" },
   "typr": { "branch": "main", "commit": "584e4ef34dea25a4035627794322f315b22d1253" },
   "venv-selector.nvim": { "branch": "main", "commit": "42e8faadf9b819654f29eb1a785797a3a328f301" },

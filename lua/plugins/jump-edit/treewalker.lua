@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   {
     "aaronik/treewalker.nvim",
@@ -29,21 +30,11 @@ return {
       --          likely one to be confusing, so it has its own mode.
       jumplist = true,
     },
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        ---@param opts AstroCoreOpts
-        opts = function(_, opts)
-          local maps = assert(opts.mappings)
-          -- 在 normal 和 visual 模式添加映射
-          for _, mode in ipairs { "n", "v" } do
-            maps[mode]["<C-K>"] = { "<cmd>Treewalker Up<cr>", desc = "Treewalker Up" }
-            maps[mode]["<C-J>"] = { "<cmd>Treewalker Down<cr>", desc = "Treewalker Down" }
-            maps[mode]["<C-H>"] = { "<cmd>Treewalker Left<cr>", desc = "Treewalker Left" }
-            maps[mode]["<C-L>"] = { "<cmd>Treewalker Right<cr>", desc = "Treewalker Right" }
-          end
-        end,
-      },
+    keys = {
+      { "<c-k>", "<Cmd>Treewalker Up<CR>", mode = { "n", "x" }, desc = "Treewalker Up" },
+      { "<c-j>", "<Cmd>Treewalker Down<CR>", mode = { "n", "x" }, desc = "Treewalker Down" },
+      { "<c-h>", "<Cmd>Treewalker Left<CR>", mode = { "n", "x" }, desc = "Treewalker Left" },
+      { "<c-l>", "<Cmd>Treewalker Right<CR>", mode = { "n", "x" }, desc = "Treewalker Right" },
     },
   },
 
@@ -73,5 +64,10 @@ return {
       { "<leader>xo", "<Plug>(treeclimber-show-control-flow)", mode = "n" },
     },
     cmd = { "TCDiffThis", "TCShowControlFlow", "TCHighlightExternalDefinitions" },
+  },
+  {
+    "gsuuon/tshjkl.nvim",
+    keys = { "<A-v>" },
+    config = true,
   },
 }
