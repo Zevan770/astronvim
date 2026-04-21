@@ -59,6 +59,7 @@ return {
           y = "0%",
         },
         on_reposition = require("tiny-cmdline").adapters.blink,
+        native_types = {},
       }
     end,
   },
