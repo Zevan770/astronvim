@@ -126,7 +126,7 @@ return {
       --   desc = "Outter end Of Treesitter Node",
       -- },
       {
-        "gj",
+        "gsj",
         mode = { "n", "v", "o" },
         function()
           require("flash").jump {
