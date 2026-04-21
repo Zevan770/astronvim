@@ -73,6 +73,10 @@ return {
   },
   {
     "numEricL/table.vim",
+    cmd = {
+      "Table",
+      "TableConfig",
+    },
     opts = {
       style = "default",
       options = { multiline = "auto", multiline_format = "block_wrap" },
