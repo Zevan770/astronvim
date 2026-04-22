@@ -129,7 +129,7 @@ return {
             mc.clearCursors()
           end
         end)
-        layerSet("n", "m", function() mc.toggleCursor() end)
+        layerSet("n", "M", function() mc.toggleCursor() end)
 
         layerSet("n", "ga", mc.alignCursors, { nowait = true })
       end)
