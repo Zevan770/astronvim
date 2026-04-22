@@ -17,4 +17,4 @@ local clip_osc52 = {
 vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 vim.g.clipboard = vim.fn.has "android" == 1 and "termux" or "win32yank"
 if my_utils.is_vscode then vim.g.clipboard = vim.g.vscode_clipboard end
-if my_utils.is_server then vim.g.clipboard = clip_osc52 end
+if my_utils.is_server and vim.env.TMUX ~= nil then vim.g.clipboard = "tmux" end
