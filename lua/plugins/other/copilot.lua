@@ -1,11 +1,6 @@
+if true then return {} end
 ---@type LazySpec
 return {
-  -- {
-  --   "AstroNvim/astrocommunity",
-  --   -- { import = "astrocommunity.completion.copilot-lua" },
-  --   -- { import = "astrocommunity.completion.copilot-cmp" },
-  --   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
-  -- },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -20,6 +15,32 @@ return {
       filetypes = {
         markdown = true,
         help = true,
+      },
+    },
+  },
+  {
+    "fang2hou/blink-copilot",
+    specs = {
+      {
+        "saghen/blink.cmp",
+        optional = true,
+        dependencies = { "fang2hou/blink-copilot" },
+        opts = {
+          sources = {
+            default = { "copilot" },
+            providers = {
+              copilot = {
+                name = "copilot",
+                module = "blink-copilot",
+                -- score_offset = 100,
+                async = true,
+                override = {
+                  get_trigger_characters = require("utils.blink").get_trigger_characters,
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
