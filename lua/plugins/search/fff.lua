@@ -1,3 +1,4 @@
+if true then return {} end
 return {
   {
     "dmtrKovalenko/fff.nvim",
