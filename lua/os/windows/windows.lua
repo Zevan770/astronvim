@@ -1,3 +1,4 @@
+vim.lsp.enable("dst_lsp")
 return {
   {
     "AstroNvim/astrocore",
@@ -21,13 +22,5 @@ return {
         },
       })
     end,
-  },
-  {
-    "AstroNvim/astrolsp",
-    opts = {
-      servers = {
-        "dts_lsp",
-      },
-    },
   },
 }

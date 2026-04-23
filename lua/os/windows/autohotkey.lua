@@ -3,13 +3,13 @@
 --   return #path > 0 and path or nil
 -- end
 
+vim.lsp.enable("autohotkey_lsp")
 ---@type LazySpec
 return {
   {
     "AstroNvim/astrolsp",
     ---@type AstroLspOpts
     opts = {
-      servers = { "autohotkey_lsp" },
       config = {
         autohotkey_lsp = {
           cmd = { "autohotkey_lsp", "--stdio" },
