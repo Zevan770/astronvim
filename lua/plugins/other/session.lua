@@ -2,7 +2,7 @@
 return {
   {
     "nvim-mini/mini.sessions",
-    version = false,
+    enabled = false,
     lazy = false,
     keys = {
       {
@@ -60,7 +60,7 @@ return {
   -- You can restore sessions when returning through the dashboard.
   {
     "folke/persistence.nvim",
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
     opts = {},
     -- stylua: ignore
