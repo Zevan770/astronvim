@@ -35,7 +35,6 @@ return {
         -- "nil_ls",
         -- "markdown_oxide",
         -- "zk",
-        "ruff",
       },
     },
   },

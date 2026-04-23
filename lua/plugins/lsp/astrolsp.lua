@@ -17,12 +17,8 @@ return {
       semantic_tokens = true, -- enable/disable semantic token highlighting
       signature_help = true,
     },
-    -- servers = {
-    -- "pyright"
-    -- "lldb",
-    -- "bashls",
-    -- "autocorrect",
-    -- },
+    servers = {
+    },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {

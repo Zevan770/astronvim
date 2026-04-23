@@ -20,6 +20,7 @@ return {
             vue = { "prettier" },
             tex = { "tex-fmt" },
             lua = { lsp_format = "first" },
+            python = { lsp_format = "first" },
           },
           formatters = {
             injected = { options = { ignore_errors = true } },

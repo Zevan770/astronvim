@@ -4,4 +4,12 @@ return {
   { import = "astrocommunity.pack.python.basedpyright" },
   -- { import = "astrocommunity.pack.python.ty" },
   { import = "astrocommunity.pack.python.ruff" },
+  {
+    "AstroNvim/astrolsp",
+    opts = {
+      servers = {
+        "ruff",
+      }
+    }
+  },
 }
