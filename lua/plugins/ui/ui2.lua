@@ -1,4 +1,4 @@
-if vim.fn.has("0.12.0")~=1 then return {} end
+if vim.fn.has("nvim-0.12.0") ~= 1 then return {} end
 require("vim._core.ui2").enable {
   enable = true,
   msg = {
