@@ -1,3 +1,4 @@
+;; extends
 ; SQL syntax highlighting within strings (NVIM v0.10.0)
 (
   [

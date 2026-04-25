@@ -1,3 +1,4 @@
+;; extends
 ; vue_for_add_slot: In NiceGUI, you can add a template slot for elements. This is in
 (call
   function: (attribute attribute: (identifier) @id (#match? @id "add_slot"))

@@ -1,3 +1,4 @@
+;; extends
 ((function_call
   name: [
     (identifier) @_cdef_identifier
