@@ -6,7 +6,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "franco-ruggeri/codecompanion-spinner.nvim",
-      "zbirenbaum/copilot.lua",
     },
     cmd = {
       "CodeCompanion",
