@@ -1,7 +1,8 @@
 ---@type LazySpec
 return {
   {
-    "lewis6991/hover.nvim",
+    "Zevan770/hover.nvim",
+    branch = "fix/empty-dont-show",
     -- enabled = false,
     event = {
       "VeryLazy",
