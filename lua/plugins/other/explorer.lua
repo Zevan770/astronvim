@@ -308,6 +308,9 @@ return {
         ["zM"] = "CollapseAll",
         ["<BS>"] = "CollapseNode",
       },
+      integrations = {
+        winpick = "snacks"
+      }
     },
   },
   {

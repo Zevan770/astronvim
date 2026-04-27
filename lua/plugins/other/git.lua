@@ -102,8 +102,8 @@ return {
     opts = {},
   },
   {
-    "georgeguimaraes/review.nvim",
-    -- version = "v*",
+    "titouancreach/review.nvim",
+    branch = "fix/focus-steal-and-explorer-keymaps",
     dependencies = {
       "esmuellert/codediff.nvim",
       "MunifTanjim/nui.nvim",
