@@ -6,7 +6,7 @@ return {
     dependencies = {
       { "AstroNvim/astroui", opts = { icons = { Surround = "󰑤" } } },
     },
-    keys = { "go", "do", "co" },
+    event = "User AstroFile",
     opts = function()
       local ts_input = require("mini.surround").gen_spec.input.treesitter
       return {
