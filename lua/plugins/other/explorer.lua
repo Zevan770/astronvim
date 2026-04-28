@@ -9,7 +9,7 @@ return {
       -- 👇 in this section, choose your own keymappings!
       {
         "<leader>oe",
-        function() require("yazi").yazi() end,
+        function() require("yazi").toggle() end,
         desc = "Reveal cur file in yazi",
       },
       {
@@ -23,7 +23,7 @@ return {
         function()
           -- NOTE: requires a version of yazi that includes
           -- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
-          require("yazi").toggle()
+          require("yazi").yazi()
         end,
         desc = "Resume the last yazi session",
         mode = { "n", "v", "i" }, --all
