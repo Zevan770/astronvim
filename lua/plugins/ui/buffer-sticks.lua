@@ -1,3 +1,4 @@
+if true then return {} end
 return {
   {
     "ahkohd/buffer-sticks.nvim",
