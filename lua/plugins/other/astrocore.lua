@@ -77,6 +77,30 @@ return {
         auto_hlsearch = false,
       },
       autocmds = {
+        gitrebase = {
+          event = "FileType",
+          pattern = "gitrebase",
+          callback = function()
+            local function map_change(lhs, word)
+              vim.keymap.set("n", lhs, function()
+                local pos = vim.api.nvim_win_get_cursor(0)
+                vim.cmd.normal { args = { "ciw" .. word }, bang = true }
+                vim.api.nvim_win_set_cursor(0, pos)
+              end, { buffer = true, desc = "change to " .. word })
+            end
+
+            map_change("p", "pick")
+            map_change("s", "squash")
+            map_change("e", "edit")
+            map_change("r", "reword")
+            map_change("f", "fixup")
+            map_change("d", "drop")
+
+            vim.keymap.set("n", "J", ":m .+1<CR>==", { buffer = true, desc = "move line down" })
+            vim.keymap.set("n", "K", ":m .-2<CR>==", { buffer = true, desc = "move line up" })
+          end,
+          desc = "gitrebase keymaps",
+        },
         highlightyank = false,
         auto_check_bg = vim.fn.has "nvim-0.12" == 1 and {
           {
