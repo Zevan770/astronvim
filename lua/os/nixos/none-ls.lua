@@ -29,7 +29,6 @@ return {
       -- code_actions.proselint, -- English prose linter
 
       -- nix
-      code_actions.gitsigns,
       diagnostics.statix, -- Lints and suggestions for Nix.
       code_actions.statix, -- Lints and suggestions for Nix.
       diagnostics.deadnix, -- Scan Nix files for dead code.
