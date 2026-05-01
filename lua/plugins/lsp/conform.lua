@@ -16,7 +16,7 @@ return {
         ---@type conform.setupOpts
         {
           formatters_by_ft = {
-            markdown = function(_) return { "mdsf", lsp_format = "first" } end,
+            markdown = function(_) return { "rumdl", "mdsf", lsp_format = "first" } end,
             vue = { "prettier" },
             tex = { "tex-fmt" },
             lua = { lsp_format = "first" },
