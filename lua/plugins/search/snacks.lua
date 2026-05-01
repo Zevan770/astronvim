@@ -32,7 +32,7 @@ return {
         chunk = { enabled = true },
       },
       notifier = {
-        enabled = true,
+        enabled = false,
         top_down = false, -- place notifications from top to bottom
       },
       picker = {
@@ -245,7 +245,7 @@ return {
             end,
             desc = "Find buffers",
           }
-          maps.n["<A-b>"] = maps.n["fb"]
+          maps.n["<Leader><Leader>"] = maps.n["fb"]
           -- maps.n["<A-x>"] = maps.n["fC"]
 
           maps.n["fc"] = { function() Snacks.picker.commands() end, desc = "Find Commands" }
