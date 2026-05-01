@@ -1,10 +1,10 @@
-if not vim.g.neovide then return {} end
+if not my_utils.is_neovide then return {} end
 
 vim.o.guifont = "MapleBright"
 
 local M = {}
 local disabled = {
-  -- "neoscroll.nvim",
+  "neoscroll.nvim",
 }
 
 -- mix disabled with "enabled = false"
