@@ -80,12 +80,6 @@ xnoremap D "Id
 nnoremap gp         o<esc>]p
 nnoremap gP         O<esc>[p
 
-" map      <C-D>      <C-D>zz
-" map      <C-U>      <C-U>zz
-" noremap      <C-e>      3<C-e>zz
-" noremap      <C-y>      3<C-y>zz
-
-
 nmap    <C-S-q>   :q!<CR>
 
 nmap     <C-x>      :x<CR>
