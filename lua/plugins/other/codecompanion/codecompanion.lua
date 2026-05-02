@@ -10,6 +10,7 @@ return {
     cmd = {
       "CodeCompanion",
       "CodeCompanionChat",
+      "CodeCompanionCLI",
       "CodeCompanionActions",
       "CodeCompanionCmd",
     },
@@ -34,6 +35,7 @@ return {
           maps.v["<Leader>c"] = maps.n["<Leader>c"]
           vim.cmd [[
           cabbrev cc CodeCompanion
+          cabbrev ccl CodeCompanionCLI
           cabbrev cca CodeCompanionActions
           cabbrev ccc CodeCompanionChat
           cabbrev ccm CodeCompanionCmd

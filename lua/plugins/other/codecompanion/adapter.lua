@@ -1,8 +1,6 @@
 return {
-
   {
     "olimorris/codecompanion.nvim",
-    dev = true,
     -- see /home/hw770/.local/share/nvim/lazy/codecompanion.nvim/lua/codecompanion/config.lua:10
     opts = {
       interactions = {
