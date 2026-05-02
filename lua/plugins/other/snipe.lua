@@ -1,8 +1,8 @@
+if true then return {} end
 return {
   {
     -- "linkarzu/snipe.nvim",
     "leath-dub/snipe.nvim",
-    enabled = false,
     keys = {
       {
         "<leader><space>",
