@@ -10,10 +10,10 @@ return {
         },
       },
       inline = {
-        adapter = "copilot",
+        adapter = "minimax",
       },
       agent = {
-        adapter = "copilot",
+        adapter = "minimax",
       },
       adapters = {
         acp = {
@@ -32,24 +32,17 @@ return {
             })
           end,
         },
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "gpt-4.1",
+        http = {
+          minimax = function()
+            return require("codecompanion.adapters").extend("anthropic", {
+              schema = {
+                model = {
+                  default = "MiniMax-M2.7",
+                },
               },
-            },
-          })
-        end,
-        claude37 = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "claude-3.7-sonnet",
-              },
-            },
-          })
-        end,
+            })
+          end,
+        },
       },
     },
   },

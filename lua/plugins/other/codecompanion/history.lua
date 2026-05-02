@@ -41,7 +41,7 @@ return {
                 ---Enable detailed logging for history extension
                 enable_logging = false,
 
-                title_generation_opts = { adapter = "copilot" },
+                title_generation_opts = { adapter = "minimax" },
                 --#region summary
                 summary = {
                   create_summary_keymap = "<localleader>mc",
@@ -50,17 +50,7 @@ return {
 
                   generation_opts = {
                     -- Use specific adapter for summaries (optional)
-                    adapter = "copilot", -- defaults to current chat adapter
-                    -- Use specific model for summaries (optional)
-                    model = nil, -- defaults to current chat model
-                    -- Context size for summarization (default: 90000)
-                    context_size = 90000,
-                    -- Include slash command content (default: true)
-                    include_references = true,
-                    -- Include tool outputs (default: true)
-                    include_tool_outputs = true,
-                    -- Custom system prompt (optional)
-                    system_prompt = nil,
+                    adapter = "minimax", -- defaults to current chat adapter
                   },
                 },
                 --#endregion

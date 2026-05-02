@@ -11,8 +11,7 @@ return {
           callback = "codecompanion._extensions.gitcommit",
           opts = {
             -- Basic configuration
-            adapter = "copilot", -- LLM adapter
-            model = "gpt-4.1", -- Model name
+            adapter = "minimax", -- LLM adapter
             languages = { "English", "Chinese" }, -- Supported languages
 
             -- File filtering (optional)
