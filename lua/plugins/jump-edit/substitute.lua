@@ -1,40 +1,47 @@
 return {
-  "gbprod/substitute.nvim",
-  event = { "User AstroFile" },
-  keys = {
-    -- { "gsr", function() require("substitute").operator() end, mode = { "n" }, { noremap = true } },
-    -- { "gsrr", function() require("substitute").line() end, mode = { "n" }, { noremap = true } },
-    -- { "gsr", function() require("substitute").visual() end, mode = { "x" }, { noremap = true } },
-    { "gss", function() require("substitute.range").operator() end, mode = { "n" }, { noremap = true } },
-    { "gss", function() require("substitute.range").visual() end, mode = { "x" }, { noremap = true } },
-    -- { "gsx", function() require("substitute.exchange").operator() end, mode = { "n" }, { noremap = true } },
-    -- { "gsxx", function() require("substitute.exchange").line() end, mode = { "n" }, { noremap = true } },
-    -- { "gsx", function() require("substitute.exchange").visual() end, mode = { "x" }, { noremap = true } },
+  {
+    "gbprod/substitute.nvim",
+    event = { "User AstroFile" },
+    keys = {
+      -- { "gsr", function() require("substitute").operator() end, mode = { "n" }, { noremap = true } },
+      -- { "gsrr", function() require("substitute").line() end, mode = { "n" }, { noremap = true } },
+      -- { "gsr", function() require("substitute").visual() end, mode = { "x" }, { noremap = true } },
+      { "gss", function() require("substitute.range").operator() end, mode = { "n" }, { noremap = true } },
+      { "gss", function() require("substitute.range").visual() end, mode = { "x" }, { noremap = true } },
+      -- { "gsx", function() require("substitute.exchange").operator() end, mode = { "n" }, { noremap = true } },
+      -- { "gsxx", function() require("substitute.exchange").line() end, mode = { "n" }, { noremap = true } },
+      -- { "gsx", function() require("substitute.exchange").visual() end, mode = { "x" }, { noremap = true } },
+    },
+    opts = {
+      on_substitute = nil,
+      yank_substituted_text = false,
+      preserve_cursor_position = true,
+      modifiers = nil,
+      highlight_substituted_text = {
+        enabled = true,
+        timer = 500,
+      },
+      range = {
+        prefix = "s",
+        prompt_current_text = false,
+        confirm = false,
+        complete_word = false,
+        subject = nil,
+        range = nil,
+        suffix = "",
+        auto_apply = false,
+        cursor_position = "end",
+      },
+      -- exchange = {
+      --   motion = false,
+      --   use_esc_to_cancel = true,
+      --   preserve_cursor_position = false,
+      -- },
+    },
   },
-  opts = {
-    on_substitute = nil,
-    yank_substituted_text = false,
-    preserve_cursor_position = true,
-    modifiers = nil,
-    highlight_substituted_text = {
-      enabled = true,
-      timer = 500,
-    },
-    range = {
-      prefix = "s",
-      prompt_current_text = false,
-      confirm = false,
-      complete_word = false,
-      subject = nil,
-      range = nil,
-      suffix = "",
-      auto_apply = false,
-      cursor_position = "end",
-    },
-    -- exchange = {
-    --   motion = false,
-    --   use_esc_to_cancel = true,
-    --   preserve_cursor_position = false,
-    -- },
+  -- for :Subvert to substitute word in any case like `:s/foo/bar | :s/Foo/Bar | :s/FOO/BAR` at once
+  {
+    "tpope/vim-abolish",
+    event = { "User AstroFile" },
   },
 }
