@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   {
-    "chomosuke/term-edit.nvim",
+    "Zevan770/term-edit.nvim",
     -- enabled = false,
     event = "TermOpen",
     opts = { prompt_end = "❯ " },
