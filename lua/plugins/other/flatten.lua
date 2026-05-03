@@ -1,9 +1,11 @@
 -- if true then return {} end
+local use = 1
 ---@type LazySpec
 return {
   {
     "willothy/flatten.nvim",
     lazy = false,
+    enabled = use == 1,
     priority = 10000,
     dependencies = {
       {
@@ -121,17 +123,9 @@ return {
       }
     end,
   },
-  -- {
-  --   "lewis6991/fileline.nvim",
-  --   lazy = false,
-  --   priority = 10000,
-  -- },
   {
-    "wsdjeg/vim-fetch",
-    lazy = false,
+    "brianhuster/unnest.nvim",
     priority = 9999,
-    dependencies = {
-      "willothy/flatten.nvim",
-    },
+    enabled = use == 2,
   },
 }
