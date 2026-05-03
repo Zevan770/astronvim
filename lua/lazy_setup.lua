@@ -31,6 +31,18 @@ require("lazy").setup({
     colorscheme = { "catppuccin" },
   },
   ui = { backdrop = 100 },
+  lockfile = (function()
+    local appendix = ""
+    if my_utils.is_windows then
+      appendix = "windows"
+    elseif my_utils.is_android then
+      appendix = "android"
+    elseif my_utils.is_server then
+      appendix = "server"
+    end
+    if appendix ~= "" then appendix = "." .. appendix end
+    return vim.fn.stdpath "config" .. "/lazy-lock" .. appendix .. ".json"
+  end)(),
   dev = {
     path = vim.fn.stdpath "config" .. "/local_plugins",
     ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
