@@ -1,26 +1,17 @@
-vim.lsp.enable("dst_lsp")
-return {
-  {
-    "AstroNvim/astrocore",
-    opts = function(_, opts)
-      return require("astrocore").extend_tbl(opts, {
-        options = {
-          opt = {
-            shell = vim.fn.executable "pwsh.exe" == 1 and "pwsh.exe" or "powershell.exe",
-            shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-            shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-            shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-            shellquote = "",
-            shellxquote = "",
-            -- shellcmdflag = "-NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';$PSStyle.OutputRendering='plaintext';Remove-Alias -Force -ErrorAction SilentlyContinue tee;",
-            -- -- shellcmdflag = "-NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command $PSStyle.OutputRendering='plaintext';Remove-Alias -Force -ErrorAction SilentlyContinue tee;",
-            -- shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode',
-            -- shellpipe = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode',
-            -- shellquote = "",
-            -- shellxquote = "",
-          },
-        },
-      })
-    end,
-  },
-}
+vim.lsp.enable "dst_lsp"
+
+if vim.fn.executable "pwsh.exe" then
+  vim.cmd [[
+  set noshelltemp
+  let &shell = 'pwsh'
+  let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
+  let &shellcmdflag .= '[Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();'
+  let &shellcmdflag .= '$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';'
+  let &shellpipe  = '> %s 2>&1'
+  set shellquote= shellxquote=
+  let &shellcmdflag .= '$PSStyle.OutputRendering = ''PlainText'';'
+  " Workaround (may not be needed in future version of pwsh):
+  let $__SuppressAnsiEscapeSequences = 1
+  ]]
+end
+return {}
