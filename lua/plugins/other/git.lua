@@ -78,6 +78,10 @@ return {
           neogit = true,
           gitsigns = true,
         },
+        diff = {
+          ignore_trim_whitespace = true, -- Ignore leading/trailing whitespace changes (like diffopt+=iwhite)
+          hide_merge_artifacts = true,
+        },
         conflict = {
           enabled = true,
           show_actions = true,
