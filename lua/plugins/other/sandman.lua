@@ -1,3 +1,4 @@
+if true then return {} end
 return {
   -- blocking network access from plugins
   -- 其实就是君子协定，顶多防一防直接用 curl 的
