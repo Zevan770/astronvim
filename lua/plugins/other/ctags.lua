@@ -1,9 +1,14 @@
-if true then return {} end
+vim.lsp.config("ctags_lsp", {
+  cmd = { "ctags-lsp" },
+  filetypes = { "ruby", "c" },
+})
+-- vim.lsp.enable "ctags_lsp"
+
 ---@type LazySpec
 return {
   {
     "linrongbin16/gentags.nvim",
-    dev = true,
+    enabled = false,
     ---@module "gentags"
     ---@type gentags.Options
     opts = {
