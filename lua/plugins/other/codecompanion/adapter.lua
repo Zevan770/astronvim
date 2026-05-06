@@ -35,9 +35,17 @@ return {
         http = {
           minimax = function()
             return require("codecompanion.adapters").extend("anthropic", {
+              url = "https://api.minimaxi.com/anthropic/v1/messages",
               schema = {
                 model = {
                   default = "MiniMax-M2.7",
+                  choices = {
+                    ["MiniMax-M2.7"] = {
+                      formatted_name = "MiniMax-M2.7",
+                      meta = { context_window = 200000, max_tokens = 64000 },
+                      opts = { can_manage_context = false, has_vision = false },
+                    },
+                  },
                 },
               },
             })
