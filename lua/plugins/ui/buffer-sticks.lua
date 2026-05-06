@@ -1,8 +1,9 @@
-if true then return {} end
+-- if true then return {} end
 return {
   {
     "ahkohd/buffer-sticks.nvim",
     event = "VeryLazy",
+    enabled = false,
     keys = {
       {
         "<leader><space>",
@@ -30,6 +31,19 @@ return {
     opts = {
       filter = { buftypes = { "terminal" } },
       position = "center",
+    },
+  },
+
+  {
+    "serhez/bento.nvim",
+    opts = {
+      main_keymap = ";", -- Main toggle/expand key
+      ui = {
+        mode = "tabline",
+        floating = {
+          border = "single",
+        },
+      },
     },
   },
 }
