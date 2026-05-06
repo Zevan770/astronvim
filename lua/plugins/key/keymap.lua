@@ -58,6 +58,7 @@ return {
       maps.n["<C-Down>"] = false
       maps.n["<C-Left>"] = false
       maps.n["<C-Right>"] = false
+      maps.n["<Leader>n"] = false
 
       maps.n["<Leader>ik"] = {
         function()
