@@ -148,7 +148,7 @@ return {
             function()
               Snacks.picker.buffers {
                 layout = {
-                  preset = "dropdown",
+                  preset = "vertical",
                   preview = "main",
                 },
               }
