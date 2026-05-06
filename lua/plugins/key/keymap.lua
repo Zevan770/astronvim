@@ -30,6 +30,7 @@ return {
         { function() require("astrocore.buffer").close_right() end, desc = "Close all buffers to the right" }
       maps.n["<Leader>bl"] = false
       maps.n["<Leader>br"] = false
+      maps.n[";"] = maps.n["<Leader>bb"]
 
       maps.n["|"] = false
       maps.n["\\"] = false

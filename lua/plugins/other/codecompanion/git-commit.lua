@@ -32,7 +32,7 @@ return {
             -- Buffer integration
             buffer = {
               enabled = true, -- Enable gitcommit buffer keymaps
-              keymap = ";c", -- Keymap for generating commit messages
+              keymap = "<localleader>c", -- Keymap for generating commit messages
               auto_generate = true, -- Auto-generate on buffer enter
               auto_generate_delay = 200, -- Auto-generation delay (ms)
               skip_auto_generate_on_amend = true, -- Skip auto-generation during git commit --amend
