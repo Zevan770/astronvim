@@ -25,7 +25,7 @@ return {
                   },
                 },
                 formatting = {
-                  command = { "alejandra" },
+                  command = { "nixfmt" },
                 },
               },
             },
