@@ -1,7 +1,7 @@
 return {
   {
     "diogo464/hotreload.nvim",
-    enabled = my_utils.is_nixos,
+    enabled = vim.fn.has "linux" == 1,
     opts = {}, -- Uses fs_event watchers by default
   },
 }
