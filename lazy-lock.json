@@ -80,6 +80,7 @@
   "heirline.nvim": { "branch": "master", "commit": "fae936abb5e0345b85c3a03ecf38525b0828b992" },
   "helpview.nvim": { "branch": "main", "commit": "518789535a0cb146224a428edf93a70f98b795db" },
   "hlargs.nvim": { "branch": "main", "commit": "0b29317c944fb1f76503ce4540d6dceffbb5ccd2" },
+  "hotreload.nvim": { "branch": "main", "commit": "76f1c8bd1afaa13a22756c736478144fa38f75f8" },
   "hover.nvim": { "branch": "fix/empty-dont-show", "commit": "777200857e6c9b5646c37f15a949097c0c6e8fce" },
   "im-select.nvim": { "branch": "master", "commit": "fbda83eaaac702e6e5cb889f77138af3a6db0804" },
   "img-clip.nvim": { "branch": "main", "commit": "b6ddfb97b5600d99afe3452d707444afda658aca" },
