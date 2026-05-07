@@ -15,19 +15,19 @@
 
 (type
   [
-   "@"
-   (duration)
-   ] @attribute)
+    "@"
+    (duration)
+  ] @attribute)
 
 (key_command
   (key) @operator)
 
 (key_command
   [
-   "@"
-   (duration)
-   (number)
-   ] @attribute)
+    "@"
+    (duration)
+    (number)
+  ] @attribute)
 
 (wait
   "Wait" @keyword)
@@ -40,14 +40,15 @@
 
 (wait
   [
-   "@"
-   (duration)
-   ] @attribute)
+    "@"
+    (duration)
+  ] @attribute)
 
 (sleep
   "Sleep" @keyword)
 
 (show) @keyword
+
 (hide) @keyword
 
 (screenshot
@@ -68,13 +69,19 @@
   (destination) @module)
 
 (string) @string
+
 (escaped_string) @string.escape
+
 (number) @number
+
 (boolean) @boolean
+
 (percentage) @number
+
 (json) @string.special
+
 (literal) @constant
+
 (duration) @number
 
 (comment) @comment
-

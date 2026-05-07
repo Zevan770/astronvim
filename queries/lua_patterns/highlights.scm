@@ -11,17 +11,15 @@
 (character_reference) @constant.builtin
 
 [
- (start_assertion)
- (end_assertion)
+  (start_assertion)
+  (end_assertion)
 ] @keyword
 
-
 [
- (zero_or_more)
- (one_or_more)
- (optional)
-
- (lazy)
+  (zero_or_more)
+  (one_or_more)
+  (optional)
+  (lazy)
 ] @keyword.operator
 
 [
@@ -37,4 +35,3 @@
     (character_range
       "-" @operator)
   ])
-
