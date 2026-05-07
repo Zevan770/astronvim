@@ -24,6 +24,13 @@
       (string
         (string_content) @injection.content (#set! injection.language "rst")))))
 
+(class_definition
+  (block
+    (expression_statement
+      (string
+        (string_content) @injection.content (#set! injection.language "rst")))))
+
+
 ; JavaScript syntax in all strings in assignments of identifiers that end with 'js'
 (assignment
   ((identifier) @_varx (#match? @_varx ".*js$"))
