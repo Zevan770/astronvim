@@ -30,12 +30,27 @@ return {
       --          likely one to be confusing, so it has its own mode.
       jumplist = true,
     },
-    keys = {
-      { "<c-k>", "<Cmd>Treewalker Up<CR>", mode = { "n", "x" }, desc = "Treewalker Up" },
-      { "<c-j>", "<Cmd>Treewalker Down<CR>", mode = { "n", "x" }, desc = "Treewalker Down" },
-      { "<c-h>", "<Cmd>Treewalker Left<CR>", mode = { "n", "x" }, desc = "Treewalker Left" },
-      { "<c-l>", "<Cmd>Treewalker Right<CR>", mode = { "n", "x" }, desc = "Treewalker Right" },
-    },
+    keys = function()
+      local result = {}
+      local to_arrow = {
+        h = "out",
+        j = "down",
+        k = "up",
+        l = "in",
+      }
+      for letter, dir in pairs(to_arrow) do
+        result[#result + 1] = {
+          "<c-" .. letter .. ">",
+          function()
+            local ok = pcall(require("treewalker")["move_" .. dir])
+            if not ok then vim.cmd.normal(letter) end
+          end,
+          mode = { "n", "x" },
+          desc = "Treewalker " .. require("coerce.case").to_pascal_case(dir),
+        }
+      end
+      return result
+    end,
   },
 
   {
