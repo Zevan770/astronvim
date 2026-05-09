@@ -3,7 +3,7 @@ local M = {
 }
 local disabled = {
   "obsidian.nvim",
-  "codecompanion.nvim",
+  -- "codecompanion.nvim",
   "copilot.lua",
   "blink-copilot",
   "mcphub.nvim",
