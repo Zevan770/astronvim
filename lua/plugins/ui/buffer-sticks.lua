@@ -36,6 +36,7 @@ return {
 
   {
     "serhez/bento.nvim",
+    event = "User AstroFile",
     opts = {
       main_keymap = ";", -- Main toggle/expand key
       ui = {
