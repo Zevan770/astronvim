@@ -85,6 +85,7 @@
   "im-select.nvim": { "branch": "master", "commit": "fbda83eaaac702e6e5cb889f77138af3a6db0804" },
   "img-clip.nvim": { "branch": "main", "commit": "b6ddfb97b5600d99afe3452d707444afda658aca" },
   "interestingwords.nvim": { "branch": "master", "commit": "fa7796353266ce9a5de6a95a8e332814f09a5514" },
+  "iwe.nvim": { "branch": "main", "commit": "4b84896189bfded2752d12278980d000da2e725c" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lazydev.nvim": { "branch": "main", "commit": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d" },
   "lazydocker.nvim": { "branch": "main", "commit": "9dc967891e3c3801c5f5444f7a18ea88a160367f" },
