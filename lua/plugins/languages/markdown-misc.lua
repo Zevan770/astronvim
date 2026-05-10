@@ -15,7 +15,7 @@ vim.lsp.config("markdown_oxide", {
   },
 })
 
-vim.lsp.enable "markdown_oxide"
+-- vim.lsp.enable "markdown_oxide"
 
 local markdown_ft = require("utils.filetype").markdown_like
 
