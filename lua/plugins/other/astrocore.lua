@@ -24,6 +24,7 @@ return {
           -- inccommand = "split",
           colorcolumn = { 80, 100 },
           completeopt = require("astrocore").list_insert_unique(opts.options.opt.completeopt, { "fuzzy", "preview" }),
+          autocomplete = not my_utils.blink_enabled,
           confirm = true,
           -- diffopt = vim.opt.diffopt + "vertical", -- sets vim.opt.diffopt
           exrc = true,
