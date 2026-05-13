@@ -21,7 +21,7 @@ return {
   },
   {
     "TwIStOy/luasnip-snippets",
-    enabled = false,
+    -- enabled = false,
     dependencies = { "L3MON4D3/LuaSnip" },
     event = { "InsertEnter" },
     config = function()
@@ -31,7 +31,7 @@ return {
         {
           user = {
             -- user's name, used in todo-related snippets now
-            name = nil,
+            name = "zevan770",
           },
           snippet = {
             lua = {
