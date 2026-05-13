@@ -2,8 +2,6 @@ vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
 vim.bo.softtabstop = 4
 
-vim.wo.wrap = true
-
 local spec_pair = require("mini.ai").gen_spec.pair
 vim.b.miniai_config = {
   custom_textobjects = {
