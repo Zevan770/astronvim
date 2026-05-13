@@ -170,6 +170,16 @@ return {
       maps.i["<C-Space>"] = "<c-x><c-o>"
 
       maps.n["gcp"] = { [["xyygcc"xp]], desc = "comment and duplicate line", remap = true }
+      maps.n["gca"] = {
+        function()
+          local pos = vim.api.nvim_win_get_cursor(0)
+          local cs = vim.bo.commentstring:gsub("%%s", "") --vanilla
+          -- local cs = MiniComment.get_commentstring { pos[1], pos[2] + 1 } --with MiniComment
+          cs = vim.trim(cs:gsub("%s*%%s%s*", ""))
+          vim.api.nvim_feedkeys("A " .. cs .. " ", "n", false) -- hello
+        end,
+        desc = "add commnet at eol",
+      }
 
       maps.n["h"] = { require("utils.folding").h, desc = "h (+ close fold at BoL)" }
       maps.n["gh"] = { require("utils.folding").gh, desc = "gh (+ close fold at BoL)" }
