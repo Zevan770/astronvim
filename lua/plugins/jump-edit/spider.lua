@@ -25,7 +25,12 @@ return {
       },
     },
   },
-
+  {
+    "neo451/jieba.nvim",
+    enabled = false,
+    opts = {},
+    lazy = false,
+  },
   {
     "kkew3/jieba.vim",
     tag = "v1.0.5",
