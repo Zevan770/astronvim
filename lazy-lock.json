@@ -78,7 +78,7 @@
   "haunt.nvim": { "branch": "main", "commit": "4436d30d1b0cf21177f1f6f199d76d0ba6bfc322" },
   "heirline-components.nvim": { "branch": "main", "commit": "5ea9a16286c01b7c36d58c91903d1f8ff0b7ddeb" },
   "heirline.nvim": { "branch": "master", "commit": "fae936abb5e0345b85c3a03ecf38525b0828b992" },
-  "helpview.nvim": { "branch": "main", "commit": "518789535a0cb146224a428edf93a70f98b795db" },
+  "helpview.nvim": { "branch": "main", "commit": "0057599e169ea6ffd53fef77f279cb13b61e174a" },
   "hlargs.nvim": { "branch": "main", "commit": "0b29317c944fb1f76503ce4540d6dceffbb5ccd2" },
   "hotreload.nvim": { "branch": "main", "commit": "76f1c8bd1afaa13a22756c736478144fa38f75f8" },
   "hover.nvim": { "branch": "fix/empty-dont-show", "commit": "777200857e6c9b5646c37f15a949097c0c6e8fce" },
