@@ -21,6 +21,7 @@ require("lazy").setup({
   { import = "plugins.ui" },
   { import = "plugins.other" },
   { import = "plugins.other.codecompanion" },
+  { import = "plugins.keymap" },
   { import = "disable" },
   { import = "os" },
   { import = "plugins.disable-mason-auto-install" },
