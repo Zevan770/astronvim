@@ -9,6 +9,7 @@ return {
       -- vim.g.vimtex_view_method = "general"
       -- vim.g.vimtex_view_general_viewer = "sumatrapdf"
       -- vim.g.vimtex_view_general_options = "-reuse-instance -forward-search @tex @line @pdf"
+      --   --      [[-reuse-instance -forward-search @tex @line @pdf -inverse-search "nircmd exec hide nvim --headless -c ^"Lazy load vimtex | VimtexInverseSearch %l '%f'^""]]
       -- vim.cmd [[
       --   if has('win32') || (has('unix') && exists('$WSLENV'))
       --     if executable('sioyek.exe')
