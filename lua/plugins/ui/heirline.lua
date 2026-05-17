@@ -40,7 +40,6 @@ return {
       -- table.insert(opts.statusline, 6, components.component.breadcrumbs())
       -- table.insert(opts.statusline, 6, bar.navic())
       -- opts.winbar = nil
-      opts.tabline = nil
 
       opts.winbar = { -- winbar
         init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
