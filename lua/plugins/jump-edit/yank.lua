@@ -22,9 +22,10 @@ return {
   },
   {
     "rachartier/tiny-glimmer.nvim",
-    lazy = true,
+    event = "UIEnter",
     -- priority = 10, -- Needs to be a really low priority, to catch others plugins keybindings.
     opts = {
+      autoreload = true,
       support = {
         substitute = {
           enabled = true,
