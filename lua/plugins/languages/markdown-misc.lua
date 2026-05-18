@@ -1,6 +1,6 @@
 -- TODO: disable this until https://github.com/huacnlee/autocorrect/pull/291 is merged or
 -- I make my own flake of it work successfully.
-if my_utils.is_windows then vim.lsp.enable "autocorrect" end
+-- if my_utils.is_windows then vim.lsp.enable "autocorrect" end
 
 -- Use the function call form to MERGE (not replace) the config
 vim.lsp.config("markdown_oxide", {
