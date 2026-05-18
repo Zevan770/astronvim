@@ -4,12 +4,8 @@ return {
   { import = "astrocommunity.recipes.vscode-icons" },
   {
     "rebelot/heirline.nvim",
-    dependencies = {
-      "Zeioth/heirline-components.nvim",
-    },
     opts = function(_, opts)
       local status = require "astroui.status"
-      local components = require "heirline-components.all"
       local cached_func = function(func, ...)
         local cached
         local args = { ... }
@@ -32,9 +28,9 @@ return {
       table.insert(
         opts.statusline,
         3,
-        components.component.file_encoding {
-          file_format = { padding = { left = 0, right = 1 } }, -- if set, displays the OS the current buffer is currently encoded for.
-          file_encoding = { padding = { left = 0, right = 1 } }, -- if set, displays the encoding format the current buffer currently has.
+        status.component.builder {
+          { provider = "file_format", opts = { padding = { right = 1 } } },
+          { provider = "file_encoding" },
         }
       )
       -- table.insert(opts.statusline, 6, components.component.breadcrumbs())
