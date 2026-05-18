@@ -131,18 +131,19 @@ return {
         expr = true,
         desc = "Escape and Clear hlsearch",
       }
+      -- in terminal, single <Esc> to come back to normal mode, just like a normal buffer,
+      -- double <Esc> to send a real <Esc> to terminal
+      vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Back to normal mode" })
       vim.api.nvim_create_autocmd("TermOpen", {
+        group = vim.api.nvim_create_augroup("my.term", {}),
         desc = "set terminal keymaps",
         callback = function(events)
           vim.keymap.set("n", "<Esc>", function()
             vim.cmd "startinsert"
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, true, true), "nt", false)
-          end, { buffer = events.buf })
+          end, { buffer = events.buf, desc = "Double <Esc> to send real <Esc>" })
         end,
       })
-      maps.t["<Esc>"] = {
-        "<C-\\><C-n>",
-      }
 
       -- local esc_timer
       -- maps.t["<esc>"] = {

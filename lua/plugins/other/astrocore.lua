@@ -90,7 +90,6 @@ return {
             end,
           },
         },
-
         term_handle_osc7 = {
           {
             event = { "TermRequest" },
