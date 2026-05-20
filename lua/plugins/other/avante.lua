@@ -1,4 +1,4 @@
--- if true then return {} end
+if true then return {} end
 ---@type LazySpec
 local environ = vim.fn.environ()
 return {

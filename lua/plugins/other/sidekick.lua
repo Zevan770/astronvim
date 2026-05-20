@@ -39,13 +39,13 @@ return {
         desc = "Goto/Apply Next Edit Suggestion",
       },
       {
-        "<leader>oaa",
+        "<leader>aa",
         function() require("sidekick.cli").toggle { focus = true } end,
         desc = "Sidekick Toggle CLI",
         mode = { "n", "v" },
       },
       {
-        "<leader>oac",
+        "<leader>ac",
         function()
           -- Same as above, but opens Claude directly
           require("sidekick.cli").toggle { name = "claude", focus = true }
@@ -53,21 +53,21 @@ return {
         desc = "Sidekick Claude Toggle",
       },
       {
-        "<leader>oaq",
+        "<leader>ao",
         function()
           -- Same as above, but opens Claude directly
-          require("sidekick.cli").toggle { name = "qwen", focus = true }
+          require("sidekick.cli").toggle { name = "opencode", focus = true }
         end,
         desc = "Sidekick Qwen Toggle",
       },
       {
-        "<leader>oat",
+        "<leader>at",
         function() require("sidekick.cli").send { msg = "{this}" } end,
         mode = { "x", "n" },
         desc = "Send This",
       },
       {
-        "<leader>oav",
+        "<leader>av",
         function() require("sidekick.cli").send { msg = "{selection}" } end,
         mode = { "x" },
         desc = "Send Visual Selection",
@@ -79,7 +79,7 @@ return {
         desc = "Sidekick Switch Focus",
       },
       {
-        "<leader>oap",
+        "<leader>ap",
         function() require("sidekick.cli").prompt() end,
         desc = "Sidekick Ask Prompt",
         mode = { "n", "v" },
