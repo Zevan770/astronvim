@@ -1,4 +1,3 @@
-if true then return {} end
 return {
   {
     "dmtrKovalenko/fff.nvim",
@@ -7,8 +6,17 @@ return {
   },
 
   {
+    "so1ve/snacks-fff.nvim",
+    dependencies = {
+      "folke/snacks.nvim",
+      "dmtrKovalenko/fff.nvim",
+    },
+  },
+
+  {
     "madmaxieee/fff-snacks.nvim",
     lazy = false, -- lazy loaded by design
+    enabled = false,
     ---@module 'fff_snacks'
     ---@type fff_snacks.Config
     opts = {
