@@ -12,6 +12,7 @@ return {
     },
     event = "LspAttach",
     opts = {
+      backend = "delta",
       picker = "snacks",
     },
   },

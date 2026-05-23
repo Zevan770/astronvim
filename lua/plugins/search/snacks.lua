@@ -74,8 +74,9 @@ return {
           yank_path = { action = "yank", field = "_path" },
         },
         previewers = {
-          git = { builtin = false },
-          diff = { style = "fancy" },
+          diff = {
+            style = "terminal",
+          },
         },
         layout = {
           preset = function() return vim.o.columns >= 120 and "default" or "ivy_split" end,
