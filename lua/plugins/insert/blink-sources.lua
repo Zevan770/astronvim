@@ -22,6 +22,27 @@ return {
       },
     },
   },
+  -- {
+  --   "saghen/blink.cmp",
+  --   dependencies = { "yaocccc/blink-cmp-cmdlinehistory" },
+  --   opts = {
+  --     cmdline = {
+  --       sources = { "clhistory", "cmdline" },
+  --     },
+  --     sources = {
+  --       providers = {
+  --         clhistory = {
+  --           name = "history",
+  --           module = "cmdlinehistory",
+  --           score_offset = 999,
+  --           opts = {
+  --             fiexedkeyword = true, -- default
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "mikavilpas/blink-ripgrep.nvim",
     enabled = false,
