@@ -31,6 +31,7 @@ return {
           foldmarker = "#region,#endregion",
           jumpoptions = "view",
           list = true,
+          whichwrap = "b,[,],s", -- in insert mode, <right> at eol to jump to next line
           listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:  " }, ","),
           mousemoveevent = true,
           number = true, -- sets vim.opt.number
