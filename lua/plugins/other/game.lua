@@ -62,4 +62,9 @@ return {
       },
     },
   },
+  {
+    "xiangnongWu2233/rubiks-cube.nvim",
+    cmd = "Rubikscube",
+    opts = {},  -- or pass any config table; see below
+  }
 }
