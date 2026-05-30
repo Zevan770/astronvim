@@ -22,6 +22,7 @@
   "blink-ripgrep.nvim": { "branch": "main", "commit": "334e490208cfbb86bda0b20698e3dd8e0cdaefd2" },
   "blink.cmp": { "branch": "main", "commit": "451168851e8e2466bc97ee3e026c3dcb9141ce07" },
   "blink.compat": { "branch": "main", "commit": "1454f14a8d855a578ceeba77c62538fa1459a67c" },
+  "buftyper.nvim": { "branch": "master", "commit": "e0988d7c3f876e1da6e4512ecc03428f06bbe6e3" },
   "canola-collection": { "branch": "main", "commit": "8566c09080c3084db1ffba21dec53e2b4235daed" },
   "canola.nvim": { "branch": "canola", "commit": "3a2a1c8a9ce775e435c7d73f91e5df664b037878" },
   "catppuccin": { "branch": "main", "commit": "a7788416689dbefea659d9e9415c87926b0ba5d8" },
