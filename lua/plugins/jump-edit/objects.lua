@@ -70,54 +70,30 @@ return {
     keys = {},
   },
   {
-
-    "nvim-treesitter/nvim-treesitter",
+    "AstroNvim/astrocore",
     opts = function(_, opts)
-      return require("astrocore").extend_tbl(
-        opts,
-        ---@module "nvim-treesitter"
-        ---@type TSConfig
-        {
-          textobjects = {
-            lsp_interop = {
-              enable = true,
-              floating_preview_opts = {},
-              -- peek_definition_code = {
-              --   ["<leader>lpf"] = "@function.outer",
-              --   ["<leader>lpc"] = "@class.outer",
-              -- },
-            },
-            select = {
-              enable = false,
-            },
-            move = {
-              enable = false,
-            },
-            swap = {
-              enable = true,
-              swap_next = {
-                [">K"] = { query = "@block.outer", desc = "Swap next block" },
-                [">F"] = { query = "@function.outer", desc = "Swap next function" },
-                [">A"] = { query = "@parameter.inner", desc = "Swap next argument" },
-              },
-              swap_previous = {
-                ["<K"] = { query = "@block.outer", desc = "Swap previous block" },
-                ["<F"] = { query = "@function.outer", desc = "Swap previous function" },
-                ["<A"] = { query = "@parameter.inner", desc = "Swap previous argument" },
-              },
-            },
-          },
-          incremental_selection = {
-            enable = false,
-            keymaps = {
-              init_selection = "<a-o>",
-              node_incremental = "<a-o>",
-              scope_incremental = "is",
-              node_decremental = "<a-i>",
-            },
-          },
-        }
-      )
+      local t = {
+        f = "@call",
+        m = "@function",
+      }
+      local textobjects = opts.treesitter.textobjects
+      -- for each key * in t, fill up textobjects keymap with a* i* [* ]* <* >*
+      for key, query in pairs(t) do
+        textobjects.select.select_textobject["a" .. key] = { query = query .. ".outer", desc = "around " .. query }
+        textobjects.select.select_textobject["i" .. key] = { query = query .. ".inner", desc = "inside " .. query }
+        textobjects.move.goto_next_start["]" .. key] =
+          { query = query .. ".outer", desc = "Next " .. query .. " start" }
+        textobjects.move.goto_next_end["]" .. string.upper(key)] =
+          { query = query .. ".outer", desc = "Next " .. query .. " end" }
+        textobjects.move.goto_previous_start["[" .. key] =
+          { query = query .. ".outer", desc = "Previous " .. query .. " start" }
+        textobjects.move.goto_previous_end["[" .. string.upper(key)] =
+          { query = query .. ".outer", desc = "Previous " .. query .. " end" }
+        textobjects.swap.swap_next[">" .. string.upper(key)] =
+          { query = query .. ".outer", desc = "Swap next " .. query }
+        textobjects.swap.swap_previous["<" .. string.upper(key)] =
+          { query = query .. ".outer", desc = "Swap previous " .. query }
+      end
     end,
   },
   {
@@ -134,11 +110,13 @@ return {
         autocmd FileType textile call textobj#sentence#init()
       augroup END
       ]]
+      -- <./arrow.lua>
     end,
   },
   {
     "kana/vim-textobj-datetime",
     keys = function()
+      -- 1976-09-09
       local keys = { "ada", "add", "adf", "adt", "adz", "ida", "idd", "idf", "idt", "idz" }
       local res = {}
       for _, key in ipairs(keys) do
