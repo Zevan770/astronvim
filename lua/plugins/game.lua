@@ -65,6 +65,15 @@ return {
   {
     "xiangnongWu2233/rubiks-cube.nvim",
     cmd = "Rubikscube",
-    opts = {},  -- or pass any config table; see below
-  }
+    opts = {}, -- or pass any config table; see below
+  },
+  {
+    "barelief/buftyper.nvim",
+    config = function()
+      require("buftyper").setup {
+        show_wpm = true,
+        show_mode_indicator = false,
+      }
+    end,
+  },
 }
