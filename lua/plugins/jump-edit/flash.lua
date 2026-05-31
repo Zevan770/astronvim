@@ -83,6 +83,7 @@ return {
               -- number between 1 and 9
               shade = 7,
             },
+            style = "overlay",
           },
         },
         treesitter = {
@@ -92,6 +93,7 @@ return {
               -- number between 1 and 9
               shade = 5,
             },
+            style = "overlay",
           },
           -- highlight = { backdrop = true },
         },
