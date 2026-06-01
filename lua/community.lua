@@ -11,28 +11,15 @@ local M = {
 
   -- ui
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-  -- { import = "astrocommunity.editing-support.zen-mode-nvim" },
-  -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
-
-  -- fuzzy
-  -- { import = "astrocommunity.fuzzy-finder.fzf-lua" },
-
-  -- edit
-  -- { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
-  -- { import = "astrocommunity.editing-support.telescope-undo-nvim" },
-  --- force save file with sudo
   { import = "astrocommunity.editing-support.suda-vim" },
 
   -- motion/jump/navigation
-  -- { import = "astrocommunity.motion.leap-nvim" },
   -- { import = "astrocommunity.motion.tabout-nvim" },
 
   -- lsp
-  -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
 
   -- utility/tools/games
-  { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.docker.lazydocker" },
   -- { import = "astrocommunity.note-taking.venn-nvim" },
 
