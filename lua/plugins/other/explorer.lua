@@ -190,7 +190,7 @@ return {
 
   {
     "A7Lavinraj/fyler.nvim",
-    dependencies = {
+    specs = {
       "nvim-mini/mini.icons",
       {
         "nvim-telescope/telescope.nvim",

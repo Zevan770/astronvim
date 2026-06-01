@@ -58,7 +58,7 @@ return {
     },
     specs = {
       {
-        "telescope.nvim",
+        "nvim-telescope/telescope.nvim",
         optional = true,
         dependencies = {
           "j-hui/fidget.nvim",

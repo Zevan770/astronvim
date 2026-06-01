@@ -140,6 +140,7 @@ return {
             end,
             desc = title,
           }
+          maps.n["ff"] = { function() require("snacks").picker.files() end }
           maps.n["<Leader>sp"] = maps.n["fw"]
           maps.n["<Leader>/"] = maps.n["fw"]
           maps.n["<Leader>sP"] = maps.n["fc"]
@@ -340,4 +341,5 @@ return {
       })
     end,
   },
+  { "nvim-telescope/telescope.nvim", enabled = false },
 }

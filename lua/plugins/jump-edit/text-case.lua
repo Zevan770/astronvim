@@ -3,7 +3,6 @@ return {
   {
     "johmsalas/text-case.nvim",
     enabled = false,
-    dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
       require("textcase").setup {
         default_keymappings_enabled = true,
