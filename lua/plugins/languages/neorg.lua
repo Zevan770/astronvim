@@ -5,7 +5,7 @@ if vim.fn.has "win32" == 1 then return {} end
 return {
   {
     "nvim-neorg/neorg",
-    ft = "norg",
+    lazy = false,
     version = "*",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
