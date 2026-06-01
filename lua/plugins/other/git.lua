@@ -12,16 +12,9 @@ return {
   {
     "linrongbin16/gitlinker.nvim",
     cmd = "GitLink",
-    dependencies = {
-      "AstroNvim/astrocore",
-      ---@param opts AstrocoreOpts
-      opts = function(_, opts)
-        local maps = assert(opts.mappings)
-        for _, mode in ipairs { "n", "v" } do
-          maps[mode]["<Leader>gy"] = { "<Cmd>GitLink<CR>", desc = "Git link copy" }
-          maps[mode]["<Leader>go"] = { "<Cmd>GitLink!<CR>", desc = "Git link open" }
-        end
-      end,
+    keys = {
+      { mode = { "n", "v" }, "<Leader>gy", "<Cmd>GitLink<CR>", desc = "Git link copy" },
+      { mode = { "n", "v" }, "<Leader>go", "<Cmd>GitLink!<CR>", desc = "Git link open" },
     },
     config = function()
       require("gitlinker").setup {
