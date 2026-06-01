@@ -1,4 +1,4 @@
--- if true then return {} end
+if true then return {} end
 ---@type LazySpec
 -- if vim.fn.has "nvim-0.11" == 1 then return {} end
 return {
