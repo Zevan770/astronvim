@@ -81,30 +81,4 @@ return {
       my_utils.key.replace_group("n", maps, "<Leader>S", "<Leader>q")
     end,
   },
-  {
-    "stevearc/resession.nvim",
-    enabled = false,
-    dependencies = { "scottmckendry/pick-resession.nvim" },
-    specs = {
-      {
-        "AstroNvim/astrocore",
-        optinal = true,
-        opts = function(_, opts)
-          local maps = opts.mappings
-          maps.n["<Leader>qs"] = function()
-            vim.ui.input({ prompt = "Session name" }, function(selected)
-              if selected then
-                require("resession").save(selected)
-              else
-                require("resession").save()
-              end
-            end)
-          end
-          maps.n["<Leader>qf"] = function() require("pick-resession").pick { dir = "dirsession" } end
-          maps.n["<Leader>qF"] = function() require("pick-resession").pick {} end
-          maps.n["<Leader>qr"] = { [[<Cmd>restart lua require("resession").load "Last Session"<cr>]] }
-        end,
-      },
-    },
-  },
 }
