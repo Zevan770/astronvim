@@ -31,6 +31,7 @@ require("lazy").setup({
     colorscheme = { "catppuccin" },
   },
   ui = { backdrop = 100 },
+  -- per platform lockfile
   lockfile = (function()
     local appendix = ""
     if my_utils.is_windows then

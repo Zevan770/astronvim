@@ -19,3 +19,5 @@ NVIM_APPNAME=astronvim nvim
 ## Learning
 
 See [[lazy-nvim-config-guide.md]] for more info
+
+![Nothing stops this train](../assets/2025-09-02-23-52-42.png)
