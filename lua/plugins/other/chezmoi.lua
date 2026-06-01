@@ -4,20 +4,10 @@ return {
   {
     "alker0/chezmoi.vim",
     lazy = false,
-    specs = {
-      {
-        "AstroNvim/astrocore",
-        opts = {
-          options = {
-            g = {
-              ["chezmoi#use_tmp_buffer"] = 1,
-              ["chezmoi#use_external"] = 1,
-              -- ["chezmoi#source_dir_path"] = chezmoiRoot
-            },
-          },
-        },
-      },
-    },
+    init = function()
+      vim.g["chezmoi#use_tmp_buffer"] = 1
+      vim.g["chezmoi#use_external"] = 1
+    end,
   },
   {
     "xvzc/chezmoi.nvim",
@@ -48,23 +38,13 @@ return {
         end,
       },
     },
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        ---@type AstroCoreOpts
-        opts = {
-          autocmds = {
-            chezmoi = {
-              {
-                event = { "BufRead", "BufNewFile" },
-                pattern = { chezmoiRoot .. "/*" },
-                callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
-              },
-            },
-          },
-        },
-      },
-    },
+    init = function()
+      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+        group = vim.api.nvim_create_augroup("my.chezmoi", { clear = false }),
+        pattern = { chezmoiRoot .. "/*" },
+        callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
+      })
+    end,
   },
   {
     "echasnovski/mini.icons",
