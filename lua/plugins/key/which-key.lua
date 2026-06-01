@@ -10,7 +10,9 @@ return {
       scroll_up = "<S-tab>", -- binding to scroll up inside the popup
     },
     icons = {
-      rules = {},
+      rules = {
+        { pattern = "overseer", icon = " ", color = "green" },
+      },
     },
   },
   config = function(self, opts)
