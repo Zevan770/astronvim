@@ -203,7 +203,6 @@ return {
         },
       },
     },
-    branch = "stable",
     keys = {
       {
         "<leader>E",
