@@ -141,6 +141,7 @@ return {
             desc = title,
           }
           maps.n["ff"] = { function() require("snacks").picker.files() end }
+          maps.n["fw"] = { function() require("snacks").picker.grep() end }
           maps.n["<Leader>sp"] = maps.n["fw"]
           maps.n["<Leader>/"] = maps.n["fw"]
           maps.n["<Leader>sP"] = maps.n["fc"]
