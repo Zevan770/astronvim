@@ -1,3 +1,4 @@
+vim.lsp.enable "texlab"
 ---@type LazySpec
 return {
   { import = "astrocommunity.markdown-and-latex.vimtex" },
