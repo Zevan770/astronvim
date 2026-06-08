@@ -51,7 +51,6 @@ return {
           winblend = 10,
           winborder = "rounded",
           wrap = false, -- sets vim.opt.wrap
-          fillchars = "",
           -- fillchars = {
           --   eob = " ",
           --   fold = "╌",
