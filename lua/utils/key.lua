@@ -10,7 +10,7 @@ M.replace_group = function(modes, maps, group, new_group)
     for k, v in pairs(maps[mode]) do
       if k:find(group) then
         if new_group then maps[mode][k:gsub(group, new_group)] = v end
-        maps[mode][k] = false
+        maps[mode][k] = nil
       end
     end
   end
