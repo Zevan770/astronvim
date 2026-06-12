@@ -7,6 +7,15 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "franco-ruggeri/codecompanion-spinner.nvim",
     },
+    init = function()
+      vim.cmd [[
+        Cab cc CodeCompanion
+        Cab ccl CodeCompanionCLI
+        Cab cca CodeCompanionActions
+        Cab ccc CodeCompanionChat
+        Cab ccm CodeCompanionCmd
+      ]]
+    end,
     cmd = {
       "CodeCompanion",
       "CodeCompanionChat",
@@ -33,26 +42,6 @@ return {
           local maps = assert(opts.mappings)
           maps.n["<Leader>c"] = { desc = " Copilot Chat" }
           maps.v["<Leader>c"] = maps.n["<Leader>c"]
-          vim.cmd [[
-          command! -nargs=+ Cab call s:StrictAbbr(<q-args>, 1)
-          command! -nargs=+ Sab call s:StrictAbbr(<q-args>, 0)
-
-          " [command line - cabbr definitions disturb searching in Vim - Vi and Vim Stack Exchange](https://vi.stackexchange.com/questions/6800/cabbr-definitions-disturb-searching-in-vim)
-          function! s:StrictAbbr(args, cmd) abort
-              let l:lhs = matchstr(a:args, '^\s*\zs\S*')
-              let l:rhs = matchstr(a:args, '^\s*\S*\s\+\zs.*')
-              if a:cmd
-                  execute printf("cnoreabbrev <expr> %s getcmdtype() ==# ':' ? '%s' : '%s'", l:lhs, l:rhs, l:lhs)
-              else
-                  execute printf("cnoreabbrev <expr> %s getcmdtype() =~ '[/?]' ? '%s' : '%s'", l:lhs, l:rhs, l:lhs)
-              endif
-          endfunction
-          Cab cc CodeCompanion
-          Cab ccl CodeCompanionCLI
-          Cab cca CodeCompanionActions
-          Cab ccc CodeCompanionChat
-          Cab ccm CodeCompanionCmd
-          ]]
         end,
       },
     },

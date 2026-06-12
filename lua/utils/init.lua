@@ -1,6 +1,8 @@
 local M = {}
 
 M.key = require "utils.key"
+M.abbr = require "utils.abbr"
+M.abbr.setup()
 
 M.is_server = vim.env.SSH_CONNECTION ~= nil
 M.is_windows = vim.fn.has "win32" == 1

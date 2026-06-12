@@ -7,6 +7,4 @@ vim.b.minisurround_config = {
   },
 }
 
-vim.cmd [[
-iabbr <buffer> fnn function
-]]
+vim.keymap.set("ia", "fnn", "function", { buffer = true })
