@@ -2,15 +2,6 @@
 return {
   { import = "astrocommunity.test.neotest" },
   {
-    "ALameLlama/compiler.nvim",
-    branch = "feat/add-support-for-native-nvim-selector",
-    cmd = { "CompilerOpen", "CompilerToggleResults" },
-    keys = {
-      { "<leader>;c", "<Cmd>CompilerOpen<CR>" },
-    },
-    opts = {},
-  },
-  {
     "stevearc/overseer.nvim",
     lazy = true,
     dependencies = {
