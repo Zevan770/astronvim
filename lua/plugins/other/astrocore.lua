@@ -119,6 +119,7 @@ return {
           log = "log",
           kbd = "kanata",
           pest = "pest",
+          jai = "jai",
         },
         filename = {
           -- [".zshrc"] = "bash",
