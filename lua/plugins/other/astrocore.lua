@@ -38,7 +38,7 @@ return {
           pumblend = 10,
           pumheight = 10,
           relativenumber = true, -- sets vim.opt.relativenumber
-          sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" },
+          sessionoptions = { "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" },
           signcolumn = "yes", -- sets vim.opt.signcolumn to auto
           spell = false, -- sets vim.opt.spell
           spelllang = "en,cjk",
