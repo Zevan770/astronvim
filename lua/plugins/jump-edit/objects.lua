@@ -32,8 +32,6 @@ return {
           "Q",
           "in",
           "an",
-          "im",
-          "am",
           "ig",
           "ag",
           "i,",
