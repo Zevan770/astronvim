@@ -212,19 +212,22 @@ return {
     opts = {
       -- Key mappings
       mappings = {
-        ["q"] = "CloseView",
-        ["<CR>"] = "Select",
-        ["<C-t>"] = "SelectTab",
-        ["|"] = "SelectVSplit",
-        ["-"] = "SelectSplit",
-        ["^"] = "GotoParent",
-        ["="] = "GotoCwd",
-        ["<C-\\>"] = "GotoNode",
-        ["zM"] = "CollapseAll",
-        ["<BS>"] = "CollapseNode",
+        n = {
+          ["-"] = { action = "visit", args = { parent = true } },
+          ["."] = { action = "visit", args = { cursor = true } },
+          ["zc"] = { action = "shrink", args = { parent = true } },
+          ["<C-x>"] = { action = "select", args = { split = true } },
+          ["="] = { action = "visit" },
+          ["<localleader>."] = { action = "toggle_ui", args = { "hidden_items" } },
+          ["<localleader>i"] = { action = "toggle_ui", args = { "indent_guides" } },
+        },
       },
       integrations = {
-        winpick = "snacks",
+        icon = "mini_icons",
+      },
+      extensions = {
+        git = { enabled = true },
+        trash = { enabled = true },
       },
     },
   },
