@@ -2,10 +2,16 @@
 return {
   {
     "Saghen/blink.cmp",
-    lazy = true,
-    event = { "InsertEnter" },
-    version = "1.*",
-    build = my_utils.is_windows and "" or "cargo build --release",
+    version = "*",
+    dependencies = {
+      { "saghen/blink.lib" },
+    },
+    -- use prebuilt one
+    build = function()
+      require("lazy").load { plugins = { "blink.cmp" } }
+      -- require("blink.cmp").build():pwait()
+      require("blink.cmp").download({ force = true }):pwait()
+    end,
     enabled = my_utils.blink_enabled,
     ---@module 'blink.cmp'
     ---@param opts blink.cmp.Config
