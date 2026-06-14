@@ -19,13 +19,6 @@ vim.api.nvim_create_autocmd("User", {
         queries = "queries",
       },
     }
-    require("nvim-treesitter.parsers").jai = {
-      install_info = {
-        url = "https://github.com/constantitus/tree-sitter-jai",
-        branch = "master",
-        queries = "queries",
-      },
-    }
   end,
 })
 ---@type LazySpec
