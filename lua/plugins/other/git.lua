@@ -113,6 +113,9 @@ return {
         intra = {
           algorithm = "codediff",
         },
+        extra_filetypes = {
+          "diff",
+        },
       }
     end,
   },
