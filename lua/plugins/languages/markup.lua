@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   { import = "astrocommunity.pack.json" },
 
@@ -27,6 +28,9 @@ return {
         jump_next_row = { "<Enter>", mode = { "n", "v" } },
         jump_prev_row = { "<S-Enter>", mode = { "n", "v" } },
       },
+    },
+    keys = {
+      { "<localleader><localleader>", "<Cmd>CsvViewToggle<CR>", ft = "csv" },
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
   },
