@@ -20,7 +20,7 @@ local M = {
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
 
   -- utility/tools/games
-  { import = "astrocommunity.docker.lazydocker" },
+  -- { import = "astrocommunity.docker.lazydocker" },
   -- { import = "astrocommunity.note-taking.venn-nvim" },
 
   { import = "astrocommunity.editing-support.refactoring-nvim" },

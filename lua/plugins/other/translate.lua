@@ -91,10 +91,10 @@ return {
         },
 
         keymaps = {
-          hover = "<leader>th",
-          hover_manual = "<leader>tc",
-          replace = "<leader>tr",
-          toggle = "<leader>tt",
+          hover = "<leader>trh",
+          hover_manual = "<leader>trc",
+          replace = "<leader>trr",
+          toggle = "<leader>trt",
         },
       }
     end,
