@@ -39,7 +39,7 @@ return {
             }
             -- goto docstring (deferred, so code action can finish first)
             vim.defer_fn(function()
-           	  vim.api.nvim_win_set_cursor(0, { ln + 1, 0 })
+              vim.api.nvim_win_set_cursor(0, { ln + 1, 0 })
               vim.cmd.normal { "t)", bang = true }
             end, 100)
           elseif ft == "typescript" then
@@ -53,8 +53,8 @@ return {
             local params = vim.split(paramLine, ", ?")
             local luadocLines = vim
               .iter(params)
-           	  :map(function(param) return ("%s---@param %s any"):format(indent, param) end)
-           	  :totable()
+              :map(function(param) return ("%s---@param %s any"):format(indent, param) end)
+              :totable()
             vim.api.nvim_buf_set_lines(0, ln - 1, ln - 1, false, luadocLines)
             -- goto 1st param type & edit it
             vim.api.nvim_win_set_cursor(0, { ln, #luadocLines[1] })
@@ -130,6 +130,7 @@ return {
       local t = {
         f = "@call",
         m = "@function",
+        ["/"] = "@comment",
       }
       local textobjects = opts.treesitter.textobjects
       -- for each key * in t, fill up textobjects keymap with a* i* [* ]* <* >*
