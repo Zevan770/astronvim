@@ -1,8 +1,7 @@
-if true then return {} end
--- TODO: neovim 0.12.0 breaks this
 return {
   {
-    "calops/hmts.nvim",
-    version = "*",
+    -- "calops/hmts.nvim", -- broken on neovim 0.12
+    "charliie-dev/hmts.nvim", -- use this fork
+    branch = "combined-fixes",
   },
 }
