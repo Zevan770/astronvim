@@ -1,6 +1,6 @@
 local servers = {
-  "basedpyright",
-  -- "ty",
+  -- "basedpyright",
+  "ty",
   "bashls",
   -- "efm",
   -- "pyright",
