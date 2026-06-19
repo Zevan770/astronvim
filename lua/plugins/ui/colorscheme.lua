@@ -5,7 +5,7 @@ return {
     ---@type AstroUIOpts
     opts = {
       -- change colorscheme
-      colorscheme = "catppuccin",
+      colorscheme = "catppuccin-nvim",
       -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
       highlights = {
         init = {
