@@ -22,7 +22,7 @@ return {
           "hover.providers.fold_preview",
           -- "hover.providers.highlight",
         },
-        preview_opts = { border = "single" },
+        preview_opts = { border = "rounded" },
         -- Whether the contents of a currently open hover window should be moved
         -- to a :h preview-window when pressing the hover keymap.
         preview_window = false,

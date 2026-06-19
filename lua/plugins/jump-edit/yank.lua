@@ -26,6 +26,8 @@ return {
     -- priority = 10, -- Needs to be a really low priority, to catch others plugins keybindings.
     opts = {
       autoreload = true,
+      disable_warnings = true,
+
       support = {
         substitute = {
           enabled = true,
