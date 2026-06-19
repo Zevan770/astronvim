@@ -142,6 +142,13 @@ return {
             vim.cmd "startinsert"
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, true, true), "nt", false)
           end, { buffer = events.buf, desc = "Double <Esc> to send real <Esc>" })
+          vim.cmd [=[
+            " Enable prompt sign in :terminal buffers.
+            setlocal signcolumn=auto
+
+            nnoremap <silent><buffer> <cr> i<cr><c-\><c-n>
+            nnoremap <silent><buffer> <c-c> i<c-c><c-\><c-n>
+          ]=]
         end,
       })
 
