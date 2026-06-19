@@ -63,6 +63,16 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
+    opts = function(_, opts)
+      -- HACK: AstroNvim 用的竖线表示删掉的行不清晰，改为使用 gitsigns 默认的下划线形式
+      opts.signs.delete = nil
+      opts.signs.topdelete = nil
+      opts.signs_staged.delete = nil
+      opts.signs_staged.topdelete = nil
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
     -- enabled = false,
     opts = {
       debug_mode = false,
