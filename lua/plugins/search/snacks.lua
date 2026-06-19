@@ -60,7 +60,7 @@ return {
               ["<c-t>"] = { "tab", mode = { "n", "i" } },
               -- trouble integration included in astrocommunity
               -- ~/.local/share/nvim/lazy/astrocommunity/lua/astrocommunity/diagnostics/trouble-nvim/init.lua
-              ["<a-t>"] = { "trouble_open", mode = { "n", "i" } },
+              -- ["<a-t>"] = { "trouble_open", mode = { "n", "i" } },
               ["m"] = "list_scroll_down",
               [","] = "list_scroll_up",
               ["<c-y>"] = {

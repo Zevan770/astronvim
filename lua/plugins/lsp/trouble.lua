@@ -1,3 +1,4 @@
+if true then return {} end
 ---@type LazySpec
 return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
