@@ -365,6 +365,11 @@ return {
           end,
         }
       end
+
+      maps.n["<Leader>xx"] = {
+        function() vim.diagnostic.setqflist {} end,
+        desc = "diagnostic quickfix",
+      }
     end,
   },
 }
