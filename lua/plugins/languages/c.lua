@@ -1,5 +1,8 @@
 -- if true then return {} end
 if vim.fn.has "win32" == 1 then return {} end
+vim.lsp.config("clangd", {
+  reuse_client = function(client, config) return client.name == config.name end,
+})
 
 ---@type LazySpec
 return {
