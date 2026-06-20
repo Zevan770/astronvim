@@ -1,13 +1,6 @@
 -- if true then return {} end
 if vim.fn.has "win32" == 1 then return {} end
 
-vim.lsp.config("clangd", {
-  cmd = {
-    "clangd",
-    "--query-driver=**",
-  },
-})
-
 ---@type LazySpec
 return {
   {

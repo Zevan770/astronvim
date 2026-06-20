@@ -1,7 +1,3 @@
-for k, v in pairs(vim.lsp.config) do
-  if v.reuse_client == nil then v.reuse_client = function(client, config) return client.name == config.name end end
-end
-
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 ---@type LazySpec
@@ -26,6 +22,14 @@ return {
           "bash",
           "zsh",
           "sh",
+        },
+      },
+      clangd = {
+        cmd = {
+          "clangd",
+          "--clang-tidy",
+          "--background-index",
+          "--query-driver=**",
         },
       },
     },
