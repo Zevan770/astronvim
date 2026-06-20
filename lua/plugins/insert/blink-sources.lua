@@ -45,7 +45,7 @@ return {
   -- },
   {
     "mikavilpas/blink-ripgrep.nvim",
-    enabled = false,
+    -- enabled = false,
     dependencies = {
       {
         "Saghen/blink.cmp",
@@ -98,6 +98,33 @@ return {
                 -- invoke manually, requires blink >v0.8.0
                 require("blink.cmp").show { providers = { "ripgrep" } }
               end,
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      "mgalliou/blink-cmp-tmux",
+    },
+    opts = {
+      sources = {
+        default = {
+          "tmux",
+        },
+        providers = {
+          tmux = {
+            module = "blink-cmp-tmux",
+            name = "tmux",
+            score_offset = -100,
+            -- default options
+            opts = {
+              panes = "window",
+              capture_history = false,
+              triggered_only = false,
+              trigger_chars = { "." },
             },
           },
         },
