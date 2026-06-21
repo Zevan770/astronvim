@@ -44,7 +44,7 @@ return {
         providers = {
           lsp = {
             override = {
-              get_trigger_characters = require("utils.blink").get_trigger_characters,
+              -- get_trigger_characters = require("utils.blink").get_trigger_characters,
             },
           },
           -- buffer = {
@@ -75,6 +75,8 @@ return {
           },
         },
         trigger = {
+          show_on_keyword = true,
+          show_on_trigger_character = false,
           show_on_blocked_trigger_characters = {},
         },
       },
