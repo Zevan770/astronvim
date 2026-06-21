@@ -189,6 +189,7 @@
   "rose-pine": { "branch": "main", "commit": "ff483051a47e27d84bdef47703538df1ed9f4a47" },
   "rubiks-cube.nvim": { "branch": "main", "commit": "64a6c132204c6b91030eb093292bf899555c78d9" },
   "rustaceanvim": { "branch": "master", "commit": "a60811ae6054ba981cb4693aaecd715dea783327" },
+  "satellite.nvim": { "branch": "main", "commit": "87843c9c8f28b54332497302de380a6d94c9e82b" },
   "schemastore.nvim": { "branch": "main", "commit": "bb1550c91d09d2ede8edd90a87fa4ccc9c0b9e1f" },
   "select-undo.nvim": { "branch": "main", "commit": "d5aa1f0dbef93b7ed4219ef8c7bfae9691264ef7" },
   "sidekick.nvim": { "branch": "main", "commit": "208e1c5b8170c01fd1d07df0139322a76479b235" },
