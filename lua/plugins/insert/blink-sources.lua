@@ -1,3 +1,4 @@
+if not my_utils.blink_enabled then return {} end
 ---@type LazySpec
 return {
   {
@@ -105,26 +106,32 @@ return {
     },
   },
   {
-    "saghen/blink.cmp",
+    "mgalliou/blink-cmp-tmux",
+    enabled = not my_utils.is_windows,
     dependencies = {
-      "mgalliou/blink-cmp-tmux",
-    },
-    opts = {
-      sources = {
-        default = {
-          "tmux",
+      {
+        "saghen/blink.cmp",
+        dependencies = {
+          "mgalliou/blink-cmp-tmux",
         },
-        providers = {
-          tmux = {
-            module = "blink-cmp-tmux",
-            name = "tmux",
-            score_offset = -100,
-            -- default options
-            opts = {
-              panes = "window",
-              capture_history = false,
-              triggered_only = false,
-              trigger_chars = { "." },
+        opts = {
+          sources = {
+            default = {
+              "tmux",
+            },
+            providers = {
+              tmux = {
+                module = "blink-cmp-tmux",
+                name = "tmux",
+                score_offset = -100,
+                -- default options
+                opts = {
+                  panes = "window",
+                  capture_history = false,
+                  triggered_only = false,
+                  trigger_chars = { "." },
+                },
+              },
             },
           },
         },
