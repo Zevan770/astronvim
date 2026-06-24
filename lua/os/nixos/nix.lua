@@ -11,6 +11,7 @@ return {
       return require("lazy.util").merge(opts, {
         config = {
           nixd = {
+            reuse_client = function(client, config) return client.name == config.name end,
             settings = {
               nixd = {
                 nixpkgs = {
