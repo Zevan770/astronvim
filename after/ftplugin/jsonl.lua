@@ -1,7 +1,7 @@
 vim.keymap.set(
   "n",
   "<localleader><space>",
-  function() require("astrocore").toggle_term_cmd("fx -s " .. vim.api.nvim_buf_get_name(0) .. " | fx") end,
+  function() vim.cmd.terminal("fx -s " .. vim.api.nvim_buf_get_name(0) .. " | fx") end,
   { buffer = true }
 )
 

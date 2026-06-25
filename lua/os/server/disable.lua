@@ -5,6 +5,7 @@ local disabled = {
   "obsidian.nvim",
   -- "codecompanion.nvim",
   "copilot.lua",
+  "TwIStOy/luasnip-snippets",
   "blink-copilot",
   "mcphub.nvim",
   "avante.nvim",
