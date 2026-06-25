@@ -32,7 +32,7 @@ return {
       set({ "n", "x" }, "<leader><down>", function() mc.lineSkipCursor(1) end)
 
       -- Add or skip adding a new cursor by matching word/selection
-      set({ "n", "x" }, "<c-n>", function() mc.matchAddCursor(1) end)
+      set({ "n", "x" }, "<leader>mn", function() mc.matchAddCursor(1) end)
       -- set({ "n", "x" }, "<leader>mq", function() mc.matchSkipCursor(1) end)
       set({ "n", "x" }, "<leader>mN", function() mc.matchAddCursor(-1) end)
       -- set({ "n", "x" }, "<leader>mQ", function() mc.matchSkipCursor(-1) end)
