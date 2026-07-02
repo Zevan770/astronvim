@@ -18,3 +18,7 @@ vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system cl
 vim.g.clipboard = vim.fn.has "android" == 1 and "termux" or "win32yank"
 if my_utils.is_vscode then vim.g.clipboard = vim.g.vscode_clipboard end
 if my_utils.is_server and vim.env.TMUX ~= nil then vim.g.clipboard = "tmux" end
+
+vim.cmd.packadd "cfilter"
+vim.cmd.packadd "nvim.difftool"
+vim.cmd.packadd "termdebug"
