@@ -22,7 +22,7 @@ return {
       options = {
         opt = { -- vim.opt.<key>
           -- inccommand = "split",
-          colorcolumn = { 80, 100 },
+          colorcolumn = { "80", "100" },
           completeopt = require("astrocore").list_insert_unique(opts.options.opt.completeopt, { "fuzzy", "preview" }),
           autocomplete = not my_utils.blink_enabled,
           confirm = true,
