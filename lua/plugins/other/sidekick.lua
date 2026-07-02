@@ -72,12 +72,12 @@ return {
         mode = { "x" },
         desc = "Send Visual Selection",
       },
-      {
-        "<A-c>",
-        function() require("sidekick.cli").focus() end,
-        mode = { "n", "x", "i", "t" },
-        desc = "Sidekick Switch Focus",
-      },
+      -- {
+      --   "<A-c>",
+      --   function() require("sidekick.cli").focus() end,
+      --   mode = { "n", "x", "i", "t" },
+      --   desc = "Sidekick Switch Focus",
+      -- },
       {
         "<leader>ap",
         function() require("sidekick.cli").prompt() end,
