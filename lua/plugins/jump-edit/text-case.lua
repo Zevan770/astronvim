@@ -26,27 +26,21 @@ return {
 
   {
     "gregorias/coerce.nvim",
+    event = "User AstroFile",
     dependencies = {
       "gregorias/coop.nvim",
-    },
-    -- tag = "v4.1.0",
-    opts = {
-      default_mode_keymap_prefixes = {
-        normal_mode = "yo<space>",
-        motion_mode = "yo",
-        visual_mode = "O",
-      },
-      -- Set any field to false to disable that mode.
-      default_mode_mask = {
-        normal_mode = true,
-        motion_mode = true,
-        visual_mode = true,
+      {
+        "folke/which-key.nvim",
+        opts = function()
+          local wke = require("coerce.keymaps").which_key_expand
+          require("which-key").add {
+            { "yo<Space>", group = "+Coerce word", expand = wke.normal_mode, mode = "n" },
+            { "yo", group = "+Coerce motion", expand = wke.motion_mode, mode = "n" },
+            { "O", group = "+Coerce visual", expand = wke.visual_mode, mode = "x" },
+          }
+        end,
       },
     },
-    keys = {
-      "yo",
-      "yoo",
-      "O",
-    },
+    config = function() require("coerce").setup {} end,
   },
 }

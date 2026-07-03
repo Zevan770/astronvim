@@ -1,6 +1,6 @@
 {
   "2048.nvim": { "branch": "main", "commit": "aee7c41a9a9473117465132768ae4b4da97435c3" },
-  "AstroNvim": { "branch": "main", "commit": "2946f9817b2952446c7a22fc61f5131ce7b73307" },
+  "AstroNvim": { "branch": "main", "commit": "b71b1a07cf4a9d379bae5e91ab79e5e357ce81aa" },
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "LazyDo": { "branch": "main", "commit": "19201b42fdb83d20bb454d76708086d7d59e4068" },
   "LuaSnip": { "branch": "master", "commit": "0abc8f390b278c3b4aabc4c004ac8a088b65cf24" },
@@ -43,7 +43,7 @@
   "codecompanion-spinner.nvim": { "branch": "main", "commit": "41c22e1fc2666c916b4be329e322368f5f86451e" },
   "codecompanion.nvim": { "branch": "main", "commit": "57989aca2e92083b16a2500ad47f285d82d5c43b" },
   "codediff.nvim": { "branch": "main", "commit": "29b06f37251f2e010f53a0892573b2ec03d165e2" },
-  "coerce.nvim": { "branch": "main", "commit": "b9c88382317d53b0203ce4eda03d0645f8d2e612" },
+  "coerce.nvim": { "branch": "main", "commit": "68d931234d02f2230a627fea46812d3c18d24e6e" },
   "colorful-winsep.nvim": { "branch": "main", "commit": "6134b5cd4a38990c7b720adc90973ed32f726179" },
   "comment-translate.nvim": { "branch": "main", "commit": "7b169d9344d6eed39cac6409dc72e1a148871c3a" },
   "compiler-explorer.nvim": { "branch": "master", "commit": "523c6a7a3d8c034b421a71eb20b0da75b0b16f62" },
