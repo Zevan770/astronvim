@@ -1,7 +1,6 @@
 -- if true then return {} end
 ---@type LazySpec
 return {
-  { import = "astrocommunity.git.neogit" },
   -- { import = "astrocommunity.git.fugit2-nvim" },
   -- {
   --   "SuperBo/fugit2.nvim",
@@ -46,20 +45,30 @@ return {
     -- event = function() return {} end,
     ---@module "neogit"
     ---@type NeogitConfig
-    opts = {
-      -- kind = "floating",
-      graph_style = "unicode",
-      integrations = {
-        telescope = false,
-        fzf_lua = false,
-        snacks = true,
-        codediff = true,
-        diffview = false,
-      },
-      diff_viewer = "codediff",
-      disable_commit_confirmation = true,
-      disable_signs = false,
-    },
+    event = "User AstroGitFile",
+    opts = function(_, opts)
+      local utils = require "astrocore"
+      return utils.extend_tbl(opts, {
+        disable_builtin_notifications = true,
+        telescope_sorter = function()
+          if utils.is_available "telescope-fzf-native.nvim" then
+            return require("telescope").extensions.fzf.native_fzf_sorter()
+          end
+        end,
+        integrations = {
+          telescope = utils.is_available "telescope.nvim",
+          diffview = utils.is_available "diffview.nvim",
+          fzf_lua = utils.is_available "fzf-lua",
+          mini_pick = utils.is_available "mini.pick",
+          snacks = utils.is_available "snacks.nvim",
+          codediff = utils.is_available "codediff",
+        },
+        -- kind = "floating",
+        graph_style = "unicode",
+        diff_viewer = "codediff",
+        disable_commit_confirmation = true,
+      })
+    end,
   },
   {
     "lewis6991/gitsigns.nvim",
