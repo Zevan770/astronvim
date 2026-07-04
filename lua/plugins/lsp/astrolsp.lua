@@ -29,7 +29,7 @@ return {
           "clangd",
           "--clang-tidy",
           "--background-index",
-          "--query-driver=**",
+          -- "--query-driver=**",
         },
       },
     },
