@@ -11,7 +11,7 @@ return {
           callback = "codecompanion._extensions.gitcommit",
           opts = {
             -- Basic configuration
-            adapter = "minimax", -- LLM adapter
+            adapter = "opencode_go", -- LLM adapter
             languages = { "English", "Chinese" }, -- Supported languages
 
             -- File filtering (optional)

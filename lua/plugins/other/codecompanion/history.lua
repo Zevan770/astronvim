@@ -41,7 +41,7 @@ return {
                 ---Enable detailed logging for history extension
                 enable_logging = false,
 
-                title_generation_opts = { adapter = "minimax" },
+                title_generation_opts = { adapter = "opencode_go" },
                 --#region summary
                 summary = {
                   create_summary_keymap = "<localleader>mc",
@@ -50,7 +50,7 @@ return {
 
                   generation_opts = {
                     -- Use specific adapter for summaries (optional)
-                    adapter = "minimax", -- defaults to current chat adapter
+                    adapter = "opencode_go", -- defaults to current chat adapter
                   },
                 },
                 --#endregion

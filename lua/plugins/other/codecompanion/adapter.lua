@@ -10,10 +10,10 @@ return {
         },
       },
       inline = {
-        adapter = "minimax",
+        adapter = "opencode_go",
       },
       agent = {
-        adapter = "minimax",
+        adapter = "opencode_go",
       },
       adapters = {
         acp = {
@@ -33,6 +33,19 @@ return {
           end,
         },
         http = {
+          opencode_go = function()
+            return require("codecompanion.adapters").extend("deepseek", {
+              url = "https://opencode.ai/zen/go/v1/chat/completions",
+              env = {
+                api_key = "cmd:rbw get opencode_go",
+              },
+              schema = {
+                model = {
+                  default = "deepseek-v4-flash",
+                },
+              },
+            })
+          end,
           minimax = function()
             return require("codecompanion.adapters").extend("anthropic", {
               url = "https://api.minimaxi.com/anthropic/v1/messages",
