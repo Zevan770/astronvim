@@ -1,3 +1,4 @@
+if true then return {} end
 return {
   {
     -- use this fork until the pr is merged
