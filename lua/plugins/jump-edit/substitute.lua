@@ -43,5 +43,6 @@ return {
   {
     "tpope/vim-abolish",
     event = { "User AstroFile" },
+    init = function() vim.g.abolish_no_mappings = 1 end,
   },
 }
