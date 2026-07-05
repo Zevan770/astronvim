@@ -37,7 +37,8 @@ return {
             return require("codecompanion.adapters").extend("deepseek", {
               url = "https://opencode.ai/zen/go/v1/chat/completions",
               env = {
-                api_key = "cmd:rbw get opencode_go",
+                api_key = "OPENCODE_GO_API_KEY",
+                -- api_key = "cmd:rbw get opencode_go",
               },
               schema = {
                 model = {
