@@ -6,7 +6,7 @@ return {
       -- stylua: ignore start
       evaluate = { prefix = "g=", func = nil },
       exchange = { prefix = "gsx", reindent_linewise = true },
-      multiply = { prefix = "", func = nil },
+      multiply = { prefix = "gsy", func = nil },
       replace  = { prefix = "gsr", reindent_linewise = true },
       sort     = { prefix = "gst", func = nil },
       -- stylua: ignore end
