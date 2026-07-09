@@ -33,9 +33,9 @@ return {
         },
       },
       file_types = render_md_on_ft,
-      -- indent = {
-      --   enabled = true,
-      -- },
+      indent = {
+        enabled = true,
+      },
       code = {
         border = "thin",
       },
