@@ -95,7 +95,7 @@ return {
             },
             style = "overlay",
           },
-          -- highlight = { backdrop = true },
+          highlight = { backdrop = true },
         },
       },
     },
