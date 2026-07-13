@@ -35,6 +35,8 @@ return {
       file_types = render_md_on_ft,
       indent = {
         enabled = true,
+        per_level = 2,
+        skip_level = 2,
       },
       code = {
         border = "thin",
