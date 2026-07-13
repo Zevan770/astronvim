@@ -1,3 +1,4 @@
+if true then return {} end
 return {
   {
     -- Garbage collector that stops inactive LSP clients to free RAM
