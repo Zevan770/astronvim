@@ -16,34 +16,28 @@ return {
       lua_ls_integration = true,
       live_reload = true,
     },
-    init = function()
-      vim.lsp.config("*", {
-        before_init = function(_, config)
-          local codesettings = require "codesettings"
-          -- Chainsaw(config)
-          codesettings.with_local_settings(config.name, config)
-          -- Chainsaw(config)
-        end,
-      })
-    end,
     -- event = "VeryLazy",
   },
 
-  -- {
-  --   "AstroNvim/astrolsp",
-  --   ---@type AstroLspOpts
-  --   opts = {
-  --     config = {
-  --       ["*"] = {
-  --         before_init = function(_, config)
-  --           local codesettings = require "codesettings"
-  --           vim.notify(config.name .. " before_init")
-  --           Chainsaw(config)
-  --           codesettings.with_local_settings(config.name, config)
-  --           Chainsaw(config)
-  --         end,
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "AstroNvim/astrolsp",
+    ---@type AstroLspOpts
+    opts = {
+      config = {
+        ["*"] = {
+          before_init = function(_, config)
+            local codesettings = require "codesettings"
+            vim.notify(config.name .. " before_init")
+            Chainsaw(config)
+            -- 只传入 config.settings 子表
+            require("codesettings").with_local_settings(
+              config.name, -- lsp_name
+              config
+            )
+            Chainsaw(config)
+          end,
+        },
+      },
+    },
+  },
 }
