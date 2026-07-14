@@ -76,8 +76,8 @@ return {
         },
         trigger = {
           prefetch_on_insert = true,
-          -- show_on_keyword = true,
-          -- show_on_trigger_character = false,
+          -- show_on_keyword = false,
+          -- show_on_trigger_character = true,
           -- show_on_blocked_trigger_characters = {},
         },
       },

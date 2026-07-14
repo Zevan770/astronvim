@@ -145,6 +145,7 @@ return {
           maps.n["<Leader>sp"] = maps.n["fw"]
           maps.n["<Leader>/"] = maps.n["fw"]
           maps.n["<Leader>sP"] = maps.n["fc"]
+          maps.n["<Leader>*"] = maps.n["fc"]
           maps.n["<Leader>pf"] = maps.n["ff"]
 
           maps.n["fb"] = {
