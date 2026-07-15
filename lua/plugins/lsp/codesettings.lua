@@ -27,14 +27,14 @@ return {
         ["*"] = {
           before_init = function(_, config)
             local codesettings = require "codesettings"
-            vim.notify(config.name .. " before_init")
-            Chainsaw(config)
+            -- vim.notify(config.name .. " before_init")
+            -- Chainsaw(config)
             -- 只传入 config.settings 子表
             require("codesettings").with_local_settings(
               config.name, -- lsp_name
               config
             )
-            Chainsaw(config)
+            -- Chainsaw(config)
           end,
         },
       },
