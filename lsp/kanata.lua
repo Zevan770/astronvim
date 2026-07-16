@@ -2,7 +2,8 @@
 
 ---@type vim.lsp.ClientConfig
 return {
-  cmd = { "node", "E:\\dev\\vscode-kanata\\out\\server.js", "--stdio" },
+  -- cmd = { "node", "E:\\dev\\vscode-kanata\\out\\server.js", "--stdio" },
+  cmd = { "E:\\dev\\vscode-kanata\\kanata-ls\\target\\debug\\kanata-ls", "--stdio" },
   filetypes = {
     "kanata",
   },
