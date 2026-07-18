@@ -40,7 +40,7 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = assert(opts.mappings)
-          maps.n["<Leader>c"] = { desc = " Copilot Chat" }
+          maps.n["<Leader>c"] = { desc = "CodeCompanion Chat" }
           maps.v["<Leader>c"] = maps.n["<Leader>c"]
         end,
       },
